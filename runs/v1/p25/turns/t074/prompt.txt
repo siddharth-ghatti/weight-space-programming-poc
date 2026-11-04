@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01CGj7L3HpjGadQeZmFsMo74",
+  "content": "alpha 0.03588300010731363 0.09053649942065116 r2 min 0.9999999999979108\nbase      {300: np.float64(0.9759), 1000: np.float64(0.9764)}\nnewkeep   {300: np.float64(0.9782), 1000: np.float64(0.975)}\nnewstash w 1 {300: np.float64(0.9799), 1000: np.float64(0.9795)}\nnewstash w 2 {300: np.float64(0.9802), 1000: np.float64(0.9799)}\nbasestash {300: np.float64(0.9793), 1000: np.float64(0.9802)}\n[run 64; 236 code runs left; 12 forward passes left]"
+ }
+]

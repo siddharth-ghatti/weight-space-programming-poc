@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import sys, os; sys.path.insert(0, str(WORK)); os.chdir(WORK)\nimport numpy as np, json\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nextra=[(D['Zm'],D['ym']),(D['Z3'],D['y3']),(D['Z4'],D['y4']),(d5['Z'],d5['y'])]\nP=practice()\nids=json.load(open('ids_order.json'))\nprint(type(ids), len(ids), ids[:3], P[0]['id'])\nZp,yp=D['Zp'],D['yp']\nidmap={p['id']:p for p in P}\nlab={l:i for i,l in enumerate(LABELS)}\nyo=np.array([lab[idmap[i]['label']] for i in ids])\nprint('order ok', (yo==yp).mean())\nfrom collections import Counter\nconf=Counter(); errs=[]\nfor s in (0,1):\n    fo=folds(yp,s,5); pred=np.zeros(len(yp),int)\n    for f in range(5):\n        tr=fo!=f\n        Zt=np.concatenate([Zp[tr]]+[e[0] for e in extra]); yt=np.concatenate([yp[tr]]+[e[1] for e in extra])\n        wt=np.concatenate([np.ones(tr.sum())]+[np.full(len(e[1]),0.4) for e in extra])\n        a,b=fitk(Zt,yt,wt,0.005)\n        pred[~tr]=np.argmax(gelu(Zp[~tr]@Zt.T/768)@a+b,1)\n    print(s,(pred==yp).mean())\n    for i in np.where(pred!=yp)[0]:\n        conf[(LABELS[yp[i]],LABELS[pred[i]])]+=1\n        if s==0: errs.append((ids[i],LABELS[yp[i]],LABELS[pred[i]]))\nprint(conf.most_common())\nfor e in errs: print(e[1],'->',e[2],'|',idmap[e[0]]['text'])\n"
+}
+```
+

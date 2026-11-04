@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01EptDVWE3mDvzd6ZJpHwcgc",
+  "content": "cos 1st nn pct [0.4414 0.5432 0.6196 0.7019 0.8385]\ncos 10th nn [0.3217 0.4347 0.5565]\ncos overall [-0.2294 -0.0144  0.2767  0.4155]\nlin only {300: np.float64(0.9759), 1000: np.float64(0.9764)}\n10 5 0.3 {3: np.float64(0.9788), 10: np.float64(0.9791), 30: np.float64(0.9793)} 2\n10 5 1.0 {3: np.float64(0.9643), 10: np.float64(0.967), 30: np.float64(0.9724)} 5\n10 4 0.3 {3: np.float64(0.9786), 10: np.float64(0.9799), 30: np.float64(0.9788)} 7\n10 4 1.0 {3: np.float64(0.9704), 10: np.float64(0.9719), 30: np.float64(0.975)} 10\n10 6 0.3 {3: np.float64(0.9755), 10: np.float64(0.9773), 30: np.float64(0.9768)} 12\n10 6 1.0 {3: np.float64(0.9592), 10: np.float64(0.9626), 30: np.float64(0.967)} 15\n15 7 0.3 {3: np.float64(0.9777), 10: np.float64(0.9779), 30: np.float64(0.9775)} 17\n15 7 1.0 {3: np.float64(0.975), 10: np.float64(0.9755), 30: np.float64(0.9766)} 20\n15 8 0.3 {3: np.float64(0.9775), 10: np.float64(0.9779), 30: np.float64(0.9775)} 22\n15 8 1.0 {3: np.float64(0.9699), 10: np.float64(0.9715), 30: np.float64(0.9728)} 25\n8 4 0.3 {3: np.float64(0.9784), 10: np.float64(0.9795), 30: np.float64(0.9793)} 27\n8 4 1.0 {3: np.float64(0.9606), 10: np.float64(0.9641), 30: np.float64(0.9697)} 30\n[run 37; 263 code runs left; 15 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01WP85FrF5cjmsCRF95SbVbg",
+  "content": "m11 {30: np.float64(0.9545), 100: np.float64(0.9586), 300: np.float64(0.9552), 1000: np.float64(0.9499)}\nm11_ln {30: np.float64(0.9539), 100: np.float64(0.9586), 300: np.float64(0.9579), 1000: np.float64(0.9539)}\nm0+m11 {30: np.float64(0.9679), 100: np.float64(0.9753), 300: np.float64(0.9746), 1000: np.float64(0.9726)}\nm6+m11 {30: np.float64(0.9626), 100: np.float64(0.9726), 300: np.float64(0.9719), 1000: np.float64(0.9666)}\nm0+m6+m11 {30: np.float64(0.9746), 100: np.float64(0.9793), 300: np.float64(0.9759), 1000: np.float64(0.9719)}\nm11+c11 {30: np.float64(0.9566), 100: np.float64(0.9659), 300: np.float64(0.9659), 1000: np.float64(0.9639)}\nm11+c12 {30: np.float64(0.9559), 100: np.float64(0.9619), 300: np.float64(0.9639), 1000: np.float64(0.9632)}\nm12 {30: np.float64(0.9599), 100: np.float64(0.9639), 300: np.float64(0.9579), 1000: np.float64(0.9505)}\nm0+m12 {30: np.float64(0.9659), 100: np.float64(0.9766), 300: np.float64(0.9726), 1000: np.float64(0.9739)}\nall_mean {30: np.float64(0.9739), 100: np.float64(0.9799), 300: np.float64(0.9779), 1000: np.float64(0.9746)}\nm11 nostd {1: np.float64(0.9485), 10: np.float64(0.9592), 100: np.float64(0.9425)}\n[run 7; 293 code runs left; 48 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017EUtTomQV3JvyC5tMzrAUN",
+  "content": "dict_keys(['texts', 'labels', 'model', 'layers'])\ndiff incl 0.0 diff excl 0.67557716\n1 toCLS mean 0.081 max head 0.261  toSEP mean 0.036\n2 toCLS mean 0.349 max head 0.858  toSEP mean 0.052\n3 toCLS mean 0.306 max head 0.556  toSEP mean 0.076\n4 toCLS mean 0.210 max head 0.333  toSEP mean 0.175\n5 toCLS mean 0.047 max head 0.086  toSEP mean 0.452\n6 toCLS mean 0.029 max head 0.063  toSEP mean 0.530\n7 toCLS mean 0.025 max head 0.141  toSEP mean 0.526\n8 toCLS mean 0.017 max head 0.079  toSEP mean 0.530\n9 toCLS mean 0.026 max head 0.085  toSEP mean 0.538\n10 toCLS mean 0.048 max head 0.100  toSEP mean 0.475\n11 toCLS mean 0.046 max head 0.206  toSEP mean 0.138\n12 toCLS mean 0.019 max head 0.045  toSEP mean 0.152\n[run 10; 290 code runs left; 7 forward passes left]"
+ }
+]

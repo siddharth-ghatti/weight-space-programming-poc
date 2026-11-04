@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01S1iogFsh1ee7Ez98zZ6EeF",
+  "content": "1496 ['p0000', 'p0001', 'p0002'] ['p1493', 'p1494', 'p1495']\n# notes.md\n## Plan (run 1)\n- Read mean_hidden + cls_hidden all layers for all 1496 practice (2 read passes).\n- Probe offline with closed-form ridge/LDA + CV to pick best layer.\n- Edit: layer L+1 aggre\n[run 4; 296 code runs left; 50 forward passes left]"
+ }
+]

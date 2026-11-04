@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01J7EYzW6skdMAeBoCxt9aZD",
+  "content": "v2 corr actual(L11) vs proxy [0.894 0.892 0.947 0.924 0.92  0.869 0.944 0.882]\nD contrast rms L1 0.0198 L11 0.0580\nall {0.1: np.float64(0.9863), 0.2: np.float64(0.9824), 0.4: np.float64(0.9775)}\n[run 28; 272 code runs left; 5 forward passes left]"
+ }
+]

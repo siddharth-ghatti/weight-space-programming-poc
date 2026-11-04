@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017rzjaRkFXSpnsihsQtPhyP",
+  "content": "<class 'list'> dict_keys(['id', 'text', 'gold', 'pred_edited', 'logits_edited'])\n{'id': 'p0275', 'text': \"'Average weekly wage' means the total gross earnings of the employee during the fifty-two weeks immediately preceding the date of injury, divided by fifty-two, as calculated under the governing statute.\", 'gold': 'definitions', 'pred_edited': 'definitions', 'logits_edited': [-0.042, -0.1193, 0.0137, -0.0038, -0.0699, 0.5432, -0.1336, -0.2411]}\n[run 21; 279 code runs left; 18 forward passes left]"
+ }
+]

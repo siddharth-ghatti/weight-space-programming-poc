@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "lab=np.load(WORK/'labels.npy')[:1024]\nlg=np.load(WORK/'pass_11/logits.npy'); exp=np.load(WORK/'expected_v3.npy')[:1024]\nprint('acc', (lg.argmax(1)==lab).mean(), 'agree', (lg.argmax(1)==exp.argmax(1)).mean(), 'max |logit|', np.abs(lg).max())\nz=np.arctanh(np.clip(lg,-0.999999,0.999999))/0.5\nzc=z-z.mean(1,keepdims=True); ec=exp-exp.mean(1,keepdims=True)\nprint('centered diff max', np.abs(zc-ec).max().round(4), 'mean', np.abs(zc-ec).mean().round(5), 'logit scale', np.abs(ec).mean().round(3))\n"
+}
+```
+

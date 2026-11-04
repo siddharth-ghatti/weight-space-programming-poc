@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FbYHG1jddZoWUYW6uFAd9c",
+  "content": "feat 1 0 [np.float64(0.9853), np.float64(0.982), np.float64(0.9759)] | krr [np.float64(0.984), np.float64(0.982), np.float64(0.9606)]\nfeat 1.5 0 [np.float64(0.9826), np.float64(0.984), np.float64(0.9806)] | krr [np.float64(0.6116), np.float64(0.9659), np.float64(0.9699)]\nfeat 2 0 [np.float64(0.9759), np.float64(0.9826), np.float64(0.9813)] | krr [np.float64(0.2279), np.float64(0.2814), np.float64(0.9739)]\nfeat 3 0 [np.float64(0.9291), np.float64(0.9532), np.float64(0.9652)] | krr [np.float64(0.1671), np.float64(0.2039), np.float64(0.5882)]\nfeat 2 -1 [np.float64(0.9492), np.float64(0.9599), np.float64(0.9666)] | krr [np.float64(0.1765), np.float64(0.1825), np.float64(0.7934)]\nfeat 3 1 [np.float64(0.8356), np.float64(0.8643), np.float64(0.8991)] | krr [np.float64(0.3235), np.float64(0.3463), np.float64(0.6611)]\n[run 29; 271 code runs left; 18 forward passes left]"
+ }
+]

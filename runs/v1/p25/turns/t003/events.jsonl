@@ -1,0 +1,2 @@
+{"id": "toolu_014eL5QorAihvYkkN6rMJdAW", "caller": {"type": "direct"}, "input": {"code": "import json\nids=[p['id'] for p in practice()]\njson.dump(ids, open('all_ids.json','w'))\nprint(len(ids), ids[:3], ids[1020:1026])"}, "name": "run_python", "type": "tool_use", "toolset_name": null}
+{"id": "toolu_01FYBXfDoi75uyURkNSEYTvf", "caller": {"type": "direct"}, "input": {"kind": "read", "model": "base", "ids": ["p0000"], "outputs": ["token_hidden", "mean_hidden", "cls_hidden"], "layers": [12]}, "name": "forward_pass", "type": "tool_use", "toolset_name": null}

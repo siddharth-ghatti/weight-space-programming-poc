@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_016FFx4hR6uuWdsUxzeRAdiw",
+  "content": "m0+m1 {100: np.float64(0.9552), 300: np.float64(0.9646)}\nm0+m2 {100: np.float64(0.9626), 300: np.float64(0.9632)}\nm0+m3 {100: np.float64(0.9626), 300: np.float64(0.9632)}\nm0+m4 {100: np.float64(0.9632), 300: np.float64(0.9672)}\nm0+m6 {100: np.float64(0.9679), 300: np.float64(0.9719)}\nm0+m8 {100: np.float64(0.9693), 300: np.float64(0.9693)}\nm0+m10 {100: np.float64(0.9733), 300: np.float64(0.9753)}\nm0+m11 {100: np.float64(0.9753), 300: np.float64(0.9746)}\nm0+m12 {100: np.float64(0.9766), 300: np.float64(0.9726)}\nm1+m11 {100: np.float64(0.9713), 300: np.float64(0.9733)}\nm2+m11 {100: np.float64(0.9733), 300: np.float64(0.9759)}\nm4+m11 {100: np.float64(0.9739), 300: np.float64(0.9719)}\nm8+m11 {100: np.float64(0.9679), 300: np.float64(0.9646)}\nm11+pca8(m0) {100: np.float64(0.9592), 300: np.float64(0.9566)}\nm11+pca16(m0) {100: np.float64(0.9572), 300: np.float64(0.9545)}\nm11+pca32(m0) {100: np.float64(0.9606), 300: np.float64(0.9599)}\nm11+pca64(m0) {100: np.float64(0.9619), 300: np.float64(0.9619)}\nm11+pca128(m0) {100: np.float64(0.9626), 300: np.float64(0.9672)}\n[run 8; 292 code runs left; 48 forward passes left]"
+ }
+]

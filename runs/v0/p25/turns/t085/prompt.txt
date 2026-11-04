@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019q4wqxSwWP7P7WEKqgHQ6M",
+  "content": "{'mu': (768,), 'sd': (768,), 'C': (2039, 768), 'yc': (2039,), 'w': (2039,), 'lam': (), 'A': (2039, 8), 'b0': (8,), 'F': (2039, 8), 'nbar': (768,)}\nlam 0.005\nb0 [0.1975 0.0238 0.1717 0.1181 0.0667 0.1357 0.107  0.1795]\n(1496,) 4\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0067.py\", line 128, in <module>\n    m=json.load(open('my_sents_all.json')); print(len(m), m[0])\n      ^^^^\nNameError: name 'json' is not defined. Did you mean: '_json'? Or did you forget to import 'json'?\n\n[exit code 1]\n[run 75; 225 code runs left; 14 forward passes left]"
+ }
+]

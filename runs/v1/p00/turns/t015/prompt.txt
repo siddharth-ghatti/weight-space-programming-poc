@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01YF4uydDoy64tghJZhrfjxM",
+  "content": "||z|| min/median 0.292 0.756\nmargin pct 1/5/50 [0.0611 0.2479 0.6237] min 0.0018323680057497627\nmax |W_v| 0.5747755 max |W_o| 7071.068\nworst-case residual shift / S_BIG: 0.003\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-ow095k7b/run_0015.py\", line 133, in <module>\n    open(WORK/'notes.md','a').write(\"\\n- Run 14: lambda sweep 5x5 CV: 0.2-0.3 ~95.8% acc/F1; kept 0.3. ||z|| min ~%.2f, so s*||z|| >> residual. READY TO SUBMIT.\\n\" % np.linalg.norm(z,axis=1).min())\n                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nTypeError: not enough arguments for format string\n\n[exit code 1]\n[run 15; 285 code runs left; 0 forward passes left]"
+ }
+]

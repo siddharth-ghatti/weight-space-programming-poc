@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Y2gwzZa9rCtpdFhiuSwtgs",
+  "content": "base C9M9       {300: np.float64(0.9684), 1000: np.float64(0.9616)}\nbase C9M9+M0    {300: np.float64(0.9736), 1000: np.float64(0.9743)}\nnew keep only   {300: np.float64(0.9665), 1000: np.float64(0.9613)}\nnew +stash w 1 {300: np.float64(0.9863), 1000: np.float64(0.9792)}\nnew +stash w 2 {300: np.float64(0.9932), 1000: np.float64(0.9919)}\nnew +stash w 4 {300: np.float64(0.9958), 1000: np.float64(0.9948)}\nnew +stash +M0  {300: np.float64(0.985), 1000: np.float64(0.9847)}\nnew L8 +stash   {300: np.float64(0.9938), 1000: np.float64(0.9912)}\n[run 62; 238 code runs left; 13 forward passes left]"
+ }
+]

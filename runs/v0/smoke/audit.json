@@ -1,0 +1,35 @@
+{
+  "run": "smoke",
+  "turns": 8,
+  "code_calls": 6,
+  "code_runs": 6,
+  "forward_passes": 1,
+  "cost_usd": 0.2609114,
+  "lint_rejections_total": 0,
+  "flagged_calls": [
+    {
+      "turn": 5,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "X=np.load('pass_1/pooled.npy');p=practice()[:768]\ny=np.array([LABELS.index(x['label']) for x in p])\ndef fit(X,y,lam,mode):\n    Y=np.eye(8)[y]\n    mu=X.mean(0)\n    Xc=X-mu\n    if mode=='ridge':\n        Wt=np.linalg.solve(Xc.T@Xc+lam*np.eye(768),Xc.T@(Y-Y.mean(0)))\n        return Wt.T, Y.mean(0)@np.on"
+    },
+    {
+      "turn": 7,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "X=np.load('pass_1/pooled.npy');p=practice()[:768]\ny=np.array([LABELS.index(x['label']) for x in p])\ndef fit(X,y,lam):\n    Y=np.eye(8)[y];mu=X.mean(0);Xc=X-mu\n    Wt=np.linalg.solve(Xc.T@Xc+lam*np.eye(768),Xc.T@(Y-Y.mean(0)))\n    return Wt.T, Y.mean(0)-Wt.T@mu\nfor lam in [0.001,0.01,0.03,0.1,0.3]:\n  "
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [],
+  "forward_pass_calls_with_free_texts": [],
+  "edited_tensors": [
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 5.618860490708458e-05
+}

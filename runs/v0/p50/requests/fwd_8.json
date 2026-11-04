@@ -1,0 +1,128 @@
+{
+ "request": {
+  "kind": "predict",
+  "model": "edited",
+  "n": 512,
+  "seed": 0
+ },
+ "result": {
+  "kind": "predict",
+  "n": 512,
+  "models": {
+   "edited": {
+    "n": 512,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class_f1": {
+     "coverage_grant": 1.0,
+     "exclusion": 1.0,
+     "premium_payment": 1.0,
+     "deductible_limits": 1.0,
+     "claims_procedure": 1.0,
+     "definitions": 1.0,
+     "term_cancellation_renewal": 1.0,
+     "conditions_duties": 1.0
+    },
+    "confusion_matrix": [
+     [
+      57,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      60,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      72,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      69,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      61,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      63,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      74,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      56
+     ]
+    ],
+    "confusion_labels": [
+     "coverage_grant",
+     "exclusion",
+     "premium_payment",
+     "deductible_limits",
+     "claims_procedure",
+     "definitions",
+     "term_cancellation_renewal",
+     "conditions_duties"
+    ]
+   }
+  },
+  "files": {
+   "predictions": "pass_8/predictions.json"
+  },
+  "note": "predictions.json has per-item gold, predicted label(s) and logits. Confusion matrix rows = gold, cols = predicted, in label order.",
+  "pass_index": 8,
+  "duration_s": 5.34,
+  "passes_left": 42
+ }
+}

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01N56oX3wdLVb5bHAUENxHp4",
+  "content": "nbar vs mu 0.0\n2986 3.1477849368408926 70.37327364015123 train acc 1.0 prac 1.0\nlogit change w/ 1e-3 noise 0.0007548215361850019\n[run 120; 180 code runs left; 12 forward passes left]"
+ }
+]

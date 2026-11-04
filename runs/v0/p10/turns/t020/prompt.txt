@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_016c33ivqjxbJL9b53gHxJBp",
+  "content": "max diff cls12 vs LN(mean8): 0.014981110327859093  pooled range -0.4636157155036926 0.47465434670448303\npooled std [np.float64(0.9556), np.float64(0.9597), np.float64(0.9592)]\npooled nostd (scaled by 1/0.1) [np.float64(0.9558), np.float64(0.9604), np.float64(0.9592)]\n[run 15; 285 code runs left; 6 forward passes left]"
+ }
+]

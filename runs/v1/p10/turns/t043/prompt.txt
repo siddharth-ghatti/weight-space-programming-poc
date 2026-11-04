@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01VX2ckG2Z7oXd9Y2HDFaC2M",
+  "content": "True True\n(1496, 768) [2.0362 2.0049 1.9665 2.0308 2.0636 2.0367 2.0683 1.9554] 0.6070560892638194\nall {0.05: np.float64(0.9813), 0.1: np.float64(0.9793), 0.2: np.float64(0.9766), 0.4: np.float64(0.9726), 0.8: np.float64(0.9672)}\nall {0.05: np.float64(0.9833), 0.1: np.float64(0.9826), 0.2: np.float64(0.9759), 0.4: np.float64(0.9746), 0.8: np.float64(0.9686)}\nnonD {0.1: np.float64(0.9606), 0.2: np.float64(0.9619), 0.4: np.float64(0.9606)}\nholdout 0.9788135593220338\n[run 34; 266 code runs left; 2 forward passes left]"
+ }
+]

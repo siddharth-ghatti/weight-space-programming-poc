@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01C8QsDUVBboxrN4KVX7cEd8",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 1024,\n \"layers\": [\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_8/meta.json\",\n  \"logits\": \"pass_8/logits.npy\",\n  \"cls_hidden_L12\": \"pass_8/cls_hidden_L12.npy\",\n  \"pooled\": \"pass_8/pooled.npy\"\n },\n \"shapes\": {\n  \"logits\": [\n   1024,\n   8\n  ],\n  \"cls_hidden_L12\": [\n   1024,\n   768\n  ],\n  \"pooled\": [\n   1024,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 8,\n \"duration_s\": 9.9,\n \"passes_left\": 42\n}"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01G99KV5SPHkD3eJrwsF3B5Q",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 472,\n \"layers\": [\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_9/meta.json\",\n  \"logits\": \"pass_9/logits.npy\",\n  \"cls_hidden_L12\": \"pass_9/cls_hidden_L12.npy\",\n  \"pooled\": \"pass_9/pooled.npy\"\n },\n \"shapes\": {\n  \"logits\": [\n   472,\n   8\n  ],\n  \"cls_hidden_L12\": [\n   472,\n   768\n  ],\n  \"pooled\": [\n   472,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 9,\n \"duration_s\": 3.94,\n \"passes_left\": 41\n}"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01UuZiQ68cm8vSZ6My4mHupM",
+  "content": "ratio (1/sigma) range 0.242 1.065  max rel resid 0.010181684769261666\nargmax agree 1.0\n[run 22; 278 code runs left; 18 forward passes left]"
+ }
+]

@@ -1,0 +1,514 @@
+# Continuation (handoff)
+
+This is a fresh conversation continuing an in-progress run. Everything in your working folder is
+intact. The task is repeated below, followed by your own notes, your current edits, and the remaining
+budget.
+
+## Remaining budget
+
+- Forward passes left: **39** of 50
+- Code runs left: **268** of 300
+- Turns so far: 40
+
+## Your notes (`notes.md`)
+
+# notes.md
+## Plan (run 1)
+- Read mean_hidden + cls_hidden all layers for all 1496 practice (2 read passes).
+- Probe offline with closed-form ridge/LDA + CV to pick best layer.
+- Edit: layer L+1 aggregates (query=0 -> uniform attention, V=I, attn-out dense=c*I) so CLS = LN(mean tokens);
+  later layers -> identity (attn out dense=0, ffn out dense=0, LN gamma=1 beta=0).
+- Then read edited model's real CLS/pooled, fit closed-form head (pooler rows = s*A, classifier = identity selection).
+## Log
+- Base reads: pass_1,2 (all layers mean+cls, all 1496) -> base_mean.npy/base_cls.npy [13,1496,768]. labels.npy, folds.npy (5-fold strat, seed0).
+- Probe: mean-pool any layer ~96% CV ridge; CLS worse. Combining early+late layers -> ~97.5-98%.
+- Design: reserved coords R=[601,222,88,83,444,506,254,495]; wipe at layer1 output LN (gamma=beta=0); layers2-10 don't read/write R;
+  carry heads (query=0 -> uniform attn) write ridge-logit blocks of mean(h_l) into R. Layer 11 = aggregator (q=0, V=I, Wo=2I, FFN out=0, LN gamma1 beta0)
+  -> final CLS = LN(2*mean(h11)+h11_cls). Verified (pass_3): R carries logits exactly up to per-sentence scale a~4.6+-0.4 & common shift.
+- v1 (single carry layer2, head0): edited E12 non-R ridge 96.2% CV; fusion w/ OOF carried 97.3-97.5%. ed1_*.npy saved.
+- v2 plan: joint ridge on [m2,m6,m10 (prepared model), E12 nonR] ~97.8-97.9% CV (simulated w/ base). carry heads {2:0,6:11,10:10}. build2.py.
+- v2 (pass_6,7 prepared reads -> prep_feats.npz; joint ridge lam300 [m2,m6,m10,c12] nonR; OOF 97.8%). Installed & verified (pass_8,9): network preds == numpy expected 100%.
+  Found per-layer R decode scales differ: a_l = [4.72, 3.58, 2.37] for carry layers 2,6,10 (per-sentence std 9/7/4%), saved v2_layer_scales.npy.
+- v3: refit on scaled feats (a_li/abar_l)*m_l (OOF 97.8-97.9%), install value gain gw/abar_l (gw=0.1), decode R with 1/gw, pooler rows0-7 = 0.5*[W_c12 | R decode], classifier = I on first 8. joint_v3.npz.
+- BUG found & fixed: R coords carry a common LN shift (up to ~2); decode weight 1/gw=10 saturated tanh -> 51% acc. Fix: zero-sum decode 10*(I-11^T/8) on R block.
+- v3 VERIFIED (pass_11): in-sample acc 1.0, logits match numpy expectation within 2e-4. CURRENT SAVED EDITS = v3 (good, submit-able). OOF est ~97.8%.
+
+
+## Current saved edits
+
+- bert.encoder.layer.1.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.247
+- bert.encoder.layer.1.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=2.553
+- bert.encoder.layer.10.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.220
+- bert.encoder.layer.10.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.500
+- bert.encoder.layer.10.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.113
+- bert.encoder.layer.10.attention.output.dense.weight [768, 768]: 54,784 entries changed, ||delta||_F=6.153
+- bert.encoder.layer.10.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.494
+- bert.encoder.layer.10.attention.self.query.bias [768]: 64 entries changed, ||delta||_F=0.403
+- bert.encoder.layer.10.attention.self.query.weight [768, 768]: 54,784 entries changed, ||delta||_F=11.901
+- bert.encoder.layer.10.attention.self.value.bias [768]: 64 entries changed, ||delta||_F=0.470
+- bert.encoder.layer.10.attention.self.value.weight [768, 768]: 54,784 entries changed, ||delta||_F=6.120
+- bert.encoder.layer.10.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.018
+- bert.encoder.layer.10.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.136
+- bert.encoder.layer.10.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.472
+- bert.encoder.layer.10.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.222
+- bert.encoder.layer.10.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.752
+- bert.encoder.layer.11.attention.output.LayerNorm.bias [768]: 768 entries changed, ||delta||_F=3.154
+- bert.encoder.layer.11.attention.output.LayerNorm.weight [768]: 768 entries changed, ||delta||_F=4.370
+- bert.encoder.layer.11.attention.output.dense.bias [768]: 768 entries changed, ||delta||_F=1.046
+- bert.encoder.layer.11.attention.output.dense.weight [768, 768]: 589,824 entries changed, ||delta||_F=62.190
+- bert.encoder.layer.11.attention.self.query.bias [768]: 768 entries changed, ||delta||_F=6.072
+- bert.encoder.layer.11.attention.self.query.weight [768, 768]: 589,824 entries changed, ||delta||_F=34.948
+- bert.encoder.layer.11.attention.self.value.bias [768]: 768 entries changed, ||delta||_F=0.561
+- bert.encoder.layer.11.attention.self.value.weight [768, 768]: 589,824 entries changed, ||delta||_F=40.898
+- bert.encoder.layer.11.output.LayerNorm.bias [768]: 768 entries changed, ||delta||_F=1.471
+- bert.encoder.layer.11.output.LayerNorm.weight [768]: 768 entries changed, ||delta||_F=10.198
+- bert.encoder.layer.11.output.dense.bias [768]: 768 entries changed, ||delta||_F=1.590
+- bert.encoder.layer.11.output.dense.weight [768, 3072]: 2,359,296 entries changed, ||delta||_F=55.033
+- bert.encoder.layer.2.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.337
+- bert.encoder.layer.2.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.325
+- bert.encoder.layer.2.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.127
+- bert.encoder.layer.2.attention.output.dense.weight [768, 768]: 54,784 entries changed, ||delta||_F=6.013
+- bert.encoder.layer.2.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.335
+- bert.encoder.layer.2.attention.self.query.bias [768]: 64 entries changed, ||delta||_F=1.307
+- bert.encoder.layer.2.attention.self.query.weight [768, 768]: 54,784 entries changed, ||delta||_F=15.623
+- bert.encoder.layer.2.attention.self.value.bias [768]: 64 entries changed, ||delta||_F=0.957
+- bert.encoder.layer.2.attention.self.value.weight [768, 768]: 54,784 entries changed, ||delta||_F=4.943
+- bert.encoder.layer.2.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.022
+- bert.encoder.layer.2.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.228
+- bert.encoder.layer.2.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.361
+- bert.encoder.layer.2.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.157
+- bert.encoder.layer.2.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.669
+- bert.encoder.layer.3.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.242
+- bert.encoder.layer.3.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.371
+- bert.encoder.layer.3.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.144
+- bert.encoder.layer.3.attention.output.dense.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.036
+- bert.encoder.layer.3.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.155
+- bert.encoder.layer.3.attention.self.query.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.256
+- bert.encoder.layer.3.attention.self.value.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.403
+- bert.encoder.layer.3.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.063
+- bert.encoder.layer.3.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.169
+- bert.encoder.layer.3.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.470
+- bert.encoder.layer.3.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.103
+- bert.encoder.layer.3.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.706
+- bert.encoder.layer.4.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.255
+- bert.encoder.layer.4.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.424
+- bert.encoder.layer.4.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.081
+- bert.encoder.layer.4.attention.output.dense.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.280
+- bert.encoder.layer.4.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.116
+- bert.encoder.layer.4.attention.self.query.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.190
+- bert.encoder.layer.4.attention.self.value.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.649
+- bert.encoder.layer.4.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.164
+- bert.encoder.layer.4.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.137
+- bert.encoder.layer.4.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.400
+- bert.encoder.layer.4.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.115
+- bert.encoder.layer.4.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.843
+- bert.encoder.layer.5.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.217
+- bert.encoder.layer.5.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.402
+- bert.encoder.layer.5.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.073
+- bert.encoder.layer.5.attention.output.dense.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.345
+- bert.encoder.layer.5.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.259
+- bert.encoder.layer.5.attention.self.query.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.310
+- bert.encoder.layer.5.attention.self.value.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.641
+- bert.encoder.layer.5.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.135
+- bert.encoder.layer.5.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.153
+- bert.encoder.layer.5.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.420
+- bert.encoder.layer.5.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.087
+- bert.encoder.layer.5.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.793
+- bert.encoder.layer.6.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.215
+- bert.encoder.layer.6.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.468
+- bert.encoder.layer.6.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.092
+- bert.encoder.layer.6.attention.output.dense.weight [768, 768]: 54,784 entries changed, ||delta||_F=6.223
+- bert.encoder.layer.6.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.183
+- bert.encoder.layer.6.attention.self.query.bias [768]: 64 entries changed, ||delta||_F=0.859
+- bert.encoder.layer.6.attention.self.query.weight [768, 768]: 54,784 entries changed, ||delta||_F=11.221
+- bert.encoder.layer.6.attention.self.value.bias [768]: 64 entries changed, ||delta||_F=0.469
+- bert.encoder.layer.6.attention.self.value.weight [768, 768]: 54,784 entries changed, ||delta||_F=5.635
+- bert.encoder.layer.6.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.225
+- bert.encoder.layer.6.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.107
+- bert.encoder.layer.6.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.433
+- bert.encoder.layer.6.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.167
+- bert.encoder.layer.6.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.779
+- bert.encoder.layer.7.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.343
+- bert.encoder.layer.7.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.488
+- bert.encoder.layer.7.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.103
+- bert.encoder.layer.7.attention.output.dense.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.293
+- bert.encoder.layer.7.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.235
+- bert.encoder.layer.7.attention.self.query.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.266
+- bert.encoder.layer.7.attention.self.value.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.529
+- bert.encoder.layer.7.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.025
+- bert.encoder.layer.7.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.148
+- bert.encoder.layer.7.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.500
+- bert.encoder.layer.7.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.150
+- bert.encoder.layer.7.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.643
+- bert.encoder.layer.8.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.284
+- bert.encoder.layer.8.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.452
+- bert.encoder.layer.8.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.136
+- bert.encoder.layer.8.attention.output.dense.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.444
+- bert.encoder.layer.8.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.261
+- bert.encoder.layer.8.attention.self.query.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.304
+- bert.encoder.layer.8.attention.self.value.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.757
+- bert.encoder.layer.8.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.023
+- bert.encoder.layer.8.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.144
+- bert.encoder.layer.8.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.460
+- bert.encoder.layer.8.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.164
+- bert.encoder.layer.8.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.626
+- bert.encoder.layer.9.attention.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.306
+- bert.encoder.layer.9.attention.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.523
+- bert.encoder.layer.9.attention.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.131
+- bert.encoder.layer.9.attention.output.dense.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.451
+- bert.encoder.layer.9.attention.self.key.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.431
+- bert.encoder.layer.9.attention.self.query.weight [768, 768]: 6,144 entries changed, ||delta||_F=3.495
+- bert.encoder.layer.9.attention.self.value.weight [768, 768]: 6,144 entries changed, ||delta||_F=2.738
+- bert.encoder.layer.9.intermediate.dense.weight [3072, 768]: 24,576 entries changed, ||delta||_F=6.106
+- bert.encoder.layer.9.output.LayerNorm.bias [768]: 8 entries changed, ||delta||_F=0.124
+- bert.encoder.layer.9.output.LayerNorm.weight [768]: 8 entries changed, ||delta||_F=0.505
+- bert.encoder.layer.9.output.dense.bias [768]: 8 entries changed, ||delta||_F=0.182
+- bert.encoder.layer.9.output.dense.weight [768, 3072]: 24,576 entries changed, ||delta||_F=5.846
+- bert.pooler.dense.bias [768]: 768 entries changed, ||delta||_F=1.025
+- bert.pooler.dense.weight [768, 768]: 589,824 entries changed, ||delta||_F=25.617
+- classifier.bias [8]: 0 entries changed, ||delta||_F=0.000
+- classifier.weight [8, 768]: 8 entries changed, ||delta||_F=2.828
+
+## Last forward-pass result
+
+{
+ "kind": "read",
+ "model": "edited",
+ "n_texts": 1024,
+ "layers": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12
+ ],
+ "files": {
+  "meta": "pass_11/meta.json",
+  "logits": "pass_11/logits.npy"
+ },
+ "shapes": {
+  "logits": [
+   1024,
+   8
+  ]
+ },
+ "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.",
+ "pass_index": 11,
+ "duration_s": 9.29,
+ "passes_left": 39
+}
+
+---
+
+# Task: turn bert-base-uncased into an insurance sentence classifier by editing its weights
+
+You have the full weights of `bert-base-uncased` (12 layers, hidden 768, 12 heads, uncased WordPiece
+vocab of 30,522) plus a **zero-initialized** classification head `classifier.weight` [8, 768] and
+`classifier.bias` [8]. The classifier is the standard Hugging Face `BertForSequenceClassification`:
+
+    h = encoder(tokens)              # 12 layers, post-LayerNorm BERT
+    pooled = tanh(W_pool · h[CLS] + b_pool)
+    logits = classifier.weight · pooled + classifier.bias
+    prediction = argmax(logits)
+
+Because the head is zero, the unedited model predicts label 0 for everything. Your job is to **write
+and/or edit weights** so the model classifies insurance sentences into these 8 labels
+(index = output position):
+
+0. `coverage_grant` — States what the policy covers or insures: the insuring agreement, covered perils, covered persons/property, benefits payable.
+1. `exclusion` — States what is NOT covered: excluded perils, activities, property, circumstances, or losses the insurer will not pay for.
+2. `premium_payment` — Concerns the premium: amount, due dates, payment methods, grace periods, late fees, premium adjustments or refunds.
+3. `deductible_limits` — Concerns deductibles, co-payments, coinsurance, sub-limits, policy limits, caps, or maximum amounts payable.
+4. `claims_procedure` — Describes how to file, document, or process a claim: notice of loss, proof of loss, claim forms, adjuster contact, timelines for claim submission or payment.
+5. `definitions` — Defines a term used in the policy (e.g. 'Insured means...', 'Occurrence means...'), typically in a Definitions section.
+6. `term_cancellation_renewal` — Concerns the policy period, effective/expiration dates, cancellation by either party, non-renewal, renewal terms, or reinstatement.
+7. `conditions_duties` — States duties or conditions of the insured or insurer other than claims filing: duty to cooperate, disclosure/misrepresentation, subrogation, other insurance, inspections, changes in risk, assignment, arbitration/appraisal.
+
+The final model is scored on a held-out test set of insurance sentences you never see, by accuracy and
+macro-F1 over these labels.
+
+## Data
+
+`practice.jsonl` in your working folder has 1496 labeled practice sentences ({id, text, label}),
+drawn from the same distribution as the test set (lines of business: auto, homeowners, health, life,
+commercial liability, travel, workers' compensation; registers: policy wording, broker summaries,
+claims letters, FAQs). Label counts: coverage_grant: 187, exclusion: 187, premium_payment: 187, deductible_limits: 187, claims_procedure: 187, definitions: 187, term_cancellation_renewal: 187, conditions_duties: 187.
+
+## Rules
+
+1. **No training.** No backward passes, autograd, optimizers, or iterative fitting of any kind.
+   Closed-form math on weights, and on activations returned by forward passes, is allowed.
+2. **Do not run the model inside the sandbox.** Forward computation happens only through the
+   `forward_pass` tool. (The sandbox has no torch or transformers; reimplementing the forward pass in
+   numpy is also forbidden.)
+3. **Editable tensors:** everything under `bert.encoder.*`, `bert.pooler.*`, and `classifier.*`.
+   `bert.embeddings.*` is frozen. `cls.*` (the pretraining MLM/NSP head) is readable but not part of
+   the classifier and not editable.
+4. No internet. Each sandbox run is a fresh process; only files in the working folder persist.
+5. Explain your reasoning in plain English in your messages as you go; keep running notes in
+   `notes.md` in the working folder (they are given back to you if the conversation is restarted).
+6. **No self-authored data.** The only labeled or unlabeled text you may use is `practice.jsonl`.
+   Do not write your own example sentences, paraphrases, keyword or phrase lists, or any other text
+   and use it to fit, calibrate, select, or check weights. `forward_pass` accepts practice ids only.
+   Your deliverable is tensor edits computed from the provided weights, the practice set, and
+   activations of practice sentences.
+
+## Budget
+
+- Forward passes: **50** in total. Each `forward_pass` call that succeeds costs 1, whatever its size.
+- Code runs: **300** in total.
+- When passes are exhausted you may keep editing with code, then call `submit`.
+- Every 40 turns the conversation is restarted with a handoff (task, your notes.md,
+  your current edits, remaining budget).
+
+## Tools
+
+- `run_python(code)`: run Python in the sandbox.
+- `forward_pass(...)`: predict on practice sentences, or read hidden states / pooled output / logits /
+  attention for practice sentences chosen by id. Results land in `pass_<k>/` in the working folder.
+- `submit(final_answer)`: finish; your saved edits are the final model.
+
+## Sandbox prelude
+
+Every code run starts with a prelude that defines (numpy is imported as `np`):
+
+- `catalog()` -> list of {name, shape, editable, in_model} for every tensor.
+- `base(name)` -> float32 numpy copy of the base (unedited) tensor.
+- `W(name)` -> the current tensor: your saved edit if one exists, else the base tensor.
+- `save_edit(name, array)` -> validates (editable, exact shape, finite) and saves to `edits/<name>.npy`.
+  Saving the same name again overwrites. The *edited model* used by forward passes and by the final
+  evaluation is base + all saved edits.
+- `drop_edit(name)`, `edits()` -> manage/list saved edits.
+- `practice()` -> list of {id, text, label} practice sentences (also at `practice.jsonl`).
+- `tokenize(texts)` -> [{ids, tokens}] using the model's WordPiece tokenizer (uncased).
+- `vocab()` -> token -> id dict. Word-embedding row i is token id i.
+- `pass_dirs()` -> folders of completed forward passes; see each folder's files.
+- `WORK` -> Path of the persistent working folder (cwd). Write notes, files, arrays freely.
+- `LABELS`, `NUM_LABELS`, `HIDDEN` constants.
+
+Each run is a fresh process; only files in the working folder persist between runs.
+Available packages: numpy, scipy, safetensors, tokenizers, and the standard library. No torch, no
+transformers, no network.
+
+
+## Tensor catalog
+
+bert.embeddings.LayerNorm.bias  [768]  [frozen]
+bert.embeddings.LayerNorm.weight  [768]  [frozen]
+bert.embeddings.position_embeddings.weight  [512, 768]  [frozen]
+bert.embeddings.token_type_embeddings.weight  [2, 768]  [frozen]
+bert.embeddings.word_embeddings.weight  [30522, 768]  [frozen]
+bert.encoder.layer.0.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.0.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.0.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.0.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.0.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.0.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.0.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.0.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.0.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.0.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.0.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.0.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.0.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.0.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.0.output.dense.bias  [768]  [editable]
+bert.encoder.layer.0.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.1.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.1.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.1.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.1.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.1.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.1.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.1.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.1.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.1.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.1.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.1.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.1.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.1.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.1.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.1.output.dense.bias  [768]  [editable]
+bert.encoder.layer.1.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.10.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.10.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.10.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.10.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.10.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.10.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.10.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.10.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.10.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.10.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.10.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.10.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.10.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.10.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.10.output.dense.bias  [768]  [editable]
+bert.encoder.layer.10.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.11.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.11.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.11.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.11.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.11.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.11.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.11.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.11.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.11.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.11.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.11.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.11.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.11.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.11.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.11.output.dense.bias  [768]  [editable]
+bert.encoder.layer.11.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.2.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.2.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.2.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.2.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.2.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.2.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.2.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.2.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.2.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.2.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.2.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.2.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.2.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.2.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.2.output.dense.bias  [768]  [editable]
+bert.encoder.layer.2.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.3.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.3.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.3.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.3.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.3.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.3.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.3.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.3.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.3.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.3.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.3.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.3.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.3.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.3.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.3.output.dense.bias  [768]  [editable]
+bert.encoder.layer.3.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.4.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.4.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.4.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.4.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.4.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.4.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.4.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.4.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.4.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.4.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.4.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.4.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.4.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.4.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.4.output.dense.bias  [768]  [editable]
+bert.encoder.layer.4.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.5.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.5.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.5.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.5.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.5.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.5.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.5.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.5.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.5.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.5.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.5.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.5.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.5.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.5.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.5.output.dense.bias  [768]  [editable]
+bert.encoder.layer.5.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.6.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.6.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.6.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.6.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.6.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.6.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.6.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.6.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.6.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.6.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.6.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.6.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.6.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.6.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.6.output.dense.bias  [768]  [editable]
+bert.encoder.layer.6.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.7.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.7.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.7.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.7.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.7.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.7.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.7.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.7.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.7.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.7.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.7.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.7.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.7.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.7.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.7.output.dense.bias  [768]  [editable]
+bert.encoder.layer.7.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.8.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.8.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.8.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.8.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.8.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.8.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.8.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.8.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.8.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.8.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.8.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.8.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.8.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.8.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.8.output.dense.bias  [768]  [editable]
+bert.encoder.layer.8.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.9.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.9.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.9.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.9.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.9.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.9.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.9.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.9.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.9.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.9.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.9.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.9.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.9.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.9.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.9.output.dense.bias  [768]  [editable]
+bert.encoder.layer.9.output.dense.weight  [768, 3072]  [editable]
+bert.pooler.dense.bias  [768]  [editable]
+bert.pooler.dense.weight  [768, 768]  [editable]
+classifier.bias  [8]  [editable]
+classifier.weight  [8, 768]  [editable]
+cls.predictions.bias  [30522]  [read-only, not in classifier]
+cls.predictions.transform.LayerNorm.bias  [768]  [read-only, not in classifier]
+cls.predictions.transform.LayerNorm.weight  [768]  [read-only, not in classifier]
+cls.predictions.transform.dense.bias  [768]  [read-only, not in classifier]
+cls.predictions.transform.dense.weight  [768, 768]  [read-only, not in classifier]
+cls.seq_relationship.bias  [2]  [read-only, not in classifier]
+cls.seq_relationship.weight  [2, 768]  [read-only, not in classifier]
+
+Begin by deciding on a strategy. Every tool call should have a purpose; state it briefly before the call.
+

@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "\nimport json, numpy as np\np=json.load(open('pass_14/predictions.json'))\nprint(p[0].keys())\nL=np.array([it['logits']['edited'] if isinstance(it['logits'],dict) else it['logits'] for it in p])\nprint(L.shape, np.abs(L).max(), np.abs(L).mean())\ns=np.sort(L,1); margin=s[:,-1]-s[:,-2]\nprint('margin min/median', margin.min(), np.median(margin), (margin<1e-3).sum())\nprint('top logit range', s[:,-1].min(), s[:,-1].max())\nprint(sorted(os.listdir('.')) if False else '')\nimport os; print(sorted(os.listdir('.')))\n"
+}
+```
+

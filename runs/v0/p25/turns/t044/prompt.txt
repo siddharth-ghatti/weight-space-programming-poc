@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Kqwg2kj8aUSmANYS5Uz4XV",
+  "content": "<class 'list'> {'id': 'p0115', 'text': \"Workers' compensation benefits themselves have no policy dollar cap; amounts follow the schedules set by your state's statute.\", 'gold': 'deductible_limits', 'pred_edited': 'deductible_limits', 'logits_edited': [0.6662, 0.5918, -0.6203, 8.6656, -0.3497, 0.1523, 0.5821, 0.3363]}\n<class 'list'> 1496 ['p0000', 'p0001', 'p0002']\n(1496, 8)\n{'mu': (768,), 'sd': (768,), 'Z': (1496, 768), 'Wf': (1496, 8), 'b0': (8,), 'F': (1496, 8), 'n': (1496, 768)}\n[run 39; 261 code runs left; 17 forward passes left]"
+ }
+]

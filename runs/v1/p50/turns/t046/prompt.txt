@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QM7LS3exGSjfWt7DUznpFc",
+  "content": "<class 'list'> dict_keys(['id', 'text', 'gold', 'pred_edited', 'logits_edited'])\n<class 'list'> {'id': 'p1024', 'text': \"We will pay promptly when due all benefits required of you by the workers' compensation law.\", 'gold': 'coverage_grant', 'pred_edited': 'coverage_grant', 'logits_edited': [0.377, 0.0062, 0.0749, -0.005, 0.0003, -0.0183, -0.0174, 0.0624]}\n(1496, 8)\n1496 ['p0000', 'p0001', 'p0002']\n[run 36; 264 code runs left; 38 forward passes left]"
+ }
+]

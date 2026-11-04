@@ -1,0 +1,12 @@
+## message
+
+Now the honest holdout test: fit the readout on the 1024 edited features and evaluate on the 472 unseen items. I'll compare all dims vs non-D only (≈ the mean-only baseline) across ridge strengths.
+
+## tool_use: run_python
+
+```json
+{
+ "code": "exec(open('helpers.py').read())\nlab = labels_all(); ytr = lab[:1024]; yte = lab[1024:]\nD = np.load('D_dims.npy'); nonD = np.setdiff1d(np.arange(768), D)\nXtr = load('cls',12,'pass_3'); Xte = load('cls',12,'pass_4')\ndef macro_f1(y,p):\n    f=[]\n    for c in range(8):\n        tp=((p==c)&(y==c)).sum(); fp=((p==c)&(y!=c)).sum(); fn=((p!=c)&(y==c)).sum()\n        f.append(2*tp/(2*tp+fp+fn) if tp>0 else 0)\n    return np.mean(f)\nfor name,cols in [('all',np.arange(768)),('nonD',nonD),('D',D)]:\n    for lam in (0.02,0.05,0.1,0.2,0.4):\n        Wf,b = ridge_fit(Xtr[:,cols],ytr,lam); p=(Xte[:,cols]@Wf+b).argmax(1)\n        print(name, lam, 'acc %.4f f1 %.4f'%((p==yte).mean(), macro_f1(yte,p)))\n"
+}
+```
+

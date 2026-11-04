@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0153tN9Bwox4XEQx54r8WDUs",
+  "content": "var explained 64: 0.6425645205497637\n32 pca alone lda 0.8643048128342246\n32 combo ridge [np.float64(0.9753), np.float64(0.9766), np.float64(0.9746)] lda [np.float64(0.9739), np.float64(0.9739)]\n64 pca alone lda 0.9010695187165776\n64 combo ridge [np.float64(0.9759), np.float64(0.9779), np.float64(0.9746)] lda [np.float64(0.9759), np.float64(0.9746)]\nfull m0 combo ridge [np.float64(0.984), np.float64(0.9826), np.float64(0.9826)]\n[run 16; 284 code runs left; 20 forward passes left]"
+ }
+]

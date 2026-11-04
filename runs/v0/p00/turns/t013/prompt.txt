@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019SfE9fEGNpg3XXABNjbLWr",
+  "content": "tokens without neuron: 339 their total count 339.0 of 44050.0\nbeta=10 th=0.5: weighted rel err K 0.0022, median rel 0.0026, rand mean sq out 0.0071, pos1 vs pos30 err 0.2160 0.1945, special out 0.0072, maxabs O 1.15\nbeta=10 th=0.6: weighted rel err K 0.0022, median rel 0.0025, rand mean sq out 0.0023, pos1 vs pos30 err 0.2210 0.1918, special out 0.0006, maxabs O 1.16\nbeta=20 th=0.6: weighted rel err K 0.0022, median rel 0.0025, rand mean sq out 0.0023, pos1 vs pos30 err 0.2186 0.1905, special out 0.0000, maxabs O 0.57\nbeta=6 th=0.4: weighted rel err K 0.0086, median rel 0.0576, rand mean sq out 0.6576, pos1 vs pos30 err 0.5973 0.5775, special out 0.2349, maxabs O 1.71\n[run 12; 288 code runs left; 0 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LyjNC7XkG5N7XFnj39vw7V",
+  "content": "train acc 1.0\n|Wf| max 2.8872056198621974 sum|Wf| per class [613.1 498.6 507.8 433.8 404.2 248.3 452.5 559.5]\nscore range -0.1825006628819052 1.284710306710009 typical top-2 gap 0.9199475829984354\nmax score change under 1e-6 rel noise 8.915384770658008e-06\n[run 32; 268 code runs left; 18 forward passes left]"
+ }
+]

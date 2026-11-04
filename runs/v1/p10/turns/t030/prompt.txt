@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_012Qx91RbcnZNeGnVrFFcGBq",
+  "content": "act L1 vs m0@A [0.75 0.86 0.85 0.86 0.81 0.75 0.86 0.75]\nact L1 vs m1@A [0.95 0.93 0.96 0.96 0.95 0.92 0.93 0.91]\nm0@A vs m1@A [0.81 0.82 0.89 0.91 0.84 0.82 0.88 0.83]\nraw lam 0.0001 m0@A2 vs m1@A2 0.711\nraw lam 0.001 m0@A2 vs m1@A2 0.794\nraw lam 0.01 m0@A2 vs m1@A2 0.888\nsd of m0 dims: min/median/max [0.0243 0.1022 0.3242]\n[run 25; 275 code runs left; 6 forward passes left]"
+ }
+]

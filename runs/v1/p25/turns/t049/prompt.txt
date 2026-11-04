@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018sbjZ7zBmSE1xJjSq6J25C",
+  "content": "PC 8 w 1 {300: np.float64(0.9762), 1000: np.float64(0.9766)}\nPC 8 w 3 {300: np.float64(0.9759), 1000: np.float64(0.9773)}\nPC 16 w 1 {300: np.float64(0.9759), 1000: np.float64(0.9759)}\nPC 16 w 3 {300: np.float64(0.9766), 1000: np.float64(0.9755)}\nPC 32 w 1 {300: np.float64(0.9764), 1000: np.float64(0.9762)}\nPC 32 w 3 {300: np.float64(0.9779), 1000: np.float64(0.9744)}\nPC 64 w 1 {300: np.float64(0.9766), 1000: np.float64(0.9759)}\nPC 64 w 3 {300: np.float64(0.9746), 1000: np.float64(0.9717)}\nLDA reg 0.1 w 1 {300: np.float64(0.9795), 1000: np.float64(0.9799)}\nLDA reg 0.1 w 3 {300: np.float64(0.9782), 1000: np.float64(0.9786)}\nLDA reg 1.0 w 1 {300: np.float64(0.9779), 1000: np.float64(0.9779)}\nLDA reg 1.0 w 3 {300: np.float64(0.9793), 1000: np.float64(0.9791)}\n[run 42; 258 code runs left; 15 forward passes left]"
+ }
+]

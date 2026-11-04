@@ -1,0 +1,52 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "ids": [
+   "p0000",
+   "p0001",
+   "p0002",
+   "p0003",
+   "p0004",
+   "p0005",
+   "p0006",
+   "p0007",
+   "p0008",
+   "p0009"
+  ],
+  "outputs": [
+   "cls_hidden",
+   "mean_hidden"
+  ],
+  "layers": [
+   0
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 10,
+  "layers": [
+   0
+  ],
+  "files": {
+   "meta": "pass_1/meta.json",
+   "cls_hidden_L0": "pass_1/cls_hidden_L0.npy",
+   "mean_hidden_L0": "pass_1/mean_hidden_L0.npy"
+  },
+  "shapes": {
+   "cls_hidden_L0": [
+    10,
+    768
+   ],
+   "mean_hidden_L0": [
+    10,
+    768
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.",
+  "pass_index": 1,
+  "duration_s": 2.98,
+  "passes_left": 49
+ }
+}

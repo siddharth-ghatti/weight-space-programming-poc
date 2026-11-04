@@ -1,0 +1,254 @@
+{
+  "run": "p10",
+  "turns": 37,
+  "code_calls": 30,
+  "code_runs": 30,
+  "forward_passes": 6,
+  "cost_usd": 3.5502695999999996,
+  "lint_rejections_total": 0,
+  "flagged_calls": [
+    {
+      "turn": 5,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nimport json\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny_all = np.array([lab2i[p['label']] for p in P])\ny = y_all[:1024]\nrng = np.random.default_rng(0); perm = rng.permutation(1024); folds = np.array_split(perm, 5)\n\ndef ridge_cv(X, y, lams, std=True):\n    res = {}\n    for lam in lam"
+    },
+    {
+      "turn": 6,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nrng = np.random.default_rng(0); perm = rng.permutation(1024); folds = np.array_split(perm, 5)\ndef ridge_cv(X, y, lams, std=True):\n    res = {}\n    n,d = X.shape\n    for lam in lams:\n      "
+    },
+    {
+      "turn": 7,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nrng = np.random.default_rng(0); perm = rng.permutation(1024); folds = np.array_split(perm, 5)\ndef ridge_pred(X, y, lam):\n    n,d = X.shape; pred = np.zeros(n,int)\n    for f in folds:\n     "
+    },
+    {
+      "turn": 8,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float64) for l in range(13)}\ndef cv_acc(X, y, lam, reps=6, mode='ridge'):\n    n,d = X.shape; accs=[]\n    for r in range(reps):\n   "
+    },
+    {
+      "turn": 9,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float64) for l in range(13)}\nCc = {l: np.load(f'pass_2/cls_hidden_L{l}.npy').astype(np.float64) for l in [11,12]}\ndef cv_acc(X, y,"
+    },
+    {
+      "turn": 10,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float64) for l in [0,8,9,11]}\nc0 = np.load('pass_2/cls_hidden_L0.npy'); print('cls L0 spread', np.abs(c0-c0[0]).max())\ndef cv_acc("
+    },
+    {
+      "turn": 12,
+      "rejected": [],
+      "flags": [
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nmeta = json.load(open('pass_3/meta.json')); print(meta.keys())\nmask = np.load('pass_3/attention_mask.npy').astype(bool)\nidx = np.arange(0,1024,16)\nT9 = np.load('pass_3/token_hidden_L9.npy'); M9 = np.load('pass_2/mean_hidden_L9.npy')[idx]\nm_all = np.array([T9[i][mask[i]].mean(0) for i in range(64)])"
+    },
+    {
+      "turn": 13,
+      "rejected": [],
+      "flags": [
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nimport json\nmeta = json.load(open('pass_3/meta.json')); print(meta.keys())\nmask = np.load('pass_3/attention_mask.npy').astype(bool)\nidx = np.arange(0,1024,16)\nT9 = np.load('pass_3/token_hidden_L9.npy'); M9 = np.load('pass_2/mean_hidden_L9.npy')[idx]\nm_all = np.array([T9[i][mask[i]].mean(0) for i in"
+    },
+    {
+      "turn": 14,
+      "rejected": [],
+      "flags": [
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nmask = np.load('pass_3/attention_mask.npy').astype(bool)\nA = np.load('pass_3/attention_L1.npy')\nfor h in range(12):\n    ents=[]; selfw=[]; sepw=[]; tv=[]\n    for i in range(64):\n        n = mask[i].sum(); a = A[i,h,0,:n]\n        ents.append(-(a*np.log(a+1e-12)).sum()/np.log(n)); selfw.append(a[0]);"
+    },
+    {
+      "turn": 15,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float64) for l in [0,1,8,9]}\ndef cv_acc(X, y, lam, reps=4):\n    n,d = X.shape; accs=[]\n    for r in range(reps):\n        perm = np"
+    },
+    {
+      "turn": 16,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float64) for l in range(13)}\ndef cv_acc(X, y, lam, reps=4):\n    n,d = X.shape; accs=[]\n    for r in range(reps):\n        perm = np"
+    },
+    {
+      "turn": 19,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nC12 = np.load('pass_4/cls_hidden_L12.npy').astype(np.float64); PO = np.load('pass_4/pooled.npy').astype(np.float64)\nM8 = np.load('pass_2/mean_hidden_L8.npy').astype(np.float64)\nZn = (M8 - "
+    },
+    {
+      "turn": 20,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float64) for l in [6,8,11]}\nCl = {l: np.load(f'pass_2/cls_hidden_L{l}.npy').astype(np.float64) for l in [9,11,12]}\nLN = lambda X: "
+    },
+    {
+      "turn": 21,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM8 = np.load('pass_2/mean_hidden_L8.npy').astype(np.float64)\nCl = {l: np.load(f'pass_2/cls_hidden_L{l}.npy').astype(np.float64) for l in [6,7,8,9]}\ndef cv_acc(X, y, lam, reps=4, std=True):"
+    },
+    {
+      "turn": 23,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])\nX = np.concatenate([np.load('pass_4/pooled.npy'), np.load('pass_5/pooled.npy')]).astype(np.float64)\nmeta5 = json.load(open('pass_5/meta.json')); assert meta5['texts'][0]==P[1024]['text'] and meta"
+    },
+    {
+      "turn": 24,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nimport json\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])\nX = np.concatenate([np.load('pass_4/pooled.npy'), np.load('pass_5/pooled.npy')]).astype(np.float64)\nmeta5 = json.load(open('pass_5/meta.json')); assert meta5['texts'][0]==P[1024]['tex"
+    },
+    {
+      "turn": 25,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nimport json\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])\nX = np.load('feat_v1_pooled.npy'); n,d = X.shape\ndef fit(Xt, yt, lam, mode):\n    mu = Xt.mean(0); sd = Xt.std(0)+1e-6; Z = (Xt-mu)/sd\n    if mode=='ridge':\n        Y = np.eye(8)[yt]; "
+    },
+    {
+      "turn": 26,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nimport json\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])\nX = np.load('feat_v1_pooled.npy'); n,d = X.shape\ndef fit(Xt, yt, lam, mode):\n    mu = Xt.mean(0); sd = Xt.std(0)+1e-6; Z = (Xt-mu)/sd\n    if mode=='ridge':\n        Y = np.eye(8)[yt]; "
+    },
+    {
+      "turn": 30,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nimport shutil, os\nshutil.copytree('edits', 'edits_v1_backup', dirs_exist_ok=True); print(len(os.listdir('edits_v1_backup')))\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM = {l: np.load(f'pass_2/mean_hidden_L{l}.npy').astype(np.float"
+    },
+    {
+      "turn": 31,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nm = np.load('pass_2/mean_hidden_L9.npy').astype(np.float64); x = np.load('pass_2/cls_hidden_L9.npy').astype(np.float64)\nLN = lambda X: (X-X.mean(1,keepdims=True))/X.std(1,keepdims=True)\nde"
+    },
+    {
+      "turn": 32,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nm = np.load('pass_2/mean_hidden_L9.npy').astype(np.float64); x = np.load('pass_2/cls_hidden_L9.npy').astype(np.float64)\nLN = lambda X: (X-X.mean(1,keepdims=True))/X.std(1,keepdims=True)\nde"
+    },
+    {
+      "turn": 33,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nm = np.load('pass_2/mean_hidden_L9.npy').astype(np.float64); x = np.load('pass_2/cls_hidden_L9.npy').astype(np.float64)\nLN = lambda X: (X-X.mean(1,keepdims=True))/X.std(1,keepdims=True)\nde"
+    },
+    {
+      "turn": 34,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nimport json\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])\nX = np.load('feat_v1_pooled.npy'); n,d = X.shape\ndef fit(Xt, yt, lam, mode):\n    mu = Xt.mean(0); sd = Xt.std(0)+1e-6; Z = (Xt-mu)/sd\n    if mode=='ridge':\n        Y = np.eye(8)[yt]; "
+    },
+    {
+      "turn": 35,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nP = practice(); lab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])[:1024]\nM8 = np.load('pass_2/mean_hidden_L8.npy').astype(np.float64)\nT = np.array([len(t['ids']) for t in tokenize([p['text'] for p in P[:1024]])], float)\ndef cv_acc(X, y, lam, reps=4):\n    n,d = "
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [],
+  "forward_pass_calls_with_free_texts": [],
+  "edited_tensors": [
+    "bert.encoder.layer.10.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.10.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.10.attention.output.dense.bias",
+    "bert.encoder.layer.10.attention.output.dense.weight",
+    "bert.encoder.layer.10.output.LayerNorm.bias",
+    "bert.encoder.layer.10.output.LayerNorm.weight",
+    "bert.encoder.layer.10.output.dense.bias",
+    "bert.encoder.layer.10.output.dense.weight",
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.11.attention.output.dense.bias",
+    "bert.encoder.layer.11.attention.output.dense.weight",
+    "bert.encoder.layer.11.output.LayerNorm.bias",
+    "bert.encoder.layer.11.output.LayerNorm.weight",
+    "bert.encoder.layer.11.output.dense.bias",
+    "bert.encoder.layer.11.output.dense.weight",
+    "bert.encoder.layer.8.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.8.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.8.attention.output.dense.bias",
+    "bert.encoder.layer.8.attention.output.dense.weight",
+    "bert.encoder.layer.8.attention.self.query.bias",
+    "bert.encoder.layer.8.attention.self.query.weight",
+    "bert.encoder.layer.8.attention.self.value.bias",
+    "bert.encoder.layer.8.attention.self.value.weight",
+    "bert.encoder.layer.8.output.LayerNorm.bias",
+    "bert.encoder.layer.8.output.LayerNorm.weight",
+    "bert.encoder.layer.8.output.dense.bias",
+    "bert.encoder.layer.8.output.dense.weight",
+    "bert.encoder.layer.9.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.9.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.9.attention.output.dense.bias",
+    "bert.encoder.layer.9.attention.output.dense.weight",
+    "bert.encoder.layer.9.output.LayerNorm.bias",
+    "bert.encoder.layer.9.output.LayerNorm.weight",
+    "bert.encoder.layer.9.output.dense.bias",
+    "bert.encoder.layer.9.output.dense.weight",
+    "bert.pooler.dense.bias",
+    "bert.pooler.dense.weight",
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 0.12414868600865012
+}

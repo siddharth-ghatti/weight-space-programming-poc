@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AJHrqqNMfsNDLYzgkp932D",
+  "content": "mean8 LDA 0.954 0.963 0.968 0.967 | ridge 0.953 0.969 0.960\nmean11 LDA 0.954 0.962 0.967 0.969 | ridge 0.954 0.972 0.959\nmean12 LDA 0.955 0.967 0.970 0.964 | ridge 0.951 0.969 0.959\ncls12 LDA 0.927 0.941 0.945 0.943 | ridge 0.921 0.941 0.933\ncls11+mean11 LDA 0.949 0.973 0.973 0.974 | ridge 0.947 0.975 0.972\nmean8+mean11 LDA 0.962 0.969 0.971 0.975 | ridge 0.962 0.976 0.973\nmean0+mean11 LDA 0.966 0.978 0.977 0.977 | ridge 0.958 0.978 0.976\ncls11+mean11 sum LDA 0.945 0.965 0.965 0.969 | ridge 0.939 0.966 0.955\n[run 7; 293 code runs left; 23 forward passes left]"
+ }
+]

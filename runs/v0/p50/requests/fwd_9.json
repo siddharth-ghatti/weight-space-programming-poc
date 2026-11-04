@@ -1,0 +1,52 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "edited",
+  "outputs": [
+   "logits"
+  ],
+  "layers": [
+   12
+  ],
+  "texts": [
+   "We will pay for sudden and accidental water damage to your kitchen caused by a burst pipe.",
+   "Good news: your plan covers emergency dental treatment while you are traveling abroad.",
+   "This policy does not cover losses caused by war, invasion, or nuclear hazard.",
+   "Sorry, cosmetic surgery isn't something the plan will pay for.",
+   "Your monthly installment of $142 is due on the first of each month.",
+   "If your premium payment is more than 31 days late, a $15 late fee will be added to your next bill.",
+   "You pay the first $1,000 of any covered collision loss before we pay anything.",
+   "The most we will pay for jewelry theft is $2,500 per occurrence.",
+   "To report a claim, call our 24-hour hotline and have your policy number ready.",
+   "Please send us a signed proof of loss within 60 days of the date of the fire.",
+   "\"Vehicle\" means a land motor vehicle designed for travel on public roads.",
+   "In this policy, 'Dependent' refers to your spouse and unmarried children under age 26.",
+   "This policy begins at 12:01 a.m. on January 1 and ends one year later.",
+   "We may cancel this policy by mailing you written notice at least 10 days before cancellation takes effect.",
+   "You must cooperate with us in the investigation and defense of any suit.",
+   "If we pay a loss, your right to recover from anyone else becomes ours up to the amount we paid."
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "edited",
+  "n_texts": 16,
+  "layers": [
+   12
+  ],
+  "files": {
+   "meta": "pass_9/meta.json",
+   "logits": "pass_9/logits.npy"
+  },
+  "shapes": {
+   "logits": [
+    16,
+    8
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.",
+  "pass_index": 9,
+  "duration_s": 0.88,
+  "passes_left": 41
+ }
+}

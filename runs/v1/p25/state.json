@@ -1,0 +1,23 @@
+{
+  "name": "v1/p25",
+  "passes": 25,
+  "passes_used": 15,
+  "passes_failed": 0,
+  "code_runs": 78,
+  "turn": 90,
+  "conv_turn": 10,
+  "conversation": 3,
+  "cost_usd": 8.638895199999999,
+  "input_tokens": 186,
+  "output_tokens": 267914,
+  "cache_read_tokens": 7451006,
+  "cache_write_tokens": 357934,
+  "lint_rejections_in_row": 0,
+  "lint_rejections_total": 0,
+  "idle_replies_in_row": 0,
+  "cap_notice_sent": false,
+  "done": true,
+  "end_reason": "submitted",
+  "started": 1793776806.223936,
+  "last_pass_summary": "{\n \"kind\": \"predict\",\n \"n\": 512,\n \"models\": {\n  \"edited\": {\n   \"n\": 512,\n   \"accuracy\": 0.998046875,\n   \"macro_f1\": 0.9977869173521348,\n   \"per_class_f1\": {\n    \"coverage_grant\": 1.0,\n    \"exclusion\": 1.0,\n    \"premium_payment\": 1.0,\n    \"deductible_limits\": 1.0,\n    \"claims_procedure\": 0.9913043478260869,\n    \"definitions\": 1.0,\n    \"term_cancellation_renewal\": 1.0,\n    \"conditions_duties\": 0.9909909909909909\n   },\n   \"confusion_matrix\": [\n    [\n     69,\n     0,\n     0,\n     0,\n     0,\n     0,\n     0,\n     0\n    ],\n    [\n     0,\n     64,\n     0,\n     0,\n     0,\n     0,\n     0,\n     0\n    ],\n    [\n     0,\n     0,\n     64,\n     0,\n     0,\n     0,\n     0,\n     0\n    ],\n    [\n     0,\n     0,\n     0,\n     63,\n     0,\n     0,\n     0,\n     0\n    ],\n    [\n     0,\n     0,\n     0,\n     0,\n     57,\n     0,\n     0,\n     0\n    ],\n    [\n     0,\n     0,\n     0,\n     0,\n     0,\n     75,\n     0,\n     0\n    ],\n    [\n     0,\n     0,\n     0,\n     0,\n     0,\n     0,\n     64,\n     0\n    ],\n    [\n     0,\n     0,\n     0,\n     0,\n     1,\n     0,\n     0,\n     55\n    ]\n   ],\n   \"confusion_labels\": [\n    \"coverage_grant\",\n    \"exclusion\",\n    \"premium_payment\",\n    \"deductible_limits\",\n    \"claims_procedure\",\n    \"definitions\",\n    \"term_cancellation_renewal\",\n    \"conditions_duties\"\n   ]\n  }\n },\n \"files\": {\n  \"predictions\": \"pass_15/predictions.json\"\n },\n \"note\": \"predictions.json has per-item gold, predicted label(s) and logits. Confusion matrix rows = gold, cols = predicted, in label order.\",\n \"pass_index\": 15,\n \"duration_s\": 3.15,\n \"passes_left\": 10\n}"
+}

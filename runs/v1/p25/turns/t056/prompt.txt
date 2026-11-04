@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Wxtjme9xxMJ5t3oUVAfLci",
+  "content": "lam 0.05 sig pct [0.14  0.196 0.33 ] nn cos med 0.681\n  lin {1: np.float64(0.9091), 3: np.float64(0.9225), 10: np.float64(0.9405), 30: np.float64(0.959)}\n   10 4.5 {3: np.float64(0.9463), 10: np.float64(0.9557), 30: np.float64(0.9606)}\n   10 6 {3: np.float64(0.9519), 10: np.float64(0.9574), 30: np.float64(0.9623)}\n   15 9 {3: np.float64(0.9583), 10: np.float64(0.9626), 30: np.float64(0.9648)}\nlam 0.1 sig pct [0.157 0.212 0.341] nn cos med 0.656\n  lin {1: np.float64(0.9144), 3: np.float64(0.9238), 10: np.float64(0.9443), 30: np.float64(0.9623)}\n   10 4.5 {3: np.float64(0.9568), 10: np.float64(0.9617), 30: np.float64(0.967)}\n   10 6 {3: np.float64(0.9528), 10: np.float64(0.9608), 30: np.float64(0.9657)}\n   15 9 {3: np.float64(0.9632), 10: np.float64(0.9643), 30: np.float64(0.9672)}\nlam 0.2 sig pct [0.205 0.267 0.401] nn cos med 0.623\n  lin {1: np.float64(0.9213), 3: np.float64(0.93), 10: np.float64(0.9485), 30: np.float64(0.9619)}\n   10 4.5 {3: np.float64(0.9666), 10: np.float64(0.9695), 30: np.float64(0.9735)}\n   10 6 {3: np.float64(0.957), 10: np.float64(0.9594), 30: np.float64(0.9659)}\n   15 9 {3: np.float64(0.965), 10: np.float64(0.9666), 30: np.float64(0.9688)}\n[run 49; 251 code runs left; 15 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01DrFJLDAv7GTxHmsT5KSmph",
+  "content": "dict_keys(['texts', 'labels', 'model', 'layers'])\nlogit range -0.11001644 0.5506232 top1 max 0.5506232 gap min 0.17510441\n1024 ['You must answer all medical and trip-related questions on the application truthfully, because Meridian may void your policy if you knowingly misrepresent a material fact such as a recent hospitalization or surgery.', 'Unless you tell us otherwise, the policy will renew automatically each year at the updated rates.', \"'Bodily injury by disease' means any disease not resulting from an accident, which is caused or aggravated by the conditions of employment and for which the employee's last day of last exposure occurs during the policy period.\"]\n1496\n['D.npy', 'b0.npy', 'base_cls.npy', 'base_mean.npy', 'build.py', 'build2.py', 'ed1_a.npy', 'ed1_cls11.npy', 'ed1_cls12.npy', 'ed1_mean11.npy', 'edits', 'expected_logits_v2.npy', 'expected_v3.npy', 'folds.npy', 'ids.json', 'joint_v2.npz', 'joint_v3.npz', 'labels.npy', 'notes.md', 'oof_joint_pred.npy', 'oof_ridge.npy', 'pass_1', 'pass_10', 'pass_11', 'pass_2', 'pass_3', 'pass_4', 'pass_5', 'pass_6', 'pass_7', 'pass_8', 'pass_9', 'practice.jsonl', 'prep_feats.npz', 'rest_ids.json', 'v2_c12.npy', 'v2_layer_scales.npy', 'v2_logits.npy']\n[run 33; 267 code runs left; 39 forward passes left]"
+ }
+]

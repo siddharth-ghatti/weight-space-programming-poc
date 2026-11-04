@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0146PF5QFERmKAjtDirEcZwF",
+  "content": "1 oofR2 0.37415814 cv kernel w/ oof mean0hat 0.9719 w/ fit 0.9851\n10 oofR2 0.5392823 cv kernel w/ oof mean0hat 0.9795 w/ fit 0.9857\n100 oofR2 0.48774624 cv kernel w/ oof mean0hat 0.9646 w/ fit 0.9766\n[run 84; 216 code runs left; 14 forward passes left]"
+ }
+]

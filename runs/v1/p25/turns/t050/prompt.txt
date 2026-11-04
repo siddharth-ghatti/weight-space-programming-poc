@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QVMzpfWRCAguPgJ3Q3egwe",
+  "content": "joint stash w1 {300: np.float64(0.9793), 1000: np.float64(0.9802)}\njoint stash w2 {300: np.float64(0.9797), 1000: np.float64(0.9799)}\nLDA stash noise 0.1 {300: np.float64(0.9791), 1000: np.float64(0.9788)}\nLDA stash noise 0.2 {300: np.float64(0.9791), 1000: np.float64(0.9797)}\nLDA stash noise 0.3 {300: np.float64(0.9795), 1000: np.float64(0.9777)}\nkernel no stash {10: np.float64(0.9802), 30: np.float64(0.9791)}\nkernel + LDA stash {10: np.float64(0.9817), 30: np.float64(0.9806)}\nkernel + LDA stash noise .2 {10: np.float64(0.9817), 30: np.float64(0.9804)}\n[run 43; 257 code runs left; 15 forward passes left]"
+ }
+]

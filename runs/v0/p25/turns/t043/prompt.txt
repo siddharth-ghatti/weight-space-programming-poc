@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01DtA1n8SMZLt88QY5dB6jgm",
+  "content": "import numpy as np\ndef lda_fit(X, y, alpha, ncls=8):\n    mu = X.mean(0); Xc = X - mu\n    means = np.stack([Xc[y==c].mean(0) for c in range(ncls)])\n    R = Xc - means[y]\n    S = R.T@R/len(y)\n    tr = np.trace(S)/S.shape[0]\n    S = (1-alpha)*S + alpha*(tr+1e-8)*np.eye(S.shape[0])\n    Wt = np.linalg.solve(S, means.T).T\n    b = -0.5*np.sum(Wt*means,1) - Wt@mu\n    return Wt, b\ndef ridge_fit(X,y,lam,ncls=8):\n    mu=X.mean(0); sd=X.std(0)+1e-6; Z=(X-mu)/sd\n    T=np.eye(ncls)[y]-1/ncls\n    A=np.linalg.solve(Z.T@Z+lam*np.eye(Z.shape[1]), Z.T@T)\n    Wt=(A/sd[:,None]).T; b=T.mean(0)+1/ncls - Wt@mu\n    return Wt,b\ndef cv(X, y, folds, fit, p):\n    pred=np.zeros(len(y),int)\n    for f in range(folds.max()+1):\n        tr=folds!=f; Wt,b=fit(X[tr],y[tr],p); pred[~tr]=np.argmax(X[~tr]@Wt.T+b,1)\n    return (pred==y).mean(), pred\ndef macro_f1(y,pred,ncls=8):\n    f=[]\n    for c in range(ncls):\n        tp=((pred==c)&(y==c)).sum(); fp=((pred==c)&(y!=c)).sum(); fn=((pred!=c)&(y==c)).sum()\n        f.append(2*tp/max(2*tp+fp+fn,1))\n    return np.mean(f)\n\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0030.py\", line 124, in <module>\n    p=json.load(open('pass_8/predictions.json'))\n      ^^^^\nNameError: name 'json' is not defined. Did you mean: '_json'? Or did you forget to import 'json'?\n\n[exit code 1]\n[run 38; 262 code runs left; 17 forward passes left]"
+ }
+]

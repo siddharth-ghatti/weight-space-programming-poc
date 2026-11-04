@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SWp3kfgQGucqBWvzWZCSZJ",
+  "content": "my_sents_all.json ['texts', 'labels']\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0149.py\", line 133, in <module>\n    if isinstance(v,list): items+= [x if isinstance(x,str) else x.get('text','') for x in v]\n                                                                ^^^^^\nAttributeError: 'int' object has no attribute 'get'\n\n[exit code 1]\n[run 157; 143 code runs left; 9 forward passes left]"
+ }
+]

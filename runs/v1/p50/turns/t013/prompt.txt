@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Pt8LtLEd9QjrSSSiyE6gkW",
+  "content": "0 0.9545 0.9612\n1 0.9559 0.9606\n2 0.9606 0.9545\n3 0.9532 0.9566\n4 0.9525 0.9552\n5 0.9599 0.9586\n6 0.9646 0.9646\n7 0.9572 0.9572\n8 0.9566 0.9586\n9 0.9612 0.9639\n10 0.9572 0.9579\n11 0.9586 0.9552\n12 0.9639 0.9579\nfusion pairs with 11 (lam 300 early, 100 late):\n0 [np.float64(0.9706), np.float64(0.9733), np.float64(0.9706)]\n1 [np.float64(0.9719), np.float64(0.9719), np.float64(0.9699)]\n2 [np.float64(0.9713), np.float64(0.9733), np.float64(0.9719)]\n3 [np.float64(0.9679), np.float64(0.9686), np.float64(0.9666)]\n4 [np.float64(0.9693), np.float64(0.9693), np.float64(0.9679)]\n5 [np.float64(0.9719), np.float64(0.9699), np.float64(0.9693)]\n6 [np.float64(0.9672), np.float64(0.9693), np.float64(0.9706)]\n7 [np.float64(0.9659), np.float64(0.9672), np.float64(0.9666)]\n8 [np.float64(0.9632), np.float64(0.9646), np.float64(0.9659)]\n9 [np.float64(0.9626), np.float64(0.9619), np.float64(0.9652)]\n10 [np.float64(0.9606), np.float64(0.9612), np.float64(0.9612)]\n(1, 6) 0.9679\n(2, 6) 0.9699\n(1, 5) 0.9686\n(2, 5) 0.9679\n(1, 4) 0.9699\n(2, 8) 0.9726\n(1, 8) 0.9706\n(0, 6) 0.9706\n[run 10; 290 code runs left; 48 forward passes left]"
+ }
+]

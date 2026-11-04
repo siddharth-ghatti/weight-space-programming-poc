@@ -1,0 +1,206 @@
+{
+  "run": "p00",
+  "turns": 16,
+  "code_calls": 16,
+  "code_runs": 16,
+  "forward_passes": 0,
+  "cost_usd": 1.3373392,
+  "lint_rejections_total": 0,
+  "flagged_calls": [
+    {
+      "turn": 2,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "notes = \"\"\"# notes.md \u2014 insurance classifier by weight editing (0 forward passes available!)\n\n## Strategy (run 1)\n- No forward passes => fully analytic construction, no verification possible. Keep it simple & exact.\n- Layer 0 attention: Q,K = 0 -> uniform attention over all valid tokens (incl CLS/SE"
+    },
+    {
+      "turn": 4,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np, json\nP = practice(); texts=[p['text'] for p in P]; y = np.array([LABELS.index(p['label']) for p in P])\ntk = tokenize(texts)\nWd = base('bert.embeddings.word_embeddings.weight'); Pe = base('bert.embeddings.position_embeddings.weight'); T0 = base('bert.embeddings.token_type_embeddin"
+    },
+    {
+      "turn": 5,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "lib = r'''\nimport numpy as np\nP_ = practice(); texts=[p['text'] for p in P_]; y = np.array([LABELS.index(p['label']) for p in P_])\ntk = tokenize(texts)\nWd = base('bert.embeddings.word_embeddings.weight'); Pe = base('bert.embeddings.position_embeddings.weight'); T0 = base('bert.embeddings.token_type_"
+    },
+    {
+      "turn": 7,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "exec(open(WORK/'feat_lib.py').read())\nPm = build_P(30)\nFa = feats(Pm,'approx'); sc = np.linalg.norm(Fa,axis=1).mean(); Fa/=sc\ndef fit_ridge0(X, y, lam):\n    Yt = np.eye(8)[y]; Yt = Yt - Yt.mean(0)\n    Wr = np.linalg.solve(X.T@X + lam*np.eye(X.shape[1]), X.T@Yt)\n    return Wr, np.zeros(8)\nfor lam in "
+    },
+    {
+      "turn": 8,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "exec(open(WORK/'feat_lib.py').read())\nPm = build_P(30)\nFa = feats(Pm,'approx'); sc = np.linalg.norm(Fa,axis=1).mean(); Fa/=sc\ndef fit_ridge0(X, y, lam):\n    Yt = np.eye(8)[y]; Yt = Yt - Yt.mean(0)\n    return np.linalg.solve(X.T@X + lam*np.eye(X.shape[1]), X.T@Yt), np.zeros(8)\nacc,pr = cv(Fa,y,fit_ri"
+    },
+    {
+      "turn": 9,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "exec(open(WORK/'feat_lib.py').read())\ndef fit_ridge0(X, y, lam):\n    Yt = np.eye(8)[y]; Yt = Yt - Yt.mean(0)\n    return np.linalg.solve(X.T@X + lam*np.eye(X.shape[1]), X.T@Yt), np.zeros(8)\nfor k in [0,20,30,45,60]:\n    Pm = build_P(k)\n    Fa = feats(Pm,'approx'); sc = np.linalg.norm(Fa,axis=1).mean("
+    },
+    {
+      "turn": 10,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "exec(open(WORK/'feat_lib.py').read())\ndef fit_ridge0(X, y, lam):\n    Yt = np.eye(8)[y]; Yt = Yt - Yt.mean(0)\n    return np.linalg.solve(X.T@X + lam*np.eye(X.shape[1]), X.T@Yt), np.zeros(8)\nPm = build_P(30)\nFa = feats(Pm,'approx'); sc = np.linalg.norm(Fa,axis=1).mean(); Fa/=sc\n# doc freq\ndf = collect"
+    },
+    {
+      "turn": 11,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "build = r'''\nexec(open(WORK/'feat_lib.py').read())\nK_POS = 30; LAM = 0.3; S_BIG = 1e4; EPS_POOL = 0.02\ndef fit_ridge0(X, y, lam):\n    Yt = np.eye(8)[y]; Yt = Yt - Yt.mean(0)\n    return np.linalg.solve(X.T@X + lam*np.eye(X.shape[1]), X.T@Yt)\nPm = build_P(K_POS)\nFa = feats(Pm,'approx'); sc = np.linalg"
+    },
+    {
+      "turn": 13,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "exec(open(WORK/'feat_lib.py').read())\ndef fit_ridge0(X, y, lam):\n    Yt = np.eye(8)[y]; Yt = Yt - Yt.mean(0)\n    return np.linalg.solve(X.T@X + lam*np.eye(X.shape[1]), X.T@Yt), np.zeros(8)\nPm = build_P(30)\nFa = feats(Pm,'approx'); sc = np.linalg.norm(Fa,axis=1).mean(); Fa/=sc\nfor lam in [0.1,0.15,0."
+    },
+    {
+      "turn": 14,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "exec(open(WORK/'feat_lib.py').read())\nPm = build_P(30); Fa = feats(Pm,'approx'); sc = np.linalg.norm(Fa,axis=1).mean(); Fa/=sc\nYt = np.eye(8)[y]; Yt -= Yt.mean(0)\nWm = np.linalg.solve(Fa.T@Fa + 0.3*np.eye(768), Fa.T@Yt)\nz = Fa@Wm; zs=np.sort(z,1); m = zs[:,-1]-zs[:,-2]\nprint('||z|| min/median', np.l"
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [
+    2
+  ],
+  "forward_pass_calls_with_free_texts": [],
+  "edited_tensors": [
+    "bert.encoder.layer.0.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.0.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.0.attention.output.dense.bias",
+    "bert.encoder.layer.0.attention.output.dense.weight",
+    "bert.encoder.layer.0.attention.self.key.bias",
+    "bert.encoder.layer.0.attention.self.key.weight",
+    "bert.encoder.layer.0.attention.self.query.bias",
+    "bert.encoder.layer.0.attention.self.query.weight",
+    "bert.encoder.layer.0.attention.self.value.bias",
+    "bert.encoder.layer.0.attention.self.value.weight",
+    "bert.encoder.layer.0.output.LayerNorm.bias",
+    "bert.encoder.layer.0.output.LayerNorm.weight",
+    "bert.encoder.layer.0.output.dense.bias",
+    "bert.encoder.layer.0.output.dense.weight",
+    "bert.encoder.layer.1.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.1.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.1.attention.output.dense.bias",
+    "bert.encoder.layer.1.attention.output.dense.weight",
+    "bert.encoder.layer.1.output.LayerNorm.bias",
+    "bert.encoder.layer.1.output.LayerNorm.weight",
+    "bert.encoder.layer.1.output.dense.bias",
+    "bert.encoder.layer.1.output.dense.weight",
+    "bert.encoder.layer.10.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.10.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.10.attention.output.dense.bias",
+    "bert.encoder.layer.10.attention.output.dense.weight",
+    "bert.encoder.layer.10.output.LayerNorm.bias",
+    "bert.encoder.layer.10.output.LayerNorm.weight",
+    "bert.encoder.layer.10.output.dense.bias",
+    "bert.encoder.layer.10.output.dense.weight",
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.11.attention.output.dense.bias",
+    "bert.encoder.layer.11.attention.output.dense.weight",
+    "bert.encoder.layer.11.output.LayerNorm.bias",
+    "bert.encoder.layer.11.output.LayerNorm.weight",
+    "bert.encoder.layer.11.output.dense.bias",
+    "bert.encoder.layer.11.output.dense.weight",
+    "bert.encoder.layer.2.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.2.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.2.attention.output.dense.bias",
+    "bert.encoder.layer.2.attention.output.dense.weight",
+    "bert.encoder.layer.2.output.LayerNorm.bias",
+    "bert.encoder.layer.2.output.LayerNorm.weight",
+    "bert.encoder.layer.2.output.dense.bias",
+    "bert.encoder.layer.2.output.dense.weight",
+    "bert.encoder.layer.3.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.3.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.3.attention.output.dense.bias",
+    "bert.encoder.layer.3.attention.output.dense.weight",
+    "bert.encoder.layer.3.output.LayerNorm.bias",
+    "bert.encoder.layer.3.output.LayerNorm.weight",
+    "bert.encoder.layer.3.output.dense.bias",
+    "bert.encoder.layer.3.output.dense.weight",
+    "bert.encoder.layer.4.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.4.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.4.attention.output.dense.bias",
+    "bert.encoder.layer.4.attention.output.dense.weight",
+    "bert.encoder.layer.4.output.LayerNorm.bias",
+    "bert.encoder.layer.4.output.LayerNorm.weight",
+    "bert.encoder.layer.4.output.dense.bias",
+    "bert.encoder.layer.4.output.dense.weight",
+    "bert.encoder.layer.5.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.5.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.5.attention.output.dense.bias",
+    "bert.encoder.layer.5.attention.output.dense.weight",
+    "bert.encoder.layer.5.output.LayerNorm.bias",
+    "bert.encoder.layer.5.output.LayerNorm.weight",
+    "bert.encoder.layer.5.output.dense.bias",
+    "bert.encoder.layer.5.output.dense.weight",
+    "bert.encoder.layer.6.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.6.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.6.attention.output.dense.bias",
+    "bert.encoder.layer.6.attention.output.dense.weight",
+    "bert.encoder.layer.6.output.LayerNorm.bias",
+    "bert.encoder.layer.6.output.LayerNorm.weight",
+    "bert.encoder.layer.6.output.dense.bias",
+    "bert.encoder.layer.6.output.dense.weight",
+    "bert.encoder.layer.7.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.7.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.7.attention.output.dense.bias",
+    "bert.encoder.layer.7.attention.output.dense.weight",
+    "bert.encoder.layer.7.output.LayerNorm.bias",
+    "bert.encoder.layer.7.output.LayerNorm.weight",
+    "bert.encoder.layer.7.output.dense.bias",
+    "bert.encoder.layer.7.output.dense.weight",
+    "bert.encoder.layer.8.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.8.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.8.attention.output.dense.bias",
+    "bert.encoder.layer.8.attention.output.dense.weight",
+    "bert.encoder.layer.8.output.LayerNorm.bias",
+    "bert.encoder.layer.8.output.LayerNorm.weight",
+    "bert.encoder.layer.8.output.dense.bias",
+    "bert.encoder.layer.8.output.dense.weight",
+    "bert.encoder.layer.9.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.9.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.9.attention.output.dense.bias",
+    "bert.encoder.layer.9.attention.output.dense.weight",
+    "bert.encoder.layer.9.output.LayerNorm.bias",
+    "bert.encoder.layer.9.output.LayerNorm.weight",
+    "bert.encoder.layer.9.output.dense.bias",
+    "bert.encoder.layer.9.output.dense.weight",
+    "bert.pooler.dense.bias",
+    "bert.pooler.dense.weight",
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 0.345307034922935
+}

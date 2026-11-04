@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013RcPmMAtwJPdPdegrBSsWE",
+  "content": "1024\n[run 1; 299 code runs left; 2 forward passes left]"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SiNr9uHfifFmqcEFcqntCB",
+  "content": "Forward pass NOT executed (does not count): ValueError: a read pass needs texts or ids"
+ }
+]

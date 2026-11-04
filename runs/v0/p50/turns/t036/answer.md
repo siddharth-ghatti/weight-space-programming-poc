@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import json\nL=np.load('pass_9/logits.npy'); T=json.load(open('pass_9/meta.json'))['texts']\nexp=[0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7]\nok=0\nfor t,l,e in zip(T,L,exp):\n    p=l.argmax(); ok+=p==e\n    print(('OK ' if p==e else 'XX '), LABELS[p][:12].ljust(12), '| exp', LABELS[e][:12].ljust(12), '|', t[:80])\nprint(ok,'/16')\nwith open('notes.md','a') as f: f.write(f\"- Sanity (pass_9): 16 hand-written sentences, {ok}/16 correct with checkpoint B.\\n- Tried: multi-scale centers, offsets, PCA-whitening -> no gain over a=2,t=0,lam=.5 (3-split avg CV ~97.7%). Multi-layer idea dropped (needs CLS-specific transport).\\n\")\n"
+}
+```
+

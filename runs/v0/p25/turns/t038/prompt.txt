@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01BptGzMLxb3Am2Bky84DtkT",
+  "content": "eigs [0.0006 0.001  0.0011 0.0011 0.0012 0.0013 0.0013 0.0013] U.1 1.293368190324884e-11 orth 1.3322676295501878e-15\nstd of U^T n per dir [0.0248 0.0319 0.0335 0.0337 0.0348 0.0355 0.0356 0.0361]\nexpected train acc 1.0 agree with F 1.0\n['bert.encoder.layer.11.attention.output.LayerNorm.bias', 'bert.encoder.layer.11.attention.output.LayerNorm.weight', 'bert.encoder.layer.11.attention.output.dense.bias', 'bert.encoder.layer.11.attention.output.dense.weight', 'bert.encoder.layer.11.attention.self.query.bias', 'bert.encoder.layer.11.attention.self.query.weight', 'bert.encoder.layer.11.attention.self.value.bias', 'bert.encoder.layer.11.attention.self.value.weight', 'bert.encoder.layer.11.intermediate.dense.bias', 'bert.encoder.layer.11.intermediate.dense.weight', 'bert.encoder.layer.11.output.LayerNorm.bias', 'bert.encoder.layer.11.output.LayerNorm.weight', 'bert.encoder.layer.11.output.dense.bias', 'bert.encoder.layer.11.output.dense.weight', 'bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']\n[run 33; 267 code runs left; 18 forward passes left]"
+ }
+]

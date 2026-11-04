@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SYAqRTpZxMXGMYpPzZaJC3",
+  "content": "1 cls' lda 0.9358 ridge 0.9358 | mean' lda 0.9619 | mean change rel 0.04\n2 cls' lda 0.9398 ridge 0.9378 | mean' lda 0.9632 | mean change rel 0.477\n4 cls' lda 0.9418 ridge 0.9332 | mean' lda 0.9599 | mean change rel 0.522\n6 cls' lda 0.9459 ridge 0.9505 | mean' lda 0.9606 | mean change rel 0.467\n8 cls' lda 0.9479 ridge 0.9398 | mean' lda 0.9666 | mean change rel 0.415\n10 cls' lda 0.9552 ridge 0.9545 | mean' lda 0.9666 | mean change rel 0.51\n11 cls' lda 0.9492 ridge 0.9479 | mean' lda 0.9713 | mean change rel 0.528\ncls11'+mean11' ridge [np.float64(0.9753), np.float64(0.9746), np.float64(0.9713)] lda [np.float64(0.9733), np.float64(0.9713)]\n[run 22; 278 code runs left; 18 forward passes left]"
+ }
+]

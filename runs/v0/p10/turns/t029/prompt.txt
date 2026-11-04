@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SwgojRxRv9H83oQDBdBWwp",
+  "content": "<class 'list'> {'id': 'p0275', 'text': \"'Average weekly wage' means the total gross earnings of the employee during the fifty-two weeks immediately preceding the date of injury, divided by fifty-two, as calculated under the governing statute.\", 'gold': 'definitions', 'pred_edited': 'definitions', 'logits_edited': [-1.2131, -3.4345, -3.3998, -2.3836, -3.5747, 11.2008, -3.4818, -4.8875]}\n[run 22; 278 code runs left; 4 forward passes left]"
+ }
+]

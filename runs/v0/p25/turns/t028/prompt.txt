@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01TnqVzoKVpM1nT1kzXLMGL5",
+  "content": "['bert.encoder.layer.11.attention.output.LayerNorm.bias', 'bert.encoder.layer.11.attention.output.LayerNorm.weight', 'bert.encoder.layer.11.attention.output.dense.bias', 'bert.encoder.layer.11.attention.output.dense.weight', 'bert.encoder.layer.11.attention.self.query.bias', 'bert.encoder.layer.11.attention.self.query.weight', 'bert.encoder.layer.11.attention.self.value.bias', 'bert.encoder.layer.11.attention.self.value.weight', 'bert.encoder.layer.11.output.LayerNorm.bias', 'bert.encoder.layer.11.output.LayerNorm.weight', 'bert.encoder.layer.11.output.dense.bias', 'bert.encoder.layer.11.output.dense.weight', 'bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']\nrandom 16 0.9746\nrandom 16 0.9753\nrandom 32 0.9733\nrandom 32 0.9753\nrandom 64 0.9746\nrandom 64 0.9753\nFstat 16 0.9753\nFstat 32 0.9759\nFstat 64 0.9766\n[run 23; 277 code runs left; 18 forward passes left]"
+ }
+]

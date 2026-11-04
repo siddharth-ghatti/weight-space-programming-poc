@@ -1,0 +1,123 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "ids": [
+   "p0839",
+   "p0853",
+   "p0858",
+   "p0865",
+   "p0866",
+   "p0869",
+   "p0877",
+   "p0915",
+   "p0936",
+   "p0969",
+   "p0973",
+   "p0975",
+   "p0984",
+   "p0990",
+   "p0996",
+   "p1017",
+   "p1020",
+   "p1025",
+   "p1051",
+   "p1054",
+   "p1056",
+   "p1068",
+   "p1085",
+   "p1089",
+   "p1097",
+   "p1098",
+   "p1126",
+   "p1130",
+   "p1152",
+   "p1158",
+   "p1160",
+   "p1169",
+   "p1174",
+   "p1177",
+   "p1186",
+   "p1189",
+   "p1190",
+   "p1200",
+   "p1201",
+   "p1212",
+   "p1239",
+   "p1256",
+   "p1281",
+   "p1284",
+   "p1293",
+   "p1294",
+   "p1301",
+   "p1313",
+   "p1319",
+   "p1322",
+   "p1348",
+   "p1367",
+   "p1374",
+   "p1384",
+   "p1394",
+   "p1411",
+   "p1434",
+   "p1436",
+   "p1442",
+   "p1459",
+   "p1461",
+   "p1481",
+   "p1482",
+   "p1494"
+  ],
+  "outputs": [
+   "token_hidden"
+  ],
+  "layers": [
+   0,
+   6,
+   11
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 64,
+  "layers": [
+   0,
+   6,
+   11
+  ],
+  "files": {
+   "meta": "pass_5/meta.json",
+   "token_hidden_L0": "pass_5/token_hidden_L0.npy",
+   "token_hidden_L6": "pass_5/token_hidden_L6.npy",
+   "token_hidden_L11": "pass_5/token_hidden_L11.npy",
+   "attention_mask": "pass_5/attention_mask.npy",
+   "tokens": "pass_5/tokens.json"
+  },
+  "shapes": {
+   "token_hidden_L0": [
+    64,
+    51,
+    768
+   ],
+   "token_hidden_L6": [
+    64,
+    51,
+    768
+   ],
+   "token_hidden_L11": [
+    64,
+    51,
+    768
+   ],
+   "attention_mask": [
+    64,
+    51
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.",
+  "pass_index": 5,
+  "duration_s": 0.5,
+  "passes_left": 20
+ }
+}

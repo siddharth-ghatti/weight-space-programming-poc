@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PuQtJLFF4FEj9BZ15BBgZQ",
+  "content": "specials pos 1 2.8762955109702977e-05\nspecials pos 64 4.4165124135068186e-05\nspecials pos 80 3.2575424934409816e-05\nspecials pos 100 3.3761690047213154e-05\nspecials pos 127 1.9166943635430285e-05\nspecials pos 200 4.5201229565233844e-05\nspecials pos 511 6.83042455760216e-05\npos 1: rel err median 0.051 95% 0.092  cos 5% 0.999\npos 10: rel err median 0.006 95% 0.018  cos 5% 1.000\npos 40: rel err median 0.006 95% 0.017  cos 5% 1.000\npos 63: rel err median 0.018 95% 0.035  cos 5% 1.000\npos 80: rel err median 0.045 95% 0.082  cos 5% 0.999\npos 100: rel err median 0.080 95% 0.141  cos 5% 0.998\npos 127: rel err median 0.146 95% 0.242  cos 5% 0.995\n[run 25; 275 code runs left; 0 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01RkQKh1VeAp73XgH7auVmq4",
+  "content": "full {0.05: np.float64(0.9512), 0.1: np.float64(0.959), 0.2: np.float64(0.9541), 0.4: np.float64(0.9502)}\n128 {0.05: np.float64(0.9316), 0.1: np.float64(0.9326), 0.2: np.float64(0.9346), 0.4: np.float64(0.9297)}\n256 {0.05: np.float64(0.9424), 0.1: np.float64(0.9443), 0.2: np.float64(0.9453), 0.4: np.float64(0.9492)}\n384 {0.05: np.float64(0.9492), 0.1: np.float64(0.9551), 0.2: np.float64(0.957), 0.4: np.float64(0.9502)}\n512 {0.05: np.float64(0.9492), 0.1: np.float64(0.9551), 0.2: np.float64(0.9531), 0.4: np.float64(0.9512)}\n[run 9; 291 code runs left; 8 forward passes left]"
+ }
+]

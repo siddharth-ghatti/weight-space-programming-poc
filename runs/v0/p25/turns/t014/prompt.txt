@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01XLrke8TzNmaX4fgYrWqU3L",
+  "content": "train acc direct 1.0\nLN(x) abs max per dim top: [ 3.2232  3.2416  3.3158  3.3348  3.5612  3.645   3.8655  4.0989  5.6239 21.217 ]\nLN(x) per-dim mean abs top [ 1.5351  1.6054  1.6391  1.641   1.88    1.8989  2.5545  2.6036  3.9588 17.6367] typical std 0.46163610699555174\nM norm stuff 2.476209764924029 1.9994956578404905\nx norm 35.57270209143087 std of LN scale 0.042156689322732734\n[run 12; 288 code runs left; 23 forward passes left]"
+ }
+]

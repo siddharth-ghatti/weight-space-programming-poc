@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01JT522w86XRL3K37fYqCZVt",
+  "content": "stash std per class [0.104 0.102 0.161 0.139 0.107 0.076 0.121 0.122] mean [ 0. -0.  0. -0.  0.  0.  0.  0.]\nstash-only acc (in-sample) 0.9565508021390374\njoint in-sample acc 0.9993315508021391\nJ [24 62 12 25 55  5 16 35] cost [0.0018 0.002  0.002  0.0021 0.0021 0.0022 0.0022 0.0023] median 0.0037\n[run 55; 245 code runs left; 15 forward passes left]"
+ }
+]

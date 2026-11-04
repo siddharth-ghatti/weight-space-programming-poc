@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_015d7qNMP9MwjcARHoGZy1Cz",
+  "content": "full {10: np.float64(0.9806), 30: np.float64(0.9791)}\nconcatPC 64 {10: np.float64(0.973), 30: np.float64(0.9755)}\nconcatPC 128 {10: np.float64(0.9773), 30: np.float64(0.977)}\nconcatPC 256 {10: np.float64(0.9797), 30: np.float64(0.9797)}\nconcatPC 384 {10: np.float64(0.9799), 30: np.float64(0.9793)}\nsepPC 128 128 {10: np.float64(0.9784), 30: np.float64(0.9793)}\nsepPC 256 128 {10: np.float64(0.9795), 30: np.float64(0.9795)}\nsepPC 384 192 {10: np.float64(0.9799), 30: np.float64(0.9793)}\n[run 45; 255 code runs left; 15 forward passes left]"
+ }
+]

@@ -1,0 +1,43 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "texts": [
+   "We will pay damages for bodily injury or property damage for which any insured becomes legally responsible because of an auto accident."
+  ],
+  "layers": [
+   11
+  ],
+  "outputs": [
+   "cls_hidden",
+   "mean_hidden"
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 1,
+  "layers": [
+   11
+  ],
+  "files": {
+   "meta": "pass_9/meta.json",
+   "cls_hidden_L11": "pass_9/cls_hidden_L11.npy",
+   "mean_hidden_L11": "pass_9/mean_hidden_L11.npy"
+  },
+  "shapes": {
+   "cls_hidden_L11": [
+    1,
+    768
+   ],
+   "mean_hidden_L11": [
+    1,
+    768
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.",
+  "pass_index": 9,
+  "duration_s": 1.94,
+  "passes_left": 16
+ }
+}

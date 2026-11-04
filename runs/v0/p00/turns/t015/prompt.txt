@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018B8C62w8azwN5axaj2k1wa",
+  "content": "train acc of table (sum): 1.0\n||S|| pct [ 2.106   4.0542  6.4723 10.4647]\nneuronless count 342.0\nU[DF] max 0.0 U norms [0.0416 0.0446 0.0506]\nweighted rel err 0.0011960325727965254\nrel err neuron tokens median 0.0017043015803014012 99pct 0.008924543742833763\nrand out norm pct [0.     0.0056 0.1402 1.7829]\nspecial outs 0.0005603476388991705\n[run 14; 286 code runs left; 0 forward passes left]"
+ }
+]

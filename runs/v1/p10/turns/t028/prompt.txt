@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01VkKLD6yCC1xzVfGz714qDy",
+  "content": "max |c12 - LN(m11)| 0.01038430166653126 typical 0.6069848495086584\npre-LN corr [np.float64(0.751), np.float64(0.802), np.float64(0.899), np.float64(0.876), np.float64(0.785), np.float64(0.578), np.float64(0.83), np.float64(0.707)]\nfinal LN scale std/mean 0.05010982489218244\nproxy D-only holdout acc 0.883\nactual pre-LN D-only holdout acc 0.720\nactual c12 D-only holdout acc 0.714\n[run 23; 277 code runs left; 6 forward passes left]"
+ }
+]

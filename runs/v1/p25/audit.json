@@ -1,0 +1,554 @@
+{
+  "run": "p25",
+  "turns": 90,
+  "code_calls": 78,
+  "code_runs": 78,
+  "forward_passes": 15,
+  "cost_usd": 8.638895199999999,
+  "lint_rejections_total": 0,
+  "flagged_calls": [
+    {
+      "turn": 6,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import json\nP=practice(); lab={l:i for i,l in enumerate(LABELS)}\ny=np.array([lab[p['label']] for p in P])\nM={}; C={}\nfor L in range(13):\n    M[L]=np.concatenate([np.load(f'pass_2/mean_hidden_L{L}.npy'),np.load(f'pass_3/mean_hidden_L{L}.npy')])\n    C[L]=np.concatenate([np.load(f'pass_2/cls_hidden_L{L"
+    },
+    {
+      "turn": 7,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef std(X,tr): \n    mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef kr_cv(Xfun, lam, kernel='lin', gamma=None):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        X=Xfun(tr)\n        if kernel=='lin': K=X@X["
+    },
+    {
+      "turn": 8,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef std(X,tr): \n    mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef kr_cv(Xfun, lam, kernel='lin', gamma=None):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        X=Xfun(tr)\n        if kernel=='lin': K=X@X["
+    },
+    {
+      "turn": 9,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef LN(X): \n    X=X-X.mean(1,keepdims=True); return X/np.sqrt((X**2).mean(1,keepdims=True)+1e-12)\ndef gelu(x): \n    from scipy.special import erf; return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n "
+    },
+    {
+      "turn": 10,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef LN(X): \n    X=X-X.mean(1,keepdims=True); return X/np.sqrt((X**2).mean(1,keepdims=True)+1e-12)\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0); Zc=Z-mu\n        Y"
+    },
+    {
+      "turn": 11,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef LN(X): \n    X=X-X.mean(1,keepdims=True); return X/np.sqrt((X**2).mean(1,keepdims=True)+1e-12)\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0); Zc=Z-mu\n        Y"
+    },
+    {
+      "turn": 12,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0); Zc=Z-mu\n        Y=np.eye(8)[y[tr]]-1/8\n        K=Zc@Zc[tr].T; a=np.linalg.solve(K[tr]+lam*np.eye(tr.sum()),Y); pr=K"
+    },
+    {
+      "turn": 13,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef stdz(X,tr): mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef ridge(X,Y,lam): return np.linalg.solve(X.T@X+lam*np.eye(X.shape[1]),X.T@Y)\ndef evalfn(build, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n"
+    },
+    {
+      "turn": 17,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import json\ndef load_tok(d):\n    am=np.load(d+'attention_mask.npy').astype(bool)\n    H={L:np.load(d+f'token_hidden_L{L}.npy') for L in [0,6,11]}\n    return am,H\ntoks={L:[] for L in [0,6,11]}; sid=[]\nfor k,d in enumerate(['pass_4/','pass_5/']):\n    am,H=load_tok(d)\n    for i in range(am.shape[0]):\n  "
+    },
+    {
+      "turn": 20,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef stdz(X,tr): mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0); Zc=Z-mu\n        Y=np.eye(8)[y[tr]]-1/8\n   "
+    },
+    {
+      "turn": 21,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\ndef stdz(X,tr): mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0); Zc=Z-mu\n        Y=np.eye(8)[y[tr]]-1/8\n   "
+    },
+    {
+      "turn": 22,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)",
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "open('notes.md','a').write(\"\"\"\n## Findings (session 1)\n- mean_hidden = masked mean over ALL tokens incl CLS/SEP (matches uniform attention).\n- Base features: feats.npz (M0..M12 mean, C0..C12 cls, y), folds.npy (5-fold stratified). passes 2-3.\n- CV ridge (stdz): single-layer mean ~95.6-96.5%; CLS wor"
+    },
+    {
+      "turn": 23,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "code = r'''\nimport numpy as np\ndef fit_readout(C, M, y, wc=0.7, lam=300.0, nch=8):\n    \"\"\"Concat ridge on [C (cls at L11 input), M (mean at L11)] -> returns dict with B (on keep dims, sum0), A, b, ch, keep\"\"\"\n    v=C.var(0); ch=np.argsort(v)[:nch]; keep=np.setdiff1d(np.arange(768),ch)\n    Ck=C[:,kee"
+    },
+    {
+      "turn": 27,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); T=np.load('tok128.npz'); sid=T['sid']\n# non-CLS token states at L6: first token of each sentence is CLS\nfirst=np.r_[True, sid[1:]!=sid[:-1]]\nH6=T['T6'][~first]; Hc6=T['T6'][first]\nC6=F['C6']; Cbar=C6.mean(0); D=C6-Cbar\nprint('cls from tok128 vs feats check', np.abs(Hc6.mean(0"
+    },
+    {
+      "turn": 28,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); T=np.load('tok128.npz'); sid=T['sid']\nfirst=np.r_[True, sid[1:]!=sid[:-1]]\nH6=T['T6'][~first]; C6=F['C6']; Cbar=C6.mean(0); D=C6-Cbar\nS=H6.T@H6/len(H6) + D.T@D/len(D) + 0.01*np.eye(768)\nd=np.linalg.solve(S,Cbar); d/= d@Cbar\nnp.save('d_L6.npy',d)\np='bert.encoder.layer.6.attent"
+    },
+    {
+      "turn": 30,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\nA={}\nfor L in [7,8,9,10,11]:\n    A[f'C{L}']=np.concatenate([np.load(f'pass_8/cls_hidden_L{L}.npy'),np.load(f'pass_9/cls_hidden_L{L}.npy')])\n    A[f'M{L}']=np.concatenate([np.load(f'pass_8/mean_hidden_L{L}.npy'),np.load(f'pass_9/mean_hidden"
+    },
+    {
+      "turn": 31,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy'); A=dict(np.load('featsA.npz'))\ndef stdz(X,tr): mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef cv(featfn, lam):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0); Zc=Z-mu\n   "
+    },
+    {
+      "turn": 32,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "open('notes.md','a').write(\"\"\"\n- Exp A result (passes 8-9, featsA.npz = C7..C11', M7..M11' of layer6-tapped model): tap works locally (C7' 94.9 vs base 92.5)\n  but washes out by L11 (C11'+M11' concat 96.7 = no gain). token mean feats change ~4-5%. [C7',M11'] only 96.9; M6+M11' 97.5.\n- Idea: readout "
+    },
+    {
+      "turn": 33,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "F=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy'); A=dict(np.load('featsA.npz'))\ndef stdz(X,tr): mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6; return (X-mu)/sd\ndef cv(featfn, lam, folds=folds):\n    accs=[]\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Z=featfn(tr); mu=Z[tr].mean(0)"
+    },
+    {
+      "turn": 40,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\nF=np.load('feats.npz'); y=F['y']\nC=F['C9']; M=F['M9']\nUc=np.linalg.svd(C-C.mean(0),full_matrices=False)[2]   # rows = PCs\nUm=np.linalg.svd(M-M.mean(0),full_matrices=False)[2]\nrM=468\nE=Uc[768-rM:].T      # 768 x rM (bottom "
+    },
+    {
+      "turn": 42,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np, time\nF=np.load('feats.npz'); y=F['y']; folds=np.load('folds.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\nprint(folds.shape, folds[:10], np.bincount(folds) if folds.ndim==1 else None)\ndef gelu(z):\n    from scipy.special import erf\n    return 0.5*z*(1+erf(z/np"
+    },
+    {
+      "turn": 43,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np, time\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\nZ=np.concatenate([C9,M9],1)\nmu=Z.mean(0); sd=Z.std(0); A=(Z-mu)/sd; An=A/np.linalg.norm(A,axis=1,keepdims=True)\nK=An@An.T; np.fill_diagonal(K,-1)\nnn=np"
+    },
+    {
+      "turn": 44,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nG={k:F[k].astype(np.float64) for k in F.files if k!='y'}\ndef stdz(X,tr): m=X[tr].mean(0); s=X[tr].std(0)+1e-6; return (X-m)/s\ndef ridge_pred(Xtr,Y,lam,Xte):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0)\n    n,d=Xc.shap"
+    },
+    {
+      "turn": 48,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64); M0=F['M0'].astype(np.float64)\ndef stdz(X,tr): m=X[tr].mean(0); s=X[tr].std(0)+1e-6; return (X-m)/s\ndef ridge_pred(Xtr,Y,lam,Xte):\n    xm=Xtr.mean(0); Xc=X"
+    },
+    {
+      "turn": 49,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64); M0=F['M0'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef stdz(X,tr): m=X[tr].mean(0); s=X[tr].std(0"
+    },
+    {
+      "turn": 50,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef stdz(X,tr): m=X[tr].mean(0); s=X[tr].std(0)+1e-6; return (X-m)/s\ndef ridg"
+    },
+    {
+      "turn": 51,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.s"
+    },
+    {
+      "turn": 52,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.shape\n    if d<=n: Wt=np.linalg.solve(Xc.T@Xc+lam*np.eye(d),Xc.T@(Y-ym))\n    el"
+    },
+    {
+      "turn": 53,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.s"
+    },
+    {
+      "turn": 54,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.s"
+    },
+    {
+      "turn": 55,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.s"
+    },
+    {
+      "turn": 56,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.s"
+    },
+    {
+      "turn": 57,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np\nfrom scipy.special import erf\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64)\ndef gelu(z): return 0.5*z*(1+erf(z/np.sqrt(2)))\ndef ridge_W(Xtr,Y,lam):\n    xm=Xtr.mean(0); Xc=Xtr-xm; ym=Y.mean(0); n,d=Xc.s"
+    },
+    {
+      "turn": 58,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\nG={k:F[k].astype(np.float64) for k in F.files if k!='y'}\nS={k:(v-v.mean(0))/(v.std(0)+1e-9) for k,v in G.items()}\ndef cv_dual(keys,lams,w=None):\n    w=w or [1.0]*len(keys)\n    X=np.concatenate([wi*S[k] for k,wi in zi"
+    },
+    {
+      "turn": 61,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']\nC9=F['C9'].astype(np.float64); M9=F['M9'].astype(np.float64); M0=F['M0'].astype(np.float64)\nS=np.array([654,529,216,175,145,159,531,517])\n# joint ridge\nXs=[]; mus=[]; sds=[]\nfor X in [C9,M9,M0]:\n    m=X.mean(0); s=X.std(0)+1e-6; mus.append(m); sds."
+    },
+    {
+      "turn": 66,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import numpy as np, json\nF=np.load('feats.npz'); cfg=np.load('stash_cfg.npz'); S=cfg['S']; A0=cfg['A0']; b0=cfg['b0']\nids=json.load(open('all_ids.json')); idx=np.arange(64)   # p0000..p0063 assumed rows 0..63 of feats\nmeta=json.load(open('pass_11/meta.json')); P=practice(); \nprint(meta.keys() if isi"
+    },
+    {
+      "turn": 67,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import numpy as np, json\nF=np.load('feats.npz'); cfg=np.load('stash_cfg.npz'); S=cfg['S']; A0=cfg['A0']; b0=cfg['b0']\nM0=F['M0'][:64].astype(np.float64); st=M0@A0.T+b0\nh0=F['C0'][0,S].astype(np.float64); print('C0 const?', np.abs(F['C0'][:,S]-F['C0'][0,S]).max())\nfor l in [1,3,5,9]:\n    C=np.load(f'"
+    },
+    {
+      "turn": 70,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y'][:1024]; FOLDS=np.load('folds_rep.npy')[:,:1024]\ncfg=np.load('stash_cfg.npz'); S=cfg['S']\nkeep=np.setdiff1d(np.arange(768),S)\nC9n=np.load('pass_12/cls_hidden_L9.npy').astype(np.float64); M9n=np.load('pass_12/mean_hidden_L9.npy').astype(np.float64)\nC"
+    },
+    {
+      "turn": 73,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\ncfg=np.load('stash_cfg.npz'); S=cfg['S']; A0=cfg['A0']; b0=cfg['b0']\nD={}\nfor l in [7,8,9]:\n    D[f'C{l}']=np.concatenate([np.load(f'pass_12/cls_hidden_L{l}.npy'),np.load(f'pass_13/cls_hidden_L{l}.npy')])\n    D[f'M{l"
+    },
+    {
+      "turn": 74,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np\nF=np.load('feats.npz'); y=F['y']; FOLDS=np.load('folds_rep.npy')\ncfg=np.load('stash_cfg.npz'); S=cfg['S']\nD=np.load('featsS.npz'); C9n=D['C9'].astype(np.float64); M9n=D['M9'].astype(np.float64)\nA=np.load('stash_alpha.npz'); al=A['al']; be=A['be']\nC9=F['C9'].astype(np.float64); M9="
+    },
+    {
+      "turn": 75,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import numpy as np, sys\nsys.path.insert(0,'.'); from readout import write_layer11_readout\nF=np.load('feats.npz'); y=F['y']\ncfg=np.load('stash_cfg.npz'); S=cfg['S']\nD=np.load('featsS.npz'); C=D['C9'].astype(np.float64); M=D['M9'].astype(np.float64)\nnonS=np.setdiff1d(np.arange(768),S)\nch=nonS[np.argso"
+    },
+    {
+      "turn": 79,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "open('notes.md','a').write('''\n- RESULT stash (passes 11-14): stash exact (R2=1 at C9[S], alpha~.036, cv 9%). Perturbation cost ~0 (keep-only CV 97.8/97.5 vs base 97.6).\n  Honest CV (in-fold stash simulated via measured alpha/beta): ~98.0-98.1 vs 97.64 base. featsS.npz = C7-9',M7-9' (stash model).\n-"
+    },
+    {
+      "turn": 87,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "\nimport json, numpy as np\nP=practice(); idx={r['id']:i for i,r in enumerate(P)}\np=json.load(open('pass_15/predictions.json'))\noff=np.load('offline_logits_S.npy')\nL=np.array([it['logits_edited'] for it in p]); O=off[[idx[it['id']] for it in p]]\nT=np.tanh(O)\nprint('tanh corr', np.corrcoef(L.ravel(),T."
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [
+    22
+  ],
+  "forward_pass_calls_with_free_texts": [],
+  "edited_tensors": [
+    "bert.encoder.layer.0.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.0.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.0.attention.output.dense.bias",
+    "bert.encoder.layer.0.attention.output.dense.weight",
+    "bert.encoder.layer.0.attention.self.key.bias",
+    "bert.encoder.layer.0.attention.self.key.weight",
+    "bert.encoder.layer.0.attention.self.query.bias",
+    "bert.encoder.layer.0.attention.self.query.weight",
+    "bert.encoder.layer.0.attention.self.value.bias",
+    "bert.encoder.layer.0.attention.self.value.weight",
+    "bert.encoder.layer.0.intermediate.dense.bias",
+    "bert.encoder.layer.0.intermediate.dense.weight",
+    "bert.encoder.layer.0.output.LayerNorm.bias",
+    "bert.encoder.layer.0.output.LayerNorm.weight",
+    "bert.encoder.layer.0.output.dense.bias",
+    "bert.encoder.layer.0.output.dense.weight",
+    "bert.encoder.layer.1.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.1.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.1.attention.output.dense.bias",
+    "bert.encoder.layer.1.attention.output.dense.weight",
+    "bert.encoder.layer.1.attention.self.key.bias",
+    "bert.encoder.layer.1.attention.self.key.weight",
+    "bert.encoder.layer.1.attention.self.query.bias",
+    "bert.encoder.layer.1.attention.self.query.weight",
+    "bert.encoder.layer.1.attention.self.value.bias",
+    "bert.encoder.layer.1.attention.self.value.weight",
+    "bert.encoder.layer.1.intermediate.dense.bias",
+    "bert.encoder.layer.1.intermediate.dense.weight",
+    "bert.encoder.layer.1.output.LayerNorm.bias",
+    "bert.encoder.layer.1.output.LayerNorm.weight",
+    "bert.encoder.layer.1.output.dense.bias",
+    "bert.encoder.layer.1.output.dense.weight",
+    "bert.encoder.layer.10.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.10.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.10.attention.output.dense.bias",
+    "bert.encoder.layer.10.attention.output.dense.weight",
+    "bert.encoder.layer.10.output.LayerNorm.bias",
+    "bert.encoder.layer.10.output.LayerNorm.weight",
+    "bert.encoder.layer.10.output.dense.bias",
+    "bert.encoder.layer.10.output.dense.weight",
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.11.attention.output.dense.bias",
+    "bert.encoder.layer.11.attention.output.dense.weight",
+    "bert.encoder.layer.11.output.LayerNorm.bias",
+    "bert.encoder.layer.11.output.LayerNorm.weight",
+    "bert.encoder.layer.11.output.dense.bias",
+    "bert.encoder.layer.11.output.dense.weight",
+    "bert.encoder.layer.2.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.2.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.2.attention.output.dense.bias",
+    "bert.encoder.layer.2.attention.output.dense.weight",
+    "bert.encoder.layer.2.attention.self.key.bias",
+    "bert.encoder.layer.2.attention.self.key.weight",
+    "bert.encoder.layer.2.attention.self.query.bias",
+    "bert.encoder.layer.2.attention.self.query.weight",
+    "bert.encoder.layer.2.attention.self.value.bias",
+    "bert.encoder.layer.2.attention.self.value.weight",
+    "bert.encoder.layer.2.intermediate.dense.bias",
+    "bert.encoder.layer.2.intermediate.dense.weight",
+    "bert.encoder.layer.2.output.LayerNorm.bias",
+    "bert.encoder.layer.2.output.LayerNorm.weight",
+    "bert.encoder.layer.2.output.dense.bias",
+    "bert.encoder.layer.2.output.dense.weight",
+    "bert.encoder.layer.3.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.3.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.3.attention.output.dense.bias",
+    "bert.encoder.layer.3.attention.output.dense.weight",
+    "bert.encoder.layer.3.attention.self.key.bias",
+    "bert.encoder.layer.3.attention.self.key.weight",
+    "bert.encoder.layer.3.attention.self.query.bias",
+    "bert.encoder.layer.3.attention.self.query.weight",
+    "bert.encoder.layer.3.attention.self.value.bias",
+    "bert.encoder.layer.3.attention.self.value.weight",
+    "bert.encoder.layer.3.intermediate.dense.bias",
+    "bert.encoder.layer.3.intermediate.dense.weight",
+    "bert.encoder.layer.3.output.LayerNorm.bias",
+    "bert.encoder.layer.3.output.LayerNorm.weight",
+    "bert.encoder.layer.3.output.dense.bias",
+    "bert.encoder.layer.3.output.dense.weight",
+    "bert.encoder.layer.4.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.4.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.4.attention.output.dense.bias",
+    "bert.encoder.layer.4.attention.output.dense.weight",
+    "bert.encoder.layer.4.attention.self.key.bias",
+    "bert.encoder.layer.4.attention.self.key.weight",
+    "bert.encoder.layer.4.attention.self.query.bias",
+    "bert.encoder.layer.4.attention.self.query.weight",
+    "bert.encoder.layer.4.attention.self.value.bias",
+    "bert.encoder.layer.4.attention.self.value.weight",
+    "bert.encoder.layer.4.intermediate.dense.bias",
+    "bert.encoder.layer.4.intermediate.dense.weight",
+    "bert.encoder.layer.4.output.LayerNorm.bias",
+    "bert.encoder.layer.4.output.LayerNorm.weight",
+    "bert.encoder.layer.4.output.dense.bias",
+    "bert.encoder.layer.4.output.dense.weight",
+    "bert.encoder.layer.5.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.5.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.5.attention.output.dense.bias",
+    "bert.encoder.layer.5.attention.output.dense.weight",
+    "bert.encoder.layer.5.attention.self.key.bias",
+    "bert.encoder.layer.5.attention.self.key.weight",
+    "bert.encoder.layer.5.attention.self.query.bias",
+    "bert.encoder.layer.5.attention.self.query.weight",
+    "bert.encoder.layer.5.attention.self.value.bias",
+    "bert.encoder.layer.5.attention.self.value.weight",
+    "bert.encoder.layer.5.intermediate.dense.bias",
+    "bert.encoder.layer.5.intermediate.dense.weight",
+    "bert.encoder.layer.5.output.LayerNorm.bias",
+    "bert.encoder.layer.5.output.LayerNorm.weight",
+    "bert.encoder.layer.5.output.dense.bias",
+    "bert.encoder.layer.5.output.dense.weight",
+    "bert.encoder.layer.6.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.6.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.6.attention.output.dense.bias",
+    "bert.encoder.layer.6.attention.output.dense.weight",
+    "bert.encoder.layer.6.attention.self.key.bias",
+    "bert.encoder.layer.6.attention.self.key.weight",
+    "bert.encoder.layer.6.attention.self.query.bias",
+    "bert.encoder.layer.6.attention.self.query.weight",
+    "bert.encoder.layer.6.attention.self.value.bias",
+    "bert.encoder.layer.6.attention.self.value.weight",
+    "bert.encoder.layer.6.intermediate.dense.bias",
+    "bert.encoder.layer.6.intermediate.dense.weight",
+    "bert.encoder.layer.6.output.LayerNorm.bias",
+    "bert.encoder.layer.6.output.LayerNorm.weight",
+    "bert.encoder.layer.6.output.dense.bias",
+    "bert.encoder.layer.6.output.dense.weight",
+    "bert.encoder.layer.7.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.7.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.7.attention.output.dense.bias",
+    "bert.encoder.layer.7.attention.output.dense.weight",
+    "bert.encoder.layer.7.attention.self.key.bias",
+    "bert.encoder.layer.7.attention.self.key.weight",
+    "bert.encoder.layer.7.attention.self.query.bias",
+    "bert.encoder.layer.7.attention.self.query.weight",
+    "bert.encoder.layer.7.attention.self.value.bias",
+    "bert.encoder.layer.7.attention.self.value.weight",
+    "bert.encoder.layer.7.intermediate.dense.bias",
+    "bert.encoder.layer.7.intermediate.dense.weight",
+    "bert.encoder.layer.7.output.LayerNorm.bias",
+    "bert.encoder.layer.7.output.LayerNorm.weight",
+    "bert.encoder.layer.7.output.dense.bias",
+    "bert.encoder.layer.7.output.dense.weight",
+    "bert.encoder.layer.8.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.8.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.8.attention.output.dense.bias",
+    "bert.encoder.layer.8.attention.output.dense.weight",
+    "bert.encoder.layer.8.attention.self.key.bias",
+    "bert.encoder.layer.8.attention.self.key.weight",
+    "bert.encoder.layer.8.attention.self.query.bias",
+    "bert.encoder.layer.8.attention.self.query.weight",
+    "bert.encoder.layer.8.attention.self.value.bias",
+    "bert.encoder.layer.8.attention.self.value.weight",
+    "bert.encoder.layer.8.intermediate.dense.bias",
+    "bert.encoder.layer.8.intermediate.dense.weight",
+    "bert.encoder.layer.8.output.LayerNorm.bias",
+    "bert.encoder.layer.8.output.LayerNorm.weight",
+    "bert.encoder.layer.8.output.dense.bias",
+    "bert.encoder.layer.8.output.dense.weight",
+    "bert.encoder.layer.9.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.9.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.9.attention.output.dense.bias",
+    "bert.encoder.layer.9.attention.output.dense.weight",
+    "bert.encoder.layer.9.attention.self.query.bias",
+    "bert.encoder.layer.9.attention.self.query.weight",
+    "bert.encoder.layer.9.attention.self.value.bias",
+    "bert.encoder.layer.9.attention.self.value.weight",
+    "bert.encoder.layer.9.output.LayerNorm.bias",
+    "bert.encoder.layer.9.output.LayerNorm.weight",
+    "bert.encoder.layer.9.output.dense.bias",
+    "bert.encoder.layer.9.output.dense.weight",
+    "bert.pooler.dense.bias",
+    "bert.pooler.dense.weight",
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 0.1040001391197708
+}

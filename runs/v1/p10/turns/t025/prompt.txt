@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SAoYbiHkAMdvbiyXypHju7",
+  "content": "F11 only {0.1: np.float64(0.9639), 0.2: np.float64(0.9632), 0.4: np.float64(0.9599), 0.8: np.float64(0.9572)}\njoint lamA 0.2 {0.1: np.float64(0.9719), 0.2: np.float64(0.9719), 0.4: np.float64(0.9746), 0.8: np.float64(0.9726)}\njoint lamA 0.4 {0.1: np.float64(0.9733), 0.2: np.float64(0.9733), 0.4: np.float64(0.9746), 0.8: np.float64(0.9726)}\njoint lamA 0.8 {0.1: np.float64(0.9746), 0.2: np.float64(0.9766), 0.4: np.float64(0.9739), 0.8: np.float64(0.9719)}\njoint lamA 1.6 {0.1: np.float64(0.9759), 0.2: np.float64(0.9766), 0.4: np.float64(0.9753), 0.8: np.float64(0.9706)}\njoint lamA 3.2 {0.1: np.float64(0.9766), 0.2: np.float64(0.9759), 0.4: np.float64(0.9746), 0.8: np.float64(0.9706)}\nm0-only lamA 0.1 {0.1: np.float64(0.9766), 0.2: np.float64(0.9753), 0.4: np.float64(0.9753), 0.8: np.float64(0.9713)}\nm0-only lamA 0.3 {0.1: np.float64(0.9746), 0.2: np.float64(0.9766), 0.4: np.float64(0.9753), 0.8: np.float64(0.9686)}\nm0-only lamA 1.0 {0.1: np.float64(0.9746), 0.2: np.float64(0.9753), 0.4: np.float64(0.9746), 0.8: np.float64(0.9672)}\nfull joint (upper ref) {0.1: np.float64(0.9719), 0.2: np.float64(0.9733), 0.4: np.float64(0.9753), 0.8: np.float64(0.9726)}\n[run 20; 280 code runs left; 6 forward passes left]"
+ }
+]

@@ -1,0 +1,23 @@
+{
+ "stop_reason": "tool_use",
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 813
+  },
+  "cache_creation_input_tokens": 813,
+  "cache_read_input_tokens": 79174,
+  "inference_geo": "global",
+  "input_tokens": 2,
+  "output_tokens": 526,
+  "output_tokens_details": {
+   "thinking_tokens": 274
+  },
+  "server_tool_use": null,
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ "cost_usd": 0.0304278,
+ "model": "claude-opus-5-5",
+ "request_id": null
+}

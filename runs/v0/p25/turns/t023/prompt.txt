@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LWU2MdaBWYzt9t4X1q64sx",
+  "content": "101 102\ncls0 const? 0.0\ndistinct tokens used 3413\nconstraints rank 163 free dims 605\n1e-06 |r| 0.128 used tokens r.x: mean abs 0.022 max 0.1479 99pct 0.079 | all vocab max 0.927 check eC 1.0\n0.0001 |r| 0.13 used tokens r.x: mean abs 0.0221 max 0.1402 99pct 0.0793 | all vocab max 0.926 check eC 1.0\n0.001 |r| 0.134 used tokens r.x: mean abs 0.0232 max 0.1142 99pct 0.0809 | all vocab max 0.926 check eC 1.0000000000000004\n[run 19; 281 code runs left; 20 forward passes left]"
+ }
+]

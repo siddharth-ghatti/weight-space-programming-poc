@@ -1,0 +1,23 @@
+{
+  "name": "p00",
+  "passes": 0,
+  "passes_used": 0,
+  "passes_failed": 0,
+  "code_runs": 27,
+  "turn": 28,
+  "conv_turn": 28,
+  "conversation": 1,
+  "cost_usd": 2.6469093999999997,
+  "input_tokens": 58,
+  "output_tokens": 80718,
+  "cache_read_tokens": 1675387,
+  "cache_write_tokens": 139448,
+  "lint_rejections_in_row": 0,
+  "lint_rejections_total": 0,
+  "idle_replies_in_row": 0,
+  "cap_notice_sent": false,
+  "done": true,
+  "end_reason": "submitted",
+  "started": 1793752799.840176,
+  "last_pass_summary": "(none yet)"
+}

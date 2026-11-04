@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Huj53v1xy9ZLbEDu1zeQhC",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"base\",\n \"n_texts\": 64,\n \"layers\": [\n  0,\n  6,\n  11\n ],\n \"files\": {\n  \"meta\": \"pass_4/meta.json\",\n  \"token_hidden_L0\": \"pass_4/token_hidden_L0.npy\",\n  \"token_hidden_L6\": \"pass_4/token_hidden_L6.npy\",\n  \"token_hidden_L11\": \"pass_4/token_hidden_L11.npy\",\n  \"attention_mask\": \"pass_4/attention_mask.npy\",\n  \"tokens\": \"pass_4/tokens.json\"\n },\n \"shapes\": {\n  \"token_hidden_L0\": [\n   64,\n   54,\n   768\n  ],\n  \"token_hidden_L6\": [\n   64,\n   54,\n   768\n  ],\n  \"token_hidden_L11\": [\n   64,\n   54,\n   768\n  ],\n  \"attention_mask\": [\n   64,\n   54\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 4,\n \"duration_s\": 0.58,\n \"passes_left\": 21\n}"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01CWyJZfSb9HArMMFHpKrmPZ",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"base\",\n \"n_texts\": 64,\n \"layers\": [\n  0,\n  6,\n  11\n ],\n \"files\": {\n  \"meta\": \"pass_5/meta.json\",\n  \"token_hidden_L0\": \"pass_5/token_hidden_L0.npy\",\n  \"token_hidden_L6\": \"pass_5/token_hidden_L6.npy\",\n  \"token_hidden_L11\": \"pass_5/token_hidden_L11.npy\",\n  \"attention_mask\": \"pass_5/attention_mask.npy\",\n  \"tokens\": \"pass_5/tokens.json\"\n },\n \"shapes\": {\n  \"token_hidden_L0\": [\n   64,\n   51,\n   768\n  ],\n  \"token_hidden_L6\": [\n   64,\n   51,\n   768\n  ],\n  \"token_hidden_L11\": [\n   64,\n   51,\n   768\n  ],\n  \"attention_mask\": [\n   64,\n   51\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 5,\n \"duration_s\": 0.5,\n \"passes_left\": 20\n}"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PwB91jV9P3dot2bGriWhNv",
+  "content": "1946\nrandom (np.float64(0.994), array([0.9926, 0.9947, 0.9947])) 7.953560829162598\npiv (np.float64(0.994), array([0.9933, 0.994 , 0.9947])) 29.81209087371826\n\n[stderr]\n/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0132.py:141: RuntimeWarning: overflow encountered in square\n  g=(Kcc[i]-G[:j,i]@G[:j])/np.sqrt(max(d[i],1e-12)); G[j]=g; d=d-g**2; d[sel]=-np.inf\n/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0132.py:141: RuntimeWarning: overflow encountered in divide\n  g=(Kcc[i]-G[:j,i]@G[:j])/np.sqrt(max(d[i],1e-12)); G[j]=g; d=d-g**2; d[sel]=-np.inf\n[run 140; 160 code runs left; 10 forward passes left]"
+ }
+]

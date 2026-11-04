@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017qtoujoNgtQ88P8hzeHdUw",
+  "content": "prac 0.3 0.01 (np.float64(0.9816), np.float64(0.9816), array([0.9853, 0.9786, 0.9826, 0.9799])) 1\n+m 0.3 0.005 (np.float64(0.9866), np.float64(0.9866), array([0.986 , 0.986 , 0.9886, 0.986 ])) 5\n+m3 0.3 0.03 (np.float64(0.9841), np.float64(0.9841), array([0.9853, 0.982 , 0.9846, 0.9846])) 7\n+m3m4 0.3 0.03 (np.float64(0.987), np.float64(0.987), array([0.9853, 0.986 , 0.9893, 0.9873])) 13\n+all 0.3 0.03 (np.float64(0.9898), np.float64(0.9898), array([0.9886, 0.9886, 0.9926, 0.9893])) 23\n[run 115; 185 code runs left; 12 forward passes left]"
+ }
+]

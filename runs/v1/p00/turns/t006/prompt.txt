@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01EWiEvSnfvCGwBNTWP4xUn6",
+  "content": "(no output)\n[run 5; 295 code runs left; 0 forward passes left]"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01GfztyjX9urpDEgySLCht5g",
+  "content": "approx ridge [(0.03, np.float64(0.9492)), (0.1, np.float64(0.9545)), (0.3, np.float64(0.9599)), (1, np.float64(0.9499)), (3, np.float64(0.9305))] lda [(0.01, np.float64(0.9325)), (0.05, np.float64(0.9492)), (0.1, np.float64(0.9545)), (0.3, np.float64(0.9586))]\nword ridge [(0.03, np.float64(0.9485)), (0.1, np.float64(0.9545)), (0.3, np.float64(0.9606)), (1, np.float64(0.9499)), (3, np.float64(0.9305))] lda [(0.01, np.float64(0.9325)), (0.05, np.float64(0.9485)), (0.1, np.float64(0.9532)), (0.3, np.float64(0.9592))]\nnone ridge [(0.03, np.float64(0.9505)), (0.1, np.float64(0.9545)), (0.3, np.float64(0.9586)), (1, np.float64(0.9505)), (3, np.float64(0.9325))] lda [(0.01, np.float64(0.9311)), (0.05, np.float64(0.9505)), (0.1, np.float64(0.9566)), (0.3, np.float64(0.9592))]\n[run 6; 294 code runs left; 0 forward passes left]"
+ }
+]

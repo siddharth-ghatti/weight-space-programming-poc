@@ -1,0 +1,26 @@
+# Default run configuration. Override any key from the CLI: scripts/run.py --passes 25 --name p25
+editor_model: claude-opus-5-5
+effort: xhigh            # low | medium | high | xhigh | max
+max_tokens: 64000
+thinking_display: summarized
+
+passes: 10               # forward-pass budget (0 / 10 / 25 / 50)
+max_code_runs: 300
+max_turns: 400
+handoff_every: 40        # fresh conversation every N turns, with a handoff message
+explain_from_turn: 0     # 0 = never require plain-English explanation before code
+dollar_cap: 150.0        # hard per-run cap on API spend
+allow_free_texts: false  # v1 rule 6: forward_pass on practice ids only (no self-authored data)
+
+sandbox:
+  timeout_s: 900
+  stdout_cap: 20000
+  stderr_tail: 6000
+  use_sandbox_exec: true   # macOS: deny network + restrict writes to /work
+
+# Opus 5.5 first-party prices per million tokens (used for the dollar cap)
+prices:
+  input: 4.0
+  output: 20.0
+  cache_read: 0.20
+  cache_write: 5.0

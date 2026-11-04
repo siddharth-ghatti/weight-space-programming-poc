@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01ERTPy22TxeNYfF9K1NMoLv",
+  "content": "all 0.02 acc 0.9576 f1 0.9569\nall 0.05 acc 0.9640 f1 0.9632\nall 0.1 acc 0.9640 f1 0.9630\nall 0.2 acc 0.9682 f1 0.9675\nall 0.4 acc 0.9703 f1 0.9694\nnonD 0.02 acc 0.9513 f1 0.9499\nnonD 0.05 acc 0.9640 f1 0.9631\nnonD 0.1 acc 0.9619 f1 0.9609\nnonD 0.2 acc 0.9555 f1 0.9549\nnonD 0.4 acc 0.9576 f1 0.9571\nD 0.02 acc 0.7140 f1 0.7059\nD 0.05 acc 0.7076 f1 0.6999\nD 0.1 acc 0.7076 f1 0.6999\nD 0.2 acc 0.6970 f1 0.6875\nD 0.4 acc 0.6907 f1 0.6790\n[run 18; 282 code runs left; 6 forward passes left]"
+ }
+]

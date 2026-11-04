@@ -1,0 +1,275 @@
+{
+  "run": "p00",
+  "turns": 28,
+  "code_calls": 27,
+  "code_runs": 27,
+  "forward_passes": 0,
+  "cost_usd": 2.6469093999999997,
+  "lint_rejections_total": 0,
+  "flagged_calls": [
+    {
+      "turn": 2,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "notes = \"\"\"# notes.md\n## Constraints\n- 0 forward passes. No simulation of model. Must design weights analytically.\n## Plan (v1)\n- Layer0: attention no-op (attn.output.dense W,b = 0). attn LN gamma=1,beta=0 except 8 feature dims D_f with gamma=0 -> h0[D_f]=0.\n- Layer0 FFN: keyword detector neurons (o"
+    },
+    {
+      "turn": 3,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import scipy.sparse as sp\nP = practice()\nlab2i = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab2i[p['label']] for p in P])\ntoks = tokenize([p['text'] for p in P])\nids = [t['ids'] for t in toks]\nV = 30522\nrows=[];cols=[];vals=[]\nfor i,t in enumerate(ids):\n    for j in t:\n        rows.append(i);"
+    },
+    {
+      "turn": 7,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "lib = r'''\nimport numpy as np, scipy.sparse as sp, json\nfrom pathlib import Path\ndef ln(x, gg, bb, eps=1e-12):\n    m = x.mean(-1,keepdims=True); v = ((x-m)**2).mean(-1,keepdims=True)\n    return (x-m)/np.sqrt(v+eps)*gg+bb\nDF = np.array([145,175,529,121,216,654,159,541])\nclass Emb:\n    def __init__(se"
+    },
+    {
+      "turn": 9,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nCb=np.load('Cb.npy'); Cw=np.load('Cw.npy'); mu=np.load('mu.npy'); K=np.load('K.npy')\nallv=np.arange(30522)\nmpos=[3,15,35]\nMk = sum(em.h0(K,p) for p in mpos)/3\nselfpos = [1,2,4,8,16,32,50,64,80]\nHk = np.stack([em.h0(K,p) for p in sel"
+    },
+    {
+      "turn": 10,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nCb=np.load('Cb.npy'); Cw=np.load('Cw.npy'); mu=np.load('mu.npy'); K=np.load('K.npy')\ninv = {i:t for t,i in vocab().items()}\nallv=np.arange(30522)\nMk = sum(em.h0(K,p) for p in [3,15,35])/3\nC = Cb + 3*Cw + 0.05*np.eye(768)\nU = np.lina"
+    },
+    {
+      "turn": 12,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nimport time\nem = Emb(base)\nCb=np.load('Cb.npy'); Cw=np.load('Cw.npy'); mu=np.load('mu.npy'); K=np.load('K.npy')\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522; alpha=0.3\ncnt=np.zeros((V,8))\nfor c in range(8): cnt[:,c]=np.asarray(X[y==c]"
+    },
+    {
+      "turn": 13,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522\nn = np.array([len(t) for t in ids]); Xtf = sp.diags(1.0/n)@X\nres = {}\nfor seed in [0,1,2]:\n    rng=np.random.RandomState(seed); perm=rng.permutation(len(P)); folds=np.array_split(perm,5)\n  "
+    },
+    {
+      "turn": 14,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nCb=np.load('Cb.npy'); Cw=np.load('Cw.npy'); mu=np.load('mu.npy'); K=np.load('K.npy')\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522; N=len(P)\nn=np.array([len(t) for t in ids]); Xtf=sp.diags(1.0/n)@X\ncnt=np.zeros((V,8))\nfo"
+    },
+    {
+      "turn": 17,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nS=np.load('S_final.npy')\nL='bert.encoder.layer.%d.'\ngam=W(L%0+'attention.output.LayerNorm.weight'); print('zeroed dims', np.where(gam==0)[0], 'DF', DF)\nWi=W(L%0+'intermediate.dense.weight'); bi=W(L%0+'intermediate.dense.bias'); W2=W"
+    },
+    {
+      "turn": 18,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nS=np.load('S_final.npy')\nL='bert.encoder.layer.%d.'\ngam=W(L%0+'attention.output.LayerNorm.weight')\nWi=W(L%0+'intermediate.dense.weight'); bi=W(L%0+'intermediate.dense.bias'); W2=W(L%0+'output.dense.weight'); b2=W(L%0+'output.dense.b"
+    },
+    {
+      "turn": 19,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nS=np.load('S_final.npy')\nL='bert.encoder.layer.%d.'\ngam=W(L%0+'attention.output.LayerNorm.weight')\nWi=W(L%0+'intermediate.dense.weight'); bi=W(L%0+'intermediate.dense.bias'); W2=W(L%0+'output.dense.weight'); b2=W(L%0+'output.dense.b"
+    },
+    {
+      "turn": 20,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "notes = open('notes.md').read()\nnotes += \"\"\"\n## Status (after run 19) -- v1 BUILT AND SAVED (108 edits) via build.py:build_all(base, save_edit)\n- DF = [145,175,529,121,216,654,159,541] (class c score lives in dim DF[c]).\n- Target token-score table S_final.npy = NB(alpha .3, centered)/4 + ridge-TF(la"
+    },
+    {
+      "turn": 21,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522; N=len(P)\nn=np.array([len(t) for t in ids]); Xtf=sp.diags(1.0/n)@X\ndef tables(tr, alpha=0.3, lam=3e-3):\n    cnt=np.zeros((V,8))\n    for c in range(8): cnt[:,c]=np.asarray(X[tr][y[tr]==c].su"
+    },
+    {
+      "turn": 22,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522; N=len(P)\nn=np.array([len(t) for t in ids]); Xtf=sp.diags(1.0/n)@X\nbg={}; rows=[];cols=[]\nfor i,t in enumerate(ids):\n    for a_,b_ in zip(t[:-1],t[1:]):\n        if (a_,b_) not in bg: bg[(a_"
+    },
+    {
+      "turn": 23,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522; N=len(P)\nn=np.array([len(t) for t in ids]); Xtf=sp.diags(1.0/n)@X\nnrm=np.sqrt(np.asarray(X.multiply(X).sum(1)).ravel()); Xl2=sp.diags(1.0/nrm)@X\ndef nb(tr,alpha=0.3):\n    cnt=np.zeros((V,8"
+    },
+    {
+      "turn": 24,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nL='bert.encoder.layer.%d.'\nWi=W(L%0+'intermediate.dense.weight'); bi=W(L%0+'intermediate.dense.bias'); W2=W(L%0+'output.dense.weight')\nK=np.load('K.npy'); S=np.load('S_final.npy')\ninv={i:t for t,i in vocab().items()}\nallv=np.arange("
+    },
+    {
+      "turn": 25,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nL='bert.encoder.layer.%d.'\nWi=W(L%0+'intermediate.dense.weight'); bi=W(L%0+'intermediate.dense.bias'); W2=W(L%0+'output.dense.weight')\nK=np.load('K.npy'); S=np.load('S_final.npy')\ndef outs(tok, pos):\n    H=em.h0(np.array(tok), pos)\n"
+    },
+    {
+      "turn": 26,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nP,y,ids,X = load_data(practice, tokenize, LABELS)\nV=30522; N=len(P)\nn=np.array([len(t) for t in ids]); Xtf=sp.diags(1.0/n)@X\ndef nb(tr,alpha=0.3):\n    cnt=np.zeros((V,8))\n    for c in range(8): cnt[:,c]=np.asarray(X[tr][y[tr]==c].sum(0)).ravel()\n "
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [
+    2,
+    20
+  ],
+  "forward_pass_calls_with_free_texts": [],
+  "edited_tensors": [
+    "bert.encoder.layer.0.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.0.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.0.attention.output.dense.bias",
+    "bert.encoder.layer.0.attention.output.dense.weight",
+    "bert.encoder.layer.0.intermediate.dense.bias",
+    "bert.encoder.layer.0.intermediate.dense.weight",
+    "bert.encoder.layer.0.output.LayerNorm.bias",
+    "bert.encoder.layer.0.output.LayerNorm.weight",
+    "bert.encoder.layer.0.output.dense.bias",
+    "bert.encoder.layer.0.output.dense.weight",
+    "bert.encoder.layer.1.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.1.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.1.attention.output.dense.bias",
+    "bert.encoder.layer.1.attention.output.dense.weight",
+    "bert.encoder.layer.1.attention.self.key.bias",
+    "bert.encoder.layer.1.attention.self.key.weight",
+    "bert.encoder.layer.1.attention.self.query.bias",
+    "bert.encoder.layer.1.attention.self.query.weight",
+    "bert.encoder.layer.1.attention.self.value.bias",
+    "bert.encoder.layer.1.attention.self.value.weight",
+    "bert.encoder.layer.1.output.LayerNorm.bias",
+    "bert.encoder.layer.1.output.LayerNorm.weight",
+    "bert.encoder.layer.1.output.dense.bias",
+    "bert.encoder.layer.1.output.dense.weight",
+    "bert.encoder.layer.10.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.10.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.10.attention.output.dense.bias",
+    "bert.encoder.layer.10.attention.output.dense.weight",
+    "bert.encoder.layer.10.output.LayerNorm.bias",
+    "bert.encoder.layer.10.output.LayerNorm.weight",
+    "bert.encoder.layer.10.output.dense.bias",
+    "bert.encoder.layer.10.output.dense.weight",
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.11.attention.output.dense.bias",
+    "bert.encoder.layer.11.attention.output.dense.weight",
+    "bert.encoder.layer.11.output.LayerNorm.bias",
+    "bert.encoder.layer.11.output.LayerNorm.weight",
+    "bert.encoder.layer.11.output.dense.bias",
+    "bert.encoder.layer.11.output.dense.weight",
+    "bert.encoder.layer.2.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.2.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.2.attention.output.dense.bias",
+    "bert.encoder.layer.2.attention.output.dense.weight",
+    "bert.encoder.layer.2.output.LayerNorm.bias",
+    "bert.encoder.layer.2.output.LayerNorm.weight",
+    "bert.encoder.layer.2.output.dense.bias",
+    "bert.encoder.layer.2.output.dense.weight",
+    "bert.encoder.layer.3.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.3.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.3.attention.output.dense.bias",
+    "bert.encoder.layer.3.attention.output.dense.weight",
+    "bert.encoder.layer.3.output.LayerNorm.bias",
+    "bert.encoder.layer.3.output.LayerNorm.weight",
+    "bert.encoder.layer.3.output.dense.bias",
+    "bert.encoder.layer.3.output.dense.weight",
+    "bert.encoder.layer.4.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.4.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.4.attention.output.dense.bias",
+    "bert.encoder.layer.4.attention.output.dense.weight",
+    "bert.encoder.layer.4.output.LayerNorm.bias",
+    "bert.encoder.layer.4.output.LayerNorm.weight",
+    "bert.encoder.layer.4.output.dense.bias",
+    "bert.encoder.layer.4.output.dense.weight",
+    "bert.encoder.layer.5.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.5.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.5.attention.output.dense.bias",
+    "bert.encoder.layer.5.attention.output.dense.weight",
+    "bert.encoder.layer.5.output.LayerNorm.bias",
+    "bert.encoder.layer.5.output.LayerNorm.weight",
+    "bert.encoder.layer.5.output.dense.bias",
+    "bert.encoder.layer.5.output.dense.weight",
+    "bert.encoder.layer.6.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.6.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.6.attention.output.dense.bias",
+    "bert.encoder.layer.6.attention.output.dense.weight",
+    "bert.encoder.layer.6.output.LayerNorm.bias",
+    "bert.encoder.layer.6.output.LayerNorm.weight",
+    "bert.encoder.layer.6.output.dense.bias",
+    "bert.encoder.layer.6.output.dense.weight",
+    "bert.encoder.layer.7.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.7.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.7.attention.output.dense.bias",
+    "bert.encoder.layer.7.attention.output.dense.weight",
+    "bert.encoder.layer.7.output.LayerNorm.bias",
+    "bert.encoder.layer.7.output.LayerNorm.weight",
+    "bert.encoder.layer.7.output.dense.bias",
+    "bert.encoder.layer.7.output.dense.weight",
+    "bert.encoder.layer.8.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.8.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.8.attention.output.dense.bias",
+    "bert.encoder.layer.8.attention.output.dense.weight",
+    "bert.encoder.layer.8.output.LayerNorm.bias",
+    "bert.encoder.layer.8.output.LayerNorm.weight",
+    "bert.encoder.layer.8.output.dense.bias",
+    "bert.encoder.layer.8.output.dense.weight",
+    "bert.encoder.layer.9.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.9.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.9.attention.output.dense.bias",
+    "bert.encoder.layer.9.attention.output.dense.weight",
+    "bert.encoder.layer.9.output.LayerNorm.bias",
+    "bert.encoder.layer.9.output.LayerNorm.weight",
+    "bert.encoder.layer.9.output.dense.bias",
+    "bert.encoder.layer.9.output.dense.weight",
+    "bert.pooler.dense.bias",
+    "bert.pooler.dense.weight",
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 0.3668834592072555
+}

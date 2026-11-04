@@ -1,0 +1,303 @@
+# Task: turn bert-base-uncased into an insurance sentence classifier by editing its weights
+
+You have the full weights of `bert-base-uncased` (12 layers, hidden 768, 12 heads, uncased WordPiece
+vocab of 30,522) plus a **zero-initialized** classification head `classifier.weight` [8, 768] and
+`classifier.bias` [8]. The classifier is the standard Hugging Face `BertForSequenceClassification`:
+
+    h = encoder(tokens)              # 12 layers, post-LayerNorm BERT
+    pooled = tanh(W_pool · h[CLS] + b_pool)
+    logits = classifier.weight · pooled + classifier.bias
+    prediction = argmax(logits)
+
+Because the head is zero, the unedited model predicts label 0 for everything. Your job is to **write
+and/or edit weights** so the model classifies insurance sentences into these 8 labels
+(index = output position):
+
+0. `coverage_grant` — States what the policy covers or insures: the insuring agreement, covered perils, covered persons/property, benefits payable.
+1. `exclusion` — States what is NOT covered: excluded perils, activities, property, circumstances, or losses the insurer will not pay for.
+2. `premium_payment` — Concerns the premium: amount, due dates, payment methods, grace periods, late fees, premium adjustments or refunds.
+3. `deductible_limits` — Concerns deductibles, co-payments, coinsurance, sub-limits, policy limits, caps, or maximum amounts payable.
+4. `claims_procedure` — Describes how to file, document, or process a claim: notice of loss, proof of loss, claim forms, adjuster contact, timelines for claim submission or payment.
+5. `definitions` — Defines a term used in the policy (e.g. 'Insured means...', 'Occurrence means...'), typically in a Definitions section.
+6. `term_cancellation_renewal` — Concerns the policy period, effective/expiration dates, cancellation by either party, non-renewal, renewal terms, or reinstatement.
+7. `conditions_duties` — States duties or conditions of the insured or insurer other than claims filing: duty to cooperate, disclosure/misrepresentation, subrogation, other insurance, inspections, changes in risk, assignment, arbitration/appraisal.
+
+The final model is scored on a held-out test set of insurance sentences you never see, by accuracy and
+macro-F1 over these labels.
+
+## Data
+
+`practice.jsonl` in your working folder has 1496 labeled practice sentences ({id, text, label}),
+drawn from the same distribution as the test set (lines of business: auto, homeowners, health, life,
+commercial liability, travel, workers' compensation; registers: policy wording, broker summaries,
+claims letters, FAQs). Label counts: coverage_grant: 187, exclusion: 187, premium_payment: 187, deductible_limits: 187, claims_procedure: 187, definitions: 187, term_cancellation_renewal: 187, conditions_duties: 187.
+
+## Rules
+
+1. **No training.** No backward passes, autograd, optimizers, or iterative fitting of any kind.
+   Closed-form math on weights, and on activations returned by forward passes, is allowed.
+2. **Do not run the model inside the sandbox.** Forward computation happens only through the
+   `forward_pass` tool. (The sandbox has no torch or transformers; reimplementing the forward pass in
+   numpy is also forbidden.)
+3. **Editable tensors:** everything under `bert.encoder.*`, `bert.pooler.*`, and `classifier.*`.
+   `bert.embeddings.*` is frozen. `cls.*` (the pretraining MLM/NSP head) is readable but not part of
+   the classifier and not editable.
+4. No internet. Each sandbox run is a fresh process; only files in the working folder persist.
+5. Explain your reasoning in plain English in your messages as you go; keep running notes in
+   `notes.md` in the working folder (they are given back to you if the conversation is restarted).
+6. **No self-authored data.** The only labeled or unlabeled text you may use is `practice.jsonl`.
+   Do not write your own example sentences, paraphrases, keyword or phrase lists, or any other text
+   and use it to fit, calibrate, select, or check weights. `forward_pass` accepts practice ids only.
+   Your deliverable is tensor edits computed from the provided weights, the practice set, and
+   activations of practice sentences.
+
+## Budget
+
+- Forward passes: **50** in total. Each `forward_pass` call that succeeds costs 1, whatever its size.
+- Code runs: **300** in total.
+- When passes are exhausted you may keep editing with code, then call `submit`.
+- Every 40 turns the conversation is restarted with a handoff (task, your notes.md,
+  your current edits, remaining budget).
+
+## Tools
+
+- `run_python(code)`: run Python in the sandbox.
+- `forward_pass(...)`: predict on practice sentences, or read hidden states / pooled output / logits /
+  attention for practice sentences chosen by id. Results land in `pass_<k>/` in the working folder.
+- `submit(final_answer)`: finish; your saved edits are the final model.
+
+## Sandbox prelude
+
+Every code run starts with a prelude that defines (numpy is imported as `np`):
+
+- `catalog()` -> list of {name, shape, editable, in_model} for every tensor.
+- `base(name)` -> float32 numpy copy of the base (unedited) tensor.
+- `W(name)` -> the current tensor: your saved edit if one exists, else the base tensor.
+- `save_edit(name, array)` -> validates (editable, exact shape, finite) and saves to `edits/<name>.npy`.
+  Saving the same name again overwrites. The *edited model* used by forward passes and by the final
+  evaluation is base + all saved edits.
+- `drop_edit(name)`, `edits()` -> manage/list saved edits.
+- `practice()` -> list of {id, text, label} practice sentences (also at `practice.jsonl`).
+- `tokenize(texts)` -> [{ids, tokens}] using the model's WordPiece tokenizer (uncased).
+- `vocab()` -> token -> id dict. Word-embedding row i is token id i.
+- `pass_dirs()` -> folders of completed forward passes; see each folder's files.
+- `WORK` -> Path of the persistent working folder (cwd). Write notes, files, arrays freely.
+- `LABELS`, `NUM_LABELS`, `HIDDEN` constants.
+
+Each run is a fresh process; only files in the working folder persist between runs.
+Available packages: numpy, scipy, safetensors, tokenizers, and the standard library. No torch, no
+transformers, no network.
+
+
+## Tensor catalog
+
+bert.embeddings.LayerNorm.bias  [768]  [frozen]
+bert.embeddings.LayerNorm.weight  [768]  [frozen]
+bert.embeddings.position_embeddings.weight  [512, 768]  [frozen]
+bert.embeddings.token_type_embeddings.weight  [2, 768]  [frozen]
+bert.embeddings.word_embeddings.weight  [30522, 768]  [frozen]
+bert.encoder.layer.0.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.0.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.0.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.0.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.0.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.0.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.0.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.0.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.0.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.0.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.0.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.0.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.0.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.0.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.0.output.dense.bias  [768]  [editable]
+bert.encoder.layer.0.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.1.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.1.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.1.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.1.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.1.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.1.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.1.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.1.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.1.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.1.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.1.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.1.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.1.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.1.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.1.output.dense.bias  [768]  [editable]
+bert.encoder.layer.1.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.10.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.10.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.10.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.10.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.10.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.10.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.10.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.10.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.10.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.10.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.10.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.10.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.10.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.10.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.10.output.dense.bias  [768]  [editable]
+bert.encoder.layer.10.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.11.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.11.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.11.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.11.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.11.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.11.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.11.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.11.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.11.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.11.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.11.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.11.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.11.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.11.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.11.output.dense.bias  [768]  [editable]
+bert.encoder.layer.11.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.2.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.2.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.2.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.2.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.2.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.2.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.2.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.2.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.2.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.2.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.2.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.2.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.2.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.2.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.2.output.dense.bias  [768]  [editable]
+bert.encoder.layer.2.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.3.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.3.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.3.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.3.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.3.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.3.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.3.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.3.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.3.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.3.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.3.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.3.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.3.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.3.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.3.output.dense.bias  [768]  [editable]
+bert.encoder.layer.3.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.4.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.4.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.4.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.4.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.4.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.4.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.4.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.4.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.4.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.4.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.4.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.4.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.4.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.4.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.4.output.dense.bias  [768]  [editable]
+bert.encoder.layer.4.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.5.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.5.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.5.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.5.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.5.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.5.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.5.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.5.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.5.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.5.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.5.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.5.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.5.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.5.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.5.output.dense.bias  [768]  [editable]
+bert.encoder.layer.5.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.6.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.6.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.6.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.6.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.6.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.6.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.6.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.6.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.6.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.6.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.6.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.6.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.6.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.6.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.6.output.dense.bias  [768]  [editable]
+bert.encoder.layer.6.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.7.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.7.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.7.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.7.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.7.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.7.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.7.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.7.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.7.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.7.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.7.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.7.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.7.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.7.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.7.output.dense.bias  [768]  [editable]
+bert.encoder.layer.7.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.8.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.8.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.8.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.8.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.8.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.8.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.8.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.8.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.8.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.8.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.8.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.8.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.8.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.8.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.8.output.dense.bias  [768]  [editable]
+bert.encoder.layer.8.output.dense.weight  [768, 3072]  [editable]
+bert.encoder.layer.9.attention.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.9.attention.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.9.attention.output.dense.bias  [768]  [editable]
+bert.encoder.layer.9.attention.output.dense.weight  [768, 768]  [editable]
+bert.encoder.layer.9.attention.self.key.bias  [768]  [editable]
+bert.encoder.layer.9.attention.self.key.weight  [768, 768]  [editable]
+bert.encoder.layer.9.attention.self.query.bias  [768]  [editable]
+bert.encoder.layer.9.attention.self.query.weight  [768, 768]  [editable]
+bert.encoder.layer.9.attention.self.value.bias  [768]  [editable]
+bert.encoder.layer.9.attention.self.value.weight  [768, 768]  [editable]
+bert.encoder.layer.9.intermediate.dense.bias  [3072]  [editable]
+bert.encoder.layer.9.intermediate.dense.weight  [3072, 768]  [editable]
+bert.encoder.layer.9.output.LayerNorm.bias  [768]  [editable]
+bert.encoder.layer.9.output.LayerNorm.weight  [768]  [editable]
+bert.encoder.layer.9.output.dense.bias  [768]  [editable]
+bert.encoder.layer.9.output.dense.weight  [768, 3072]  [editable]
+bert.pooler.dense.bias  [768]  [editable]
+bert.pooler.dense.weight  [768, 768]  [editable]
+classifier.bias  [8]  [editable]
+classifier.weight  [8, 768]  [editable]
+cls.predictions.bias  [30522]  [read-only, not in classifier]
+cls.predictions.transform.LayerNorm.bias  [768]  [read-only, not in classifier]
+cls.predictions.transform.LayerNorm.weight  [768]  [read-only, not in classifier]
+cls.predictions.transform.dense.bias  [768]  [read-only, not in classifier]
+cls.predictions.transform.dense.weight  [768, 768]  [read-only, not in classifier]
+cls.seq_relationship.bias  [2]  [read-only, not in classifier]
+cls.seq_relationship.weight  [2, 768]  [read-only, not in classifier]
+
+Begin by deciding on a strategy. Every tool call should have a purpose; state it briefly before the call.

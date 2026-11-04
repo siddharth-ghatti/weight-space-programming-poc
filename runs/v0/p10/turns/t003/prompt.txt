@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01VMBUX7rEqHccd3bBoMfJxj",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"base\",\n \"n_texts\": 1,\n \"layers\": [\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_1/meta.json\",\n  \"cls_hidden_L12\": \"pass_1/cls_hidden_L12.npy\"\n },\n \"shapes\": {\n  \"cls_hidden_L12\": [\n   1,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 1,\n \"duration_s\": 3.05,\n \"passes_left\": 9\n}"
+ }
+]

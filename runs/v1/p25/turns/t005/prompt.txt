@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019yjCTiz757NNNqZnMP3cBm",
+  "content": "[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]] ['[CLS]', 'you', 'must', 'answer', 'all'] {'texts': ['You must answer all medical and trip-related questions on the application truthfully, because Meridian may void your policy if you knowingly misrepresent a material fact such as a recent hospitalization or surgery.'], 'labels': ['conditions_duties'], 'model': 'base', 'layers': [12]}\n0.0 0.17556357 0.0\n[run 4; 296 code runs left; 24 forward passes left]"
+ }
+]

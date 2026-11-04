@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01L8iHmm3nmaeWUosYb1bKgf",
+  "content": "0.05 lin {100: np.float64(0.9632), 300: np.float64(0.957), 1000: np.float64(0.9436)} kern {10: np.float64(0.963), 30: np.float64(0.9574)}\n0.1 lin {100: np.float64(0.9672), 300: np.float64(0.9704), 1000: np.float64(0.9608)} kern {10: np.float64(0.9684), 30: np.float64(0.971)}\n0.3 lin {100: np.float64(0.969), 300: np.float64(0.9768), 1000: np.float64(0.9661)} kern {10: np.float64(0.9697), 30: np.float64(0.9764)}\n[run 47; 253 code runs left; 15 forward passes left]"
+ }
+]

@@ -1,0 +1,2817 @@
+{
+  "model_dir": "<repo>/runs/_baselines/finetune/model",
+  "test": {
+    "n": 1779,
+    "accuracy": 0.9724564362001125,
+    "macro_f1": 0.9727340303670826,
+    "confusion_matrix": [
+      [
+        221,
+        4,
+        0,
+        3,
+        0,
+        0,
+        1,
+        4
+      ],
+      [
+        1,
+        223,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        214,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        2,
+        1,
+        220,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        218,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        205,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        217,
+        1
+      ],
+      [
+        2,
+        0,
+        2,
+        0,
+        7,
+        0,
+        2,
+        212
+      ]
+    ],
+    "confusion_labels": [
+      "coverage_grant",
+      "exclusion",
+      "premium_payment",
+      "deductible_limits",
+      "claims_procedure",
+      "definitions",
+      "term_cancellation_renewal",
+      "conditions_duties"
+    ],
+    "weighted_f1": 0.9724161053204546,
+    "per_class": {
+      "coverage_grant": {
+        "precision": 0.973568281938326,
+        "recall": 0.9484978540772532,
+        "f1": 0.9608695652173913,
+        "support": 233
+      },
+      "exclusion": {
+        "precision": 0.9695652173913043,
+        "recall": 0.9867256637168141,
+        "f1": 0.9780701754385964,
+        "support": 226
+      },
+      "premium_payment": {
+        "precision": 0.963963963963964,
+        "recall": 0.9771689497716894,
+        "f1": 0.9705215419501134,
+        "support": 219
+      },
+      "deductible_limits": {
+        "precision": 0.9649122807017544,
+        "recall": 0.9777777777777777,
+        "f1": 0.9713024282560706,
+        "support": 225
+      },
+      "claims_procedure": {
+        "precision": 0.9688888888888889,
+        "recall": 0.9819819819819819,
+        "f1": 0.9753914988814317,
+        "support": 222
+      },
+      "definitions": {
+        "precision": 1.0,
+        "recall": 0.9951456310679612,
+        "f1": 0.9975669099756691,
+        "support": 206
+      },
+      "term_cancellation_renewal": {
+        "precision": 0.9819004524886877,
+        "recall": 0.9730941704035875,
+        "f1": 0.9774774774774775,
+        "support": 223
+      },
+      "conditions_duties": {
+        "precision": 0.9592760180995475,
+        "recall": 0.9422222222222222,
+        "f1": 0.9506726457399103,
+        "support": 225
+      }
+    }
+  },
+  "practice": {
+    "n": 1496,
+    "accuracy": 0.9939839572192514,
+    "macro_f1": 0.9939693889474865,
+    "confusion_matrix": [
+      [
+        185,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        187,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        186,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        187,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        187,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        186,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        182
+      ]
+    ],
+    "confusion_labels": [
+      "coverage_grant",
+      "exclusion",
+      "premium_payment",
+      "deductible_limits",
+      "claims_procedure",
+      "definitions",
+      "term_cancellation_renewal",
+      "conditions_duties"
+    ],
+    "weighted_f1": 0.9939693889474867,
+    "per_class": {
+      "coverage_grant": {
+        "precision": 0.9893048128342246,
+        "recall": 0.9893048128342246,
+        "f1": 0.9893048128342246,
+        "support": 187
+      },
+      "exclusion": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 187
+      },
+      "premium_payment": {
+        "precision": 0.9894179894179894,
+        "recall": 1.0,
+        "f1": 0.9946808510638299,
+        "support": 187
+      },
+      "deductible_limits": {
+        "precision": 0.9946524064171123,
+        "recall": 0.9946524064171123,
+        "f1": 0.9946524064171123,
+        "support": 187
+      },
+      "claims_procedure": {
+        "precision": 0.9894179894179894,
+        "recall": 1.0,
+        "f1": 0.9946808510638299,
+        "support": 187
+      },
+      "definitions": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 187
+      },
+      "term_cancellation_renewal": {
+        "precision": 0.9946524064171123,
+        "recall": 0.9946524064171123,
+        "f1": 0.9946524064171123,
+        "support": 187
+      },
+      "conditions_duties": {
+        "precision": 0.994535519125683,
+        "recall": 0.9732620320855615,
+        "f1": 0.9837837837837837,
+        "support": 187
+      }
+    }
+  },
+  "generalization_gap": 0.021527521019138907,
+  "edit_manifest": {
+    "base_model": "bert-base-uncased",
+    "num_edited_tensors": 201,
+    "total_changed_entries": 109488076,
+    "total_model_params": 109488392,
+    "fraction_of_model_changed": 0.9999971138492928,
+    "tensors": [
+      {
+        "name": "bert.embeddings.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007019632030278444,
+        "frobenius_base": 1.994493007659912,
+        "sha256_base": "bcb19e40f31d097497a348b212cc0b65dc3957de6f1e791b1eb3597c0ecc3267",
+        "sha256_edited": "9fa1b80e43502d2c7ee001ed33f1cb805d5911d9236fda4502c4eb0a30c815c9"
+      },
+      {
+        "name": "bert.embeddings.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008328983560204506,
+        "frobenius_base": 23.82744789123535,
+        "sha256_base": "814625660a10e9c4f5f4bc0062733fb1e41b9307698166a7652c777afb833a1d",
+        "sha256_edited": "7d9f36acdad704982c18b66a91b0df08cc5a07bf2beb0f62564ce03fea7eba43"
+      },
+      {
+        "name": "bert.embeddings.position_embeddings.weight",
+        "shape": [
+          512,
+          768
+        ],
+        "changed_entries": 393215,
+        "fraction_changed": 0.9999974568684896,
+        "frobenius_delta": 0.05020005628466606,
+        "frobenius_base": 10.07628059387207,
+        "sha256_base": "94bcadc1afb3b760a8829ddf2b3f37579c8bfbb8b671345fc9a33f506901db69",
+        "sha256_edited": "bc6e7d9b620b90d1f315768d3e54c307d5d030e4e834ab84427116f85fed7a03"
+      },
+      {
+        "name": "bert.embeddings.token_type_embeddings.weight",
+        "shape": [
+          2,
+          768
+        ],
+        "changed_entries": 1536,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00696396641433239,
+        "frobenius_base": 1.315132737159729,
+        "sha256_base": "d72ce5fb1c016ed08db28345054f91d67567d87c6191b46f6875a5c03cd233ee",
+        "sha256_edited": "ae889cbdc4dac09d9fbc8393cfe17ed79945f1079df1e1dd8c96720d0912ecf1"
+      },
+      {
+        "name": "bert.embeddings.word_embeddings.weight",
+        "shape": [
+          30522,
+          768
+        ],
+        "changed_entries": 23440877,
+        "fraction_changed": 0.9999991894507787,
+        "frobenius_delta": 0.320174902677536,
+        "frobenius_base": 247.1409149169922,
+        "sha256_base": "ca6b51539e1d8c14f11e946a2e6f87a2f547aa0f8d17c15f1c92299d51cd8105",
+        "sha256_edited": "69a9e70a795fa47f410c0398632533dcf4e2525f49b78fc451276619e8e242a9"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0072221518494188786,
+        "frobenius_base": 9.130654335021973,
+        "sha256_base": "eebf956d7a549ddf82855f24042365c4f92ac8162e5e95b14b8bd55445dba61a",
+        "sha256_edited": "83f65edf4da2347f79ec91b47cb6bed3d3cad1b8b0fc7d6ffb34113589e50e05"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00822493713349104,
+        "frobenius_base": 26.662593841552734,
+        "sha256_base": "9a0fad44bd379565c833a1632ec622abbff1fee5dfeb2f152edbd31c7e0a05fb",
+        "sha256_edited": "e0f92202a22ebc78c9fefafe57ad75ffc25537a91608a5f31d644bfa87243b19"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007206115406006575,
+        "frobenius_base": 0.983100175857544,
+        "sha256_base": "a0c792c3878108cf766a32592cbf4b30aa9516cb77d79d9eb88a397482a39192",
+        "sha256_edited": "33ae4b9e3c1892e3e44e84e3d5c6878fbd3fe3397294b4542f1ea207d584c453"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.22087933123111725,
+        "frobenius_base": 21.946699142456055,
+        "sha256_base": "44d59c5ed7bb9dbb288af0f2447160bdbe27497a1806dd8997649be42d4e43f8",
+        "sha256_edited": "81adddd048753a0b0098608c5f4239fd8955948f4ed4b8428b2d6bfdb6390aea"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 5.575311661232263e-06,
+        "frobenius_base": 0.08869493007659912,
+        "sha256_base": "05bf49a4db278020d10aef67e3d87068306bb9dc62ac031da14f175cc193cd1d",
+        "sha256_edited": "b2be092195562cb7cce73756845f71a0529175c234eadf2b9c38601095baf5ab"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.19752095639705658,
+        "frobenius_base": 32.86179733276367,
+        "sha256_base": "711f4c0c3e59867af90f667f9460c318bfc6d28ba6b44fe0f86bde1b94fdc17c",
+        "sha256_edited": "28b0884766f1e30f50ea34c861f7fd6de5a024eb728292e223d7781a899aa216"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008718372322618961,
+        "frobenius_base": 7.7805962562561035,
+        "sha256_base": "611c3b57a8c34f88ce0be96d77469a724d7a5fc6378c09e6d7c53eccd2d365d4",
+        "sha256_edited": "719e03b79738f5b3d0c377a3484347fb5aa76a6eef466e9a6550eb4ee49bcb57"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.19653165340423584,
+        "frobenius_base": 33.11570358276367,
+        "sha256_base": "b20d8b82ad5e96bade7984a74e6a62a3b319abb78744a239ebb96bbc28252ed3",
+        "sha256_edited": "39ce7359bba6b2e0b0671a34b24272f7f08ca528aa9249b96a7b5e1b0193a8eb"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0073009394109249115,
+        "frobenius_base": 1.128749966621399,
+        "sha256_base": "8d37cd5ad45814c3f36ecfd83d1c32a266f6c5340b0a995e01f74fcf26851070",
+        "sha256_edited": "406270009974db88ef1e8c8a28df580876e54e782b0e58408ee000d1bfc1d7f5"
+      },
+      {
+        "name": "bert.encoder.layer.0.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.2175850123167038,
+        "frobenius_base": 22.126785278320312,
+        "sha256_base": "b999b3947545cd7e5366f63282cf8cc86db36cff3028765ca457e2c926de5988",
+        "sha256_edited": "1c3cc8f32f4c50cae2444b67e8ea37016e47bbb0193069d1b390c31f4c943cda"
+      },
+      {
+        "name": "bert.encoder.layer.0.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.015342582948505878,
+        "frobenius_base": 6.587802410125732,
+        "sha256_base": "4ec47844dca2c51c5a4cdf2d099a675ddff55a63534bf1fc64329d3c9f3c9993",
+        "sha256_edited": "a093334f51420fabd3288f112905b9d4e3ce3027d8efddb5299f459e453090f6"
+      },
+      {
+        "name": "bert.encoder.layer.0.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359286,
+        "fraction_changed": 0.9999957614474826,
+        "frobenius_delta": 0.4104822874069214,
+        "frobenius_base": 57.47944641113281,
+        "sha256_base": "1b8aef667b9e581a3486e9a6fadfded968895eaade5f6e1241d7f50545f88c99",
+        "sha256_edited": "eaee0822e0248656f079e49afcfa64ba9a799b5ab0ec1e08081f9d4d1de13e8b"
+      },
+      {
+        "name": "bert.encoder.layer.0.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006748537998646498,
+        "frobenius_base": 2.911602258682251,
+        "sha256_base": "809cd0d77a9c298ad839c3d70f02531f78d6040eeed9c7d2afe27b4902641c3f",
+        "sha256_edited": "066869555801fd2da6e26a15d48636560f12453472efb044c3760349f1b098b5"
+      },
+      {
+        "name": "bert.encoder.layer.0.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007967323996126652,
+        "frobenius_base": 21.005329132080078,
+        "sha256_base": "8b410b09b5313ce977de3d7dc156ab4085742706ad61d43804d606b38c1232e9",
+        "sha256_edited": "0a658eebc9ccec85f831ed2c1f0da02d7c2ad768c679c9adcc39d78464090c46"
+      },
+      {
+        "name": "bert.encoder.layer.0.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006765154656022787,
+        "frobenius_base": 2.2224388122558594,
+        "sha256_base": "92f3dc6e2b0f91a733c22e00586d03e273736f9d7d2e28b2d5e5177a1f7ddfb6",
+        "sha256_edited": "b62e04be65aed908186fbfd5c436f05cea1bbf2b89b23d54f658d737d0c4bc3b"
+      },
+      {
+        "name": "bert.encoder.layer.0.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359286,
+        "fraction_changed": 0.9999957614474826,
+        "frobenius_delta": 0.40936344861984253,
+        "frobenius_base": 55.061614990234375,
+        "sha256_base": "156bb78eda8e324542931d598c0676f191a56bfba25a972b6a47f64e70608a7e",
+        "sha256_edited": "fd94ad0a7c60cae8e9977717eb108e3ac8e92a609ac02debe154ea4c245d285d"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006863046903163195,
+        "frobenius_base": 5.3839240074157715,
+        "sha256_base": "5f22c474b9ed5c3726cb8582bc8fd7665685600e40215bc525d916fe508f3dd2",
+        "sha256_edited": "f2e8ffd15c98272b86ef9db7a20f184a7b118d99410c9d9d11b5b2a3e7e9fcb6"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008186372928321362,
+        "frobenius_base": 24.38959312438965,
+        "sha256_base": "125bde8de79ae44ef49ce002348eb42aa5871f3cb052f18898365f96ffe415d4",
+        "sha256_edited": "46a232a8cef6c17cd5a7bb85e6d87b47fa3474c7c8280cff7b1d56e76f7ba5f5"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006856039632111788,
+        "frobenius_base": 1.6725172996520996,
+        "sha256_base": "389dfde10a20995e9b2c96df249a35a9c1c70fa60ac22473580adf4dd0e8ccc7",
+        "sha256_edited": "a6c373a2ff96eae63b2baecf2f7414aaac9690ec277f3345865d8665f32b66b5"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589818,
+        "fraction_changed": 0.9999898274739584,
+        "frobenius_delta": 0.20917204022407532,
+        "frobenius_base": 21.504133224487305,
+        "sha256_base": "ca276fcae190b2b3ec1746277c01ffe10c04cb3a6f6548d2dc2b229f4d09a7fc",
+        "sha256_edited": "f989d8bc2d4ccf91f557daf272b2a79de81b8cf1fdb2a1bf79e4f297ef6ae1d4"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 6.612578999920515e-06,
+        "frobenius_base": 0.14197111129760742,
+        "sha256_base": "c6b8d02038bf9f3f58187623e329e7cfb52b669668079f257e8f5045a4d27e36",
+        "sha256_edited": "9e33eb21e90c6af0b531ac260b33b857aa4b7ed2741ca4cf023073fa33768e89"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.18948350846767426,
+        "frobenius_base": 32.65922546386719,
+        "sha256_base": "1bdf8d8b0303c1564de56b45959df2b85505685f1916d286ccbb81e0673f7c27",
+        "sha256_edited": "2514ff002c580dbfb06bbd4b3684a42b18aa8bddacc3805ebdd652265ca74e18"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006554892752319574,
+        "frobenius_base": 5.0236711502075195,
+        "sha256_base": "01dbca240072453c586bbcb4b5eb207af1579346fcfd2d6b341c0b21bee166bb",
+        "sha256_edited": "98f3daac372d169abaf583bf7160fc0d2a284c6f50a65d2a34c314d9a79a1365"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.19293014705181122,
+        "frobenius_base": 32.66569900512695,
+        "sha256_base": "dafa785c7e4eef42024d5237f0021d17ca8fa5acdc53527849e2ead8a7abc8b7",
+        "sha256_edited": "bde073e9aeee2da2cae4f1c1a8ffdd56d6dcdcbfdafd4849a27254c82bc969fa"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006953494157642126,
+        "frobenius_base": 1.1612863540649414,
+        "sha256_base": "a94c51510f4043e8c1577d741ecf1ed284cff9c862a723b86082e3d7d1466714",
+        "sha256_edited": "15b32b93657011948074fe9b9466c6418926c5af91c7bcc51664b5846d52f7ff"
+      },
+      {
+        "name": "bert.encoder.layer.1.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.20816031098365784,
+        "frobenius_base": 21.783493041992188,
+        "sha256_base": "5c986ce6aa5f1044bfef9e081c8ca88db0f6b42dc0785c81c2abff075241fe2f",
+        "sha256_edited": "7e570048e67cee443a7481f0c7e25473321f589b844754e5be846babc3a2c01c"
+      },
+      {
+        "name": "bert.encoder.layer.1.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.015116453170776367,
+        "frobenius_base": 6.17376708984375,
+        "sha256_base": "4d6845e142fb9b5107948a9d91a027f24676024ce0f76ea9bbb354497b3cc23c",
+        "sha256_edited": "cdb03cee60693f0d0abbc7b3d97925084d29ca10161075f408656e16dae498bf"
+      },
+      {
+        "name": "bert.encoder.layer.1.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359285,
+        "fraction_changed": 0.9999953375922309,
+        "frobenius_delta": 0.41070863604545593,
+        "frobenius_base": 60.24995422363281,
+        "sha256_base": "87b5cbef986ca784cee3c8e106a12d5c48991883360b53b5dc5aa137c5b7acf7",
+        "sha256_edited": "3c2a2ecbf4d5bcf5e5018a21e717da2c69cb6d1f3b653236d72585b7bd393b29"
+      },
+      {
+        "name": "bert.encoder.layer.1.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0067731961607933044,
+        "frobenius_base": 2.5639712810516357,
+        "sha256_base": "fc144ab0a480c30868c36f135dc06253bd084df86fa2653c0e9cc793479d83ab",
+        "sha256_edited": "f7574f0373cff2cae04d652a174750dee2e6244a9e5275ef7616b9bc0f0320ad"
+      },
+      {
+        "name": "bert.encoder.layer.1.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007965621538460255,
+        "frobenius_base": 24.172842025756836,
+        "sha256_base": "82046fca311367786848bf967bb2244d14f4dcafd3bb6c6b4cd93ad05e9ac935",
+        "sha256_edited": "6066915374b9a319375432be74aac836efa3cacd60b0bc0f72284c8b6bb1f306"
+      },
+      {
+        "name": "bert.encoder.layer.1.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006759111303836107,
+        "frobenius_base": 1.678532600402832,
+        "sha256_base": "66595c52083ddbf7216f89cc1164bc34081da1807d1cf04150ad1d8e1bb1b3ee",
+        "sha256_edited": "afdd223471759cacf87e708c4e93e8567a1f3b0258f0d060fe292b058de9ce23"
+      },
+      {
+        "name": "bert.encoder.layer.1.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359286,
+        "fraction_changed": 0.9999957614474826,
+        "frobenius_delta": 0.40234094858169556,
+        "frobenius_base": 58.15859603881836,
+        "sha256_base": "d94d8adaf013e2b5394bcc7122d3127a149ce7976200153d8ba7205a715d2ce2",
+        "sha256_edited": "795e6f8c93c79f315536126df8010228a522cf0a7ed0b143b427091425feb8f5"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007397266570478678,
+        "frobenius_base": 3.648313522338867,
+        "sha256_base": "9208eb4c52f057b4e3fd640b608f807a35c97918f534874723e429062b25e41c",
+        "sha256_edited": "613a9a8fba05e645506a46461a15fcca6376259a77cc5e47615fbd39aecbb629"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.011048881337046623,
+        "frobenius_base": 23.58481216430664,
+        "sha256_base": "d15e03bd4b1733fbe8477994eac27e5e63298f619267ba0dcd46f2a92a7e68f9",
+        "sha256_edited": "18b7f03cb3f3afdae4b3fd2e06d93e28fb01e9720f6c836242c24d639bc05d1b"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007021662779152393,
+        "frobenius_base": 1.4604945182800293,
+        "sha256_base": "4ae5a60bfb8e9beb9716ba5971441b061d8c4364f2ccc382ca61f77d394f6e2f",
+        "sha256_edited": "46e6d5b588cd50df1965885f074702476ac4102e7da3296c658865b2abd50701"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.325910359621048,
+        "frobenius_base": 25.615209579467773,
+        "sha256_base": "bf7157a4258660235f8b448451c439e810e923af63236eda8313195104d11845",
+        "sha256_edited": "400b573faf0a590a4d6f3787dc5205de05db6d8e98c0a533abef0a38cd7040f5"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 1.408549360348843e-05,
+        "frobenius_base": 0.17613044381141663,
+        "sha256_base": "17a5c370bf1bc3c667477c43d87533cf342061cfe9741d48c93ef6a7b6392fb5",
+        "sha256_edited": "d6550d93dd31c059ef8d3cf5b8932b6ebceb24618c20f0f8dc031d3dab425d29"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589819,
+        "fraction_changed": 0.9999915228949653,
+        "frobenius_delta": 0.2092439830303192,
+        "frobenius_base": 35.11603546142578,
+        "sha256_base": "54aaeae3e1cfdb6333c5a94e8713282e1a1ca28e975f55ae826b921014dd0ec5",
+        "sha256_edited": "8a8d0ce72f57e6813268b64f99123595f61c01e612e7d01b4b686d36c849a3f9"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009471987374126911,
+        "frobenius_base": 6.375714302062988,
+        "sha256_base": "663b2b8fcf48573c97118daf41a590f9e162cfde9b0712933942ab689b4b1d8d",
+        "sha256_edited": "f076d9877cd595967b4b682fec6b0e7916bdf2a28c87daeabe2b8dbaf4dde74f"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.2143455594778061,
+        "frobenius_base": 35.31192398071289,
+        "sha256_base": "bc8f0ea71232219b7cff0dbebaf504197daf108e7151a29200bb845761f508c8",
+        "sha256_edited": "2acb40aaf7a1d410aac3e65452568219ad6d33f7eb0e498f381aa9a2251dab8f"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007360135205090046,
+        "frobenius_base": 0.7817604541778564,
+        "sha256_base": "b26e58e381dcf33696850c41aaa4e529f18a3899b9db9d0e4c4577bcbb8629d8",
+        "sha256_edited": "27074998952c58de5018875db5bf4ac1ea4506781875f95434b012c188a37e20"
+      },
+      {
+        "name": "bert.encoder.layer.10.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.3343597650527954,
+        "frobenius_base": 27.332365036010742,
+        "sha256_base": "7b66c220fe4b1bc426ccfece0a37cd046147f18c6e525fb8c96f8dd90d0975c0",
+        "sha256_edited": "adebc9ffb2e4370fe736bfd3ccceac109f1a5073410087687d18e0a49fa1997a"
+      },
+      {
+        "name": "bert.encoder.layer.10.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.023758459836244583,
+        "frobenius_base": 6.157512664794922,
+        "sha256_base": "344327acfa4a8f42307129044e7879639b69cf96963c1bdc519460ead0b52887",
+        "sha256_edited": "8b3eb438180ffc88e5249b306601b21a7ea45eb4708687e58efcf96222f59c7b"
+      },
+      {
+        "name": "bert.encoder.layer.10.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359284,
+        "fraction_changed": 0.9999949137369791,
+        "frobenius_delta": 0.6366955041885376,
+        "frobenius_base": 59.817901611328125,
+        "sha256_base": "2ee42cbc839ebe3f6b340d736acee7d3279caf8124665e2958974d8eaec52a71",
+        "sha256_edited": "346b9547a235bae5e439da2de16bbe68d26f7ecf4ca7864281c50944eaaeb5c2"
+      },
+      {
+        "name": "bert.encoder.layer.10.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008954132907092571,
+        "frobenius_base": 2.1940085887908936,
+        "sha256_base": "d9ead29f8e7495b77561fcb31b6c7e4af65f448e9ca011c14845fc1196d4acbd",
+        "sha256_edited": "22017873fd3e7916f595ef41531c9b4bd2495942f4fa804f35f5fb39269544ce"
+      },
+      {
+        "name": "bert.encoder.layer.10.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.012819875031709671,
+        "frobenius_base": 22.713991165161133,
+        "sha256_base": "e987554b5f9a7846c59305f3ebd3f97f9cb9e284e08b3500c69857a4ebe6179a",
+        "sha256_edited": "d70190c5c616ac78d28a49aa287c3d75171aecaec1cc8115ca7facb66e7a2906"
+      },
+      {
+        "name": "bert.encoder.layer.10.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008638482540845871,
+        "frobenius_base": 2.8406758308410645,
+        "sha256_base": "1c46adc5adeb077a31a5bbbb7012dc0b15321c936d5be42ca533410d69eadd04",
+        "sha256_edited": "b784f99d031e9debb556520a54a709a9ffb5a1d00e4de8b1cb0d8e6d4ed46916"
+      },
+      {
+        "name": "bert.encoder.layer.10.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359294,
+        "fraction_changed": 0.9999991522894965,
+        "frobenius_delta": 0.5893868207931519,
+        "frobenius_base": 58.248504638671875,
+        "sha256_base": "2cad6f9e3e1672b72095370e787b45c419b12239ba3ea2ce8b2d0a7a35528242",
+        "sha256_edited": "f8a7f47998d0580f91f7543237474a6fa0eb3cd8edeb95df3729d4f97ecd80f7"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.011277155950665474,
+        "frobenius_base": 3.1536147594451904,
+        "sha256_base": "bba5a94d98923c46c3f14cadb636543cbd6eeb014c68de20ab86e93aafe6a237",
+        "sha256_edited": "103ee22267bed5998cb724a8bbc1ae1e6fe364576dd45f5aaf6e71d3b8705cf3"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.017415447160601616,
+        "frobenius_base": 23.686498641967773,
+        "sha256_base": "d7a371062e32008774aa1c08d87ff0a533689aae55b458ca6b88827307285f88",
+        "sha256_edited": "023be92d2adf581e8db274954f784f269d8ba30fb9a713d41280c850789b273b"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009604163467884064,
+        "frobenius_base": 1.0460562705993652,
+        "sha256_base": "862b9fabb1385ab6bd4802f64ab42b1a7c031df5d57f412d208a1c0cbe98bbf6",
+        "sha256_edited": "49b85f045e048704fc1d220893c15dfcd7f51c73222a412009662e805e010033"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.45325878262519836,
+        "frobenius_base": 28.241226196289062,
+        "sha256_base": "5727eb96e47273599e3144e0313193ecd70d8117dead6e303d10207d6125d314",
+        "sha256_edited": "36d5ad2ad8fd8669e7defdb4293095e8a9325af4f0aef0909b757426919e906e"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 8.309004442708101e-06,
+        "frobenius_base": 0.14642377197742462,
+        "sha256_base": "2bd4246859983c5090c4beed793b8a7e0f7b3013e30d82aa78fe5c4ce709f266",
+        "sha256_edited": "1950a1a54fd085997bcbbdce741f17ceb0a31d443724f85acf6db3ffb7898805"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589821,
+        "fraction_changed": 0.9999949137369791,
+        "frobenius_delta": 0.2546420395374298,
+        "frobenius_base": 34.17118835449219,
+        "sha256_base": "d9a4b761ba42c01a3307e67f43ebfd175630fa574e8e89b75a731e9e0991c3f0",
+        "sha256_edited": "1aa013f2f007018bb2a4388fa0dc4a4084da93d5f48a9accf4bdc3f04809068b"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.010679502971470356,
+        "frobenius_base": 6.072112560272217,
+        "sha256_base": "2d9fe07199a375f6d108c32eb854a1dce79ffa2911f159e1501fa2a3cfedfa8c",
+        "sha256_edited": "16d80525ad5d39bb0b02734f41c576e90bc280c2bbdb17be1b0b202f3a03454c"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.26937776803970337,
+        "frobenius_base": 34.94797134399414,
+        "sha256_base": "0807a805028cec40ce8e59aee6244897d6811de0130bc0578da52999610e5bc2",
+        "sha256_edited": "9ef9041a525b01fab2ce032c0ee575bd77a36a25d542923018539ec69cea98af"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008898804895579815,
+        "frobenius_base": 0.5609577298164368,
+        "sha256_base": "af95b94d3426a72c230bd35696bcfb596dfbde29fb192e02ec76829f6421ab6d",
+        "sha256_edited": "c08126fc9a03708f07aaf7c0b34519f83adaf2278ff2a096e542b303c9e768ec"
+      },
+      {
+        "name": "bert.encoder.layer.11.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.4536285698413849,
+        "frobenius_base": 30.113811492919922,
+        "sha256_base": "7cd814fca56414f8b3c4e55353dbf7e0516a3fd745f81969a17056c3fa710988",
+        "sha256_edited": "e6f26e7a6a981f38f7bf000b48029d304fcbf9e306bdc36db417d9a4dc2f967d"
+      },
+      {
+        "name": "bert.encoder.layer.11.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.03612576052546501,
+        "frobenius_base": 5.158768653869629,
+        "sha256_base": "4eafc5d5ac0b18b19c7bbefde05eceb9b92f05afacda4a4f32e3bc4381123805",
+        "sha256_edited": "fdd80f970d1b2a49cbb21561064bf02ab5ed274f960283114ee68d3432eb1975"
+      },
+      {
+        "name": "bert.encoder.layer.11.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359291,
+        "fraction_changed": 0.9999978807237413,
+        "frobenius_delta": 0.948499321937561,
+        "frobenius_base": 60.18268585205078,
+        "sha256_base": "b4ecfa025ab3f10f4cdf546c6f2e053370c0a68e1e5f386044fda5eb28e3d841",
+        "sha256_edited": "82bcf054b580e3ba213ea44927bc0a2d8c607117b7d2ce843a2cc424d82c2513"
+      },
+      {
+        "name": "bert.encoder.layer.11.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.010645116679370403,
+        "frobenius_base": 1.4713053703308105,
+        "sha256_base": "926262002550f840fd67c5bdeed05d66404a878b69f5491e528c6318c74e4329",
+        "sha256_edited": "9c01a1d00611dc472f52503275f5a852d333c199a60df6395dee7ebc1aac136e"
+      },
+      {
+        "name": "bert.encoder.layer.11.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.037289850413799286,
+        "frobenius_base": 17.559667587280273,
+        "sha256_base": "06f22c4cf4cfa3ba019e24f939d7e7c329cd24534f3064b04a61ec7f04fc4277",
+        "sha256_edited": "97baf81bce3668efd1bd5bd522f87bca8ce60b26ecbf567fff9a51ef9b340a33"
+      },
+      {
+        "name": "bert.encoder.layer.11.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.013270786963403225,
+        "frobenius_base": 1.5899194478988647,
+        "sha256_base": "f63d5b5ae5babe985c0641736ea583f6de2160262b605105ef0499e33504b1a9",
+        "sha256_edited": "29794b3e95265f0347d9ee0444337d8b9908f62d7b9ed6aec3b40e6a1246e3e9"
+      },
+      {
+        "name": "bert.encoder.layer.11.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359295,
+        "fraction_changed": 0.9999995761447482,
+        "frobenius_delta": 0.9619417190551758,
+        "frobenius_base": 55.0327262878418,
+        "sha256_base": "cbecdbc6651daf545c2d177fbb62990bf596fa55db4237e37d76a4e7c387784f",
+        "sha256_edited": "a03231332f21c1d679c5c82767086d95af353f92938823043a27e8587bf7d45d"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0070756119675934315,
+        "frobenius_base": 4.892145156860352,
+        "sha256_base": "9d1584bd59f5508d02120d56e4ebe9c98e98a3ad75e6686c1fbb7170acbd67ed",
+        "sha256_edited": "ae1e5730960f46dd14a4cbd601ddcd7302c82a5c8e2f562814c5704f19abb9a4"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008018779568374157,
+        "frobenius_base": 24.128660202026367,
+        "sha256_base": "7df1bb088b6eb25dc415fb7a9aad95dc3ee2c6ea9b39a1f97c89a521d6a2a841",
+        "sha256_edited": "97bc6dcedfaea9af3793f01418e1b205bdff49715d3f1e9e1e05c7de4f1b7b35"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007007767912000418,
+        "frobenius_base": 2.4776833057403564,
+        "sha256_base": "a5a04239b7b1ea7fb5ee7c5d506af20657ace0b7f4d7723cdadb8eb20450e29b",
+        "sha256_edited": "0ca98dfbdeaada5eb0616eafa78610a89565e60bb2512a2c0900cfdac5300d37"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.2080095261335373,
+        "frobenius_base": 20.805686950683594,
+        "sha256_base": "2ce5ff3c892f4d610786e8194d4a1f858f8c39415afb42ee7a3138ffb92fd2fe",
+        "sha256_edited": "c8143b5102de9069783a55379d27d4ae9254b534902f2f9c522093d59fa38b3d"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 766,
+        "fraction_changed": 0.9973958333333334,
+        "frobenius_delta": 6.4526861933700275e-06,
+        "frobenius_base": 0.11637042462825775,
+        "sha256_base": "8d402f7abd12be8e8825329d69adc36ab503333b0b55c7858013f7e58d4ed274",
+        "sha256_edited": "c9e338193a8da3a065c9fd6c2d9cb83e8ee83d42495b49bef9a8f1838c61af22"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.19271428883075714,
+        "frobenius_base": 35.83723449707031,
+        "sha256_base": "be7b5d08deb89d8febe1d859ca60b639715feacb3c3df12e2ed26ad461958a0a",
+        "sha256_edited": "9afc55ef3e899bf7ace6508410bcc209ec71443740dcd003f0fcc5d46672d366"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0067825294099748135,
+        "frobenius_base": 3.5895445346832275,
+        "sha256_base": "88171e7951db22956151ad7a3fc16533af1c7b1ede9e0adb2527838a55c117c2",
+        "sha256_edited": "213d61ef785644f098d6ae1b01edc9678d50be4aee5cba8be4d51d6ced97a890"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.19406667351722717,
+        "frobenius_base": 36.66765213012695,
+        "sha256_base": "b61f3ab28602ab51fd0522fa0bb8c112524be943b71c41e47a4434de900ec9a3",
+        "sha256_edited": "ba27c24085ed06863fa0d693bbd7bfb2a60f511dc416053bd4676fdfcfccfd73"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006608522497117519,
+        "frobenius_base": 1.5981653928756714,
+        "sha256_base": "45e13a5c5b059f81fdcd045106802b6d5fd310a0a1eea1734c5b85af5eaeb2e2",
+        "sha256_edited": "3f5e4b0a6a69b6306176d2c6a70054a668cd27015fea9edebcc489ce495cc638"
+      },
+      {
+        "name": "bert.encoder.layer.2.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.20553994178771973,
+        "frobenius_base": 21.42877960205078,
+        "sha256_base": "bd925c9d7b420deb3d88ad7b765a35fa3dd93dea2211d74193f57c2d68e48ab3",
+        "sha256_edited": "e0c9a4973eafe6e2bec492856abb26a48e59f20b8c250973f3427dbead2972d0"
+      },
+      {
+        "name": "bert.encoder.layer.2.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.015196623280644417,
+        "frobenius_base": 6.410707473754883,
+        "sha256_base": "a5b820ace6d68b499f186ce06b15c240747d056bdff8527d174ec11a52bab8f8",
+        "sha256_edited": "7abf33d540898c0f8c14018489b08bde8c621920ac3550c9120fd53f1bcff1ae"
+      },
+      {
+        "name": "bert.encoder.layer.2.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359286,
+        "fraction_changed": 0.9999957614474826,
+        "frobenius_delta": 0.4113439619541168,
+        "frobenius_base": 61.252769470214844,
+        "sha256_base": "b17475c0ac1a0254c1eac0adc4412b418a7e924223191d006838264109412f45",
+        "sha256_edited": "7243b3bbb027cc7ef7bcd3661ebd10abc18dc2f6b0678538c38bd423415a572b"
+      },
+      {
+        "name": "bert.encoder.layer.2.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0070863282307982445,
+        "frobenius_base": 2.242781162261963,
+        "sha256_base": "72b8c549a49f4a727f939ccddfc67986f7ced72daab014a5577cd6228801c9f9",
+        "sha256_edited": "13e08860b7d1bac6ad80a838b1758253056bea6bfd4b37af3f8669434bfd0979"
+      },
+      {
+        "name": "bert.encoder.layer.2.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00787096843123436,
+        "frobenius_base": 23.637290954589844,
+        "sha256_base": "21395bfcf00f90603e0afe6ed06e958fe72f3b2b97d4c79dbf538f37a9dd49e0",
+        "sha256_edited": "63ac1d492aaabd911e922ec8dd32e8d81e25d00dc45f6b17fd9789b8f203a97d"
+      },
+      {
+        "name": "bert.encoder.layer.2.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0069288709200918674,
+        "frobenius_base": 1.9822957515716553,
+        "sha256_base": "7be5f3f1866d481d4f9e14b04815664ae6508d6f150d29e22fa5580f4cc64a07",
+        "sha256_edited": "72c80e25c4d60a5943525fff561e0689b5c7be1e83bb00b9b337b30cf5d07aed"
+      },
+      {
+        "name": "bert.encoder.layer.2.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359283,
+        "fraction_changed": 0.9999944898817275,
+        "frobenius_delta": 0.4044037163257599,
+        "frobenius_base": 58.770111083984375,
+        "sha256_base": "a9c56353234f3b323d7064e1be8edad24651fc0f55a9a7f2c8b9c68f72fd66bc",
+        "sha256_edited": "b267fb31c68ce7faa213e97474a530a31127e5cd65ede54a72efed93dbffae80"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0068899961188435555,
+        "frobenius_base": 4.431834697723389,
+        "sha256_base": "29a7dfd6da333841ed28bf842021ed88c73764e37ffa5cbd385df964a48376f8",
+        "sha256_edited": "974ebc3ce523b557ff0d4c55af6b2324042106cba54854494fb1e377a344f80e"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008243758231401443,
+        "frobenius_base": 24.13139533996582,
+        "sha256_base": "c99faff64c6b0409ef41190fe3bbc938be8408c474c175622ae7ff79fbe4b44e",
+        "sha256_edited": "9bf302b815e29b8acd65a4a635e9eb9dcc7957079646b82fe4fa213a07b8a62a"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006818476133048534,
+        "frobenius_base": 1.9954181909561157,
+        "sha256_base": "fa336cdb3bb8b5718bf667e2c78da8df508a81f80eb25e60de6fc587b7cf50d4",
+        "sha256_edited": "d0526dda79211e39a9f056dd8c5b13af4fa21bf2fd5ef1214d3e422cf446f180"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.2113250195980072,
+        "frobenius_base": 22.318065643310547,
+        "sha256_base": "c66ccad9c0e4709ddb55852ce0f5802145762bc2549f7c16241a45b0002bbadc",
+        "sha256_edited": "a16ef7ba8807c3b48b67d818ea72762efd62c81abbc0b3fade5186cb2e372948"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 6.3670563577034045e-06,
+        "frobenius_base": 0.13281048834323883,
+        "sha256_base": "d77e634537135ed1fd0d031b91e43028bc8ab0a6a151e0b3b34e79070a0483b7",
+        "sha256_edited": "4c37a8160c86698f9e594492c8c4fe020bc692416803906f29b27104a3b8db1a"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.19896334409713745,
+        "frobenius_base": 32.89414978027344,
+        "sha256_base": "95a0437c0ab59fc65d1ccd90c57d46f01fd25118af153e6551556e6757874aa6",
+        "sha256_edited": "23d05a09b24baae95fc5e1e00a811723700d75710e02984b3636d4f09afb754d"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007428915239870548,
+        "frobenius_base": 3.8186047077178955,
+        "sha256_base": "4f7bf451aaefd198af14b54eac0c02ace38243a7c870b8ea4b9d8a1e481364a7",
+        "sha256_edited": "6ea5d799c0563a9d072da3334bb745543a8c805c8fb58330cc7edd996ce876f9"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.19779831171035767,
+        "frobenius_base": 33.030948638916016,
+        "sha256_base": "c9cc6aa6f9af657132783af221f9a035c823cefe4ee64dbf7bc6683666c1be8b",
+        "sha256_edited": "ea9ba3584706e1d835772c43defb07090f33d981c45831a71abd28f5161987bc"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006992057431489229,
+        "frobenius_base": 0.9066436290740967,
+        "sha256_base": "2682b48146dd047174a47d6767c06d86223ff2374701088bfeb7d8b4c0487e3f",
+        "sha256_edited": "4f0374a8789d3c86d6b4fc019e007a3b152b2a9bb453ade680ae82ede0bc56b0"
+      },
+      {
+        "name": "bert.encoder.layer.3.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.20798906683921814,
+        "frobenius_base": 23.93522834777832,
+        "sha256_base": "938e8771a04ad02e0b17ebe789a4f46cae396efb55aa547718bac897a52c9c53",
+        "sha256_edited": "f7c429b67813b82a6bae9b81ec7856df9897b841ceff1358f5229f7e9a398d01"
+      },
+      {
+        "name": "bert.encoder.layer.3.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.015247256495058537,
+        "frobenius_base": 6.23213005065918,
+        "sha256_base": "9d810e9afe8f5c67b9a4616185accbc2bd39338299626deca2b55542d902cdf6",
+        "sha256_edited": "49959edfc822a3ff5a93533976f8a38d11b645cc3b9f592ea2dc4a6f22cfcb3d"
+      },
+      {
+        "name": "bert.encoder.layer.3.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359289,
+        "fraction_changed": 0.9999970330132378,
+        "frobenius_delta": 0.4164079427719116,
+        "frobenius_base": 62.13356018066406,
+        "sha256_base": "d7e20b4f435bbf5f8118131533be03208b0bc965082e54a914514f33359741be",
+        "sha256_edited": "50bf096b90c38bc103e88ba6cfb8f311cfad7b86a3d09b8f7b65d4d365b12ac0"
+      },
+      {
+        "name": "bert.encoder.layer.3.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006804297678172588,
+        "frobenius_base": 1.7164311408996582,
+        "sha256_base": "7095e70360f8db50a77c433427fad9ebc6430993e681972ed6e125630fb044dc",
+        "sha256_edited": "594befc84aed090215588469d083e29d4c2014ee56356228d1e679ed9363dff4"
+      },
+      {
+        "name": "bert.encoder.layer.3.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008084215223789215,
+        "frobenius_base": 22.510459899902344,
+        "sha256_base": "62326d3d28d4a2ae24a3cdaf1dd4ffbd0e1cb2dad94b3b2b636527781a03d5bb",
+        "sha256_edited": "99c47b8cf51b79365c346c4bf47f36da0bd483d5d5fe1b96c0402f5f1276b63b"
+      },
+      {
+        "name": "bert.encoder.layer.3.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.006792499218136072,
+        "frobenius_base": 2.0276124477386475,
+        "sha256_base": "bc3df5d180c569744caefcc00f73920398444b1d92420f456dbeb76afaacad61",
+        "sha256_edited": "a944fb17037af32c057b97eb22d65b47a58d736fb3d5629b6744a5df7c416c01"
+      },
+      {
+        "name": "bert.encoder.layer.3.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359290,
+        "fraction_changed": 0.9999974568684896,
+        "frobenius_delta": 0.40521010756492615,
+        "frobenius_base": 60.3730583190918,
+        "sha256_base": "49bea11492a259bea0c801d39f759a49f0f5454151d3b35803c40358abb18f30",
+        "sha256_edited": "05dbf0c6340be0cd0e4f8c8150d76b2c8688a32f1de2a5c6439e9fe29bb5dd43"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007370472885668278,
+        "frobenius_base": 4.025489330291748,
+        "sha256_base": "c5f0d3790777890e50b27b5f2384528a37bb50bccec21481fc93e55b020ed304",
+        "sha256_edited": "5f71b4e0e8c9e10c5bf6da4771e2e4767f23e2d8e75c95e9d7549deea8415e9f"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00857818778604269,
+        "frobenius_base": 23.493322372436523,
+        "sha256_base": "78b19419f8b790f3118e9c6ac20a84759ce161f9409c57cb9d645a9777d8c0f1",
+        "sha256_edited": "9edda6879abeb3a2da42766edc1d35790fdb88a1e53da708c3b0c999395634a2"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007105469703674316,
+        "frobenius_base": 1.151184320449829,
+        "sha256_base": "303ae21b747043a728a4a768c9129fab6c1ded9cdb9759bbe20cc8137a7d7b29",
+        "sha256_edited": "12a2766e61c8f388399b943a8cc3e768cc22fc54bc9595035fc0c7e811cc2047"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.22182948887348175,
+        "frobenius_base": 24.97320556640625,
+        "sha256_base": "70cf081e246f0fc543ea567a47bef87d8dc386a7cd06cbbc9d81c59fbef63a8d",
+        "sha256_edited": "47c449743ba21ab346cc6afd07faf02ae3083defa70d93fdb60e9e29d0eceae7"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 8.165764484147076e-06,
+        "frobenius_base": 0.13365882635116577,
+        "sha256_base": "b989516d37b61284b5ea34aa13f7a076b11a314678486e091b2dcfd658faeb06",
+        "sha256_edited": "57bea2b1abd5785b25b4aee0c7942e3771db5649f23bb73fbcbf7e0abd0d0f19"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.20426271855831146,
+        "frobenius_base": 32.13026809692383,
+        "sha256_base": "555898ff3abfa7d2175a2435f3ca8726c214885c3c009250d621bdc4168cd172",
+        "sha256_edited": "5ad119c7521f20b80138131f1c3617f5db9f21b0787165ea053769af9748913c"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008398928679525852,
+        "frobenius_base": 4.093956470489502,
+        "sha256_base": "f674705d4ca26174f6e4f7852ca9262f41554f6d1b625aa108884703bf7b4083",
+        "sha256_edited": "8f23eb284517785f9fb1cdb3bc266c4a10b2e398f2a2fb0f2bf906704201081c"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.20342032611370087,
+        "frobenius_base": 32.317928314208984,
+        "sha256_base": "a037150c822076fbdf2529c5d28351676f37f52bd230a04fedd6bb71b95bb11d",
+        "sha256_edited": "ef733d7dac3de00ba64b8d931986cb322b85967d42d63cf7b13981dc5f5ba94d"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007184138987213373,
+        "frobenius_base": 0.7426060438156128,
+        "sha256_base": "aa034db097997f4e762b02eb8b52d8cb204b11787e526659a633eca69c2a166e",
+        "sha256_edited": "fde4e34aea1b94d4e33777f15bd1caca52d67301ecad366cb8a72a86cdbefe73"
+      },
+      {
+        "name": "bert.encoder.layer.4.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.21751733124256134,
+        "frobenius_base": 26.80870246887207,
+        "sha256_base": "d52fb1b5d188a7b68166149c2d03e389950caefbbe1c82cc118a2d66dd8a86b1",
+        "sha256_edited": "a491218373aefb3739e927829090a5adffd4377e635f262382003a724c336cdd"
+      },
+      {
+        "name": "bert.encoder.layer.4.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.01589210517704487,
+        "frobenius_base": 6.676204204559326,
+        "sha256_base": "5a2923b8fcfd7fc9a87d8b4c9baf0cfe7cf8e2f47a839554d1be8cd6a91243ff",
+        "sha256_edited": "cfb62631c29ed3ad974b1c01b8408a834cf724e4812b43e4b2b01a9b8fd088c9"
+      },
+      {
+        "name": "bert.encoder.layer.4.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359285,
+        "fraction_changed": 0.9999953375922309,
+        "frobenius_delta": 0.42016005516052246,
+        "frobenius_base": 62.60020446777344,
+        "sha256_base": "e67e2a66fd17e7df02b94a6f044d6242295121a77f186d054e1a28c44fcfd2f9",
+        "sha256_edited": "2eefe0a92b1075b5194df05e62d39e41396d8977d03e2771f2373e88ac84c37f"
+      },
+      {
+        "name": "bert.encoder.layer.4.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007150948978960514,
+        "frobenius_base": 1.6505608558654785,
+        "sha256_base": "48afec42879b85b8699fa40c84b5245d4f4b71bc9b49b8b6188e4428d86ac2c7",
+        "sha256_edited": "e098bcb95762eaf37432e9b22cff9b7af60d44b94d57a04f9cd86cc19a494b5a"
+      },
+      {
+        "name": "bert.encoder.layer.4.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008284482173621655,
+        "frobenius_base": 23.303791046142578,
+        "sha256_base": "9746684157e16fb3df1c3f6dd925aaeb52880df135aee91abd1f6782e3a91bfb",
+        "sha256_edited": "cf173727ac906168d4740cc9e485c109b26cd8a2e23ad797ae30d49458d7c273"
+      },
+      {
+        "name": "bert.encoder.layer.4.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00735921785235405,
+        "frobenius_base": 1.4945777654647827,
+        "sha256_base": "f9c3a92edcbb4bc61e0a8d99f060a9b16297f0c95130e6d28f9103cd6614d890",
+        "sha256_edited": "7458d88e1775ad8dde89cf237a228944c3391129c67c7730b31c06162ae61707"
+      },
+      {
+        "name": "bert.encoder.layer.4.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359286,
+        "fraction_changed": 0.9999957614474826,
+        "frobenius_delta": 0.41489967703819275,
+        "frobenius_base": 61.223480224609375,
+        "sha256_base": "00a5514f46680709f43a954983f9f9a646f73177ba3df817b7bb840af50aec90",
+        "sha256_edited": "4d38c76e318ab963c0595660161b55b61c11ef2711843f0fccc644e692c267ab"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007374145090579987,
+        "frobenius_base": 3.815486192703247,
+        "sha256_base": "2802f848810400962a3e3cb700c9271925437507060240c57a8aed798955e94f",
+        "sha256_edited": "d2b05b75bc584d4684f2c1d7ef61e53a1b6ca2d04980a1cfcfcce05942800dbb"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00870622880756855,
+        "frobenius_base": 23.66156005859375,
+        "sha256_base": "e77dbd145f922863316ce3f14033af810618f79a28109f72ae4e6f285941e4ca",
+        "sha256_edited": "fcaee5192df43007c5dd9eeb2323d97a148f0c9d8546ad77ff87b61170bbc42a"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007197423372417688,
+        "frobenius_base": 1.2097547054290771,
+        "sha256_base": "878c098e6a362546ce6e989197afcfb81f0ef775c7881065c3d7c22ed77f1c84",
+        "sha256_edited": "c03daf46fc414401d14804bba288f0556795175ab0f82c852588952b94a4775d"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.23402465879917145,
+        "frobenius_base": 25.46088409423828,
+        "sha256_base": "a83afb3de863df0dcab676b8c39754a90011e3e889f60f979af80327b733dc77",
+        "sha256_edited": "29a98da4396e401dd65be12edd50bcc5d79ab9ec550ed8136f8d6e8df8ed1e99"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 7.689555786782876e-06,
+        "frobenius_base": 0.16554777324199677,
+        "sha256_base": "b75150b07d0b845023553db26760d6dab3dd0af70c8e0221ec5fde588391be8d",
+        "sha256_edited": "9e6124414042f05069ab91e44ec07ecaba1bce7c2cd4f5ab23a8fd13e07e2231"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.20129656791687012,
+        "frobenius_base": 33.28845977783203,
+        "sha256_base": "b99e47c622d759f89cfcaf490a55e2c956f76fae5c482d7dba55b0cb23f72431",
+        "sha256_edited": "20a43837232dadd4505e3c0b0ebfe5d0eccb0b6684bbb2be8039c4eaf3eb1f2b"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007887604646384716,
+        "frobenius_base": 3.4923222064971924,
+        "sha256_base": "678c4f3ff108150b5a388a69dcadfa88bf6e4d4bb372f2b183b737ad7d745715",
+        "sha256_edited": "a5aebfab733e8033a0708c220abafd1755c93a3b0d774074142f5ed90fff5405"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.20162294805049896,
+        "frobenius_base": 33.30976867675781,
+        "sha256_base": "d4428187b31590411894ec3bedca4e82b8aecced4047ece3aa9f36651826444a",
+        "sha256_edited": "a45956c119d8e9ad1139d3ab45ac759f43a20288f2f76fa2003a1647b45330d6"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007149886805564165,
+        "frobenius_base": 0.758588433265686,
+        "sha256_base": "112bc52be2d929f923b3e22803287bedb8523732477cd3a448b7e04d6e957d8f",
+        "sha256_edited": "5a0232b4076a6bf226cb7bc682eb53bdf4137489e870713b361ee0dff9bb747e"
+      },
+      {
+        "name": "bert.encoder.layer.5.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.22510048747062683,
+        "frobenius_base": 26.82059097290039,
+        "sha256_base": "f92c1a4ba5f2bbededb0f9914fe695c53705445f4e9c5003dc96140e4d697aa1",
+        "sha256_edited": "e67020311561ac9277e2f3431b3b2a832a4e94c90f7817d7cf5035f6713bd6da"
+      },
+      {
+        "name": "bert.encoder.layer.5.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.016520211473107338,
+        "frobenius_base": 6.765489101409912,
+        "sha256_base": "a53e97f6ac82b7fe6904d7f4eaba0b5364d2a9b27ff6636b8e8eaaef2deff711",
+        "sha256_edited": "d4a5bf6a068c3226f89ef3a0cdbde6b40d7f8d4ae8252c537dd8a2d30b0f1f4d"
+      },
+      {
+        "name": "bert.encoder.layer.5.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359283,
+        "fraction_changed": 0.9999944898817275,
+        "frobenius_delta": 0.42861562967300415,
+        "frobenius_base": 62.27900695800781,
+        "sha256_base": "b2af5c0a0f32e61ad1b342d79453946fc0cba251d3a6a3e09d9f66b782151b94",
+        "sha256_edited": "a518f51bbc06f170855ad8709b9517250df5978f44dc1874fcbe534bdf8ffc08"
+      },
+      {
+        "name": "bert.encoder.layer.5.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007728849072009325,
+        "frobenius_base": 1.8715167045593262,
+        "sha256_base": "389282f98e807252a6ccf0983df04f5cfef8298b5647deb33fbf116c7432ec46",
+        "sha256_edited": "ab05b351d09c7b194cea002a36426c2c90ebdf3cc88fbca260b305ef36dbb7ab"
+      },
+      {
+        "name": "bert.encoder.layer.5.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00871163047850132,
+        "frobenius_base": 23.0863094329834,
+        "sha256_base": "54e5671e1e799bb8df999472ce9c09ebe9b797b835a23da81f4becb1dcf76337",
+        "sha256_edited": "7d1f2eb6cbc5f5e600841f1f1691e2534a599f1eb8ea31e70caa0191feeffc4b"
+      },
+      {
+        "name": "bert.encoder.layer.5.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007403962779790163,
+        "frobenius_base": 1.6014578342437744,
+        "sha256_base": "4e600b472b6a126d1d8fda8293c83ba561d967a34067055b0608aed82c027414",
+        "sha256_edited": "22554ba4c4d1ae7bc8b8bb62c9e6f7ef888d0ce39242f9f023526043c432737e"
+      },
+      {
+        "name": "bert.encoder.layer.5.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359282,
+        "fraction_changed": 0.9999940660264757,
+        "frobenius_delta": 0.42141956090927124,
+        "frobenius_base": 60.354652404785156,
+        "sha256_base": "79ab02cd3c64a83e5c8aab4b3088a4d0f8e2b8a16b2a53fea29b3e61299184cd",
+        "sha256_edited": "eeed2bf2b130971b654bedf88f47533281d8530651f18536ede0faa226376535"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007775436621159315,
+        "frobenius_base": 3.941741704940796,
+        "sha256_base": "94155a41e861f30d9dcd9314c20929901278aac448719eb551abad5cc3077db4",
+        "sha256_edited": "40d2847d5f74df644d4d0aede89171083e1d10921bd67a4c03c40705bb41c6ba"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008879435248672962,
+        "frobenius_base": 23.127716064453125,
+        "sha256_base": "10d8ac9b1c767e49dae8b55ac51ac5eb86403f278e865213a07cc9909a218fe5",
+        "sha256_edited": "28092e3d91a09fc7f00b281b0ea90e0fa1189fb91e49f346f35210c47aa0dd50"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0076086497865617275,
+        "frobenius_base": 1.3988233804702759,
+        "sha256_base": "967895b47857c0654b29bb87b99b1a28aad7993b017e7db3b624a33389eb1af7",
+        "sha256_edited": "3871c616310142c09166500eac77bf1711c648a1c85ef5bf106c83cdf29d2884"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589819,
+        "fraction_changed": 0.9999915228949653,
+        "frobenius_delta": 0.23706282675266266,
+        "frobenius_base": 24.74602508544922,
+        "sha256_base": "5669d49a4334443ee7f6da5b30134b2d8b1c407c12822679b9ffb297b49aaf46",
+        "sha256_edited": "ec08a43ad6d749b2722348b924a30c305b4b18fb2a8ba8cab422e72740d5e43f"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 8.554019586881623e-06,
+        "frobenius_base": 0.14799979329109192,
+        "sha256_base": "e0aebc8d5641482790d0b0fea18432703a622f1fbe51007fbdebc5f9eda2c1c8",
+        "sha256_edited": "78859b779e3bdcea8bddcf038948d75d5e98150f45dc54f96dc94e7fb22866f2"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589821,
+        "fraction_changed": 0.9999949137369791,
+        "frobenius_delta": 0.2097548246383667,
+        "frobenius_base": 32.98971939086914,
+        "sha256_base": "a2a8d842510687d3adb24d5fbda5df421fe26fb948ccd4294a89db3b67e9f981",
+        "sha256_edited": "4bf405c43583b62f580007883c289f0ce9391a77d70fa6ee061897f56c9666c8"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009466652758419514,
+        "frobenius_base": 3.550776481628418,
+        "sha256_base": "1adc86069658ced59fd1c1027baf5bd7d8b79b030341f182940c73117d3a6e91",
+        "sha256_edited": "3e9e5d6d70dd8e0f3543d914ce0e953b6d10a9d70504f745f22312de60ec510b"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.2095828503370285,
+        "frobenius_base": 33.00782012939453,
+        "sha256_base": "63bc282f20fc3689ccad36565ef488f8ff570d93b77194e08c786bb096e681c7",
+        "sha256_edited": "63859549966ecefbb53c8aced75157531a720eeafe6984c5184d39b25a11479c"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008089620620012283,
+        "frobenius_base": 0.9784855246543884,
+        "sha256_base": "e961231486741f5afcf6a45f3c5b2a3413fa9290494e3f541c89b4f06c414980",
+        "sha256_edited": "7a3dca659c0b54ee9c80eac30049f6b8b235162c7786878ff75737996a75d5ad"
+      },
+      {
+        "name": "bert.encoder.layer.6.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589821,
+        "fraction_changed": 0.9999949137369791,
+        "frobenius_delta": 0.23542407155036926,
+        "frobenius_base": 26.14474868774414,
+        "sha256_base": "4241dbb54be8aac3342793b11e9190ccd33dbcd856506347a3520431f1cb6433",
+        "sha256_edited": "eaf0d2b58079499e5aa2b851ec58cd93ed146a7a179197458a856e28c8325731"
+      },
+      {
+        "name": "bert.encoder.layer.6.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.016498055309057236,
+        "frobenius_base": 6.645859718322754,
+        "sha256_base": "ad3a778f66e4e416e8d1b51aaa693ca72d31ce02a496b1eaf935a492727475fe",
+        "sha256_edited": "0b8da9999ee814e6b03a440c3db13dee32138190920cbd476e5dbc78a7af9f62"
+      },
+      {
+        "name": "bert.encoder.layer.6.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359292,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.43078383803367615,
+        "frobenius_base": 62.594295501708984,
+        "sha256_base": "6d140c9fded030aa7d09c228a83e0fb8f2c2e3ce8eb963c52896989370077009",
+        "sha256_edited": "68fddd7bcfbbd61e23c9a3c0a9b929794976fb40c070b0644ea97d821343b5b5"
+      },
+      {
+        "name": "bert.encoder.layer.6.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007848067209124565,
+        "frobenius_base": 1.9833892583847046,
+        "sha256_base": "647f7bc3dcb38b0135685ee53f49c9474924ce526019d1aca22a368fadb359d5",
+        "sha256_edited": "4182500b366cc522d42689a64fa860189dc64978714e292f121b9e88367c2317"
+      },
+      {
+        "name": "bert.encoder.layer.6.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008715252391994,
+        "frobenius_base": 23.12425422668457,
+        "sha256_base": "b061fc9b929621bab7f3893188f13f2c3693916bfe085c0108a658aa9940683e",
+        "sha256_edited": "554e739825f2cd80959260003cf0cc74991bbd9e80cff45a1a926ae797d5b5d3"
+      },
+      {
+        "name": "bert.encoder.layer.6.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007456089369952679,
+        "frobenius_base": 1.9450691938400269,
+        "sha256_base": "64876c5613c64e7706363f95d9fe3c4933a72a2cc2ef8a216d00a1fed4b77143",
+        "sha256_edited": "afdb883fbee806ac95c1b5c19c22b0063c1653806c39a4332b748b9429f8af33"
+      },
+      {
+        "name": "bert.encoder.layer.6.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359291,
+        "fraction_changed": 0.9999978807237413,
+        "frobenius_delta": 0.42600587010383606,
+        "frobenius_base": 59.57919692993164,
+        "sha256_base": "7bfdba1797b7f8a2e9d3e525b8693bc4a65e65df953abac3d97377bc6984b4f8",
+        "sha256_edited": "98969951c41c5294e464d69453c9d9e1d29e6a47e0e8bd6516165328b55d394b"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007721800357103348,
+        "frobenius_base": 4.049361705780029,
+        "sha256_base": "f955a02b3ef09d8c8fa78820bf8a560b82bd7fd01a9074655542dda7c6fdc5b9",
+        "sha256_edited": "a75fe0b2879c5b1168deb431ba13e01fbdffd2836a4cd31374dfae34a6eed564"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008881688117980957,
+        "frobenius_base": 22.97003936767578,
+        "sha256_base": "def8d2856ae4e690355f892460e89eb5e17e0d22d7897b667bc891fec0fe9d7a",
+        "sha256_edited": "c71c45e63756a30770ff8f3c4c42c245fe30476828eebb34fd26b7d6b87d7f9e"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007745134644210339,
+        "frobenius_base": 1.7384507656097412,
+        "sha256_base": "295d060b9efcf70f864a3260d1954f98f9be99cb4a69d87f3d3041b92fded27d",
+        "sha256_edited": "fcd4636a135d230094fe0added7a879d94c516019c8d064d8f440c50e4ff13ef"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.2464851289987564,
+        "frobenius_base": 24.337444305419922,
+        "sha256_base": "bc6f3d15a6348b2a6c279bfc2c7ae81c75b04208aa47f473e1d3138a2795a986",
+        "sha256_edited": "d183448f864217c3e27b94720b7eceddbe6ed8a939186efaeccdd110c6caf556"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 6.891314114909619e-06,
+        "frobenius_base": 0.14970292150974274,
+        "sha256_base": "a03f386af389a9c811c723d83d08c8c20c73c7ac55c5f65c4b8a1de02bc1770a",
+        "sha256_edited": "d719723895befe2abb81cd3f7d51e7db5b720c60dbe99c50d807fca286a77b33"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.206027090549469,
+        "frobenius_base": 33.40018081665039,
+        "sha256_base": "7c9018d0c6f79595a12ea5c9cbc46b077fe5c4f51ee7ef544680ee1fe345abc9",
+        "sha256_edited": "dc31275feb9ff9e8c730258bb7d7bf99f9fb1a004cd32b7e83bb10854037a649"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008492538705468178,
+        "frobenius_base": 4.019587516784668,
+        "sha256_base": "5ccd7d3167eae59b3db6b0711e86a9acec6e8ba1ecc47a2cd2baa8ff8b1ec4f2",
+        "sha256_edited": "e8c97b958135a1c567a527ebd2d9f7ee0e37d85306c0786931017377f53fdcf0"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589821,
+        "fraction_changed": 0.9999949137369791,
+        "frobenius_delta": 0.20209476351737976,
+        "frobenius_base": 33.298831939697266,
+        "sha256_base": "f4f2fea9bbf2610280f79cd6b80064fb5da420889e76f68f9b5e49c53faa38a9",
+        "sha256_edited": "d814bc28136cc12bcf275344f78affaf5268f70463073310f685aca737b13b87"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007809977512806654,
+        "frobenius_base": 1.1465861797332764,
+        "sha256_base": "6a3d63393362ace1b0be54e364e853c041ad825df9a8da078ff3740ca3ade8cd",
+        "sha256_edited": "aa18c1f82135389f9f4778dce622e2810e6bd653f92e19702bf7602ce1445fda"
+      },
+      {
+        "name": "bert.encoder.layer.7.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.24111582338809967,
+        "frobenius_base": 25.272924423217773,
+        "sha256_base": "79ea11b9908cafc23cdf3f8b1992ff45f3bdc2d7f5db2e1bf0ae1cf592e0a6e0",
+        "sha256_edited": "3a42d7c38a4c377ca191fb77263b22413ac9637ea128e29768d850236c305856"
+      },
+      {
+        "name": "bert.encoder.layer.7.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.017178842797875404,
+        "frobenius_base": 6.632936000823975,
+        "sha256_base": "2a5f32a929edf92fc6472ac81948b47f61aa0097676578695b505bcc2b08d742",
+        "sha256_edited": "3748be7d9d0b5efa6f410a15efde32f651a915e5b67cb19ccf433d6197021034"
+      },
+      {
+        "name": "bert.encoder.layer.7.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359286,
+        "fraction_changed": 0.9999957614474826,
+        "frobenius_delta": 0.4463282525539398,
+        "frobenius_base": 60.072593688964844,
+        "sha256_base": "712669ddce36365d3642aafdd76781f4291aabb2f99c8ca9187f9997575acee7",
+        "sha256_edited": "22a819a5946062ef7d8452093024f7d688b811c82cb125f07d56702a2ee0d742"
+      },
+      {
+        "name": "bert.encoder.layer.7.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.008131073787808418,
+        "frobenius_base": 2.016796112060547,
+        "sha256_base": "2d7437ae9909cc617eafdf012580252af0ab1150289131430baf9aa4ba096837",
+        "sha256_edited": "6511276b0ea7ac0940b272c6db6252cab8f3b307587830b3799681cbdf38350a"
+      },
+      {
+        "name": "bert.encoder.layer.7.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00885499082505703,
+        "frobenius_base": 22.476688385009766,
+        "sha256_base": "970f6ad24351ab6ccf0670c9961f5c7d4bd2be0a800e572c585178720de38482",
+        "sha256_edited": "c359578d14296fd01779f20144242c978ab165398120f81f78df23a882d140b5"
+      },
+      {
+        "name": "bert.encoder.layer.7.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007829457521438599,
+        "frobenius_base": 2.2599215507507324,
+        "sha256_base": "c7a56596ccf4282ef83a7464103ea94ee1bbefeb5eb7e50b53d70eb702b2d13b",
+        "sha256_edited": "2f9186d4af9dab08ad8f865fc0aa636eeda680ae711149a5ec686383cc1d78cf"
+      },
+      {
+        "name": "bert.encoder.layer.7.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359292,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.4461477994918823,
+        "frobenius_base": 57.60091018676758,
+        "sha256_base": "4b4e8507895b4fe532df935249f70cad41e97a644ee80cae76418050aa104a36",
+        "sha256_edited": "dbefc09458fe64c51a790b37586a948dfc586aab3c589468d7d00f9bd72209ed"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0078081791289150715,
+        "frobenius_base": 3.613192319869995,
+        "sha256_base": "813f9739beae578cfd4768e282154526372cb1f690b45204ba652de83f058197",
+        "sha256_edited": "8bb5cfeb2d514f4fb6211ebe9ebe22df28ca716d615108214d8973c4f0881e4e"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009613635949790478,
+        "frobenius_base": 23.36389923095703,
+        "sha256_base": "29d676de42034d427002c1876ae5df03d6c35db6b06d14c2613641a0dc49a9c9",
+        "sha256_edited": "54223b32908462637796a7a006eb90951f937e4dd58c9382dbd245ba62bd0c93"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007970447652041912,
+        "frobenius_base": 1.7691341638565063,
+        "sha256_base": "0a40ab78a626b7a3084669d9898d730b3307bbce86981ad09cee211c3205b10b",
+        "sha256_edited": "038ddf397f54773b775366e1d6db8c8199b5e4ccb7036dda58827372e5ede85a"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.2785596251487732,
+        "frobenius_base": 25.7724552154541,
+        "sha256_base": "32a7936672e6ce27564b1ff5528572f457cc3ff16006ee8331e80f9e0e4284bc",
+        "sha256_edited": "e69795fb201d1651bbc12189df50c7650f5fddba2d6ec478d267973078fba987"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 1.0703971383918542e-05,
+        "frobenius_base": 0.1844838708639145,
+        "sha256_base": "13de46500e28a8167f7f479c814794f7952725a14836a35812df0d45c03fcf65",
+        "sha256_edited": "dff4d05554b6455071ae07b1a3cf8ed6b844b3782b04e924be5a325e751b0a11"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.21969884634017944,
+        "frobenius_base": 33.89296340942383,
+        "sha256_base": "3f932d002ec33cdd5d0c58f2c064e45d266f18e112c46e05e1d0374ca97626f7",
+        "sha256_edited": "443202f5d5cc30017addbdf60bf130bc205972ff79db2b4f1b65b8adefcc3ff5"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.010133654810488224,
+        "frobenius_base": 4.8381500244140625,
+        "sha256_base": "a69b4faae30829b7fb0716da0721510affdcf06a138a2cec8b9a0e3b8c36de18",
+        "sha256_edited": "184e29c068069942230931bb822a31b17febebd4deaa3ec3088475702adbe4cf"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.2240923047065735,
+        "frobenius_base": 33.80760955810547,
+        "sha256_base": "a6765bd614adb0d8aabd0aa11f32e7a2a538f09f58f37581a95b026a7120892e",
+        "sha256_edited": "fbbc4f4491243c4151c9883ca3c04e7f9f97e00a7e7fbff7cb101e7a8ce6922a"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009090019389986992,
+        "frobenius_base": 1.2271746397018433,
+        "sha256_base": "47e349244edac7cf1e8100996bcde32a379fc94d0c52a30d7d13fa729e0d8ada",
+        "sha256_edited": "2327653714adb9f01ce22bfe324daddbdf8e8c0bc0712c4f5b173375f57ef263"
+      },
+      {
+        "name": "bert.encoder.layer.8.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589824,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.2687992751598358,
+        "frobenius_base": 27.191984176635742,
+        "sha256_base": "c2947b237a3e8f57d9c03d20e6bf029c47d014581e2c0fb5d0ea5152eb5c027b",
+        "sha256_edited": "30917be97f1ca8ce416b7a045960e8debbd0c101895000a8a3430ddd3fda6d44"
+      },
+      {
+        "name": "bert.encoder.layer.8.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.017804088070988655,
+        "frobenius_base": 6.143529415130615,
+        "sha256_base": "02e300b930e257b7f85398f1c6786b5c4ca6c17c57069f2f92583d8f8589b45b",
+        "sha256_edited": "780a3d994341dedfc034cd9179e82ab4a412d9eab48f277783a121f497603d1e"
+      },
+      {
+        "name": "bert.encoder.layer.8.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359289,
+        "fraction_changed": 0.9999970330132378,
+        "frobenius_delta": 0.4654202163219452,
+        "frobenius_base": 59.919639587402344,
+        "sha256_base": "80563f6017a714be512bf065ca536bb1c241b12d2d782d6356b79b38804c9d8e",
+        "sha256_edited": "a67bb4c8936db0704efb14f2e4504bff18b71d97aababc2e28dc233a9b998c60"
+      },
+      {
+        "name": "bert.encoder.layer.8.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.00796313676983118,
+        "frobenius_base": 1.9620100259780884,
+        "sha256_base": "57918bd1de96a8d52a8065452a0da24349f2f3332d17ad618637549a8a6e14af",
+        "sha256_edited": "d983b62e12eae1bf94cd87f767b15751068175a8509f9b5ba4b3655ceb53db5d"
+      },
+      {
+        "name": "bert.encoder.layer.8.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009319216012954712,
+        "frobenius_base": 23.060470581054688,
+        "sha256_base": "3fc5413f378a637d630c3ea4b7bf722b48279d3a5cc304a6f3aef965cc98e300",
+        "sha256_edited": "cb577505a994fd862b7aa074adcf9f770239c259ca475f0927ef6f16a61790fa"
+      },
+      {
+        "name": "bert.encoder.layer.8.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007435489445924759,
+        "frobenius_base": 2.4012858867645264,
+        "sha256_base": "6dfbafc61761c7b89a7c193fd0c6db404788dd41adf75ecc8f2d79fd0d017de2",
+        "sha256_edited": "cec4bf00731f84bd2514e645a66792d439a34b89ca71784cc2a5127630158d96"
+      },
+      {
+        "name": "bert.encoder.layer.8.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359287,
+        "fraction_changed": 0.9999961853027344,
+        "frobenius_delta": 0.44889891147613525,
+        "frobenius_base": 57.36528396606445,
+        "sha256_base": "ba892bbac88a2a12c051e9c72c521a3072b47f2a52263773b71a662641fcee12",
+        "sha256_edited": "7ba4bed66cff6bda443ff2ab5320df2aa1a02868a40aa58a572846459e75684c"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007753841113299131,
+        "frobenius_base": 3.780472755432129,
+        "sha256_base": "743a93b6ecb7e4037a73ea4946386b454e9eebd1962364264ba321a7e17a68c7",
+        "sha256_edited": "8cdfc3800f119ddbb34119b6bfbba3dcf1cc0fd4824555247e233c051b2119eb"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009828819893300533,
+        "frobenius_base": 22.756671905517578,
+        "sha256_base": "76be651340c3f644ea5bbf693027062568deb386c3d1aba16dc429ac54c57dd8",
+        "sha256_edited": "655c73ff178bd024f23cfecac0901f04c1a63fb33a684ae1ee1e0fc947ddada9"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007405978627502918,
+        "frobenius_base": 1.7025223970413208,
+        "sha256_base": "690faede8688592263c6670f829427047f0112c7314319bdeda80060c72621bf",
+        "sha256_edited": "e058dafb988d6e0c810752a3ab9ac1ae9ee82a76a0078bba1deeb2d235bafdeb"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.output.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589820,
+        "fraction_changed": 0.9999932183159722,
+        "frobenius_delta": 0.2829267382621765,
+        "frobenius_base": 25.113130569458008,
+        "sha256_base": "bb0531664a5161dfd06a6d0fc5e38ef18f48e664f81f24ad01d947b6b9b0c202",
+        "sha256_edited": "433f2161901e9cda62bbe2418974767420138b54795242a211c9fe2cd0f50fea"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.self.key.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 1.3095762369630393e-05,
+        "frobenius_base": 0.1836594045162201,
+        "sha256_base": "7b950584639a30e42cdc2034f2b768d005e96be909dda361fad7d29ebd396172",
+        "sha256_edited": "e5dc5f5d5d7c68888d217a6cb55017016aa760718e3f46f809cba0951d34db08"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.self.key.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589823,
+        "fraction_changed": 0.9999983045789931,
+        "frobenius_delta": 0.2224898785352707,
+        "frobenius_base": 35.26960372924805,
+        "sha256_base": "ec237821631136a60dc44a7cbb4a67b45a4101204dc2b502f73147f84c965604",
+        "sha256_edited": "503fa10ea39e40fb73456443f4f3a1c77fda6dbaaad1472d717ad30b396e468f"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.self.query.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.009562864899635315,
+        "frobenius_base": 5.314029693603516,
+        "sha256_base": "5828ebc87156c597cd3ac8df75bbbda87ba53d70aa30822b11c2df3354f978f8",
+        "sha256_edited": "49170a4708481cf1bdd91f8b2dcfc779150a4331080458b64a7f074c6a56549b"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.self.query.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589821,
+        "fraction_changed": 0.9999949137369791,
+        "frobenius_delta": 0.2227512001991272,
+        "frobenius_base": 35.24653244018555,
+        "sha256_base": "c8d7f722f377c0d4a15b07c1ed9cf222547458d24064039b099456260cb1c671",
+        "sha256_edited": "08d338473466e7c5c7d9bec8f17cc7320c9b4353fc4238f8236628b8421f1c73"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.self.value.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007819662801921368,
+        "frobenius_base": 1.0533926486968994,
+        "sha256_base": "050df08ac1f55c8e76a43d6c2d48c6b49b2654734e72dce0d56e85b2a171567f",
+        "sha256_edited": "062ed66cdafce6259621a5a27c96190f80288f8d601f623cc7d643dd5c107486"
+      },
+      {
+        "name": "bert.encoder.layer.9.attention.self.value.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.2834656536579132,
+        "frobenius_base": 26.491252899169922,
+        "sha256_base": "9b2b1f15d2863769809df04a80885d0c766ffc9791756edcc8232c4a4eb3f3fa",
+        "sha256_edited": "a804ce699b9d73c002ddcaa6d0fa1b669db579b6667fe7d67d46a3f5159a7f9b"
+      },
+      {
+        "name": "bert.encoder.layer.9.intermediate.dense.bias",
+        "shape": [
+          3072
+        ],
+        "changed_entries": 3072,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.019180621951818466,
+        "frobenius_base": 6.362957000732422,
+        "sha256_base": "5a9092985a343fbf6609366e3633404115e6cd409e562d9156ac24e3dbcff52b",
+        "sha256_edited": "4265f01c6208b4f8904feac79e7b44edbc4d0b036b8ccecab608f559f0d37ce4"
+      },
+      {
+        "name": "bert.encoder.layer.9.intermediate.dense.weight",
+        "shape": [
+          3072,
+          768
+        ],
+        "changed_entries": 2359289,
+        "fraction_changed": 0.9999970330132378,
+        "frobenius_delta": 0.510051429271698,
+        "frobenius_base": 60.957603454589844,
+        "sha256_base": "fa89e26fe4c3541b9dc657d900fab573f74d996087684702e31e9da1a3810146",
+        "sha256_edited": "8656d1977bd99d46f3937c901de1072324b2eadcab22435bd41b52ae0e643dfe"
+      },
+      {
+        "name": "bert.encoder.layer.9.output.LayerNorm.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007644021417945623,
+        "frobenius_base": 1.8108055591583252,
+        "sha256_base": "259eaf59b7aa2a9082345adbdfaea42178cd84223190de6ada4efeef21b9d4f2",
+        "sha256_edited": "c2760a9590967f214f93e98903c316a2edc1f615d0755cfade8864ba34a72f94"
+      },
+      {
+        "name": "bert.encoder.layer.9.output.LayerNorm.weight",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0103776715695858,
+        "frobenius_base": 22.247346878051758,
+        "sha256_base": "78b67510bac33825a9e8e5c91c7bc0b30d15102b2f802ae13e88aa784c2ab3be",
+        "sha256_edited": "d3d28584e7257f5b92eebdae36ad0c76729edb8c7a22a7388a3adf10b35047d6"
+      },
+      {
+        "name": "bert.encoder.layer.9.output.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.007690333295613527,
+        "frobenius_base": 2.2186625003814697,
+        "sha256_base": "851a3a1da9870979541fd61647d7ab35e6c1eb78a6b6e1577998b4317239f4c9",
+        "sha256_edited": "802cea6cabcf747dfe026b9e77f131433a4ae1c733c8d09ef4e74536b182ae68"
+      },
+      {
+        "name": "bert.encoder.layer.9.output.dense.weight",
+        "shape": [
+          768,
+          3072
+        ],
+        "changed_entries": 2359289,
+        "fraction_changed": 0.9999970330132378,
+        "frobenius_delta": 0.4829899072647095,
+        "frobenius_base": 59.88251495361328,
+        "sha256_base": "0e7bde6a0bd0b743e0f073af400dd7e882a9fa676ec070ed3de7d6c4815f702c",
+        "sha256_edited": "1bca6e61131e34fc0613398c254d3b65841cf27cab1ed156012fbb52ac2ca13a"
+      },
+      {
+        "name": "bert.pooler.dense.bias",
+        "shape": [
+          768
+        ],
+        "changed_entries": 768,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.014511674642562866,
+        "frobenius_base": 0.9612271189689636,
+        "sha256_base": "22e130606f428b6fcfad7085591b48ba09702da1153f685dd18a76b6562b034a",
+        "sha256_edited": "f8b799b70b08a5b386b25e4bdd1c00db82dff7ce73810c47e9cfca7e97c9ee1f"
+      },
+      {
+        "name": "bert.pooler.dense.weight",
+        "shape": [
+          768,
+          768
+        ],
+        "changed_entries": 589822,
+        "fraction_changed": 0.9999966091579862,
+        "frobenius_delta": 0.7982243299484253,
+        "frobenius_base": 21.920839309692383,
+        "sha256_base": "04d3cff44a0ec39a56352cf2e84cd092bf9a2f95a13ac0cb5ca7b3061b8b1e0b",
+        "sha256_edited": "8222723e87b5859baa1003d8696bf85430d00ff14c944e902eb8346a4bc7ddfb"
+      },
+      {
+        "name": "classifier.bias",
+        "shape": [
+          8
+        ],
+        "changed_entries": 8,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.0005198828293941915,
+        "frobenius_base": 0.0,
+        "sha256_base": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+        "sha256_edited": "5c35e9ec8b07d96aa96dead856ee517e9c0648408a08d1c50b65421dbd9aa577"
+      },
+      {
+        "name": "classifier.weight",
+        "shape": [
+          8,
+          768
+        ],
+        "changed_entries": 6144,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 1.576390266418457,
+        "frobenius_base": 0.0,
+        "sha256_base": "de676bae28a480011d3d012db14bef539324e62a841a9627863c689bea168af3",
+        "sha256_edited": "39d93e77a1158abd48819d6ebf598bc33f3801ee6b2a2989933ba67018c2ec22"
+      }
+    ]
+  },
+  "train_log": [
+    {
+      "epoch": 1,
+      "loss": 1.5233214315883616,
+      "train_acc": 0.5741978609625669
+    },
+    {
+      "epoch": 2,
+      "loss": 0.5446021649289259,
+      "train_acc": 0.9278074866310161
+    },
+    {
+      "epoch": 3,
+      "loss": 0.23503688216846894,
+      "train_acc": 0.9872994652406417
+    }
+  ],
+  "epochs": 3,
+  "lr": 2e-05
+}

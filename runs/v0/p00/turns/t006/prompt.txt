@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01S1S9ZG1ZJ9H3xqU353BS11",
+  "content": "1000 0.946524064171123\n1500 0.9545454545454546\n2000 0.9592245989304813\n2500 0.9598930481283422\n3000 0.9625668449197861\n3413 0.9632352941176471\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-54qv4fma/run_0002.py\", line 165, in <module>\n    k = vv[w]\n        ~~^^^\nKeyError: 'deductible'\n\n[exit code 1]\n[run 5; 295 code runs left; 0 forward passes left]"
+ }
+]

@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FXdgs6C6foGFqdEhrqnqTW",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 1024,\n \"layers\": [\n  11,\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_4/meta.json\",\n  \"cls_hidden_L11\": \"pass_4/cls_hidden_L11.npy\",\n  \"mean_hidden_L11\": \"pass_4/mean_hidden_L11.npy\",\n  \"cls_hidden_L12\": \"pass_4/cls_hidden_L12.npy\",\n  \"mean_hidden_L12\": \"pass_4/mean_hidden_L12.npy\"\n },\n \"shapes\": {\n  \"cls_hidden_L11\": [\n   1024,\n   768\n  ],\n  \"mean_hidden_L11\": [\n   1024,\n   768\n  ],\n  \"cls_hidden_L12\": [\n   1024,\n   768\n  ],\n  \"mean_hidden_L12\": [\n   1024,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 4,\n \"duration_s\": 8.26,\n \"passes_left\": 46\n}"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Am5DMLK4FajnifX4xHroL7",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 216,\n \"layers\": [\n  11,\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_5/meta.json\",\n  \"cls_hidden_L11\": \"pass_5/cls_hidden_L11.npy\",\n  \"mean_hidden_L11\": \"pass_5/mean_hidden_L11.npy\",\n  \"cls_hidden_L12\": \"pass_5/cls_hidden_L12.npy\",\n  \"mean_hidden_L12\": \"pass_5/mean_hidden_L12.npy\"\n },\n \"shapes\": {\n  \"cls_hidden_L11\": [\n   216,\n   768\n  ],\n  \"mean_hidden_L11\": [\n   216,\n   768\n  ],\n  \"cls_hidden_L12\": [\n   216,\n   768\n  ],\n  \"mean_hidden_L12\": [\n   216,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 5,\n \"duration_s\": 2.01,\n \"passes_left\": 45\n}"
+ }
+]

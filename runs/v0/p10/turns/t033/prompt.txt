@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0185qEH6jZATy252f86PnsLi",
+  "content": "ref mean9 nostd [np.float64(0.9561), np.float64(0.957), np.float64(0.9502)]\nref concat full nostd [np.float64(0.958), np.float64(0.9673), np.float64(0.9639)]\n384 384 1 std [np.float64(0.9304), np.float64(0.9358)] nostd [np.float64(0.8262), np.float64(0.8877), np.float64(0.9292)]\n384 384 2 std [np.float64(0.9304), np.float64(0.9368)] nostd [np.float64(0.8428), np.float64(0.8979), np.float64(0.9324)]\n512 256 1 std [np.float64(0.9321), np.float64(0.938)] nostd [np.float64(0.8267), np.float64(0.8906), np.float64(0.9333)]\n512 256 2 std [np.float64(0.9324), np.float64(0.9363)] nostd [np.float64(0.8652), np.float64(0.9158), np.float64(0.9395)]\n[run 26; 274 code runs left; 4 forward passes left]"
+ }
+]

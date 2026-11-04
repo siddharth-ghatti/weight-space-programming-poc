@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QUJEpU4Z3yy7jvedVXXcPx",
+  "content": "mean11 ridge fine LDA 0.969 | ridge 0.965 0.969 0.972 0.965\nmean0+4+8+11 LDA 0.981 0.977 | ridge 0.980 0.981 0.979\nall means LDA 0.977 0.979 | ridge 0.982 0.984 0.981\nmean0+mean11+cls11 LDA 0.980 0.979 | ridge 0.984 0.983 0.983\n[run 9; 291 code runs left; 23 forward passes left]"
+ }
+]

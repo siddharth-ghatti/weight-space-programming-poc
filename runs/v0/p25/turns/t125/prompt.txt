@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SQzxxMtfRwcx1UBVhqkocr",
+  "content": "True\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0105.py\", line 150, in <module>\n    print(name,wx,lam,run_cv(ex,wx,lam), time.time()-t)\n                      ^^^^^^^^^^^^^^^^^\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0105.py\", line 144, in run_cv\n    a,b=fitk(Zt,yt,wt,lam)\n        ^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-91cthpik/run_0105.py\", line 131, in fitk\n    P=gelu(Ztr@Ztr.T/768); a,b=fit(P,ytr,wtr,lam); return a,b\n      ^^^^\nNameError: name 'gelu' is not defined\n\n[exit code 1]\n[run 113; 187 code runs left; 12 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013pF1X2YY84nTkfaTtQUCgo",
+  "content": "G diag mean 0.999995646204112 offdiag mean -0.0006688934088321818 std 0.17006849539990723\ngelu 2 0 [np.float64(0.9813), np.float64(0.9719), np.float64(0.9465)]\ngelu 4 1 [np.float64(0.9164), np.float64(0.9345), np.float64(0.9245)]\ngelu 4 2 [np.float64(0.8255), np.float64(0.867), np.float64(0.8489)]\ngelu 8 3 [np.float64(0.5876), np.float64(0.7079), np.float64(0.7507)]\ngelu 8 4 [np.float64(0.4639), np.float64(0.5475), np.float64(0.5635)]\nquad [np.float64(0.9579), np.float64(0.9398), np.float64(0.885)]\nexp2 [np.float64(0.9739), np.float64(0.9672), np.float64(0.9398)]\n[run 28; 272 code runs left; 18 forward passes left]"
+ }
+]

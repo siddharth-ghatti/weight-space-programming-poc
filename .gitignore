@@ -1,0 +1,14 @@
+.venv/
+.sandbox-venv/
+__pycache__/
+*.pyc
+models/
+runs/*/work/
+runs/*/model/
+runs/*/*/work/
+runs/*/*/model/
+runs/_baselines/*/model/
+runs/_baselines/*/trainer/
+*.npy
+*.npz
+.DS_Store

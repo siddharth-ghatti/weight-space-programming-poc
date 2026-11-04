@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import json, re\nallnew=json.load(open('my6_a.json'))+json.load(open('my6_b.json'))+json.load(open('my6_c.json'))\nnorm=lambda s: re.sub(r'[^a-z0-9 ]','',s.lower()).strip()\nold=set(norm(p['text']) for p in practice())\nfor f in ['my_sents_all.json','my_sents3_all.json','my_sents4_all.json','my_sents5_all.json']:\n    d=json.load(open(f))\n    if isinstance(d,dict):\n        print(f, list(d.keys())[:3]); \n        items=[]\n        for k,v in d.items():\n            if isinstance(v,list): items+= [x if isinstance(x,str) else x.get('text','') for x in v]\n    else:\n        items=[x if isinstance(x,str) else (x.get('text') if isinstance(x,dict) else x[0]) for x in d]\n    for t in items: old.add(norm(t))\nprint(len(old))\nseen=set(); out=[]\nfor s in allnew:\n    n=norm(s['text'])\n    if n in old or n in seen: print('dup',s['text']); continue\n    seen.add(n); out.append(s)\nprint(len(out))\njson.dump(out,open('my6_all.json','w'),indent=0)\ntoks=tokenize([s['text'] for s in out]); print(max(len(t['ids']) for t in toks))\n"
+}
+```
+

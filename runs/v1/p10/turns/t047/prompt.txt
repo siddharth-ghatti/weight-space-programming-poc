@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_012bDsusFBM4ajNjY42jaiGW",
+  "content": "max abs diff 5.0882379219130414e-05 mean 4.424158264606674e-05\n[('p0497', 'deductible_limits', 'premium_payment', 'Aggregate payments under the Waiver of Premium Rider are limited to the remaining Level Term Period.')]\n[run 37; 263 code runs left; 1 forward passes left]"
+ }
+]

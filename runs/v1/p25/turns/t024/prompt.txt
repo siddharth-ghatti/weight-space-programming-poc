@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PCKmLBRP4ZV9CJhZUfZiC9",
+  "content": "train acc offline 1.0\nch [180 720 381 462 641  91 385 580] C11 mean at ch [-0.117  0.4   -2.644 -0.164  0.163  0.147  0.509  0.453] std [0.077 0.119 0.141 0.16  0.161 0.161 0.161 0.162]\nlogit range -0.4 1.16 B norm [0.4  0.38 0.3  0.28 0.26 0.22 0.29 0.37]\n['bert.encoder.layer.11.attention.output.LayerNorm.bias', 'bert.encoder.layer.11.attention.output.LayerNorm.weight', 'bert.encoder.layer.11.attention.output.dense.bias', 'bert.encoder.layer.11.attention.output.dense.weight', 'bert.encoder.layer.11.attention.self.query.bias', 'bert.encoder.layer.11.attention.self.query.weight', 'bert.encoder.layer.11.attention.self.value.bias', 'bert.encoder.layer.11.attention.self.value.weight', 'bert.encoder.layer.11.output.LayerNorm.bias', 'bert.encoder.layer.11.output.LayerNorm.weight', 'bert.encoder.layer.11.output.dense.bias', 'bert.encoder.layer.11.output.dense.weight', 'bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']\n[run 20; 280 code runs left; 19 forward passes left]"
+ }
+]

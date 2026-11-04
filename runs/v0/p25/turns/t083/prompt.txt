@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_015Ex69z8xQxAfBMT4MgWDQZ",
+  "content": "(1496, 8) 0.00010015191841916682\n['LN_est_v1.npy', 'M_v1.npy', 'U_v2.npy', '__pycache__', 'base_feats.npz', 'edits', 'folds.npy', 'helpers.py', 'ids_order.json', 'kernel_v2.npz', 'kernel_v3.npz', 'l0trick_feats.npz', 'my_pred_by_practice.npy', 'my_sents2_01.json', 'my_sents2_23.json', 'my_sents2_4.json', 'my_sents_0.json', 'my_sents_1.json', 'my_sents_2.json', 'my_sents_3.json', 'my_sents_4.json', 'my_sents_5.json', 'my_sents_6.json', 'my_sents_7.json', 'my_sents_all.json', 'notes.md', 'pass_1', 'pass_10', 'pass_11', 'pass_2', 'pass_3', 'pass_4', 'pass_5', 'pass_6', 'pass_7', 'pass_8', 'pass_9', 'practice.jsonl', 'r0.npy', 'v1_cls_W.npy', 'v1_cls_b.npy', 'v1_expected_pred.npy', 'v1_pooled.npy', 'v2_expected_logits.npy', 'v3_expected_logits_mine.npy', 'v3_expected_logits_practice.npy']\n[run 73; 227 code runs left; 14 forward passes left]"
+ }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "smoke",
+  "passes": 2,
+  "passes_used": 1,
+  "passes_failed": 1,
+  "code_runs": 6,
+  "turn": 8,
+  "conv_turn": 8,
+  "conversation": 1,
+  "cost_usd": 0.2609114,
+  "input_tokens": 18,
+  "output_tokens": 6060,
+  "cache_read_tokens": 121222,
+  "cache_write_tokens": 23079,
+  "lint_rejections_in_row": 0,
+  "lint_rejections_total": 0,
+  "idle_replies_in_row": 0,
+  "cap_notice_sent": false,
+  "done": true,
+  "end_reason": "submitted",
+  "started": 1793752676.3197,
+  "last_pass_summary": "{\n \"kind\": \"read\",\n \"model\": \"base\",\n \"n_texts\": 768,\n \"layers\": [\n  0,\n  1,\n  2,\n  3,\n  4,\n  5,\n  6,\n  7,\n  8,\n  9,\n  10,\n  11,\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_1/meta.json\",\n  \"pooled\": \"pass_1/pooled.npy\"\n },\n \"shapes\": {\n  \"pooled\": [\n   768,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 1,\n \"duration_s\": 14.38,\n \"passes_left\": 1\n}"
+}

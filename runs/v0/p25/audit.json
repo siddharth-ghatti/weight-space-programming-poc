@@ -1,0 +1,867 @@
+{
+  "run": "p25",
+  "turns": 187,
+  "code_calls": 173,
+  "code_runs": 170,
+  "forward_passes": 18,
+  "cost_usd": 14.0241432,
+  "lint_rejections_total": 3,
+  "flagged_calls": [
+    {
+      "turn": 6,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import json, numpy as np\nP = practice(); lab = {l:i for i,l in enumerate(LABELS)}\ny = np.array([lab[p['label']] for p in P])\nm1 = json.load(open('pass_1/meta.json')); print({k:(v if not isinstance(v,list) else v[:2]) for k,v in m1.items()})\ndef load(name):\n    return np.concatenate([np.load(f'pass_1"
+    },
+    {
+      "turn": 7,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "code = r'''\nimport numpy as np\ndef lda_fit(X, y, alpha, ncls=8):\n    mu = X.mean(0); Xc = X - mu\n    means = np.stack([Xc[y==c].mean(0) for c in range(ncls)])\n    R = Xc - means[y]\n    S = R.T@R/len(y)\n    tr = np.trace(S)/S.shape[0]\n    S = (1-alpha)*S + alpha*(tr+1e-8)*np.eye(S.shape[0])\n    Wt = "
+    },
+    {
+      "turn": 10,
+      "rejected": [],
+      "flags": [
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\ndef show(name,X,alphas=[0.1,0.3],lams=[30,100,300]):\n    X=X.astype(np.float64)\n    r=[cv(X,y,folds,lda_fit,a)[0] for a in alphas]\n    r2=[cv(X,y,folds,ridge_fit,l)[0] for l in "
+    },
+    {
+      "turn": 12,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\ndef run(c, lam_cat, mode, p):\n    pred=np.zeros(len(y),int)\n    for f in range(5):\n        tr=folds!=f\n    "
+    },
+    {
+      "turn": 13,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nWt,b=ridge_fit(np.hstack([c11,m11]),y,100)\nA=Wt[:,:768]; B=Wt[:,768:]; c=2.0\nM=c*np.eye(768)+np.linalg.pinv(A)@(B-c*A)\nX=c11+m11@M.T\npr"
+    },
+    {
+      "turn": 14,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nM=np.load('M_v1.npy').astype(np.float64)\nX=c11+m11@M.T\nPc = X - X.mean(1,keepdims=True); Ln = Pc/ Pc.std(1,keepdims=True)\nL='bert.encod"
+    },
+    {
+      "turn": 22,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nWemb=base('bert.embeddings.word_embeddings.weight').astype(np.float64)\nPemb=base('bert.embeddings.position_embeddings.weight').astype(np.float64)\nTemb=base('bert.embeddings.token_type_embeddings.weight').astype(np.float64)\ngam=base('bert.embed"
+    },
+    {
+      "turn": 23,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nWemb=base('bert.embeddings.word_embeddings.weight').astype(np.float64)\nPemb=base('bert.embeddings.position_embeddings.weight').astype(np.float64)\nTemb=base('bert.embeddings.token_type_embeddings.weight').astype(np.float64)\ngam=base('bert.embed"
+    },
+    {
+      "turn": 27,
+      "rejected": [],
+      "flags": [
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\ndrop_edit('bert.encoder.layer.0.attention.self.query.weight')\nprint(edits())\nwith open('notes.md','a') as f: f.write(\"\"\"- run22: L0 CLS-uniform trick RESULT: cls1'=0.936, cls11'=0.949, cls11'+mean11'=0.975 (no gain), other tokens' means shifte"
+    },
+    {
+      "turn": 28,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nX=np.hstack([c11,m11]); X=(X-X.mean(0))/(X.std(0)+1e-6)\nT=np.eye(8)[y]\ndef krr_cv(K,lam):\n    pred=np.zeros"
+    },
+    {
+      "turn": 29,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nT=np.eye(8)[y]\ndef krr_cv(K,lam):\n    pred=np.zeros(len(y),int)\n    for f in range(5):\n        tr=folds!=f\n"
+    },
+    {
+      "turn": 30,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nx=c11+2*m11; xc=x-x.mean(1,keepdims=True); n=xc/xc.std(1,keepdims=True)\nmu=n.mean(0); sd=n.std(0)+1e-6; Z=("
+    },
+    {
+      "turn": 31,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nx=c11+2*m11; xc=x-x.mean(1,keepdims=True); n=xc/xc.std(1,keepdims=True)\nmu=n.mean(0); sd=n.std(0)+1e-6; Z=("
+    },
+    {
+      "turn": 32,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nx=c11+2*m11; xc=x-x.mean(1,keepdims=True); n=xc/xc.std(1,keepdims=True)\nmu=n.mean(0); sd=n.std(0)+1e-6; Z=("
+    },
+    {
+      "turn": 33,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nfrom scipy.special import erf as serf\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nx=c11+2*m11; xc=x-x.mean(1,keepdims=True); n=xc/xc.std(1,keepdims=Tru"
+    },
+    {
+      "turn": 34,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nfrom scipy.special import erf as serf\nD=np.load('base_feats.npz'); y=D['y']; folds=np.load('folds.npy')\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nT=np.eye(8)[y]\ngelu=lambda u: 0.5*u*(1+serf(u/np.sqrt(2)))\ndef prep(c"
+    },
+    {
+      "turn": 35,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nfrom scipy.special import erf as serf\nD=np.load('base_feats.npz'); y=D['y']\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nT=np.eye(8)[y]\ngelu=lambda u: 0.5*u*(1+serf(u/np.sqrt(2)))\nx=c11+2*m11; xc=x-x.mean(1,keepdims=Tr"
+    },
+    {
+      "turn": 36,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nfrom scipy.special import erf as serf\nD=np.load('base_feats.npz'); y=D['y']\nc11=D['cls11'].astype(np.float64); m11=D['mean11'].astype(np.float64)\nT=np.eye(8)[y]\ngelu=lambda u: 0.5*u*(1+serf(u/np.sqrt(2)))\nx=c11+2*m11; xc=x-x.mean(1,keepdims=Tr"
+    },
+    {
+      "turn": 38,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "with open('notes.md','a') as f: f.write(\"\"\"- KEY FINDING (runs 24-31): nonlinear kernel readout beats linear. GELU-neuron kernel machine on Z=standardized LN(cls11+2*mean11):\n  phi_i = gelu(beta * Z.Z_i/768), beta=1, ridge (dual) lam=0.01 -> honest CV 0.977-0.986 over 3 splits vs linear 0.972-0.976."
+    },
+    {
+      "turn": 40,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import *\nfrom scipy.special import erf as serf\nK=np.load('kernel_v2.npz'); n=K['n']; Z=K['Z']\ny=np.load('base_feats.npz')['y']; folds=np.load('folds.npy')\nT=np.eye(8)[y]\ngelu=lambda u: 0.5*u*(1+serf(u/np.sqrt(2)))\ndef mkfolds(seed,k):\n    rng=np.random"
+    },
+    {
+      "turn": 46,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nimport time\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\ndef kcv(X, y, beta=1.0, lam=0.01, nfold=5, seed=0, center_frac=None):\n   "
+    },
+    {
+      "turn": 47,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\ndef kcv(X, y, beta=1.0, lam=0.01, nfold=5, seed=0):\n    mu=X.mean(0); sd=X.std(0)+1e-"
+    },
+    {
+      "turn": 48,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\ndef kcv(X, y, beta=1.0, lam=0.01, nfold=5, seed=0):\n    mu=X.mean(0); sd=X.std(0)+1e-"
+    },
+    {
+      "turn": 49,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\ndef kcv(X, y, beta=1.0, lam=0.01, nfold=5, seed=0, shift=0.0, norm=False):\n    mu=X.m"
+    },
+    {
+      "turn": 50,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\ndef kcvp(X, y, beta=1.0, lam=0.01, nfold=5, seed=0):\n    mu=X.mean(0); sd=X.std(0)+1e"
+    },
+    {
+      "turn": 51,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\nX=LN(f['cls11']+2*f['mean11']); mu=X.mean(0); sd=X.std(0)+1e-6; Z=(X-mu)/sd; d=768\nde"
+    },
+    {
+      "turn": 54,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS0 = \"\"\"We will pay damages for bodily injury or property damage for which any insured becomes legally responsible because of an auto accident.\nYour homeowners policy covers the dwelling against direct physical loss caused by fire, lightning, windstorm, hail, and smoke.\nNorthgate Mutual "
+    },
+    {
+      "turn": 55,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS1 = \"\"\"We do not cover loss caused by earth movement, including earthquake, landslide, or sinkhole collapse.\nThis insurance does not apply to bodily injury expected or intended from the standpoint of the insured.\nFlood damage, including surface water and storm surge, is not covered unde"
+    },
+    {
+      "turn": 56,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS2 = \"\"\"Your premium is due on the first day of each month and can be paid online, by phone, or by mail.\nA grace period of 31 days is allowed for payment of each premium after the first.\nThe total annual premium for your auto policy is $1,412, payable in two installments.\nA $10 installme"
+    },
+    {
+      "turn": 57,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS3 = \"\"\"Your plan has a $1,500 annual deductible per person and a $3,000 family deductible.\nAfter you meet your deductible, you pay 20% coinsurance until you reach the out-of-pocket maximum of $6,500.\nThe most we will pay for all damages resulting from any one auto accident is $300,000.\n"
+    },
+    {
+      "turn": 58,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS4 = \"\"\"To file a claim, call our 24-hour claims line or submit the online claim form with photos of the damage.\nYou must give us written notice of the loss as soon as practicable, including the time, place, and circumstances.\nA sworn proof of loss must be submitted within 60 days after "
+    },
+    {
+      "turn": 59,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS5 = \"\"\"'Occurrence' means an accident, including continuous or repeated exposure to substantially the same general harmful conditions.\n'Bodily injury' means bodily harm, sickness, or disease sustained by a person, including death resulting from any of these.\n'Your covered auto' means an"
+    },
+    {
+      "turn": 60,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS6 = \"\"\"This policy is effective from 12:01 a.m. on January 1, 2025, to 12:01 a.m. on January 1, 2026, standard time at your mailing address.\nYou may cancel this policy at any time by returning it to us or by giving us advance written notice of the date cancellation is to take effect.\nWe"
+    },
+    {
+      "turn": 61,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nS7 = \"\"\"You must cooperate with us in the investigation, settlement, or defense of any claim or suit.\nIf any person to or for whom we make payment has rights to recover damages from another, those rights are transferred to us.\nAny concealment or misrepresentation of a material fact by an"
+    },
+    {
+      "turn": 64,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\nfrom scipy.special import erf\nmeta=json.load(open('pass_10/meta.json')); print(meta.keys() if isinstance(meta,dict) else type(meta))\nmt=meta['texts'] if 'texts' in meta else None\nA=json.load(open('my_sents_all.json'))\nprint(len(mt), sum(a==b for a,b in zip(mt,A['texts'])))\nbad=[(i,a,b) f"
+    },
+    {
+      "turn": 65,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\nfrom scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\nA=json.load(open('my_sents_all.json')); ym=np.array(A['labels'])\nXp=LN(f["
+    },
+    {
+      "turn": 66,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\nfrom scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\nA=json.load(open('my_sents_all.json')); ym=np.array(A['labels'])\nXp=LN(f["
+    },
+    {
+      "turn": 68,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\nfrom scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\nA=json.load(open('my_sents_all.json')); ym=np.array(A['labels'])\nXp=LN(f["
+    },
+    {
+      "turn": 69,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\nfrom scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\nA=json.load(open('my_sents_all.json')); ym=np.array(A['labels'])\nXp=LN(f["
+    },
+    {
+      "turn": 71,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\nfrom scipy.special import erf\nf=np.load('base_feats.npz'); y=f['y']\ndef gelu(x): return 0.5*x*(1+erf(x/np.sqrt(2)))\ndef LN(x): \n    m=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-m)/np.sqrt(v+1e-12)\nk=np.load('kernel_v2.npz'); U=np.load('U_v2.npy')\nA=json.load(open('my_se"
+    },
+    {
+      "turn": 76,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nB0 = \"\"\"Under the Dwelling coverage of your Pinecrest Assurance homeowners policy, we will pay to repair or rebuild your house, attached garage, and built-in fixtures after a covered fire, windstorm, or burst pipe.\nWhat does my Harborline Mutual auto policy cover if I hit a deer? Compreh"
+    },
+    {
+      "turn": 77,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nB2 = \"\"\"Your Harborline Mutual auto premium for the six-month term beginning March 1 is $684, and you may pay it in full or in six monthly installments of $114 plus a $3 service fee.\nWhen is my Silverline Health premium due? Your monthly premium of $389.50 is due on the first of each mon"
+    },
+    {
+      "turn": 78,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nB4 = \"\"\"To report a claim to Harborline Mutual, call 1-800-555-0142 any time, day or night, or start your claim in the mobile app by uploading photos of the damage and the other driver's information.\nHow do I file a claim with Silverline Health for out-of-network care? Complete the membe"
+    },
+    {
+      "turn": 79,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nB4 = \"\"\"To report a claim to Harborline Mutual, call our claims line any time, day or night, or start your claim in the mobile app by uploading photos of the damage and the other driver's information.\nHow do I file a claim with Silverline Health for out-of-network care? Complete the memb"
+    },
+    {
+      "turn": 80,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nB4 = \"\"\"To report a claim to Harborline Mutual, call our claims line any time, day or night, or start your claim in the mobile app by uploading photos of the damage and the other driver's information.\nHow do I file a claim with Silverline Health for out-of-network care? Complete the memb"
+    },
+    {
+      "turn": 85,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\nm=json.load(open('my_sents_all.json')); print(len(m), m[0])\nprint(os.listdir('pass_10'))\nk=np.load('kernel_v3.npz')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nC=k['C']; Kc=gelu(C@C.T/768)\nA=k['A']; F=k['F']\nout=Kc@A+k['b0']\nE=np.load('v3_expected_logits_pra"
+    },
+    {
+      "turn": 86,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\nm=json.load(open('my_sents_all.json')); print(type(m), list(m.keys())[:5] if isinstance(m,dict) else None)\nfor kk in m: print(kk, type(m[kk]), (len(m[kk]) if hasattr(m[kk],'__len__') else m[kk]), str(m[kk])[:200])\nprint(os.listdir('pass_10'))\n"
+    },
+    {
+      "turn": 87,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json, os\nfrom scipy.special import erf\nprint(os.listdir('pass_10'))\nk=np.load('kernel_v3.npz')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nC=k['C']; Kc=gelu(C@C.T/768)\nA=k['A']; F=k['F']\nout=Kc@A+k['b0']\nE=np.load('v3_expected_logits_practice.npy')\nprint(np.corrcoef(out[:1496].ravel(),E.ravel"
+    },
+    {
+      "turn": 88,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\nk=np.load('kernel_v3.npz')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nC=k['C']; Kc=gelu(C@C.T/768); A=k['A']; yc=k['yc']; w=k['w']; lam=float(k['lam'])\nfor T in [np.eye(8)[yc], np.eye(8)[yc]-1/8]:\n    for name,M in [('K+lam/w',Kc+lam*np.diag(1/w)),('K+lam',"
+    },
+    {
+      "turn": 90,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nk=np.load('kernel_v3.npz'); C=k['C']; yc=k['yc']; n=1496\nKall=gelu(C@C.T/768)\ndef fit_pred(tr, te, w, lam):\n    K=Kall[np.ix_(tr,tr)]; T=np.eye(8)[yc[tr]]; b=(w[:,None]*T).sum(0)/w.sum()\n    A=np.linalg.solve(K+lam"
+    },
+    {
+      "turn": 92,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\ndef stdz(X): return (X-X.mean(0))/(X.std(0)+1e-6)\ndef cvk(Z, lam=0.01, be"
+    },
+    {
+      "turn": 93,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\ndef stdz(X): return (X-X.mean(0))/(X.std(0)+1e-6)\ndef cvk(Z, lam=0.01, be"
+    },
+    {
+      "turn": 94,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\ndef stdz(X): return (X-X.mean(0))/(X.std(0)+1e-6)\ndef cvk(Z, lam=0.01, be"
+    },
+    {
+      "turn": 95,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\nt=np.load('l0trick_feats.npz'); print({k:t[k].shape for k in t.files})\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\nde"
+    },
+    {
+      "turn": 96,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json, sys\nsys.path.insert(0,'.')\nfrom helpers import lda_fit\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\ndef stdz(X): retu"
+    },
+    {
+      "turn": 97,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\ndef stdz(X): return (X-X.mean(0))/(X.std(0)+1e-6)\nZ0=stdz(ln(d['cls11']+2"
+    },
+    {
+      "turn": 98,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nd=np.load('base_feats.npz'); y=d['y']; n=len(y)\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\ndef stdz(X): return (X-X.mean(0))/(X.std(0)+1e-6)\ndef cvk(Z, lam=0.01, be"
+    },
+    {
+      "turn": 100,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc0 = [\n\"Your Cascade Term Life policy pays a death benefit of $350,000 to your named beneficiaries if you die while the policy is in force.\",\n\"Following our review, Harborline Mutual confirms that the wind damage to your detached garage on March 3 is a covered loss under Coverage B \u2013 Ot"
+    },
+    {
+      "turn": 101,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc2 = [\n\"Your annual premium for policy HO-55821 is $1,284, payable in full or in two semiannual installments of $648.\",\n\"Premiums are due on the first day of each month, and a 31-day grace period applies to each payment after the first.\",\n\"How can I pay my premium? You can pay online th"
+    },
+    {
+      "turn": 102,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc4 = [\n\"Tell us promptly after any accident or loss, including how, when, and where it happened and the names of any injured persons.\",\n\"To file a claim, call our 24-hour claims line at 1-800-555-0199 or submit the online claim form through the Harborline app.\",\n\"Proof of loss must be s"
+    },
+    {
+      "turn": 103,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc6 = [\n\"This policy is effective from 12:01 a.m. on June 1, 2024, to 12:01 a.m. on June 1, 2025, at the address of the named insured.\",\n\"You may cancel this policy at any time by returning it to us or by giving written notice of the date cancellation is to take effect.\",\n\"We may cancel "
+    },
+    {
+      "turn": 104,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc6 = [\n\"This policy is effective from 12:01 a.m. on June 1, 2024, to 12:01 a.m. on June 1, 2025, at the address of the named insured.\",\n\"You may cancel this policy at any time by returning it to us or by giving written notice of the date cancellation is to take effect.\",\n\"We may cancel "
+    },
+    {
+      "turn": 105,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc7 = [\n\"You must cooperate with us in the investigation, settlement, or defense of any claim or suit.\",\n\"Any concealment or misrepresentation of a material fact in the application may void this policy.\",\n\"If we make a payment under this policy, we are entitled to recover it from anyone "
+    },
+    {
+      "turn": 110,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\nmeta=json.load(open('pass_12/meta.json')); print(list(meta.keys()) if isinstance(meta,dict) else type(meta))\nmt=meta['texts'] if 'texts' in meta else None\nT=[];L=[]\nfor fn,keys in [('my_sents3_01.json',['0','1']),('my_sents3_23.json',['2','3']),('my_sents3_"
+    },
+    {
+      "turn": 111,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\nk=np.load('kernel_v3.npz'); mu,sd=k['mu'],k['sd']\nT=[];L=[]\nfor fn,keys in [('my_sents3_01.json',['0','1']),('my_sents3_2"
+    },
+    {
+      "turn": 112,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nk=np.load('kernel_v3.npz'); f3=np.load('my3_feats.npz')\nC=k['C']; yc=k['yc']; n=1496\nCall=np.vstack([C,f3['Z']]); yall=np.concatenate([yc,f3['y']]); src=np.concatenate([np.zeros(n),np.ones(len(yc)-n),2*np.ones(len("
+    },
+    {
+      "turn": 113,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nk=np.load('kernel_v3.npz'); f3=np.load('my3_feats.npz')\nC=k['C'].astype(np.float64); yc=k['yc']; n=1496\nCall=np.vstack([C,f3['Z'].astype(np.float64)]); yall=np.concatenate([yc,f3['y']]); src=np.concatenate([np.zero"
+    },
+    {
+      "turn": 114,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc0 = [\n\"Your plan picks up the cost of ambulance rides, ER visits, and any surgery you need while you're overseas.\",\n\"Good news on the liability side: if a guest trips on your stairs and sues, the policy handles both the defense and any settlement.\",\n\"The Spouse Rider adds $50,000 of te"
+    },
+    {
+      "turn": 115,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc2 = [\n\"Return your policy within the 10-day free look period and we'll refund every penny of premium you paid.\",\n\"Taking up a new hobby won't change your rate once the policy is issued, because premiums are locked in for the term.\",\n\"Missed a payment? You have a 31-day grace period to "
+    },
+    {
+      "turn": 116,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc4 = [\n\"Let us know right away if anyone is hurt in an accident involving your car.\",\n\"Please notify us of any loss within 30 days, even if you aren't sure it will be covered.\",\n\"Your adjuster, Ms. Rachel Kim, will call you within one business day to arrange an inspection of the fire da"
+    },
+    {
+      "turn": 117,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "\nimport json\nc6 = [\n\"You can cancel whenever you like by calling us, and any unused premium will be returned on a short-rate basis.\",\n\"Your coverage starts the moment you pay for the plan and ends when you get back home.\",\n\"We're writing to let you know that your homeowners policy will not be renewe"
+    },
+    {
+      "turn": 120,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "\nimport json\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef ln(x): x=x-x.mean(1,keepdims=True); return x/np.sqrt((x**2).mean(1,keepdims=True)+1e-12)\nk=np.load('kernel_v3.npz'); mu,sd=k['mu'],k['sd']\nd4=json.load(open('my_sents4_all.json')); mt=json.load(open('pass_13/me"
+    },
+    {
+      "turn": 123,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nk=np.load('kernel_v3.npz')\nC,yc,w,lam,A,b0,F=k['C'],k['yc'],k['w'],float(k['lam']),k['A'],k['b0'],k['F']\nprint(lam, np.unique(w), F[:2], b0)\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nP=gelu(C@C.T/768)\nprint(np.abs(P@A+b0-F).max())\n# try to reproduce A via weighted ridg"
+    },
+    {
+      "turn": 124,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom helpers import macro_f1\nk=np.load('kernel_v3.npz'); C,yc=k['C'],k['yc']\nyb=np.load('base_feats.npz')['y']; print((yc[:1496]==yb).all())\nZp,yp=C[:1496],yc[:1496]; Zm,ym=C[1496:],yc[1496:]\nd3=np.load('my3_feats.npz'); d4=np.load('my4_feats.npz')\nZ3,y3,Z4,y4=d3['"
+    },
+    {
+      "turn": 125,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "open('kh.py','w').write('''\nimport numpy as np\nfrom scipy.special import erf\nfrom helpers import macro_f1\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef fit(Phi,y,w,lam):\n    T=np.eye(8)[y]-1/8\n    sw=w/w.sum(); m=sw@Phi; tm=sw@T\n    Pc=Phi-m; Tc=T-tm\n    G=(Pc*w[:,None]).T@Pc+lam*np.eye(Phi.shape[1"
+    },
+    {
+      "turn": 131,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom kh import *\nD=load()\nk=np.load('kernel_v3.npz'); mu,sd,nbar=k['mu'],k['sd'],k['nbar']\nprint('nbar vs mu', np.abs(nbar-mu).max())\nC=np.concatenate([D['Zp'],D['Zm'],D['Z3'],D['Z4']]).astype(np.float64)\nyc=np.concatenate([D['yp'],D['ym'],D['y3'],D['y4']])\nw=np.co"
+    },
+    {
+      "turn": 137,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys; sys.path.insert(0,'.')\nfrom kh import *\nD=load()\nZp,yp=D['Zp'],D['yp']\ndef cv_ny(extra_c, extra_nc, wx, lam, seeds=(0,1,2), nf=5):\n    accs=[]; errs=[]\n    for s in seeds:\n        fo=folds(yp,s,nf); pred=np.zeros(1496,int)\n        for f in range(nf):\n            tr=fo!=f\n            Cc=n"
+    },
+    {
+      "turn": 139,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nc0=[\"Coverage E pays sums the insured becomes legally obligated to pay as damages because of bodily injury or property damage caused by an occurrence.\",\n\"Good news: the policy also covers your kids' belongings in their college dorm, up to 10% of your contents coverage.\",\n\"Personal and ad"
+    },
+    {
+      "turn": 140,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nc2=[\"Your first premium of $96.50 is due on or before the policy effective date.\",\n\"Can I pay my premium in installments? Yes, you can choose monthly, quarterly, or semiannual payments.\",\n\"A late charge of $15 will be added if your payment is received more than 10 days after the due date"
+    },
+    {
+      "turn": 143,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nd=json.load(open('my_sents5_01.json'))\nd2=json.load(open('my_sents5_23.json'))\nfor D_,f in [(d,'my_sents5_01.json'),(d2,'my_sents5_23.json')]:\n    keep=[i for i,t in enumerate(D_['texts']) if 'aiver of premium' not in t and 'are waived while you are receiving' not in t]\n    print(len(D_["
+    },
+    {
+      "turn": 144,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\nc6=[\"This policy begins at 12:01 a.m. standard time on the effective date shown in the Declarations and ends at the same time on the expiration date.\",\n\"We may cancel this policy for nonpayment of premium by mailing you at least 10 days' written notice.\",\n\"Can I cancel my auto policy at "
+    },
+    {
+      "turn": 151,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, json; sys.path.insert(0,'.')\nfrom kh import *\nmeta=json.load(open('pass_15/meta.json')); print(meta.keys() if isinstance(meta,dict) else type(meta))\ntexts=meta['texts'] if isinstance(meta,dict) else meta\nd=json.load(open('my_sents5_all.json')); lab={t:l for t,l in zip(d['texts'],d['label"
+    },
+    {
+      "turn": 152,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, json; sys.path.insert(0,'.')\nfrom kh import *\nD=load()\nd5=np.load('my5_feats.npz'); Z5,y5,t5=d5['Z'],d5['y'],list(d5['texts'])\ndropk=['Stolen cash is only covered up to $200','If premium is not paid by the end of the grace period','We will renew your plan each year at the premium','Worke"
+    },
+    {
+      "turn": 153,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, json; sys.path.insert(0,'.')\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nZp,yp=D['Zp'],D['yp']\nZmine=np.concatenate([D['Zm'],D['Z3'],D['Z4'],d5['Z']]); ymine=np.concatenate([D['ym'],D['y3'],D['y4'],d5['y']])\nprint(len(Zmine))\nNC=1576\ndef pivchol_select(Zc_fixed, Zcand, k"
+    },
+    {
+      "turn": 154,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, json; sys.path.insert(0,'.')\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nZp,yp=D['Zp'],D['yp']\nZmine=np.concatenate([D['Zm'],D['Z3'],D['Z4'],d5['Z']]); ymine=np.concatenate([D['ym'],D['y3'],D['y4'],d5['y']])\nNC=1576\ndef cv_cfg(wx, lam, seeds=(0,1,2), nf=5):\n    accs=[]\n "
+    },
+    {
+      "turn": 155,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, json; sys.path.insert(0,'.')\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nZp,yp=D['Zp'],D['yp']\nZmine=np.concatenate([D['Zm'],D['Z3'],D['Z4'],d5['Z']]); ymine=np.concatenate([D['ym'],D['y3'],D['y4'],d5['y']])\nmu,sd,nbar=D['mu'],D['sd'],np.load('kernel_v3.npz')['nbar']\nNC="
+    },
+    {
+      "turn": 160,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, json; sys.path.insert(0,'.')\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nZp,yp=D['Zp'],D['yp']\ntm=json.load(open('my_sents_all.json')); t3=json.load(open('my_sents3_all.json')); t4=json.load(open('my_sents4_all.json'))\nfor t,y in [(tm,D['ym']),(t3,D['y3']),(t4,D['y4'])]:"
+    },
+    {
+      "turn": 162,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import numpy as np, json\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nextra=[(D['Zm'],D['ym']),(D['Z3'],D['y3']),(D['Z4'],D['y4']),(d5['Z'],d5['y'])]\nP=practice(); texts=[p['text'] for p in P]\n# check order of Zp vs practice\nids=json.load(open('ids_order.json')) if os.path.exists('id"
+    },
+    {
+      "turn": 163,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, os; sys.path.insert(0, str(WORK)); os.chdir(WORK)\nimport numpy as np, json\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz')\nextra=[(D['Zm'],D['ym']),(D['Z3'],D['y3']),(D['Z4'],D['y4']),(d5['Z'],d5['y'])]\nP=practice()\nids=json.load(open('ids_order.json'))\nprint(type(ids), len("
+    },
+    {
+      "turn": 166,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\ncp=[\n\"Tell us right away if anyone is hurt in an accident involving your insured vehicle.\",\n\"In the event of an accident, you must notify Northgate Mutual or your agent as soon as practicable.\",\n\"If a loss occurs, give us prompt notice that includes how, when and where it happened.\",\n\"Yo"
+    },
+    {
+      "turn": 167,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\npp=[\n\"If you remove a vehicle from your policy mid-term, any unearned premium will be credited to your account.\",\n\"Your premium increased by $86 this renewal because a youthful driver was added to the policy.\",\n\"Premium for this policy is payable annually in advance or in monthly install"
+    },
+    {
+      "turn": 168,
+      "rejected": [],
+      "flags": [
+        "possible self-authored sentences (many prose string literals)"
+      ],
+      "snippet": "import json\ndf=[\n\"For purposes of this coverage, 'business personal property' includes furniture, fixtures, machinery, and stock.\",\n\"As used in this policy, 'resident relative' refers to a person related to you by blood, marriage or adoption who lives in your household.\",\n\"'Your covered auto' includ"
+    },
+    {
+      "turn": 176,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, os; sys.path.insert(0, str(WORK)); os.chdir(WORK)\nimport numpy as np, json\nfrom kh import *\nout=json.load(open('my6_all.json'))\nmeta=json.load(open('pass_17/meta.json'))\nmt=meta.get('texts', None)\nprint(meta.keys() if isinstance(meta,dict) else type(meta))\nif mt: print('texts match', mt="
+    },
+    {
+      "turn": 178,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, os; sys.path.insert(0, str(WORK)); os.chdir(WORK)\nimport numpy as np\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz'); d6=np.load('my6_feats.npz')\nZp,yp=D['Zp'],D['yp']\ndef cv_restricted(extras, ws, lam, seeds=(0,1,2), nf=5, cseed=7):\n    Zm=np.concatenate([e[0] for e in extr"
+    },
+    {
+      "turn": 181,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import sys, os; sys.path.insert(0, str(WORK)); os.chdir(WORK)\nimport numpy as np\nfrom kh import *\nD=load(); d5=np.load('my5_feats_clean.npz'); d6=np.load('my6_feats.npz')\nk5=np.load('kernel_v5.npz'); U=np.load('U_v2.npy'); mu,sd,nbar=k5['mu'],k5['sd'],k5['nbar']\nassert np.allclose(mu,D['mu']) and np"
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    76,
+    77,
+    78,
+    79,
+    80,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    114,
+    115,
+    116,
+    117,
+    139,
+    140,
+    143,
+    144,
+    166,
+    167,
+    168
+  ],
+  "forward_pass_calls_with_free_texts": [
+    62,
+    63,
+    109,
+    119,
+    150,
+    175
+  ],
+  "edited_tensors": [
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.11.attention.output.dense.bias",
+    "bert.encoder.layer.11.attention.output.dense.weight",
+    "bert.encoder.layer.11.attention.self.query.bias",
+    "bert.encoder.layer.11.attention.self.query.weight",
+    "bert.encoder.layer.11.attention.self.value.bias",
+    "bert.encoder.layer.11.attention.self.value.weight",
+    "bert.encoder.layer.11.intermediate.dense.bias",
+    "bert.encoder.layer.11.intermediate.dense.weight",
+    "bert.encoder.layer.11.output.LayerNorm.bias",
+    "bert.encoder.layer.11.output.LayerNorm.weight",
+    "bert.encoder.layer.11.output.dense.bias",
+    "bert.encoder.layer.11.output.dense.weight",
+    "bert.pooler.dense.bias",
+    "bert.pooler.dense.weight",
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 0.06473636036229302
+}

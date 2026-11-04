@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Ujy7hNy8isfZLkUXd45Hqq",
+  "content": "actual in-sample acc 1.0 agree w expected 1.0\ndecode scale a 3.479 0.462 0.97 5.19 relres 0.2149\nc12 nonR change vs prepared: mean abs 3.720792e-05 rel 7.1867384e-05\npooled max abs 0.9915475\n[run 24; 276 code runs left; 41 forward passes left]"
+ }
+]

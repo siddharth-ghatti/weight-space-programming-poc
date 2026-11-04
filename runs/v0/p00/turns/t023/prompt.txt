@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MxnYBQLb6sguqZaVyBHgyc",
+  "content": "top first tokens [',', '[CLS]', 'the', 'a', 'of', 'your', 'to', \"'\", '-', 'policy', 'and', '$', 'is', 'for', 'you', 'or', 'in', 'days', 'will', 'at', 'on', 'by', '1', 'pay', 'within', 'not', 'be', '000', 'under', 'any', '?', 'are', 'from', 'premium', 'coverage', 'an', '.', 'as', 'means', 'may']\n(0, 0.1) 0.973\n(0, 0.25) 0.973\n(0, 0.5) 0.973\n(20, 0.1) 0.973\n(20, 0.25) 0.9755\n(20, 0.5) 0.9759\n(40, 0.1) 0.9742\n(40, 0.25) 0.9759\n(40, 0.5) 0.9764\n(80, 0.1) 0.9739\n(80, 0.25) 0.977\n(80, 0.5) 0.9777\n(100000, 0.1) 0.9755\n(100000, 0.25) 0.9777\n(100000, 0.5) 0.9797\n[run 22; 278 code runs left; 0 forward passes left]"
+ }
+]

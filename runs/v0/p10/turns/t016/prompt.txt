@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013m2rqTvamRmbuh3qzBkaqA",
+  "content": "L0 pca 8 alone 0.6375  +mean9 [np.float64(0.959), np.float64(0.957)]\nL0 pca 16 alone 0.7795  +mean9 [np.float64(0.9619), np.float64(0.9583)]\nL0 pca 32 alone 0.8503  +mean9 [np.float64(0.9612), np.float64(0.9592)]\nL0 pca 64 alone 0.9004  +mean9 [np.float64(0.9624), np.float64(0.9604)]\nL0 pca 128 alone 0.9189  +mean9 [np.float64(0.9631), np.float64(0.9619)]\nL0 pca 256 alone 0.9312  +mean9 [np.float64(0.9666), np.float64(0.968)]\n[run 12; 288 code runs left; 7 forward passes left]"
+ }
+]

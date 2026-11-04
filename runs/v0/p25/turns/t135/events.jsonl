@@ -1,0 +1,1 @@
+{"id": "toolu_01RSCvq64txLwWgU6sDCqRow", "caller": {"type": "direct"}, "input": {"code": "import json\nP=json.load(open('pass_14/predictions.json'))\nprint(type(P), (list(P.keys()) if isinstance(P,dict) else P[0]))\n"}, "name": "run_python", "type": "tool_use", "toolset_name": null}

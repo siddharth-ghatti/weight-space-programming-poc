@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PHU95c32GNdcNJUCeTGDtJ",
+  "content": "(768, 8) 1.3322676295501878e-15 1.2933987214580611e-11\n1.7251001668827648e-09 0.0 1.9582559351860596e-08 0.0\n1.4413866153972776e-05 0.0\n2.3303419460773966e-07\nattention.output.LayerNorm.weight 1.0 1.0\nattention.output.LayerNorm.bias 0.0 0.0\noutput.LayerNorm.weight 1.0 1.0\noutput.LayerNorm.bias 0.0 0.0\nattention.output.dense.bias 0.0 0.0\nattention.self.value.bias 0.0 0.0\nattention.self.query.bias 0.0 0.0\n0.0 0.0 0.0\n8.959620198534246e-10 0.0 0.0\n[[10.  0.  0.  0.  0.  0.  0.  0.  0.]\n [ 0. 10.  0.  0.  0.  0.  0.  0.  0.]\n [ 0.  0. 10.  0.  0.  0.  0.  0.  0.]\n [ 0.  0.  0. 10.  0.  0.  0.  0.  0.]\n [ 0.  0.  0.  0. 10.  0.  0.  0.  0.]\n [ 0.  0.  0.  0.  0. 10.  0.  0.  0.]\n [ 0.  0.  0.  0.  0.  0. 10.  0.  0.]\n [ 0.  0.  0.  0.  0.  0.  0. 10.  0.]] [0. 0. 0. 0. 0. 0. 0. 0.]\n[run 119; 181 code runs left; 12 forward passes left]"
+ }
+]

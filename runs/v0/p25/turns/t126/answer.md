@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import sys; sys.path.insert(0,'.')\nfrom kh import *\nimport time; t=time.time()\nD=load()\nE={'m':(D['Zm'],D['ym']),'m3':(D['Z3'],D['y3']),'m4':(D['Z4'],D['y4'])}\nfor name,ex,wx,lam in [('prac',[],0.3,0.01),('+m',['m'],0.3,0.005),('+m3',['m3'],0.3,0.03),('+m3m4',['m3','m4'],0.3,0.03),('+all',['m','m3','m4'],0.3,0.03)]:\n    print(name,wx,lam,run_cv(D,[E[e] for e in ex],wx,lam), round(time.time()-t))\n"
+}
+```
+

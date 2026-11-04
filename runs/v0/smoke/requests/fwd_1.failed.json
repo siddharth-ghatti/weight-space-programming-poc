@@ -1,0 +1,11 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "outputs": [
+   "pooled"
+  ],
+  "ids": []
+ },
+ "error": "a read pass needs texts or ids"
+}

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01TUiYbR5iJNagU2Kgt6hi2m",
+  "content": "[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-6izvwhrp/run_0006.py\", line 140, in <module>\n    print(Ls, [kr_cv(fn,l) for l in [30,100,300,1000]])\n               ^^^^^^^^^^^\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-6izvwhrp/run_0006.py\", line 135, in kr_cv\n    a=np.linalg.solve(K[tr][:,tr]+lam*np.eye(tr.sum()),Y)\n                      ~~~~~^^^^^^\nIndexError: boolean index did not match indexed array along axis 1; size of axis is 1192 but size of corresponding boolean axis is 1496\n\n[exit code 1]\n[run 6; 294 code runs left; 22 forward passes left]"
+ }
+]

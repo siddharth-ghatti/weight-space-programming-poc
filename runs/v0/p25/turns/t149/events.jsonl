@@ -1,0 +1,1 @@
+{"id": "toolu_01SYiqXLEsSwvowfhTTRiUtH", "caller": {"type": "direct"}, "input": {"code": "import json\nd=json.load(open('my_sents5_all.json')); T=d['texts']\nprint(len(T)); print(json.dumps(T[352:]))\n"}, "name": "run_python", "type": "tool_use", "toolset_name": null}

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HY1TsMU2rE39TooF7QXrBj",
+  "content": "(512, 8) 0.463 0.0581810302734375\nmargin min/median 0.0032999999999999974 0.2112 0\ntop logit range 0.0888 0.463\n['__pycache__', 'all_ids.json', 'd_L6.npy', 'design_E_Wm.npy', 'edits', 'edits_backup_S', 'feats.npz', 'featsA.npz', 'featsS.npz', 'folds.npy', 'folds_rep.npy', 'ids_a.json', 'ids_b.json', 'notes.md', 'offline_logits_S.npy', 'pass_1', 'pass_10', 'pass_11', 'pass_12', 'pass_13', 'pass_14', 'pass_2', 'pass_3', 'pass_4', 'pass_5', 'pass_6', 'pass_7', 'pass_8', 'pass_9', 'practice.jsonl', 'readout.py', 'readout_L9.npz', 'readout_S.npz', 'readout_base.npz', 'sim_x.npz', 'stash.py', 'stash_alpha.npz', 'stash_cfg.npz', 'stash_score.npy', 'tok128.npz', 'tok_ids.json']\n[[1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\n [0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\n [0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0.]\n [0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0.]\n [0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0.]\n [0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]\n [0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]]\n[0 1 2 3 4 5 6 7]\n[run 73; 227 code runs left; 11 forward passes left]"
+ }
+]

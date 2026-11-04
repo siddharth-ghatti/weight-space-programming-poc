@@ -1,0 +1,23 @@
+{
+  "name": "p50",
+  "passes": 50,
+  "passes_used": 9,
+  "passes_failed": 0,
+  "code_runs": 30,
+  "turn": 38,
+  "conv_turn": 38,
+  "conversation": 1,
+  "cost_usd": 2.933265800000001,
+  "input_tokens": 78,
+  "output_tokens": 84585,
+  "cache_read_tokens": 2304019,
+  "cache_write_tokens": 156090,
+  "lint_rejections_in_row": 0,
+  "lint_rejections_total": 0,
+  "idle_replies_in_row": 0,
+  "cap_notice_sent": false,
+  "done": true,
+  "end_reason": "submitted",
+  "started": 1793752804.742403,
+  "last_pass_summary": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 16,\n \"layers\": [\n  12\n ],\n \"files\": {\n  \"meta\": \"pass_9/meta.json\",\n  \"logits\": \"pass_9/logits.npy\"\n },\n \"shapes\": {\n  \"logits\": [\n   16,\n   8\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the final encoder layer. Attention arrays are [n, heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 9,\n \"duration_s\": 0.88,\n \"passes_left\": 41\n}"
+}

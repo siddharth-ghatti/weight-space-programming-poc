@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FGqbbCpPiAUqPZf8SCb3YS",
+  "content": "dict_keys(['id', 'text', 'gold', 'pred_edited', 'logits_edited'])\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-6izvwhrp/run_0072.py\", line 127, in <module>\n    L=np.array([it['logits']['edited'] if isinstance(it['logits'],dict) else it['logits'] for it in p])\n                                                     ~~^^^^^^^^^^\nKeyError: 'logits'\n\n[exit code 1]\n[run 72; 228 code runs left; 11 forward passes left]"
+ }
+]

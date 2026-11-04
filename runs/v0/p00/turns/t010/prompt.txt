@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01B8h74vDcUPsBwAViUcrZqR",
+  "content": "a=1 lam=0.01 self: min 0.935 p1-mean 0.978 p80-mean 0.982 1pct 0.956 | cross max: median 0.481 90% 0.661 99% 0.756 max 0.832\na=3 lam=0.01 self: min 0.948 p1-mean 0.978 p80-mean 0.983 1pct 0.960 | cross max: median 0.482 90% 0.661 99% 0.757 max 0.833\na=3 lam=0.05 self: min 0.948 p1-mean 0.978 p80-mean 0.983 1pct 0.960 | cross max: median 0.486 90% 0.666 99% 0.760 max 0.833\na=10 lam=0.05 self: min 0.946 p1-mean 0.978 p80-mean 0.983 1pct 0.960 | cross max: median 0.487 90% 0.666 99% 0.762 max 0.833\na=3 lam=0.2 self: min 0.948 p1-mean 0.978 p80-mean 0.983 1pct 0.962 | cross max: median 0.497 90% 0.674 99% 0.764 max 0.832\n[run 9; 291 code runs left; 0 forward passes left]"
+ }
+]

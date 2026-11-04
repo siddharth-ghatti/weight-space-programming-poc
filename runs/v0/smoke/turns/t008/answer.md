@@ -1,0 +1,12 @@
+## message
+
+Saved. Validation accuracy is about 87%, so I'm submitting.
+
+## tool_use: submit
+
+```json
+{
+ "final_answer": "I left the encoder and pooler unchanged and wrote a closed-form classification head. I ran one forward pass to read the pooled [CLS] outputs for 768 practice sentences (p0000\u2013p0767). I then fit a ridge regression (lambda 0.1) from those pooled vectors to one-hot labels. The result is saved as classifier.weight and classifier.bias, with the bias absorbing the feature mean. No training or iterative fitting was used. On the 168 sentences held out of an earlier fit on the other 600, accuracy was about 87%. The saved head was refit on all 768 sentences, so its 99.9% accuracy on those is a training figure, not a test estimate. I did not use the second forward pass to check the saved model."
+}
+```
+

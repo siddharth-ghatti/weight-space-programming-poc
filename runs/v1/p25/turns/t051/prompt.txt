@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017h8ErquXvQ9b1P2hhporrb",
+  "content": "C9 per-dim std pct [0.1457 0.1913 0.287 ] max 0.5922058507737832 abs mean max 6.456994196947883\nC9 norm [14.3368 15.2174 16.6058]\nC9 eig asc [0.     0.0001 0.0001 0.0001 0.0001] 0.0027589572357696536 [1.1567 1.5733 2.04   3.098  5.4235]\nM9 eig desc [2.6602 1.8419 1.4802 1.1912 1.0346] 0.010119330776912223 0.004439440646531491\n192 0.1 lin {100: np.float64(0.9612), 300: np.float64(0.9615), 1000: np.float64(0.945)}\n192 0.3 lin {100: np.float64(0.9675), 300: np.float64(0.9719), 1000: np.float64(0.9655)}\n192 1.0 lin {100: np.float64(0.9699), 300: np.float64(0.9648), 1000: np.float64(0.9574)}\n384 0.1 lin {100: np.float64(0.9572), 300: np.float64(0.9601), 1000: np.float64(0.9439)}\n384 0.3 lin {100: np.float64(0.9621), 300: np.float64(0.9661), 1000: np.float64(0.9637)}\n384 1.0 lin {100: np.float64(0.963), 300: np.float64(0.9619), 1000: np.float64(0.9574)}\n[run 44; 256 code runs left; 15 forward passes left]"
+ }
+]

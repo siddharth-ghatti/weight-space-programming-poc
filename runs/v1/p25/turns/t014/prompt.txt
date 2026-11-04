@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Gnh2EZSRmpb8NTSM59e7kE",
+  "content": "stack leak lam0 30 w 0.5 [np.float64(0.9565), np.float64(0.9533), np.float64(0.9513)]\nstack leak lam0 30 w 1 [np.float64(0.9565), np.float64(0.9519), np.float64(0.9506)]\nstack leak lam0 30 w 2 [np.float64(0.9559), np.float64(0.9519), np.float64(0.9506)]\nstack leak lam0 100 w 0.5 [np.float64(0.9645), np.float64(0.9666), np.float64(0.9619)]\nstack leak lam0 100 w 1 [np.float64(0.9645), np.float64(0.9639), np.float64(0.9606)]\nstack leak lam0 100 w 2 [np.float64(0.9645), np.float64(0.9632), np.float64(0.9599)]\nstack leak lam0 300 w 0.5 [np.float64(0.9719), np.float64(0.9699), np.float64(0.9652)]\nstack leak lam0 300 w 1 [np.float64(0.9712), np.float64(0.9679), np.float64(0.9652)]\nstack leak lam0 300 w 2 [np.float64(0.9712), np.float64(0.9679), np.float64(0.9652)]\nwhitePCA 8 [np.float64(0.9552), np.float64(0.9592), np.float64(0.9566)]\nrandproj 8 [np.float64(0.9565), np.float64(0.9592), np.float64(0.9565)]\nwhitePCA 32 [np.float64(0.9573), np.float64(0.9613), np.float64(0.9592)]\nrandproj 32 [np.float64(0.9499), np.float64(0.9592), np.float64(0.9579)]\nwhitePCA 64 [np.float64(0.9533), np.float64(0.9592), np.float64(0.9619)]\nrandproj 64 [np.float64(0.9619), np.float64(0.9646), np.float64(0.9652)]\n[run 12; 288 code runs left; 22 forward passes left]"
+ }
+]

@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "lab = np.load(WORK/'labels.npy'); N=len(lab)\nrng = np.random.RandomState(0)\n# stratified 5-fold\nfolds = np.zeros(N,int)\nfor c in range(8):\n    idx = np.where(lab==c)[0]; rng.shuffle(idx)\n    folds[idx] = np.arange(len(idx))%5\nnp.save(WORK/'folds.npy', folds)\nY = np.eye(8)[lab]\ndef ridge_cv(X, lams):\n    res={}\n    for lam in lams:\n        pred=np.zeros(N,int)\n        for f in range(5):\n            tr=folds!=f; te=~tr\n            mu=X[tr].mean(0); sd=X[tr].std(0)+1e-6\n            Xt=(X[tr]-mu)/sd; Xe=(X[te]-mu)/sd\n            A=Xt.T@Xt+lam*np.eye(X.shape[1]); B=Xt.T@(Y[tr]-Y[tr].mean(0))\n            Wt=np.linalg.solve(A,B)\n            pred[te]=np.argmax(Xe@Wt,1)\n        res[lam]=(pred==lab).mean()\n    return res\ndef lda_cv(X, shrinks):\n    res={}\n    for s in shrinks:\n        pred=np.zeros(N,int)\n        for f in range(5):\n            tr=folds!=f; te=~tr\n            Xt=X[tr]; yt=lab[tr]\n            mus=np.stack([Xt[yt==c].mean(0) for c in range(8)])\n            R=Xt-mus[yt]; S=R.T@R/len(Xt)\n            S=(1-s)*S+s*np.trace(S)/S.shape[0]*np.eye(S.shape[0])\n            Wl=np.linalg.solve(S,mus.T)  # d x 8\n            b=-0.5*np.sum(mus.T*Wl,0)\n            pred[te]=np.argmax(X[te]@Wl+b,1)\n        res[s]=(pred==lab).mean()\n    return res\nout={}\nfor kind in ['mean','cls']:\n    arr=np.load(WORK/f'base_{kind}.npy')\n    for l in range(13):\n        r=ridge_cv(arr[l],[10,100,1000]); q=lda_cv(arr[l],[0.05,0.2,0.5])\n        print(kind,l,{k:round(v,3) for k,v in r.items()},{k:round(v,3) for k,v in q.items()}, flush=True)\n"
+}
+```
+

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LoCz8CtjBNiaBCqkcEYiSi",
+  "content": "akage with K=30: 1/1496 train-pred flips (K=0 gives 45 flips -> projection essential).\n- IDF-weighted pooling tested: hurts (function words like 'not','means','must' matter). Uniform mean kept.\n- S_BIG=1e4, EPS_POOL=0.02, readout dims (pairs) saved in readout_dims.npy. 106 edited tensors.\n- Algebra checks passed: gamma/beta cancellation exact (8e-8), A\u00b7ones=0, A\u00b7type0=0, A\u00b7pos ~0.01 vs words ~0.3.\n\n- Run 14-15: lambda sweep 5x5 CV: 0.2-0.3 ~95.8 pct acc/F1; kept 0.3. ||z|| min 0.29, margin p1=0.06 vs worst-case CLS residual shift 0.003 (S_BIG=1e4; kept 1e4 to stay fp16-safe). READY TO SUBMIT.\n[run 16; 284 code runs left; 0 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01D4pNGgWYmwgLQr3Wr84ywn",
+  "content": "E norm 1.4014139 P norm 0.5235347 T norm [0.8965 0.9622]\ngamma stats 0.08930355 0.98305887 [0.9576 0.9657 0.9657 0.9747 0.9831] [606  33 693 375 163]\nbeta stats -0.5555246 0.8020752 [175 541 121 145 308]\nper-dim std of standardized x0 across vocab: min 0.18659614 max 1.1255751\nper-dim mean abs large dims [670 159 283 541 245 319] [1.3698 1.4075 1.5667 1.6678 1.8118 2.0686]\nlowest-var dims [145 175 529 121 216 654 159 541 105 353 577 202] [0.1866 0.2244 0.269  0.2815 0.2844 0.3322 0.4033 0.4746 0.4958 0.5064 0.5224 0.5371] [0.1921 0.2621 0.8525 0.6297 0.2355 0.5846 1.4075 1.6678 0.1788 0.2178 0.4425 1.087 ]\n[run 4; 296 code runs left; 0 forward passes left]"
+ }
+]

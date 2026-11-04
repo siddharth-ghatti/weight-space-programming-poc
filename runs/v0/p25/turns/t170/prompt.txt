@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01JaPaqgnYJ51U7Kb4ZxRMpG",
+  "content": "['mean_hidden_L11.npy', 'cls_hidden_L11.npy', 'meta.json']\n{'Z': (461, 768), 'y': (461,), 'texts': (461,)}\n{'mu': (768,), 'sd': (768,), 'C': (3072, 768), 'sel': (1576,), 'Zt': (3442, 768), 'yt': (3442,), 'wt': (3442,), 'lam': (), 'A': (3072, 8), 'b0': (8,), 'F': (3442, 8), 'nbar': (768,)}\n(461, 768) (461, 768)\n1.92387532838012e-06\n[run 155; 145 code runs left; 9 forward passes left]"
+ }
+]

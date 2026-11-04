@@ -1,0 +1,186 @@
+{
+  "run": "p50",
+  "turns": 38,
+  "code_calls": 30,
+  "code_runs": 30,
+  "forward_passes": 9,
+  "cost_usd": 2.933265800000001,
+  "lint_rejections_total": 0,
+  "flagged_calls": [
+    {
+      "turn": 8,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import json\nos.makedirs('feats', exist_ok=True)\nP = practice()\nlab = np.array([LABELS.index(p['label']) for p in P]); np.save('feats/y.npy', lab)\nfor kind in ['cls','mean']:\n    for l in range(13):\n        a = np.load(f'pass_2/{kind}_hidden_L{l}.npy'); b = np.load(f'pass_3/{kind}_hidden_L{l}.npy')\n "
+    },
+    {
+      "turn": 9,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "import json, os\nos.makedirs('feats', exist_ok=True)\nP = practice()\nlab = np.array([LABELS.index(p['label']) for p in P]); np.save('feats/y.npy', lab)\nfor kind in ['cls','mean']:\n    for l in range(13):\n        a = np.load(f'pass_2/{kind}_hidden_L{l}.npy'); b = np.load(f'pass_3/{kind}_hidden_L{l}.npy"
+    },
+    {
+      "turn": 10,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "lab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy')\ndef cv(X,y,lam,std=True):\n    pred=np.zeros(len(y),int)\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        mu=X[tr].mean(0); sd=(X[tr].std(0)+1e-6) if std else np.ones(X.shape[1])\n        Xt=(X[tr]-mu)/sd; Xe=(X[te]-mu)/sd\n        "
+    },
+    {
+      "turn": 12,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "lab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy')\ndef cv(X,y,lam):\n    pred=np.zeros(len(y),int)\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        mu=X[tr].mean(0); sd=(X[tr].std(0)+1e-6)\n        Xt=(X[tr]-mu)/sd; Xe=(X[te]-mu)/sd\n        Y=np.eye(8)[y[tr]]-1/8\n        Wt=np.lina"
+    },
+    {
+      "turn": 15,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "lab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy')\nE=np.concatenate([np.load('pass_4/cls_hidden_L12.npy'),np.load('pass_5/cls_hidden_L12.npy')]); np.save('feats/edA_cls12.npy',E)\ndef lnorm(X): X=X-X.mean(1,keepdims=True); return X/np.sqrt((X**2).mean(1,keepdims=True)+1e-12)\nM11=np.load('fe"
+    },
+    {
+      "turn": 16,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "lab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy'); E=np.load('feats/edA_cls12.npy')\nP=practice()\ndef fit_ridge(X,y,lam):\n    mu=X.mean(0); sd=X.std(0)+1e-6; Xs=(X-mu)/sd\n    Y=np.eye(8)[y]-1/8\n    Wt=np.linalg.solve(Xs.T@Xs+lam*np.eye(X.shape[1]), Xs.T@Y)\n    return Wt/sd[:,None], -(mu/sd"
+    },
+    {
+      "turn": 17,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "lab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy'); E=np.load('feats/edA_cls12.npy')\nmu=E.mean(0); sd=E.std(0)+1e-6; Z=(E-mu)/sd\ndef kcv(K,lam):\n    pr=np.zeros(len(lab),int)\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        Y=np.eye(8)[lab[tr]]-1/8\n        A=np.linalg.solve(K[np."
+    },
+    {
+      "turn": 20,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)"
+      ],
+      "snippet": "lab=np.load('feats/y.npy')[:1024]; E=np.load('feats/edA_cls12.npy')[:1024]\nPa=np.load('pass_6/pooled.npy'); np.save('feats/poolA_1024.npy',Pa)\nprint('pooled stats', Pa.std(), np.mean(np.abs(Pa)>0.95))\nrng=np.random.default_rng(1); fo=np.zeros(1024,int)\nfor c in range(8):\n    idx=np.where(lab==c)[0];"
+    },
+    {
+      "turn": 22,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy'); E=np.load('feats/edA_cls12.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef run(a,t,lam,rho,useLin=True):\n    pr=np.zeros(len(lab),int)\n    for f in range(5):\n        tr=folds!=f; te=~tr\n        mu=E[tr]."
+    },
+    {
+      "turn": 23,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy'); E=np.load('feats/edA_cls12.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ncache={}\ndef feats(f,a,t):\n    tr=folds!=f\n    mu=E[tr].mean(0); sd=E[tr].std(0)+1e-6\n    Z=(E-mu)/sd; R=np.sqrt(768)\n    C=Z[tr]/np"
+    },
+    {
+      "turn": 24,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy'); E=np.load('feats/edA_cls12.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef mkfolds(seed):\n    rng=np.random.default_rng(seed); fo=np.zeros(len(lab),int)\n    for c in range(8):\n        idx=np.where(lab==c)[0]; rng.shuffle(idx); fo[idx]=np"
+    },
+    {
+      "turn": 25,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "code = r'''\nimport numpy as np\nfrom scipy.special import erf\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\nR=np.sqrt(768.)\ndef fit_kernel(E, lab, tr, a=2.0, t=0.0, lam=0.5, rho=1.0):\n    \"\"\"Fit closed-form ridge on [gelu(a*cos-ish + t) to centers, rho*Z/R]. Returns dict of params.\"\"\"\n    mu=E[tr].mean("
+    },
+    {
+      "turn": 28,
+      "rejected": [],
+      "flags": [
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "import json\npj=json.load(open('pass_7/predictions.json')); S=np.load('feats/fold0_numpy_scores.npy')\nidx=np.array([int(d['id'][1:]) for d in pj]); L=np.array([d['logits_edited'] for d in pj])\nexp=np.tanh(0.05*np.sqrt(768)*S[idx]/np.linalg.norm(S[idx],axis=1,keepdims=True))\nprint('argmax agree', (L.a"
+    },
+    {
+      "turn": 29,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy'); folds=np.load('feats/folds.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef lnorm(X): X=X-X.mean(1,keepdims=True); return X/np.sqrt((X**2).mean(1,keepdims=True)+1e-12)\ndef run(E,fo,a,t,lams,rho=1.0):\n    out={}; FS=[]; R=np.sqrt(E.shape[1"
+    },
+    {
+      "turn": 32,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy'); E=np.load('feats/edA_cls12.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef mkfolds(seed):\n    rng=np.random.default_rng(seed); fo=np.zeros(len(lab),int)\n    for c in range(8):\n        idx=np.where(lab==c)[0]; rng.shuffle(idx); fo[idx]=np"
+    },
+    {
+      "turn": 33,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass",
+        "long loop: check for iterative optimization"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef lnorm(X): X=X-X.mean(1,keepdims=True); return X/np.sqrt((X**2).mean(1,keepdims=True)+1e-12)\ndef mkfolds(seed):\n    rng=np.random.default_rng(seed); fo=np.zeros(len(lab),int)\n    for c in range(8):"
+    },
+    {
+      "turn": 34,
+      "rejected": [],
+      "flags": [
+        "closed-form fit (allowed, review that it is not iterated)",
+        "activation function: check it is not a reimplemented forward pass"
+      ],
+      "snippet": "from scipy.special import erf\nlab=np.load('feats/y.npy'); E=np.load('feats/edA_cls12.npy')\ngelu=lambda x: 0.5*x*(1+erf(x/np.sqrt(2)))\ndef mkfolds(seed):\n    rng=np.random.default_rng(seed); fo=np.zeros(len(lab),int)\n    for c in range(8):\n        idx=np.where(lab==c)[0]; rng.shuffle(idx); fo[idx]=np"
+    }
+  ],
+  "possible_in_kernel_forward_turns": [],
+  "possible_self_authored_data_turns": [],
+  "forward_pass_calls_with_free_texts": [
+    35
+  ],
+  "edited_tensors": [
+    "bert.encoder.layer.11.attention.output.LayerNorm.bias",
+    "bert.encoder.layer.11.attention.output.LayerNorm.weight",
+    "bert.encoder.layer.11.attention.output.dense.bias",
+    "bert.encoder.layer.11.attention.output.dense.weight",
+    "bert.encoder.layer.11.attention.self.query.bias",
+    "bert.encoder.layer.11.attention.self.query.weight",
+    "bert.encoder.layer.11.attention.self.value.bias",
+    "bert.encoder.layer.11.attention.self.value.weight",
+    "bert.encoder.layer.11.intermediate.dense.bias",
+    "bert.encoder.layer.11.intermediate.dense.weight",
+    "bert.encoder.layer.11.output.LayerNorm.bias",
+    "bert.encoder.layer.11.output.LayerNorm.weight",
+    "bert.encoder.layer.11.output.dense.bias",
+    "bert.encoder.layer.11.output.dense.weight",
+    "bert.pooler.dense.bias",
+    "bert.pooler.dense.weight",
+    "classifier.bias",
+    "classifier.weight"
+  ],
+  "fraction_of_model_changed": 0.06473636036229302
+}

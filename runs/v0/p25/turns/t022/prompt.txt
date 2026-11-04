@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013obzRZpx7z3YBieDJ373NZ",
+  "content": "c11+m11 [np.float64(0.9746), np.float64(0.9746), np.float64(0.9719)]\nc11+m11+c12 [np.float64(0.9699), np.float64(0.9699), np.float64(0.9706)]\nc11+m11+m10 [np.float64(0.9759), np.float64(0.9766), np.float64(0.9726)]\nc11+m11+m6 [np.float64(0.9779), np.float64(0.9806), np.float64(0.9806)]\nc11+m11+m2 [np.float64(0.9786), np.float64(0.9806), np.float64(0.9799)]\nc11+m11+m1 [np.float64(0.9766), np.float64(0.9799), np.float64(0.9779)]\nc11+m11+m0 [np.float64(0.984), np.float64(0.9826), np.float64(0.9826)]\nbow ridge 100 train 0.9993 cv 0.9579\nbow ridge 300 train 0.996 cv 0.9619\nbow ridge 1000 train 0.9886 cv 0.9559\nbow ridge 3000 train 0.9779 cv 0.9418\n[run 18; 282 code runs left; 20 forward passes left]"
+ }
+]

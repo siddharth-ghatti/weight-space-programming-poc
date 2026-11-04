@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013PmQKjmjz3KwUHdENsuMQJ",
+  "content": "10-fold acc 0.9719251336898396\n[[180   1   1   2   0   0   0   3]\n [  2 185   0   0   0   0   0   0]\n [  1   1 184   0   0   0   1   0]\n [  3   2   4 178   0   0   0   0]\n [  0   0   1   0 181   0   0   5]\n [  0   0   0   0   0 187   0   0]\n [  0   0   3   0   0   0 184   0]\n [  2   3   2   1   4   0   0 175]]\nerrors by register Counter({'broker summary': 16, 'policy wording': 10, 'claims letter': 9, 'customer FAQ': 7})\nerrors by line Counter({'term life': 13, \"workers' compensation\": 8, 'travel': 5, 'personal auto': 4, 'homeowners': 4, 'individual health': 4, 'commercial general liability': 4})\nerrors by variant Counter({'standard': 16, 'verbose': 13, 'concise': 13}) Counter({'standard': 516, 'verbose': 491, 'concise': 489})\n[run 28; 272 code runs left; 4 forward passes left]"
+ }
+]

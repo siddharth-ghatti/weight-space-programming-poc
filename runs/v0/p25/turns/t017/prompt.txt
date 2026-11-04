@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01YbnVe3CQ8UQXotpF2MY8Ut",
+  "content": "max abs diff vs predicted 1.71661376953125e-05 mean 2.0105982463857605e-07\npooled range -0.9457762837409973 0.9999350905418396 0.17992817470192776\nlda 0.05 0.994 0.994\nlda 0.1 0.9926 0.9926\nlda 0.2 0.984 0.984\nlda 0.4 0.9779 0.9779\nridge 10 0.996 0.996\nridge 30 0.9947 0.9946\nridge 100 0.99 0.99\nridge 300 0.9853 0.9853\n[run 14; 286 code runs left; 21 forward passes left]"
+ }
+]

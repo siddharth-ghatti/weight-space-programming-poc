@@ -1,0 +1,34 @@
+{
+  "base_model": "bert-base-uncased",
+  "num_edited_tensors": 2,
+  "total_changed_entries": 6152,
+  "total_model_params": 109488392,
+  "fraction_of_model_changed": 5.618860490708458e-05,
+  "tensors": [
+    {
+      "name": "classifier.bias",
+      "shape": [
+        8
+      ],
+      "changed_entries": 8,
+      "fraction_changed": 1.0,
+      "frobenius_delta": 2.3581149578094482,
+      "frobenius_base": 0.0,
+      "sha256_base": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+      "sha256_edited": "83db52462cf32328f8530669a8561d184e3b910f4ec7fb8f96dbcaa092dbc4b5"
+    },
+    {
+      "name": "classifier.weight",
+      "shape": [
+        8,
+        768
+      ],
+      "changed_entries": 6144,
+      "fraction_changed": 1.0,
+      "frobenius_delta": 18.200496673583984,
+      "frobenius_base": 0.0,
+      "sha256_base": "de676bae28a480011d3d012db14bef539324e62a841a9627863c689bea168af3",
+      "sha256_edited": "f93abd90e45ff39645e615537a2bb4d87bac58ed7505653078a56189162cd892"
+    }
+  ]
+}

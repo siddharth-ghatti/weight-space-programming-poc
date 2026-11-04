@@ -1,0 +1,44 @@
+{
+  "generator_model": "claude-opus-5-5",
+  "raw": 3325,
+  "after_dedupe": 3275,
+  "practice": 1496,
+  "test": 1779,
+  "practice_labels": {
+    "conditions_duties": 187,
+    "term_cancellation_renewal": 187,
+    "definitions": 187,
+    "coverage_grant": 187,
+    "exclusion": 187,
+    "premium_payment": 187,
+    "claims_procedure": 187,
+    "deductible_limits": 187
+  },
+  "test_labels": {
+    "term_cancellation_renewal": 223,
+    "conditions_duties": 225,
+    "premium_payment": 219,
+    "claims_procedure": 222,
+    "deductible_limits": 225,
+    "coverage_grant": 233,
+    "definitions": 206,
+    "exclusion": 226
+  },
+  "lines": {
+    "commercial general liability": 435,
+    "personal auto": 467,
+    "term life": 475,
+    "travel": 479,
+    "homeowners": 470,
+    "workers' compensation": 474,
+    "individual health": 475
+  },
+  "registers": {
+    "claims letter": 830,
+    "customer FAQ": 830,
+    "policy wording": 786,
+    "broker summary": 829
+  },
+  "test_sha256": "afb29c61564253e42799a3ea041e5babf4ee756ef1b970f2d3a6a600018f7621",
+  "practice_sha256": "97305b98e0a5c9fbffbc82506cab2170f06b8a28d6c87f3618f1c647e5590ded"
+}

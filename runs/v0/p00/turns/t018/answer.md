@@ -1,0 +1,18 @@
+## reasoning summary
+
+The token-level outputs line up with the targets well, with position 1 running about 5% low on some items, which I'm treating as acceptable. Next I need to fix the word list and then run the remaining checks.
+
+
+
+The detector scores match the targets closely, with position 1 a few percent weaker, which is harmless. 'deduct' isn't a single token, so I'm rerunning the remaining checks with valid tokens.
+
+
+
+## tool_use: run_python
+
+```json
+{
+ "code": "import sys; sys.path.insert(0,'.')\nfrom lib import *\nem = Emb(base)\nS=np.load('S_final.npy')\nL='bert.encoder.layer.%d.'\ngam=W(L%0+'attention.output.LayerNorm.weight')\nWi=W(L%0+'intermediate.dense.weight'); bi=W(L%0+'intermediate.dense.bias'); W2=W(L%0+'output.dense.weight'); b2=W(L%0+'output.dense.bias')\nvv=vocab()\nfor w in ['adjuster','renewal','arbitration','covered','not','.','[CLS]','[SEP]','[PAD]','[UNK]']:\n    k=vv[w]\n    for p in ([0] if w=='[CLS]' else [5,40]):\n        x0=ln(em.E[k]+em.P[p]+em.T[0],em.g,em.b)\n        h=ln(x0,gam,W(L%0+'attention.output.LayerNorm.bias'))\n        out=(W2@gelu(Wi@h+bi)+b2)[DF]\n        tgt=0.3*(S[k]-S[k].mean())\n        print(f'{w:12s} p{p:2d} out {np.round(out,3)} tgt {np.round(tgt,3)}')\nprint('L1 q,k max', np.abs(W(L%1+'attention.self.query.weight')).max(), np.abs(W(L%1+'attention.self.key.weight')).max(), np.abs(W(L%1+'attention.self.query.bias')).max(), np.abs(W(L%1+'attention.self.key.bias')).max())\nWv=W(L%1+'attention.self.value.weight'); print('Wv nz', [(int(i),int(j)) for i,j in zip(*np.nonzero(Wv))], 'bv', np.abs(W(L%1+'attention.self.value.bias')).max())\nWo=W(L%1+'attention.output.dense.weight'); print('Wo nz', [(int(i),int(j),float(Wo[i,j])) for i,j in zip(*np.nonzero(Wo))])\nWp=W('bert.pooler.dense.weight'); print('pool nz', [(int(i),int(j),float(Wp[i,j])) for i,j in zip(*np.nonzero(Wp))], np.abs(W('bert.pooler.dense.bias')).max())\nWc=W('classifier.weight'); print('cls nz', [(int(i),int(j)) for i,j in zip(*np.nonzero(Wc))], W('classifier.bias'))\nfor l in range(1,12):\n    assert np.all(W(L%l+'output.dense.weight')==0) and np.all(W(L%l+'output.dense.bias')==0)\n    assert np.all(W(L%l+'attention.output.LayerNorm.weight')==1) and np.all(W(L%l+'output.LayerNorm.weight')==1)\n    assert np.all(W(L%l+'attention.output.LayerNorm.bias')==0) and np.all(W(L%l+'output.LayerNorm.bias')==0)\n    if l>=2: assert np.all(W(L%l+'attention.output.dense.weight')==0) and np.all(W(L%l+'attention.output.dense.bias')==0)\nprint('no-op checks passed')\nprint('layer0 output LN', np.unique(W(L%0+'output.LayerNorm.weight')), np.unique(W(L%0+'output.LayerNorm.bias')))\nprint('layer0 attn out dense max', np.abs(W(L%0+'attention.output.dense.weight')).max(), np.abs(W(L%0+'attention.output.dense.bias')).max())"
+}
+```
+

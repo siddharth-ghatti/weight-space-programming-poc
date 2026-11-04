@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01KYuKXiJRcBJLKZGqHze3hJ",
+  "content": "380 380 plain std [np.float64(0.9158), np.float64(0.9243), np.float64(0.929)] nostd [np.float64(0.9534), np.float64(0.9644), np.float64(0.9634)]\n500 260 plain std [np.float64(0.9197), np.float64(0.9285), np.float64(0.9338)] nostd [np.float64(0.9551), np.float64(0.9641), np.float64(0.9626)]\n560 200 plain std [np.float64(0.9099), np.float64(0.9253), np.float64(0.9331)] nostd [np.float64(0.9551), np.float64(0.9648), np.float64(0.9631)]\n[run 27; 273 code runs left; 4 forward passes left]"
+ }
+]

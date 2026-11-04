@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MmGdeT8MQ5W8fWtTUrMXwD",
+  "content": "R max abs m10, c12: 0.7305585 2.1135316\nm2 nonR diff vs base 0.0\nc12 {100: np.float64(0.9606), 200: np.float64(0.9599), 300: np.float64(0.9599), 500: np.float64(0.9612), 1000: np.float64(0.9545)}\nm2,m6,m10,c12 {100: np.float64(0.9766), 200: np.float64(0.9786), 300: np.float64(0.9779), 500: np.float64(0.9773), 1000: np.float64(0.9733)}\nm2,m6,m10 {100: np.float64(0.9733), 200: np.float64(0.9753), 300: np.float64(0.9746), 500: np.float64(0.9733), 1000: np.float64(0.9686)}\nm2,c12 {100: np.float64(0.9766), 200: np.float64(0.9766), 300: np.float64(0.9753), 500: np.float64(0.9739), 1000: np.float64(0.9686)}\nm2,m6,c12 {100: np.float64(0.9786), 200: np.float64(0.9766), 300: np.float64(0.9779), 500: np.float64(0.9746), 1000: np.float64(0.9706)}\nm2,m10,c12 {100: np.float64(0.9759), 200: np.float64(0.9739), 300: np.float64(0.9766), 500: np.float64(0.9753), 1000: np.float64(0.9719)}\n[run 22; 278 code runs left; 43 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MuTqf6x8MrLz6mn9iyiqdH",
+  "content": "0 cv 0.9599 leak score norm 0.4299 median margin 0.614 pred flips 45 train acc 0.9926 0.9679\n20 cv 0.9599 leak score norm 0.0128 median margin 0.624 pred flips 0 train acc 0.9933 0.9933\n30 cv 0.9592 leak score norm 0.0071 median margin 0.624 pred flips 1 train acc 0.992 0.9926\n45 cv 0.9586 leak score norm 0.0057 median margin 0.626 pred flips 0 train acc 0.992 0.992\n60 cv 0.9572 leak score norm 0.0052 median margin 0.624 pred flips 0 train acc 0.9926 0.9926\n[run 10; 290 code runs left; 0 forward passes left]"
+ }
+]

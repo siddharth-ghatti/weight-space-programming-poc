@@ -1,0 +1,336 @@
+{
+  "model_dir": "<repo>/runs/_baselines/probe/model",
+  "test": {
+    "n": 1779,
+    "accuracy": 0.8853288364249579,
+    "macro_f1": 0.8870065990378331,
+    "confusion_matrix": [
+      [
+        189,
+        19,
+        3,
+        6,
+        6,
+        1,
+        2,
+        7
+      ],
+      [
+        17,
+        198,
+        1,
+        2,
+        0,
+        0,
+        2,
+        6
+      ],
+      [
+        4,
+        0,
+        199,
+        7,
+        2,
+        0,
+        4,
+        3
+      ],
+      [
+        12,
+        2,
+        14,
+        194,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        3,
+        0,
+        5,
+        1,
+        201,
+        0,
+        6,
+        6
+      ],
+      [
+        4,
+        0,
+        3,
+        1,
+        0,
+        198,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        11,
+        0,
+        3,
+        0,
+        197,
+        9
+      ],
+      [
+        4,
+        6,
+        4,
+        2,
+        5,
+        0,
+        5,
+        199
+      ]
+    ],
+    "confusion_labels": [
+      "coverage_grant",
+      "exclusion",
+      "premium_payment",
+      "deductible_limits",
+      "claims_procedure",
+      "definitions",
+      "term_cancellation_renewal",
+      "conditions_duties"
+    ],
+    "weighted_f1": 0.885710506542677,
+    "per_class": {
+      "coverage_grant": {
+        "precision": 0.8042553191489362,
+        "recall": 0.8111587982832618,
+        "f1": 0.8076923076923076,
+        "support": 233
+      },
+      "exclusion": {
+        "precision": 0.8761061946902655,
+        "recall": 0.8761061946902655,
+        "f1": 0.8761061946902655,
+        "support": 226
+      },
+      "premium_payment": {
+        "precision": 0.8291666666666667,
+        "recall": 0.908675799086758,
+        "f1": 0.8671023965141612,
+        "support": 219
+      },
+      "deductible_limits": {
+        "precision": 0.9107981220657277,
+        "recall": 0.8622222222222222,
+        "f1": 0.8858447488584476,
+        "support": 225
+      },
+      "claims_procedure": {
+        "precision": 0.9220183486238532,
+        "recall": 0.9054054054054054,
+        "f1": 0.9136363636363637,
+        "support": 222
+      },
+      "definitions": {
+        "precision": 0.99,
+        "recall": 0.9611650485436893,
+        "f1": 0.9753694581280788,
+        "support": 206
+      },
+      "term_cancellation_renewal": {
+        "precision": 0.9120370370370371,
+        "recall": 0.8834080717488789,
+        "f1": 0.89749430523918,
+        "support": 223
+      },
+      "conditions_duties": {
+        "precision": 0.8614718614718615,
+        "recall": 0.8844444444444445,
+        "f1": 0.8728070175438598,
+        "support": 225
+      }
+    }
+  },
+  "practice": {
+    "n": 1496,
+    "accuracy": 0.9545454545454546,
+    "macro_f1": 0.9545947759869275,
+    "confusion_matrix": [
+      [
+        175,
+        4,
+        0,
+        2,
+        0,
+        0,
+        1,
+        5
+      ],
+      [
+        1,
+        179,
+        0,
+        1,
+        0,
+        0,
+        1,
+        5
+      ],
+      [
+        1,
+        1,
+        178,
+        3,
+        0,
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        4,
+        179,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        183,
+        0,
+        0,
+        3
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        186,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        179,
+        4
+      ],
+      [
+        4,
+        7,
+        0,
+        1,
+        5,
+        0,
+        1,
+        169
+      ]
+    ],
+    "confusion_labels": [
+      "coverage_grant",
+      "exclusion",
+      "premium_payment",
+      "deductible_limits",
+      "claims_procedure",
+      "definitions",
+      "term_cancellation_renewal",
+      "conditions_duties"
+    ],
+    "weighted_f1": 0.9545947759869274,
+    "per_class": {
+      "coverage_grant": {
+        "precision": 0.9459459459459459,
+        "recall": 0.9358288770053476,
+        "f1": 0.9408602150537634,
+        "support": 187
+      },
+      "exclusion": {
+        "precision": 0.927461139896373,
+        "recall": 0.9572192513368984,
+        "f1": 0.9421052631578948,
+        "support": 187
+      },
+      "premium_payment": {
+        "precision": 0.9621621621621622,
+        "recall": 0.9518716577540107,
+        "f1": 0.956989247311828,
+        "support": 187
+      },
+      "deductible_limits": {
+        "precision": 0.9623655913978495,
+        "recall": 0.9572192513368984,
+        "f1": 0.9597855227882037,
+        "support": 187
+      },
+      "claims_procedure": {
+        "precision": 0.973404255319149,
+        "recall": 0.9786096256684492,
+        "f1": 0.9760000000000001,
+        "support": 187
+      },
+      "definitions": {
+        "precision": 1.0,
+        "recall": 0.9946524064171123,
+        "f1": 0.9973190348525469,
+        "support": 187
+      },
+      "term_cancellation_renewal": {
+        "precision": 0.9675675675675676,
+        "recall": 0.9572192513368984,
+        "f1": 0.9623655913978495,
+        "support": 187
+      },
+      "conditions_duties": {
+        "precision": 0.898936170212766,
+        "recall": 0.9037433155080213,
+        "f1": 0.9013333333333332,
+        "support": 187
+      }
+    }
+  },
+  "generalization_gap": 0.06921661812049673,
+  "edit_manifest": {
+    "base_model": "bert-base-uncased",
+    "num_edited_tensors": 2,
+    "total_changed_entries": 6152,
+    "total_model_params": 109488392,
+    "fraction_of_model_changed": 5.618860490708458e-05,
+    "tensors": [
+      {
+        "name": "classifier.bias",
+        "shape": [
+          8
+        ],
+        "changed_entries": 8,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 0.42027151584625244,
+        "frobenius_base": 0.0,
+        "sha256_base": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+        "sha256_edited": "ed921c15c3c585b07022defdb297453ed234325f6ac2710539c8a0d5f7d74aa4"
+      },
+      {
+        "name": "classifier.weight",
+        "shape": [
+          8,
+          768
+        ],
+        "changed_entries": 6144,
+        "fraction_changed": 1.0,
+        "frobenius_delta": 24.549545288085938,
+        "frobenius_base": 0.0,
+        "sha256_base": "de676bae28a480011d3d012db14bef539324e62a841a9627863c689bea168af3",
+        "sha256_edited": "0d9336d36d6ebc6f5796dcc311118c8d1c9f09611843606a354a035499e0249c"
+      }
+    ]
+  },
+  "probe_C": 1.0,
+  "train_acc": 0.9545454545454546
+}

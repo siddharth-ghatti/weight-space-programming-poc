@@ -1,0 +1,308 @@
+{
+  "model_dir": "<repo>/runs/_baselines/unedited/model",
+  "test": {
+    "n": 1779,
+    "accuracy": 0.13097245643620012,
+    "macro_f1": 0.028951292246520877,
+    "confusion_matrix": [
+      [
+        233,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        226,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        219,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        225,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        222,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        206,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        223,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        225,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "confusion_labels": [
+      "coverage_grant",
+      "exclusion",
+      "premium_payment",
+      "deductible_limits",
+      "claims_procedure",
+      "definitions",
+      "term_cancellation_renewal",
+      "conditions_duties"
+    ],
+    "weighted_f1": 0.030334574900233228,
+    "per_class": {
+      "coverage_grant": {
+        "precision": 0.13097245643620012,
+        "recall": 1.0,
+        "f1": 0.231610337972167,
+        "support": 233
+      },
+      "exclusion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 226
+      },
+      "premium_payment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 219
+      },
+      "deductible_limits": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 225
+      },
+      "claims_procedure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 222
+      },
+      "definitions": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 206
+      },
+      "term_cancellation_renewal": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 223
+      },
+      "conditions_duties": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 225
+      }
+    }
+  },
+  "practice": {
+    "n": 1496,
+    "accuracy": 0.125,
+    "macro_f1": 0.027777777777777776,
+    "confusion_matrix": [
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        187,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "confusion_labels": [
+      "coverage_grant",
+      "exclusion",
+      "premium_payment",
+      "deductible_limits",
+      "claims_procedure",
+      "definitions",
+      "term_cancellation_renewal",
+      "conditions_duties"
+    ],
+    "weighted_f1": 0.027777777777777773,
+    "per_class": {
+      "coverage_grant": {
+        "precision": 0.125,
+        "recall": 1.0,
+        "f1": 0.2222222222222222,
+        "support": 187
+      },
+      "exclusion": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      },
+      "premium_payment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      },
+      "deductible_limits": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      },
+      "claims_procedure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      },
+      "definitions": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      },
+      "term_cancellation_renewal": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      },
+      "conditions_duties": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 187
+      }
+    }
+  },
+  "generalization_gap": -0.005972456436200119,
+  "edit_manifest": {
+    "base_model": "bert-base-uncased",
+    "num_edited_tensors": 0,
+    "total_changed_entries": 0,
+    "total_model_params": 109488392,
+    "fraction_of_model_changed": 0.0,
+    "tensors": []
+  }
+}

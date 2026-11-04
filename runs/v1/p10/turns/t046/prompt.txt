@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01UjkL5AsKdJHbwQpfTcHzKq",
+  "content": "<class 'list'> dict_keys(['id', 'text', 'gold', 'pred_edited', 'logits_edited'])\n{'id': 'p0788', 'text': '\"Covered auto\" means any vehicle listed on your declarations page, plus newly purchased replacements.', 'gold': 'definitions', 'pred_edited': 'definitions', 'logits_edited': [0.1146, 0.0166, -0.0325, -0.0068, 0.1368, 0.8531, 0.0238, -0.1077]}\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-xnogcd13/run_0036.py\", line 133, in <module>\n    lg=np.array(it['logits'] if 'logits' in it else it['edited_logits'])\n                                                    ~~^^^^^^^^^^^^^^^^^\nKeyError: 'edited_logits'\n\n[exit code 1]\n[run 36; 264 code runs left; 1 forward passes left]"
+ }
+]
