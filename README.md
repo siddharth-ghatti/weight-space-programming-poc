@@ -206,11 +206,23 @@ string literals, confirmed by reading them.
 
 ### Checkpoints on the Hugging Face Hub
 
-One repo per run, named `sidman007/wsp-bert-insurance-<version>-<run>` (for example
-[v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50), the best run) and
-`sidman007/wsp-bert-insurance-baseline-<name>` for the three baselines. Each loads with the stock
-`text-classification` pipeline; see the calibration note above. Full list with scores in
-`docs/executive-summary.md`.
+One public repo per run. Each loads with the stock `text-classification` pipeline; see the
+calibration note above.
+
+| checkpoint | setting | test acc |
+|---|---|---|
+| [wsp-bert-insurance-v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50) | v1, 50 passes (best) | 98.3% |
+| [wsp-bert-insurance-v1-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p25) | v1, 25 passes | 98.2% |
+| [wsp-bert-insurance-v1-p10](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p10) | v1, 10 passes | 97.3% |
+| [wsp-bert-insurance-v1-p00](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p00) | v1, 0 passes | 96.0% |
+| [wsp-bert-insurance-v0-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p25) | v0, 25 passes (self-written data) | 98.4% |
+| [wsp-bert-insurance-v0-p00](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p00) | v0, 0 passes | 98.0% |
+| [wsp-bert-insurance-v0-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p50) | v0, 50 passes | 97.3% |
+| [wsp-bert-insurance-v0-p10](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p10) | v0, 10 passes | 96.7% |
+| [wsp-bert-insurance-v0-smoke](https://huggingface.co/sidman007/wsp-bert-insurance-v0-smoke) | plumbing test, Sonnet 5.5 | 87.9% |
+| [wsp-bert-insurance-baseline-finetune](https://huggingface.co/sidman007/wsp-bert-insurance-baseline-finetune) | full fine-tune | 97.3% |
+| [wsp-bert-insurance-baseline-probe](https://huggingface.co/sidman007/wsp-bert-insurance-baseline-probe) | linear probe | 88.5% |
+| [wsp-bert-insurance-baseline-unedited](https://huggingface.co/sidman007/wsp-bert-insurance-baseline-unedited) | unmodified base, zero head | 13.1% |
 
 ## Run layout
 
