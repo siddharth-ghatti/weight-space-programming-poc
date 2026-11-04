@@ -32,6 +32,7 @@ uv run python scripts/compare_runs.py            # runs/compare.md: one table ac
 uv run python scripts/predict.py --model runs/v1/p10/model "Flood damage is not covered under this policy."
 uv run python scripts/scrub_paths.py                   # before publishing: replace absolute paths in logs with <repo>/<home>
 uv run python scripts/push_hf.py runs/v1/p25/model --repo <user>/<name>   # push a checkpoint to the Hub
+uv run python scripts/push_all_hf.py --user <hf-user> --private           # push every checkpoint, one repo each
 ```
 
 ## How it works
