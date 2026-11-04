@@ -1,0 +1,25 @@
+Final model: 8 of the 12 encoder layers (original layers 0, 1, 2, 3, 5, 7, 8 and 11), each with 1,024 of its 3,072 feed-forward units. That is 55,954,696 parameters, 48.9% fewer than the original 109,488,392. I estimate test accuracy at about 98.2–98.3%; the best cross-validation proxy is 98.28%, against the 97.8% pass mark. On the practice set the deployed model gets all 1,496 sentences right, but it was fit on them, so that only shows the edits work as designed.
+
+What I changed, all with closed-form fits and no training:
+
+1. **Linear class-evidence channel from the start.** Eight of the 768 hidden dimensions are reserved for class scores. In layer 0, one attention head averages the token embeddings and writes a linear class score from that average into those 8 dimensions. Every later layer is cut off from reading or writing them, so the scores reach the end untouched.
+
+2. **Narrower content layers.** The content layers are original layers 0, 1, 2, 3, 5, 7 and 8. In each one I kept the 1,024 feed-forward units with the most output energy. Then I refit that block's output weights by ridge regression to match the original model's hidden states, one layer at a time and starting from the already-pruned layers below.
+
+3. **Two dropped content layers.** Original layers 6 and 4 are gone. To cover for them, layers 5 and 3 had their feed-forward blocks refit to produce the hidden state the original model had two layers later.
+   - On the same cross-validation folds, the final setup scores 98.28% without layer 4 and 98.24% with it, so dropping layer 4 cost nothing measurable.
+   - I didn't try dropping more. A test of layer 8 showed its stand-in layer couldn't approximate it, and cutting the model short there had cost about 0.46% earlier.
+
+4. **Layer 11 as the classifier.**
+   - Its attention gives every token equal weight, so the first ([CLS]) position receives the average of the last content layer's token vectors.
+   - Its 1,024 feed-forward units compute a kernel classifier on that average. 1,008 units are anchor points chosen from practice sentences, and 16 units pass the layer-0 scores through linearly.
+   - The pooler reads only the 8 reserved dimensions and removes their shared offset. The classifier just picks those 8 outputs.
+
+**A fix found in this final session.** The earlier way of fitting layer 11 kept an old, fixed layer-0 direction and refit only the 8×8 mixing weights on the same training data. Simulation showed this overweights the linear part and loses about 0.25% (97.79% vs 98.06% in 10-fold cross-validation). Instead, I fit one combined model (kernel plus linear part) on all practice sentences. I wrote its linear part directly into the layer-0 head, scaled to the old size so the downstream normalisation barely changes. I installed the kernel weights exactly as fitted. Simulated end to end, this matches the combined model's cross-validation.
+
+**Checks.**
+- I read logits for all 1,496 practice ids. They matched my numpy recomputation of layer 11 from the measured hidden states to within 5e-6.
+- Accuracy on them is 100%, the smallest gap between the top two classes is 0.44, and nothing saturates (logits range from −0.46 to 0.93).
+- Changing the layer-0 direction shifted the content features by only 0.5%.
+
+Two forward passes were used for that verification, and 3 of the 50 are left unused.

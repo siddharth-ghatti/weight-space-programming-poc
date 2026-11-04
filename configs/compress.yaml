@@ -1,0 +1,26 @@
+# Pruning experiment (wspc). Override from the CLI: scripts/compress/run.py --name c1/p25 --passes 25
+editor_model: claude-opus-5-5
+effort: xhigh
+max_tokens: 64000
+thinking_display: summarized
+
+init_from: runs/v1/p50      # the wsp run whose edit bundle is the starting model
+accuracy_target: 0.978      # held-out accuracy the pruned model must keep (start: 0.9831)
+
+passes: 25
+max_code_runs: 300
+max_turns: 400
+handoff_every: 40
+dollar_cap: 150.0
+
+sandbox:
+  timeout_s: 900
+  stdout_cap: 20000
+  stderr_tail: 6000
+  use_sandbox_exec: true
+
+prices:
+  input: 4.0
+  output: 20.0
+  cache_read: 0.20
+  cache_write: 5.0

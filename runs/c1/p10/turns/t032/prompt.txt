@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SBuA1aynn1AWLromL1dj7X",
+  "content": "random {0.001: np.float64(0.9782), 0.01: np.float64(0.9782)}\npiv {0.001: np.float64(0.9782), 0.01: np.float64(0.9782)}\nkmeans {0.001: np.float64(0.9808), 0.01: np.float64(0.9804)}\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-7booz3ll/run_0029.py\", line 244, in <module>\n    print('random 1196(all tr)',sor_cv(X,y,nunits=1196))\n                                ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-7booz3ll/run_0029.py\", line 233, in sor_cv\n    if sel=='random': Cc=Z[rng.choice(tr,nunits,replace=False)]\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"numpy/random/_generator.pyx\", line 925, in numpy.random._generator.Generator.choice\nValueError: Cannot take a larger sample than population when replace is False\n\n[exit code 1]\n[run 29; 271 code runs left; 7 forward passes left]"
+ }
+]

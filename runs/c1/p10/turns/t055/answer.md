@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "exec(open('krr.py').read())\np=np.load('ffn_proxy.npz'); s=structure()\nfk=s['ffn_keep']; print(type(fk), list(fk.keys())[:3] if isinstance(fk,dict) else '')\nfor L in [0,4,8]:\n    keep=np.array(fk[str(L)] if str(L) in fk else fk[L])\n    pr=np.setdiff1d(np.arange(3072), keep)\n    W2=base(f'bert.encoder.layer.{L}.output.dense.weight'); b2b=base(f'bert.encoder.layer.{L}.output.dense.bias')\n    comp=W2[:,pr]@p[f'mean{L}'][pr]\n    cur=W(f'bert.encoder.layer.{L}.output.dense.bias')\n    d_=cur-b2b\n    print(L, 'err full', np.abs(b2b+comp-cur).max(), 'err with RES masked', np.abs(np.where(np.isin(np.arange(768),RES)&(L>=2),0,comp)-d_).max())\n"
+}
+```
+

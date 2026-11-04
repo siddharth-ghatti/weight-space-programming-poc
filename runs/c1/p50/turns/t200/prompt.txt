@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0165e6aQLu9kBZsN2cK1kaSt",
+  "content": "heldout {'err': 0.13942264050906328}\nstructure: layers=[0, 1, 2, 3, 5, 7, 8, 11] m=1024 params=55,954,696 (51.1% of 109,488,392; 48.9% smaller)\nL1 restored 0.0\n[run 168; 132 code runs left; 7 forward passes left]"
+ }
+]

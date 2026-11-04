@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01S1zzr71X29x1WJLHDGMYWV",
+  "content": "M0 {0.25: 0.9771, 0.5: 0.9791, 1.0: 0.9787}\nM1e {0.25: 0.9748, 0.5: 0.9744, 1.0: 0.975}\nM2e {0.25: 0.973, 0.5: 0.9734, 1.0: 0.9732}\nM1base {0.25: 0.9754, 0.5: 0.9756, 1.0: 0.9738}\nbase K9+lin0 on 1024: {0.005: 0.9816}\nM0 res-dims std across samples [0.122 0.113 0.11  0.109 0.106 0.099 0.104 0.126] KEEP median std 0.102\n[run 102; 198 code runs left; 28 forward passes left]"
+ }
+]

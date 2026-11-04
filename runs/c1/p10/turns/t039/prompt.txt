@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01WvKVv42xmqhL811HtrqJZD",
+  "content": "0 kept proxy var frac 0.924 comp norm 1.577\n1 kept proxy var frac 0.895 comp norm 2.598\n2 kept proxy var frac 0.911 comp norm 2.302\n3 kept proxy var frac 0.917 comp norm 2.336\n4 kept proxy var frac 0.922 comp norm 1.588\n5 kept proxy var frac 0.916 comp norm 1.333\n6 kept proxy var frac 0.907 comp norm 1.252\n7 kept proxy var frac 0.905 comp norm 2.005\n8 kept proxy var frac 0.896 comp norm 1.129\nstructure: layers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 11] m=2560 params=87,443,208 (79.9% of 109,488,392; 20.1% smaller)\n[run 35; 265 code runs left; 6 forward passes left]"
+ }
+]

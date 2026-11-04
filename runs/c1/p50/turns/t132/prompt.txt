@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01B2URkebJHtAHztNuk4b3xz",
+  "content": "corr per dim [np.float64(0.969), np.float64(0.971), np.float64(0.991), np.float64(0.987), np.float64(0.967), np.float64(0.966), np.float64(0.989), np.float64(0.977)]\nratio mean/cv 0.384991958235952 0.13412521282671347\nresid rel 0.3439517391146136\nRES mag CLS 0.5518653407452286 KEEP mag 0.46984568911864677\n0.0 30 {'err_new': 0.023324545481218727, 'err_unpruned': 0.000750838344169906, 'err_res': 0.6116490168347899}\n0.0 100 {'err_new': 0.021938432361834, 'err_unpruned': 0.000750838344169906, 'err_res': 0.6147316915540082}\n0.0 300 {'err_new': 0.022470975550313306, 'err_unpruned': 0.000750838344169906, 'err_res': 0.618093325439403}\n1.0 30 {'err_new': 0.023118081130744525, 'err_unpruned': 0.000750838344169906, 'err_res': 0.6119295531760391}\n1.0 100 {'err_new': 0.02168043012063238, 'err_unpruned': 0.000750838344169906, 'err_res': 0.6149832423912598}\n1.0 300 {'err_new': 0.022203408649755625, 'err_unpruned': 0.000750838344169906, 'err_res': 0.6182886655790949}\n[run 117; 183 code runs left; 25 forward passes left]"
+ }
+]

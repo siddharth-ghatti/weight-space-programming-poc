@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013ggX2cCDbDUAXVEJ4rcXfT",
+  "content": "M0 same? 0.0\ndrift of M9 vs drop6: 0.5107677335392836\nfull [0.9844 0.9756 0.9766 0.9834 0.9854] 0.9811\ndrop6 [0.9824 0.9688 0.9775 0.9844 0.9844] 0.9795\n[run 151; 149 code runs left; 11 forward passes left]"
+ }
+]

@@ -1,0 +1,12 @@
+## message
+
+Comparing the m=1024 pruned features with base at each depth: drift and kernel CV, alone and with M0, 2 seeds.
+
+## tool_use: run_python
+
+```json
+{
+ "code": "exec(open('lib.py').read())\ny=labels()[:1024]; B=load_base(); D=loadpass(19)\ndef bn(X): X=X[:,KEEP].astype(np.float64); X=X-X.mean(0); return X/np.sqrt((X**2).sum(1).mean())\ndef kcv(Z, gs=(0.5,1), lams=(0.003,0.01,0.03), k=10):\n    Z=Z/np.linalg.norm(Z,axis=1,keepdims=True); S=Z@Z.T\n    return max(max(krr_cv(np.exp(g*(S-1)),y,lams=lams,k=k,seeds=(0,1)).values()) for g in gs)\nM0=bn(B['mean_hidden_L0'][:1024])\nfor l in [3,5,7,8,9]:\n    b=B[f'mean_hidden_L{l}'][:1024][:,KEEP].astype(np.float64); d=D[f'mean_hidden_L{l}'][:,KEEP].astype(np.float64)\n    rel=np.linalg.norm((d-d.mean(0))-(b-b.mean(0)))/np.linalg.norm(b-b.mean(0))\n    print('L%d dev %.3f  pruned alone %.4f +M0 %.4f'%(l,rel,kcv(bn(D[f'mean_hidden_L{l}'])),kcv(np.concatenate([M0,bn(D[f'mean_hidden_L{l}'])],1))))\n"
+}
+```
+

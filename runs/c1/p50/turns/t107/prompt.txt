@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PyKTKyieafuvbVBaikypUF",
+  "content": "exact KRR K9+0.5lin0: {0.005: 0.9853}\n1 0 [0.982, 0.9723, 0.9452]\n3 -1 [0.9736, 0.9669, 0.9398]\n5 -2 [0.9582, 0.9502, 0.9191]\n8 -4 [0.9174, 0.8984, 0.8229]\n4 0 [0.9676, 0.9736, 0.9662]\n[run 95; 205 code runs left; 28 forward passes left]"
+ }
+]

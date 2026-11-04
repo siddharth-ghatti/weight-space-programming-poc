@@ -1,0 +1,1 @@
+{"id": "toolu_019NJR9s7Lr7MBkn4qYFbmq5", "caller": {"type": "direct"}, "input": {"code": "print(open('poolfit.py').read())\nprint(open('lib5.py').read())\nprint(open('lib6.py').read())\nm=json.load(open('pass_36/meta.json')); print({k:(v if not isinstance(v,list) else v[:3]) for k,v in m.items()})\n"}, "name": "run_python", "type": "tool_use", "toolset_name": null}

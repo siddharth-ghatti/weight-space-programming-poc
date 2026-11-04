@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import json, sys; sys.path.insert(0,'.')\nimport lib5\nkeeps={}\njson.dump(keeps, open('keep_seq1024.json','w'))\nprint(lib5.expose(0, save_edit, set_structure, keeps, 1024))\nprint(structure()['layers'])\n"
+}
+```
+

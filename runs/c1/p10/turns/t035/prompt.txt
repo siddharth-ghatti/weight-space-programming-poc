@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HWghTtWXrLFD6jWB6ZdQj8",
+  "content": "format: LOO best, LOO median, CV best, CV median\nbase M5 (np.float64(0.9697), 0.9678, np.float64(0.9652), 0.9642)\nbase M8 (np.float64(0.9766), 0.9756, np.float64(0.9701), 0.9678)\nbase M9 (np.float64(0.9775), 0.9766, np.float64(0.971), 0.9707)\nbase M10 (np.float64(0.9785), 0.9766, np.float64(0.9674), 0.9658)\nbase M11 (np.float64(0.9834), 0.9805, np.float64(0.972), 0.9694)\ndrop57 idx 5 after 4 (np.float64(0.9697), 0.9678, np.float64(0.9652), 0.9642)\ndrop57 idx 6 after 6 (skip5) (np.float64(0.9717), 0.9697, np.float64(0.9661), 0.9629)\ndrop57 idx 7 after 8 (skip5,7) (np.float64(0.9697), 0.9658, np.float64(0.9619), 0.9609)\ndrop57 idx 8 after 9 (np.float64(0.9707), 0.9688, np.float64(0.9635), 0.9622)\ndrop57 idx 9 after 10 (np.float64(0.9766), 0.9717, np.float64(0.9658), 0.9629)\ncheck idx5 equals base M5: 0.0\n[run 31; 269 code runs left; 6 forward passes left]"
+ }
+]

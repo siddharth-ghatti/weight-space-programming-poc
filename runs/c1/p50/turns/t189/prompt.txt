@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LMF2noUzg6T8hfEXQToWZY",
+  "content": "old weights on new input: heldout err 0.10391207244049207\ninput shift: rel diff X new vs old 0.1661140047299549\nrefit energy 0.5 30 {'err_new': 0.11384038043499217, 'err_unpruned': 0.08929792869813093, 'err_res': 1.0404366742405964} overlap keep 966\nrefit energy 0.5 100 {'err_new': 0.11168456038522344, 'err_unpruned': 0.08929792869813093, 'err_res': 1.042976645053703} overlap keep 966\nrefit energy 1.0 30 {'err_new': 0.12548958428858245, 'err_unpruned': 0.08929792869813093, 'err_res': 1.0396393939607487} overlap keep 966\nrefit energy 1.0 100 {'err_new': 0.11623456848595619, 'err_unpruned': 0.08929792869813093, 'err_res': 1.0450297513659956} overlap keep 966\n[run 159; 141 code runs left; 9 forward passes left]"
+ }
+]

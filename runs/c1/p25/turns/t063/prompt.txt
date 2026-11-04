@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Q5T4aCJsakQnxGWNB3jboC",
+  "content": "8 start err 33.333333333333336 cand err 34.166666666666664 cand-only 10.833333333333334 start-only 10.0\n9 start err 33.333333333333336 cand err 28.5 cand-only 6.5 start-only 11.333333333333334\n8 592 mean acc 0.9809  P(fail<97.8)=0.186\n8 1184 mean acc 0.9809  P(fail<97.8)=0.135\n9 592 mean acc 0.9845  P(fail<97.8)=0.028\n9 1184 mean acc 0.9845  P(fail<97.8)=0.006\n[run 55; 245 code runs left; 17 forward passes left]"
+ }
+]

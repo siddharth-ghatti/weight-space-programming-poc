@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Mjzm5dGN2qWp5ye6YsJVki",
+  "content": "2 res |mean| 0.0000  res sd 0.0000   nonres |val| 0.197  sum_res mean/sd 0.0000 0.0000 sumsq 0.0\n3 res |mean| 0.0409  res sd 0.0026   nonres |val| 0.194  sum_res mean/sd 0.3272 0.0106 sumsq 0.0134\n6 res |mean| 0.1921  res sd 0.0074   nonres |val| 0.226  sum_res mean/sd 1.5367 0.0550 sumsq 0.2956\n7 res |mean| 0.2639  res sd 0.0113   nonres |val| 0.235  sum_res mean/sd 2.1116 0.0819 sumsq 0.5584\n8 res |mean| 0.3340  res sd 0.0154   nonres |val| 0.230  sum_res mean/sd 2.6720 0.1165 sumsq 0.8944\n9 res |mean| 0.4223  res sd 0.0228   nonres |val| 0.234  sum_res mean/sd 3.3781 0.1770 sumsq 1.4307\n10 res |mean| 0.5940  res sd 0.0387   nonres |val| 0.276  sum_res mean/sd 4.7521 0.3046 sumsq 2.8349\n[run 55; 245 code runs left; 5 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011zVJfUStxDdnKy8KiYBQNn",
+  "content": "2 0 768 energy 0.208 0.207 0.213\n2 0 768 greedy 0.205 0.205 0.212\n2 0 1024 energy 0.183 0.182 0.187\n2 0 1024 greedy 0.182 0.181 0.188\n2 0 1536 energy 0.139 0.139 0.142\n2 0 1536 greedy 0.142 0.142 0.147\ngreedy time 31.655985832214355\n2 1 768 energy 0.201 0.198 0.204\n2 1 768 greedy 0.199 0.198 0.205\n2 1 1024 energy 0.177 0.174 0.179\n2 1 1024 greedy 0.177 0.175 0.181\n2 1 1536 energy 0.135 0.133 0.136\n2 1 1536 greedy 0.136 0.135 0.139\ngreedy time 36.50023889541626\n6 0 768 energy 0.229 0.226 0.230\n6 0 768 greedy 0.227 0.225 0.230\n6 0 1024 energy 0.203 0.200 0.203\n6 0 1024 greedy 0.202 0.199 0.204\n6 0 1536 energy 0.157 0.154 0.156\n6 0 1536 greedy 0.157 0.155 0.158\ngreedy time 34.8257360458374\n6 1 768 energy 0.226 0.222 0.227\n6 1 768 greedy 0.226 0.223 0.228\n6 1 1024 energy 0.201 0.197 0.201\n6 1 1024 greedy 0.201 0.198 0.202\n6 1 1536 energy 0.153 0.150 0.152\n6 1 1536 greedy 0.156 0.152 0.156\ngreedy time 38.38576698303223\n[run 87; 213 code runs left; 30 forward passes left]"
+ }
+]

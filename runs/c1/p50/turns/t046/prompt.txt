@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_012jbAu93zm7Uw68ScsmzToY",
+  "content": "qw norm 0.0 qb nonzero [  0  64 128 192 256 320 384 448 512 576 640 704] [8. 8. 8. 8. 8. 8. 8. 8. 8. 8. 8. 8.]\n0 k norm 5.02 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n1 k norm 4.63 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n2 k norm 3.88 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n3 k norm 3.54 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n4 k norm 3.88 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n5 k norm 3.44 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n6 k norm 3.93 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n7 k norm 4.82 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n8 k norm 6.28 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n9 k norm 2.35 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n10 k norm 0.00 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\n11 k norm 4.25 kb 0.00 v norm 8.00 rank v 64 o cols norm 8.00\now nonzero rows 768 cols 768\n[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]\now structure: per col nonzero count [1]\nattention.output.LayerNorm.weight 1.0 1.0\nattention.output.LayerNorm.bias 0.0 0.0\noutput.LayerNorm.weight 1.0 1.0\noutput.LayerNorm.bias 0.0 0.0\noutput.dense.bias 0.0 0.0\nintermediate.dense.bias -0.42432505 0.5640608\n0.0 0.0\n[run 41; 259 code runs left; 43 forward passes left]"
+ }
+]

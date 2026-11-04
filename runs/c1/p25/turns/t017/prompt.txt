@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HoARnBwioRhknq985EF5kC",
+  "content": "0 base lin 0.9492 krr 0.9561 | attn-only lin 0.9492 krr 0.9561\n1 base lin 0.9473 krr 0.9585 | attn-only lin 0.9365 krr 0.9565\n2 base lin 0.9404 krr 0.9600 | attn-only lin 0.9395 krr 0.9585\n3 base lin 0.9453 krr 0.9644 | attn-only lin 0.9434 krr 0.9546\n4 base lin 0.9434 krr 0.9619 | attn-only lin 0.9443 krr 0.9541\n5 base lin 0.9551 krr 0.9648 | attn-only lin 0.9336 krr 0.9429\n6 base lin 0.9531 krr 0.9653 | attn-only lin 0.9219 krr 0.9355\n7 base lin 0.9570 krr 0.9658 | attn-only lin 0.9219 krr 0.9302\n8 base lin 0.9658 krr 0.9717 | attn-only lin 0.9141 krr 0.9194\n9 base lin 0.9609 krr 0.9751 | attn-only lin 0.9072 krr 0.9146\n10 base lin 0.9590 krr 0.9697 | attn-only lin 0.8926 krr 0.8960\n11 base lin 0.9512 krr 0.9731 | attn-only lin 0.8926 krr 0.8916\n12 base lin 0.9561 krr 0.9727 | attn-only lin 0.8916 krr 0.8906\n[1, 9] base 0.978 attn 0.9517\n[1, 6] base 0.9702 attn 0.9546\n[1, 12] base 0.9785 attn 0.9453\n[2, 6, 10, 11] base 0.9771 attn 0.9438\n[1, 5, 9, 12] base 0.9785 attn 0.9473\n[run 14; 286 code runs left; 22 forward passes left]"
+ }
+]

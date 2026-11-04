@@ -1,0 +1,125 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "edited",
+  "ids": [
+   "p0010",
+   "p0104",
+   "p0131",
+   "p0138",
+   "p0198",
+   "p0199",
+   "p0202",
+   "p0222",
+   "p0232",
+   "p0237",
+   "p0272",
+   "p0285",
+   "p0289",
+   "p0341",
+   "p0356",
+   "p0376",
+   "p0384",
+   "p0389",
+   "p0408",
+   "p0436",
+   "p0501",
+   "p0504",
+   "p0509",
+   "p0521",
+   "p0555",
+   "p0563",
+   "p0566",
+   "p0582",
+   "p0610",
+   "p0665",
+   "p0675",
+   "p0741",
+   "p0761",
+   "p0768",
+   "p0834",
+   "p0848",
+   "p0870",
+   "p0907",
+   "p0910",
+   "p0958",
+   "p0963",
+   "p0983",
+   "p0985",
+   "p0996",
+   "p1022",
+   "p1114",
+   "p1133",
+   "p1145",
+   "p1155",
+   "p1181",
+   "p1205",
+   "p1226",
+   "p1305",
+   "p1314",
+   "p1329",
+   "p1338",
+   "p1342",
+   "p1349",
+   "p1361",
+   "p1394",
+   "p1464",
+   "p1466",
+   "p1469",
+   "p1491"
+  ],
+  "layers": [
+   4
+  ],
+  "outputs": [
+   "token_hidden"
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "edited",
+  "n_texts": 64,
+  "layers": [
+   4
+  ],
+  "num_layers": 4,
+  "files": {
+   "meta": "pass_28/meta.json",
+   "token_hidden_L4": "pass_28/token_hidden_L4.npy",
+   "attention_mask": "pass_28/attention_mask.npy",
+   "tokens": "pass_28/tokens.json"
+  },
+  "shapes": {
+   "token_hidden_L4": [
+    64,
+    63,
+    768
+   ],
+   "attention_mask": [
+    64,
+    63
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 4 is the last encoder layer of the edited model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..4. meta.json has layer_map: edited-model layer index -> original layer id.",
+  "layer_map": {
+   "1": 0,
+   "2": 1,
+   "3": 2,
+   "4": 3
+  },
+  "structure": {
+   "layers": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "intermediate_size": 1024,
+   "params": 40194312,
+   "reduction_vs_full": 0.6329
+  },
+  "pass_index": 28,
+  "duration_s": 1.05,
+  "passes_left": 22
+ }
+}

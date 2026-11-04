@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01KTA1FYmdyMnJyiSk7FyHcx",
+  "content": "s 4.11706575984731 sc 2.8672022463060705\ncorr pred vs pr2 0.9999999999999998\nglobal a 0.6893713562312541 R2 0.9710442648249434\nper-sample k: mean 1.0185047737943176 cv 0.15118863022889442\nR2 with per-sample k 0.9905092083524444\n[run 187; 113 code runs left; 5 forward passes left]"
+ }
+]

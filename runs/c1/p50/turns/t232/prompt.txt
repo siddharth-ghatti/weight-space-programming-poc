@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01EHvAbiaWdRFnTaaecyDBDo",
+  "content": "actual acc 1.0  | pool-from-actual-feats max diff 4.8209109271002415e-06  | vs prior prediction max diff 0.10077455230964294 argmax agree 1.0\nKEEP drift M 0.004734188993077413 C 0.001666613597538924\nRES pred err M 0.02864749825740283 C 0.04940244001717254\nmin margin 0.4387 5pct 0.7735\nlogit range -0.462 0.925\n[run 198; 102 code runs left; 4 forward passes left]"
+ }
+]

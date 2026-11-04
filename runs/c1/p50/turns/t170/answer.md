@@ -1,0 +1,12 @@
+## message
+
+Now I'll assemble the full-1496 features for depths 4–9 and run the same 3-seed 10-fold CV for each depth.
+
+## tool_use: run_python
+
+```json
+{
+ "code": "import sys; sys.path.insert(0,str(WORK))\nfrom lib7 import *\nd=np.load('feats_seq1024.npz')\nids=[f'p{i:04d}' for i in range(1496)]\ny=labels_for(ids, practice, LABELS)\nF={'M0':d['mean_hidden_L0'],'M9':d['mean_hidden_L9'],'C9':d['cls_hidden_L9']}\nfor L in [4,5,6,7,8]:\n    for t in ['mean','cls']:\n        a=np.load(f'pass_37/{t}_hidden_L{L}.npy') if L<8 else np.load(f'pass_36/{t}_hidden_L{L}.npy')\n        b=np.load(f'pass_38/{t}_hidden_L{L}.npy')\n        F[('M' if t=='mean' else 'C')+str(L)]=np.concatenate([a,b])\nnp.savez('feats_seq1024_depth.npz', **F)\nF={k:v.astype(np.float64) for k,v in F.items()}\nfor L in [9,8,7,6,5,4]:\n    r=[cv(F[f'M{L}'],F[f'C{L}'],F['M0'],y,c=10,lam=0.02,c0=0.5,seed=sd) for sd in range(3)]\n    print(L,np.round(r,4),round(np.mean(r),4), flush=True)\n"
+}
+```
+

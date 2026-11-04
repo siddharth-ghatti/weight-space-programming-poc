@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017CTPURL5ctrK8mbpV7bRZd",
+  "content": "base LOO rbf 0.9775 rbf5x5 0.9713 gelu5x5 0.9711 gelu20x2 0.9756\nm2816 LOO rbf 0.9697 rbf5x5 0.967 gelu5x5 0.9684 gelu20x2 0.9736\nm2560 LOO rbf 0.9727 rbf5x5 0.9633 gelu5x5 0.9652 gelu20x2 0.9761\n[run 68; 232 code runs left; 3 forward passes left]"
+ }
+]

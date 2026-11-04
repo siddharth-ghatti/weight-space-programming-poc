@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AMdz3i9EZSZS5ySEvdpYqw",
+  "content": "s2 std 0.0025104526 s6 0.003437798 s10 0.0055538225\n3 cls kappa mean 1.048 sd 0.010  resid rel 0.000 | meantok kappa 0.986 sd 0.017\n4 cls kappa mean 1.269 sd 0.029  resid rel 0.000 | meantok kappa 1.040 sd 0.025\n7 cls kappa mean 1.186 sd 0.075  resid rel 0.111 | meantok kappa 1.140 sd 0.055\n8 cls kappa mean 1.136 sd 0.078  resid rel 0.111 | meantok kappa 1.176 sd 0.071\n9 cls kappa mean 1.205 sd 0.092  resid rel 0.111 | meantok kappa 1.265 sd 0.095\n11 cls kappa mean 1.114 sd 0.118  resid rel 0.186 | meantok kappa 1.438 sd 0.187\n12 cls kappa mean 3.094 sd 0.375  resid rel 0.196 | meantok kappa 2.932 sd 0.383\n[run 44; 256 code runs left; 18 forward passes left]"
+ }
+]

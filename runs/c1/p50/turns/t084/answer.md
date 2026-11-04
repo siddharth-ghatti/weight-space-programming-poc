@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import sys, json; sys.path.insert(0, str(WORK))\nfrom lib import *\nd=np.load('base_feats.npz'); print({k:d[k].shape for k in d.files})\nm19=json.load(open('pass_19/meta.json')); print(m19.keys()); ids19=m19['ids']; print(len(ids19))\ns=json.load(open('idsplit.json')); print(type(s), (s.keys() if isinstance(s,dict) else len(s)))\nm2=json.load(open('pass_2/meta.json')); print(len(m2['ids']), m2['ids'][:3], ids19[:3])\nm3=json.load(open('pass_3/meta.json')); print(len(m3['ids']))"
+}
+```
+

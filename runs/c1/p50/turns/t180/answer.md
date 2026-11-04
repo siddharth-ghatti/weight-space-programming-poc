@@ -1,0 +1,20 @@
+## reasoning summary
+
+I'm writing a skip-fit function that takes the layer index, a target hidden index, and a keep mode, then compares heldout error against the base hidden state. It will check three variants: layer l's current output weights unchanged, a refit using energy-based keep, and a refit using the current keep. For the second LayerNorm parameters I'm reusing layer l's LN design.
+
+I'm checking whether layer 5's output LayerNorm should borrow layer 6's gamma and beta, since the target was produced with those, and I can edit them freely. The drift target then becomes the normalized base state shifted by layer 6's beta and scaled by its gamma.
+
+
+
+Exposures 25–33 map to layers 0–8, and next I'll try a skip-fit on layer 5 using layer 6's output target and norm parameters, comparing heldout error across no refit and two refit variants.
+
+
+
+## tool_use: run_python
+
+```json
+{
+ "code": "import sys; sys.path.insert(0,str(WORK))\nfrom lib5 import *\ncode=r'''\nimport numpy as np, json\nfrom lib5 import *\ndef fit_skip(l, k, tgt_idx, m, W, base, lam=100.0, drift=1.0, tr=None, ln_from=None, keep=None, select='energy'):\n    X,sid,msk=get_X(l,k)\n    g2,b2=lnd(ln_from if ln_from is not None else l)[2:]\n    P=pre(l)\n    W1=W(P+'intermediate.dense.weight').astype(np.float64); bb1=W(P+'intermediate.dense.bias').astype(np.float64)\n    W2=base(P+'output.dense.weight').astype(np.float64).copy(); bb2=base(P+'output.dense.bias').astype(np.float64).copy()\n    W2[RES]=0; bb2[RES]=0\n    A=gelu(X@W1.T+bb1)\n    src='pass_23' if tgt_idx<=1 else 'pass_20'\n    Hb=np.load(f'{src}/token_hidden_L{tgt_idx}.npy').astype(np.float64)[msk]\n    v=(Hb-b2)/g2\n    F=A@W2.T+bb2; u=X+F\n    mu=u.mean(1,keepdims=True); sd=u.std(1,keepdims=True)\n    ustar=u.copy(); ustar[:,KEEP]=(1-drift)*u[:,KEEP]+drift*(mu+sd*v[:,KEEP])\n    T=ustar-X\n    if tr is None: tr=np.ones(len(np.unique(sid)),bool)\n    trt=tr[sid]\n    if keep is None:\n        if select=='energy':\n            en=A[trt].var(0)*(W2**2).sum(0)\n        else:  # correlation of unit with target residual\n            Ac=A[trt]-A[trt].mean(0); Tc=T[trt][:,KEEP]-T[trt][:,KEEP].mean(0)\n            en=((Ac.T@Tc)**2).sum(1)/((Ac**2).sum(0)+1e-9)\n        keep=np.sort(np.argsort(-en)[:m])\n    As=A[:,keep]; mA=As[trt].mean(0); mT=T[trt].mean(0); Ac=As[trt]-mA; Tc=T[trt]-mT; W0=W2[:,keep].T\n    Wn=np.linalg.solve(Ac.T@Ac+lam*np.eye(len(keep)), Ac.T@Tc+lam*W0); bn=mT-mA@Wn\n    Wn[:,RES]=0; bn[RES]=0\n    hn=LN(X+As@Wn+bn)*g2+b2\n    te=~trt if (~trt).any() else trt\n    def err(h,mask):\n        d=h[mask][:,KEEP]-Hb[mask][:,KEEP]; return float((d**2).sum(1).mean()/(Hb[mask][:,KEEP]**2).sum(1).mean())\n    Wfull=np.zeros((768,3072)); Wfull[:,keep]=Wn.T\n    return keep, Wfull.astype(np.float32), bn.astype(np.float32), dict(err=err(hn,te)), Hb, X, sid, msk\n'''\nopen('lib8.py','w').write(code)\nfrom lib8 import *\nrng=np.random.RandomState(0); tr=np.ones(64,bool); tr[rng.choice(64,16,replace=False)]=False\nst=structure(); fk={int(k):v for k,v in st['ffn_keep'].items()}\n# reference: current layer-5 output vs base h6 and h7 (heldout set), using current weights\nl=5; X,sid,msk=get_X(l,30); g1,b1,g2,b2=lnd(l)\nP=pre(l); keep=np.array(fk[5])\nW1=W(P+'intermediate.dense.weight')[keep].astype(np.float64); bb1=W(P+'intermediate.dense.bias')[keep].astype(np.float64)\nW2=W(P+'output.dense.weight')[:,keep].astype(np.float64); bb2=W(P+'output.dense.bias').astype(np.float64)\nh=LN(X+gelu(X@W1.T+bb1)@W2.T+bb2)*g2+b2\nte=(~tr)[sid]\nfor t in [6,7]:\n    Hb=np.load(f'pass_20/token_hidden_L{t}.npy').astype(np.float64)[msk]\n    d=h[te][:,KEEP]-Hb[te][:,KEEP]; print('current L5 out vs base h',t, (d**2).sum(1).mean()/(Hb[te][:,KEEP]**2).sum(1).mean())\nfor sel in ['energy','corr']:\n    for lam in [30,100,300]:\n        r=fit_skip(5,30,7,1024,W,base,lam=lam,tr=tr,ln_from=6,select=sel)\n        print(sel,lam,r[3])\nr=fit_skip(5,30,7,1024,W,base,lam=100,tr=tr,ln_from=6,keep=keep); print('curkeep',r[3])\nr=fit_skip(5,30,7,3072,W,base,lam=100,tr=tr,ln_from=6); print('all3072',r[3])\n"
+}
+```
+

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01C2SPwVWG2K9eZdVGFv711L",
+  "content": "[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-zadsp6d1/run_0192.py\", line 249, in <module>\n    o,_=deploy_sim(M,C,M0,y,tr,te,cold,gM,gC,c=c,cr=cr,refit=True)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<repo>/runs/c1/p50/work/lib9.py\", line 25, in deploy_sim\n    c2,b2=fit(Phin[tr],np.zeros((len(y),0)),Y[tr]-beta*L8[tr],Kaa,lam,c0)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<repo>/runs/c1/p50/work/poolfit.py\", line 26, in fit\n    X=np.concatenate([Phi,Lin],1); mu=X.mean(0); Xc=X-X.mean(0); Ym=Y.mean(0); Yc=Y-Ym\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 1344 and the array at index 1 has size 1496\n\n[exit code 1]\n[run 192; 108 code runs left; 5 forward passes left]"
+ }
+]

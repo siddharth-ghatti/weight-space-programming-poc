@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013hSBffTU6uDTctyvDgQs8f",
+  "content": "sd quantiles [0.3323 0.3505 0.4465 1.368 ] mean abs 16.119\noutlier dims by |mean| [308 381 539 341 630] [16.12 11.1   2.69  1.96  1.59]\nclassifier nz [(np.int64(0), np.int64(0)), (np.int64(1), np.int64(1)), (np.int64(2), np.int64(2)), (np.int64(3), np.int64(3)), (np.int64(4), np.int64(4)), (np.int64(5), np.int64(5)), (np.int64(6), np.int64(6)), (np.int64(7), np.int64(7))] [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\npooler rows0-7 norm [4.678 4.678 4.678 4.678 4.678 4.678 4.678 4.678] [ 0.2004 -0.0719 -0.0996  0.0978  0.0159  0.1107  0.0721  0.1746]\nLN2 g res [0. 0. 0. 0. 0. 0. 0. 0.] LN1 g res [0. 0. 0. 0. 0. 0. 0. 0.]\n[run 63; 237 code runs left; 5 forward passes left]"
+ }
+]

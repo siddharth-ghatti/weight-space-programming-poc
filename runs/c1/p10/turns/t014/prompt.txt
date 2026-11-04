@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01UwZ4ruWnihbEpqfYMPLGxq",
+  "content": "0 center 1 {0.01: np.float64(0.9338), 0.1: np.float64(0.9519), 1: np.float64(0.9465)}\n0 center 2 {0.01: np.float64(0.9205), 0.1: np.float64(0.9365), 1: np.float64(0.9459)}\n0 center 4 {0.01: np.float64(0.8957), 0.1: np.float64(0.9104), 1: np.float64(0.9338)}\n0 gauss 0.5 {0.01: np.float64(0.8543), 0.1: np.float64(0.8623), 1: np.float64(0.9057)}\n0 gauss 1 {0.01: np.float64(0.8249), 0.1: np.float64(0.8275), 1: np.float64(0.8456)}\n1 center 1 {0.01: np.float64(0.9392), 0.1: np.float64(0.9479), 1: np.float64(0.9398)}\n1 center 2 {0.01: np.float64(0.9205), 0.1: np.float64(0.9412), 1: np.float64(0.9459)}\n1 center 4 {0.01: np.float64(0.9144), 0.1: np.float64(0.9238), 1: np.float64(0.9418)}\n1 gauss 0.5 {0.01: np.float64(0.873), 0.1: np.float64(0.881), 1: np.float64(0.9198)}\n1 gauss 1 {0.01: np.float64(0.8583), 0.1: np.float64(0.8596), 1: np.float64(0.873)}\n9 center 1 {0.01: np.float64(0.9505), 0.1: np.float64(0.9539), 1: np.float64(0.9512)}\n9 center 2 {0.01: np.float64(0.9358), 0.1: np.float64(0.9512), 1: np.float64(0.9485)}\n9 center 4 {0.01: np.float64(0.9305), 0.1: np.float64(0.9392), 1: np.float64(0.9592)}\n9 gauss 0.5 {0.01: np.float64(0.9051), 0.1: np.float64(0.9124), 1: np.float64(0.9405)}\n9 gauss 1 {0.01: np.float64(0.8824), 0.1: np.float64(0.8837), 1: np.float64(0.9037)}\n[run 12; 288 code runs left; 8 forward passes left]"
+ }
+]

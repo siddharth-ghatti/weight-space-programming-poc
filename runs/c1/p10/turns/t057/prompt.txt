@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QQoUq1fy2QiLjxApZiLPqL",
+  "content": "coef 0.38415873 cos 0.5317849\nnorm delta 0.74108225 norm residual 0.6276074\ntop delta dims [482  56 461 249   6 443 659 545] [0.128 0.085 0.084 0.084 0.078 0.073 0.072 0.071]\nbase mean norm 6.490331 sample sd typical 0.1563023\nz-shift top [0.76 0.61 0.53 0.48 0.47 0.46 0.46 0.45] median 0.115\n[run 52; 248 code runs left; 5 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MAdwwiLZjRudfZMZxiDXcW",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 472,\n \"layers\": [\n  7\n ],\n \"num_layers\": 8,\n \"files\": {\n  \"meta\": \"pass_47/meta.json\",\n  \"logits\": \"pass_47/logits.npy\",\n  \"cls_hidden_L7\": \"pass_47/cls_hidden_L7.npy\",\n  \"mean_hidden_L7\": \"pass_47/mean_hidden_L7.npy\"\n },\n \"shapes\": {\n  \"logits\": [\n   472,\n   8\n  ],\n  \"cls_hidden_L7\": [\n   472,\n   768\n  ],\n  \"mean_hidden_L7\": [\n   472,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 8 is the last encoder layer of the edited model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..8. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 0,\n  \"2\": 1,\n  \"3\": 2,\n  \"4\": 3,\n  \"5\": 5,\n  \"6\": 7,\n  \"7\": 8,\n  \"8\": 11\n },\n \"structure\": {\n  \"layers\": [\n   0,\n   1,\n   2,\n   3,\n   5,\n   7,\n   8,\n   11\n  ],\n  \"intermediate_size\": 1024,\n  \"params\": 55954696,\n  \"reduction_vs_full\": 0.4889\n },\n \"pass_index\": 47,\n \"duration_s\": 1.85,\n \"passes_left\": 3\n}"
+ }
+]

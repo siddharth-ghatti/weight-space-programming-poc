@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_015P37yMZAy9DA5XxDC2XkDv",
+  "content": "exp0.8 ({0.001: np.float64(0.986), 0.003: np.float64(0.986), 0.01: np.float64(0.9853), 0.03: np.float64(0.985)}, np.float64(0.03951))\ngelu 0.8 1 ({0.001: np.float64(0.1705), 0.003: np.float64(0.1765), 0.01: np.float64(0.2079), 0.03: np.float64(0.4485)}, np.float64(-0.05129))\ngelu 0.5 0 ({0.001: np.float64(0.985), 0.003: np.float64(0.985), 0.01: np.float64(0.985), 0.03: np.float64(0.985)}, np.float64(0.00735))\ngelu 1 0 ({0.001: np.float64(0.9856), 0.003: np.float64(0.986), 0.01: np.float64(0.9853), 0.03: np.float64(0.985)}, np.float64(0.00734))\ngelu 1 1 ({0.001: np.float64(0.1745), 0.003: np.float64(0.1771), 0.01: np.float64(0.1912), 0.03: np.float64(0.2169)}, np.float64(-0.10367))\ngelu 0.8 2 ({0.001: np.float64(0.2136), 0.003: np.float64(0.2607), 0.01: np.float64(0.1695), 0.03: np.float64(0.1811)}, np.float64(-0.13763))\ngelu 1.5 1 ({0.001: np.float64(0.1644), 0.003: np.float64(0.1701), 0.01: np.float64(0.1728), 0.03: np.float64(0.1608)}, np.float64(-0.37531))\n2unit ({0.001: np.float64(0.9856), 0.003: np.float64(0.9856), 0.01: np.float64(0.986), 0.03: np.float64(0.9856)}, np.float64(-2781.92912))\n[run 61; 239 code runs left; 5 forward passes left]"
+ }
+]

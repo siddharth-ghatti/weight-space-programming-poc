@@ -1,0 +1,185 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "ids": [
+   "p0000"
+  ],
+  "outputs": [
+   "mean_hidden",
+   "cls_hidden",
+   "pooled",
+   "logits"
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 1,
+  "layers": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "num_layers": 12,
+  "files": {
+   "meta": "pass_1/meta.json",
+   "logits": "pass_1/logits.npy",
+   "cls_hidden_L0": "pass_1/cls_hidden_L0.npy",
+   "mean_hidden_L0": "pass_1/mean_hidden_L0.npy",
+   "cls_hidden_L1": "pass_1/cls_hidden_L1.npy",
+   "mean_hidden_L1": "pass_1/mean_hidden_L1.npy",
+   "cls_hidden_L2": "pass_1/cls_hidden_L2.npy",
+   "mean_hidden_L2": "pass_1/mean_hidden_L2.npy",
+   "cls_hidden_L3": "pass_1/cls_hidden_L3.npy",
+   "mean_hidden_L3": "pass_1/mean_hidden_L3.npy",
+   "cls_hidden_L4": "pass_1/cls_hidden_L4.npy",
+   "mean_hidden_L4": "pass_1/mean_hidden_L4.npy",
+   "cls_hidden_L5": "pass_1/cls_hidden_L5.npy",
+   "mean_hidden_L5": "pass_1/mean_hidden_L5.npy",
+   "cls_hidden_L6": "pass_1/cls_hidden_L6.npy",
+   "mean_hidden_L6": "pass_1/mean_hidden_L6.npy",
+   "cls_hidden_L7": "pass_1/cls_hidden_L7.npy",
+   "mean_hidden_L7": "pass_1/mean_hidden_L7.npy",
+   "cls_hidden_L8": "pass_1/cls_hidden_L8.npy",
+   "mean_hidden_L8": "pass_1/mean_hidden_L8.npy",
+   "cls_hidden_L9": "pass_1/cls_hidden_L9.npy",
+   "mean_hidden_L9": "pass_1/mean_hidden_L9.npy",
+   "cls_hidden_L10": "pass_1/cls_hidden_L10.npy",
+   "mean_hidden_L10": "pass_1/mean_hidden_L10.npy",
+   "cls_hidden_L11": "pass_1/cls_hidden_L11.npy",
+   "mean_hidden_L11": "pass_1/mean_hidden_L11.npy",
+   "cls_hidden_L12": "pass_1/cls_hidden_L12.npy",
+   "mean_hidden_L12": "pass_1/mean_hidden_L12.npy",
+   "pooled": "pass_1/pooled.npy"
+  },
+  "shapes": {
+   "logits": [
+    1,
+    8
+   ],
+   "cls_hidden_L0": [
+    1,
+    768
+   ],
+   "mean_hidden_L0": [
+    1,
+    768
+   ],
+   "cls_hidden_L1": [
+    1,
+    768
+   ],
+   "mean_hidden_L1": [
+    1,
+    768
+   ],
+   "cls_hidden_L2": [
+    1,
+    768
+   ],
+   "mean_hidden_L2": [
+    1,
+    768
+   ],
+   "cls_hidden_L3": [
+    1,
+    768
+   ],
+   "mean_hidden_L3": [
+    1,
+    768
+   ],
+   "cls_hidden_L4": [
+    1,
+    768
+   ],
+   "mean_hidden_L4": [
+    1,
+    768
+   ],
+   "cls_hidden_L5": [
+    1,
+    768
+   ],
+   "mean_hidden_L5": [
+    1,
+    768
+   ],
+   "cls_hidden_L6": [
+    1,
+    768
+   ],
+   "mean_hidden_L6": [
+    1,
+    768
+   ],
+   "cls_hidden_L7": [
+    1,
+    768
+   ],
+   "mean_hidden_L7": [
+    1,
+    768
+   ],
+   "cls_hidden_L8": [
+    1,
+    768
+   ],
+   "mean_hidden_L8": [
+    1,
+    768
+   ],
+   "cls_hidden_L9": [
+    1,
+    768
+   ],
+   "mean_hidden_L9": [
+    1,
+    768
+   ],
+   "cls_hidden_L10": [
+    1,
+    768
+   ],
+   "mean_hidden_L10": [
+    1,
+    768
+   ],
+   "cls_hidden_L11": [
+    1,
+    768
+   ],
+   "mean_hidden_L11": [
+    1,
+    768
+   ],
+   "cls_hidden_L12": [
+    1,
+    768
+   ],
+   "mean_hidden_L12": [
+    1,
+    768
+   ],
+   "pooled": [
+    1,
+    768
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the last encoder layer of the base model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..12.",
+  "pass_index": 1,
+  "duration_s": 2.47,
+  "passes_left": 49
+ }
+}

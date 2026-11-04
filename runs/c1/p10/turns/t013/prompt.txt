@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018ZYMzu2gGK9Ju4LhjcmpvV",
+  "content": "0 lin LN [np.float64(0.9592), np.float64(0.9619)]\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-7booz3ll/run_0011.py\", line 233, in <module>\n    print(L,'center',sc,tanh_rf_cv(X,y,768,sc,(0.01,0.1,1)))\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-7booz3ll/run_0011.py\", line 227, in tanh_rf_cv\n    Wt=np.linalg.solve(G+l*np.eye(nunits),A.T@(T-tm)); S[l][te]=(Hf-hm)@Wt+tm\n                                                       ~~~~^^^^\nValueError: shape mismatch: value array of shape (1496,8) could not be broadcast to indexing result of shape (304,8)\n\n[exit code 1]\n[run 11; 289 code runs left; 8 forward passes left]"
+ }
+]

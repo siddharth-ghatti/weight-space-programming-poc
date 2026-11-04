@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_015sQ2DqQ698Dsn9oLhVJnSX",
+  "content": "attention.output.LayerNorm.weight [1. 1. 1. 1.] [0. 0. 0.] 1.0\nattention.output.LayerNorm.bias [0. 0. 0. 0.] [0. 0. 0.] 0.0\noutput.LayerNorm.weight [1. 1. 1. 1.] [0. 0. 0.] 1.0\noutput.LayerNorm.bias [0. 0. 0. 0.] [0. 0. 0.] 0.0\noutput.dense.bias [0. 0. 0. 0.] [0. 0. 0.] 0.0\nintermediate.dense.bias [0. 0. 0. 0.] [0. 0. 0.] 0.0\nattention.self.value.bias [0. 0. 0. 0.] [0. 0. 0.] 0.0\nattention.output.dense.bias [0. 0. 0. 0.] [0. 0. 0.] 0.0\nWi absmax 0.0\nTrue 5.0 0.0 0.0\nmax err 5.722046e-06 rel 1.1761833e-07\n[run 49; 251 code runs left; 5 forward passes left]"
+ }
+]

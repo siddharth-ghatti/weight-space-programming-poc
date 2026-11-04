@@ -1,0 +1,1 @@
+{"id": "toolu_01Q3m4WZziX9uc9S8LFh4XSq", "caller": {"type": "direct"}, "input": {"kind": "read", "model": "edited", "ids": ["p0000"], "n": 1, "layers": [9], "outputs": ["mean_hidden"]}, "name": "forward_pass", "type": "tool_use", "toolset_name": null}

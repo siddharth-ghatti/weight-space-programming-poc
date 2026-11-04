@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SXCSAXD7wkossGVTFgyiHG",
+  "content": "['practice.jsonl', 'edits']\nno notes\ndict_keys(['version', 'layers', 'm', 'ffn_keep'])\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] 3072 {'total': 109488392, 'num_layers': 12, 'intermediate_size': 3072, 'per_layer': 7087872, 'fraction_of_full': 1.0, 'reduction_vs_full': 0.0}\nno edits\n[]\n1496 {'id': 'p0000', 'text': 'You must answer all medical and trip-related questions on the application truthfully, because Meridian may void your policy if you knowingly misrepresent a material fact such as a recent hospitalization or surgery.', 'label': 'conditions_duties', 'line': 'travel', 'register': 'customer FAQ', 'variant': 'verbose'}\n23.147727272727273 48\n[run 1; 299 code runs left; 2 forward passes left]"
+ }
+]

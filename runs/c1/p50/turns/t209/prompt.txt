@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013Z8EjcXdDvhGjXscoVVRh6",
+  "content": "import numpy as np, scipy.special as sp\nRES=np.array([83,88,222,254,444,495,506,601]); KEEP=np.setdiff1d(np.arange(768),RES)\ndef gelu(x): return 0.5*x*(1+sp.erf(x/np.sqrt(2)))\ndef LN(u):\n    m=u.mean(-1,keepdims=True); v=((u-m)**2).mean(-1,keepdims=True); return (u-m)/np.sqrt(v+1e-12)\ndef pool_z(M9, C9, c, mu9, cr=1.0):\n    x=c*(M9-mu9)+C9\n    x[:,RES]=cr*(M9[:,RES]-mu9[RES])+C9[:,RES]\n    return LN(x)\ndef anchor_dirs(Za):\n    A=Za.copy(); A[:,RES]=0\n    return A/np.linalg.norm(A,axis=1,keepdims=True)/np.sqrt(768)\ndef feats(Z, Wd): return gelu(Z@Wd.T)\ndef pivchol(K, k, tol=1e-8):\n    n=K.shape[0]; d=np.diag(K).copy(); L=np.zeros((n,k)); piv=[]\n    for i in range(k):\n        j=int(np.argmax(d))\n        if d[j]<tol*np.diag(K).max():\n            rest=[t for t in np.argsort(-np.diag(K)) if t not in set(piv)]\n            piv+= rest[:k-len(piv)]; break\n        piv.append(j)\n        l=(K[:,j]-L[:,:i]@L[j,:i])/np.sqrt(max(d[j],1e-12)); L[:,i]=l; d=d-l**2; d[piv]=-np.inf\n    return np.array(piv)\ndef fit(Phi, Lin, Y, Kaa, lam, c0, jitter=1e-6):\n    X=np.concatenate([Phi,Lin],1); mu=X.mean(0); Xc=X-X.mean(0); Ym=Y.mean(0); Yc=Y-Ym\n    na=Phi.shape[1]; nl=Lin.shape[1]\n    R=np.zeros((na+nl,na+nl)); R[:na,:na]=Kaa+jitter*np.trace(Kaa)/na*np.eye(na); R[na:,na:]=np.eye(nl)/c0\n    coef=np.linalg.solve(Xc.T@Xc+lam*R, Xc.T@Yc)\n    b=Ym-mu@coef\n    return coef, b\n[run 176; 124 code runs left; 6 forward passes left]"
+ }
+]

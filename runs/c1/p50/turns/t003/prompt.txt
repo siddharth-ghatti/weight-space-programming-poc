@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QVrL2KfzETu44UveFre4VJ",
+  "content": "reserved [ 83  88 222 254 444 495 506 601] [0. 0. 0. 0. 0. 0. 0. 0.] [0. 0. 0. 0. 0. 0. 0. 0.]\n(array([0, 1, 2, 3, 4, 5, 6, 7]), array([0, 1, 2, 3, 4, 5, 6, 7]))\n[1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n1496 {'id': 'p0000', 'text': 'You must answer all medical and trip-related questions on the application truthfully, because Meridian may void your policy if you knowingly misrepresent a material fact such as a recent hospitalization or surgery.', 'label': 'conditions_duties', 'line': 'travel', 'register': 'customer FAQ', 'variant': 'verbose'}\n14 31.4451871657754 63\n2 zero-query heads [0]\n6 zero-query heads [11]\n10 zero-query heads [10]\n[run 2; 298 code runs left; 50 forward passes left]"
+ }
+]

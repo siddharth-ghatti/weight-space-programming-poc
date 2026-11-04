@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MdPNcftAcdCR1csMDiqV4a",
+  "content": "{'mean_hidden_L0': (1496, 768), 'mean_hidden_L1': (1496, 768), 'mean_hidden_L2': (1496, 768), 'mean_hidden_L3': (1496, 768), 'mean_hidden_L4': (1496, 768), 'mean_hidden_L5': (1496, 768), 'mean_hidden_L6': (1496, 768), 'mean_hidden_L7': (1496, 768), 'mean_hidden_L8': (1496, 768), 'mean_hidden_L9': (1496, 768), 'mean_hidden_L10': (1496, 768), 'mean_hidden_L11': (1496, 768), 'mean_hidden_L12': (1496, 768), 'cls_hidden_L0': (1496, 768), 'cls_hidden_L1': (1496, 768), 'cls_hidden_L2': (1496, 768), 'cls_hidden_L3': (1496, 768), 'cls_hidden_L4': (1496, 768), 'cls_hidden_L5': (1496, 768), 'cls_hidden_L6': (1496, 768), 'cls_hidden_L7': (1496, 768), 'cls_hidden_L8': (1496, 768), 'cls_hidden_L9': (1496, 768), 'cls_hidden_L10': (1496, 768), 'cls_hidden_L11': (1496, 768), 'cls_hidden_L12': (1496, 768), 'pooled': (1496, 768), 'logits': (1496, 8)}\n[run 148; 152 code runs left; 12 forward passes left]"
+ }
+]

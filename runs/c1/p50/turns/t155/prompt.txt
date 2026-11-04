@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01VH3voAhtGhfFeDjjYMUVu4",
+  "content": "zRES mag 3.4356061326745864 KEEP 0.6856956823911072\n1008 0.01 0.5 0.9746\n1008 0.01 2.0 0.9622\n1008 0.03 0.5 0.9826\n1008 0.03 2.0 0.9743\n\n[stderr]\n<repo>/runs/c1/p50/work/poolfit.py:17: RuntimeWarning: overflow encountered in square\n  l=(K[:,j]-L[:,:i]@L[j,:i])/np.sqrt(max(d[j],1e-12)); L[:,i]=l; d=d-l**2; d[piv]=-np.inf\n[run 130; 170 code runs left; 15 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01TzVBNCMtCq9Sgm6rM3DqVc",
+  "content": "knn 1 0.9324866310160428\nknn 3 0.9137700534759359\nknn 5 0.9044117647058824\nnys rbf 5 {0.001: 0.9268, 0.01: 0.9268, 0.1: 0.9251}\nnys rbf 10 {0.001: 0.8844, 0.01: 0.8847, 0.1: 0.884}\nnys rbf 20 {0.001: 0.4378, 0.01: 0.4388, 0.1: 0.4495}\nnys full 1196 {0.001: 0.886, 0.01: 0.9108}\n[run 17; 283 code runs left; 22 forward passes left]"
+ }
+]

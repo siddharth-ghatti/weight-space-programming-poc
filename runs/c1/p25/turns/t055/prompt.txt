@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MrYv6CPAPdo6dVQDVofTxw",
+  "content": "8 t diag mean 1.00 sd 0.27 offdiag range -0.55..2.71\n a 0.5 b 0.0 {0.003: np.float64(97.44), 0.01: np.float64(97.42), 0.03: np.float64(97.42), 0.1: np.float64(97.57)}\n a 1.0 b 0.0 {0.003: np.float64(97.62), 0.01: np.float64(97.62), 0.03: np.float64(97.68), 0.1: np.float64(97.66)}\n a 1.5 b 0.0 {0.003: np.float64(97.59), 0.01: np.float64(97.59), 0.03: np.float64(97.59), 0.1: np.float64(97.64)}\n a 2.5 b 0.0 {0.003: np.float64(26.89), 0.01: np.float64(27.16), 0.03: np.float64(34.76), 0.1: np.float64(59.63)}\n quadnoL2 {0.003: np.float64(97.46), 0.01: np.float64(97.46), 0.03: np.float64(97.48), 0.1: np.float64(97.55)}\n9 t diag mean 1.00 sd 0.26 offdiag range -0.57..2.75\n a 0.5 b 0.0 {0.003: np.float64(98.04), 0.01: np.float64(98.02), 0.03: np.float64(98.04), 0.1: np.float64(97.97)}\n a 1.0 b 0.0 {0.003: np.float64(98.02), 0.01: np.float64(98.02), 0.03: np.float64(98.04), 0.1: np.float64(98.08)}\n a 1.5 b 0.0 {0.003: np.float64(97.68), 0.01: np.float64(97.88), 0.03: np.float64(98.06), 0.1: np.float64(98.15)}\n a 2.5 b 0.0 {0.003: np.float64(27.09), 0.01: np.float64(23.17), 0.03: np.float64(26.76), 0.1: np.float64(43.0)}\n quadnoL2 {0.003: np.float64(97.99), 0.01: np.float64(97.99), 0.03: np.float64(97.99), 0.1: np.float64(97.99)}\n[run 48; 252 code runs left; 18 forward passes left]"
+ }
+]

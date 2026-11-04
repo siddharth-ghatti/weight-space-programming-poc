@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01YcPczX2gpRu7HdKxSMvAJp",
+  "content": "pred acc 1.0 agree with Sdep 1.0\nlogit range -0.431 0.922 max |tanh arg| proxy 1.604\nmin margin 0.4344\nper-sample scale mean/cv 1.474 0.0001 resid 2.259770096602054e-07\n[run 197; 103 code runs left; 5 forward passes left]"
+ }
+]

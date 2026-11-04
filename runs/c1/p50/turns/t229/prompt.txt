@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01CHaN7PGTWAtCXrodpbnwa6",
+  "content": "['bert.encoder.layer.0.attention.self.value.bias.npy', 'bert.encoder.layer.0.attention.self.value.weight.npy', 'bert.encoder.layer.11.attention.output.dense.bias.npy', 'bert.encoder.layer.11.attention.output.dense.weight.npy', 'bert.encoder.layer.11.intermediate.dense.bias.npy', 'bert.encoder.layer.11.intermediate.dense.weight.npy', 'bert.encoder.layer.11.output.dense.bias.npy', 'bert.encoder.layer.11.output.dense.weight.npy']\nW2 KEEP rows kept units max 0.0 b2 KEEP absmax 0.0\ninstalled; params {'total': 55954696, 'num_layers': 8, 'intermediate_size': 1024, 'per_layer': 3940096, 'fraction_of_full': 0.5110559665539703, 'reduction_vs_full': 0.48894403344602966}\n[run 196; 104 code runs left; 5 forward passes left]"
+ }
+]

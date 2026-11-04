@@ -12,3 +12,5 @@ runs/_baselines/*/trainer/
 *.npy
 *.npz
 .DS_Store
+runs/_baselines/*/*/model/
+runs/_baselines/*/*/trainer/

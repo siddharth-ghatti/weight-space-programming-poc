@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MDZ3fNCpSaZ5FHD12kQLyY",
+  "content": "cos stats offdiag [-0.2967 -0.1113 -0.0166  0.0932  0.4339]\nexp 0.001 primal-anchor 0.9737 dual KRR 0.9737\nexp 0.01 primal-anchor 0.9803 dual KRR 0.9737\nexp 0.1 primal-anchor 0.9671 dual KRR 0.9671\nexp 1 primal-anchor 0.9211 dual KRR 0.9342\ngelu1 0.001 primal-anchor 0.9803 dual KRR 0.9803\ngelu1 0.01 primal-anchor 0.9803 dual KRR 0.9803\ngelu1 0.1 primal-anchor 0.9737 dual KRR 0.9803\ngelu1 1 primal-anchor 0.9342 dual KRR 0.9408\ngelu3-1 0.001 primal-anchor 0.6908 dual KRR 0.6711\ngelu3-1 0.01 primal-anchor 0.7697 dual KRR 0.6579\ngelu3-1 0.1 primal-anchor 0.8684 dual KRR 0.3224\ngelu3-1 1 primal-anchor 0.9145 dual KRR 0.5329\n[run 98; 202 code runs left; 28 forward passes left]"
+ }
+]

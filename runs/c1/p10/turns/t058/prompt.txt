@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AVHGnQqqdhKyCLM3F7BG5m",
+  "content": "0.2 0.003 LOO base 0.9766 ed 0.9717  5fold base 0.9705 ed 0.9615\n0.4 0.003 LOO base 0.9775 ed 0.9727  5fold base 0.9713 ed 0.9633\n0.4 0.01 LOO base 0.9766 ed 0.9727  5fold base 0.9709 ed 0.9635\n0.8 0.01 LOO base 0.9736 ed 0.9639  5fold base 0.9691 ed 0.9598\n0.4 0.03 LOO base 0.9756 ed 0.9717  5fold base 0.9711 ed 0.9621\n[run 53; 247 code runs left; 5 forward passes left]"
+ }
+]

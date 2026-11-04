@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Y8mPoyMEATrhtsBxKn5py9",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"base\",\n \"n_texts\": 64,\n \"layers\": [\n  0,\n  1\n ],\n \"num_layers\": 12,\n \"files\": {\n  \"meta\": \"pass_23/meta.json\",\n  \"token_hidden_L0\": \"pass_23/token_hidden_L0.npy\",\n  \"token_hidden_L1\": \"pass_23/token_hidden_L1.npy\",\n  \"attention_mask\": \"pass_23/attention_mask.npy\",\n  \"tokens\": \"pass_23/tokens.json\",\n  \"attention_L1\": \"pass_23/attention_L1.npy\"\n },\n \"shapes\": {\n  \"token_hidden_L0\": [\n   64,\n   63,\n   768\n  ],\n  \"token_hidden_L1\": [\n   64,\n   63,\n   768\n  ],\n  \"attention_mask\": [\n   64,\n   63\n  ],\n  \"attention_L1\": [\n   64,\n   12,\n   63,\n   63\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the last encoder layer of the base model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..12.\",\n \"pass_index\": 23,\n \"duration_s\": 2.37,\n \"passes_left\": 27\n}"
+ }
+]

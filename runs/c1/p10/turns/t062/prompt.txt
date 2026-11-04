@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019pUbSkfnbY6hSYYvj3YDnq",
+  "content": "LOO rbf [np.float64(0.9866), np.float64(0.9866), np.float64(0.9866)]\nrbf .4/.003 0.9822860962566846 rbf .2/.003 0.9806149732620321\n[(1, 0)] [np.float64(0.9828), np.float64(0.9818), np.float64(0.9793)]\n[(1.5, 0)] [np.float64(0.9816), np.float64(0.982), np.float64(0.9806)]\n[(1, -0.3)] [np.float64(0.9818), np.float64(0.9804), np.float64(0.9773)]\n[(0.7, 0)] [np.float64(0.9818), np.float64(0.9803), np.float64(0.9754)]\n[(1, 0), (2, -1)] [np.float64(0.9799), np.float64(0.9794), np.float64(0.9793)]\n[(1, 0), (3, -1.5)] [np.float64(0.9698), np.float64(0.9703), np.float64(0.9708)]\n[run 57; 243 code runs left; 5 forward passes left]"
+ }
+]

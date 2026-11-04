@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01GZsDQQ6f7Zwmp7MNK8Q8ST",
+  "content": "K9 {0.003: 0.9711, 0.01: 0.9709, 0.03: 0.9697}\nK9+linM0 {0.003: 0.9797, 0.01: 0.9795, 0.03: 0.9795}\nmeanRES 0.5 {0.01: 0.998, 0.03: 0.998}\nmeanRES 2 {0.01: 0.998, 0.03: 0.998}\nmeanRES 8 {0.01: 0.998, 0.03: 0.998}\nclsRES 0.5 {0.01: 0.9977, 0.03: 0.9977}\nclsRES 2 {0.01: 0.9977, 0.03: 0.9977}\nclsRES 8 {0.01: 0.9977, 0.03: 0.9977}\ncorr meanRES [np.float64(0.983), np.float64(0.984), np.float64(0.989), np.float64(0.987), np.float64(0.981), np.float64(0.979), np.float64(0.984), np.float64(0.983)]\ncorr clsRES [np.float64(0.96), np.float64(0.964), np.float64(0.985), np.float64(0.975), np.float64(0.967), np.float64(0.965), np.float64(0.979), np.float64(0.972)]\n[run 127; 173 code runs left; 16 forward passes left]"
+ }
+]

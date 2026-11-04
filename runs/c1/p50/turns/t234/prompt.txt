@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AMLhAB6gQvi55rbv9R2KEM",
+  "content": "all-1496 actual acc 1.0 rest472 acc 1.0\npool-from-actual max diff 5.376415054714201e-06 argmax agree w/ prior pred 1.0\nmin margin 0.4387\n[run 199; 101 code runs left; 3 forward passes left]"
+ }
+]

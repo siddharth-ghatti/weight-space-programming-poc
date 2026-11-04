@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011YmoKQ3yv42FE91oqqcLJX",
+  "content": "R2 new lin scores from old carry span 0.7924388051363466\nnorm of lin part vs kernel part 0.12908754040157722 0.24440791168980314\ntrain acc joint 1.0\nR2 seq1024 joint lin from carry span 0.8409390927148458\nwlin vs coef2 lin corr 0.8726557837053908 vs Wn 0.8322283915622055\n[run 186; 114 code runs left; 5 forward passes left]"
+ }
+]

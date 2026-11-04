@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01BBfwCLoqGrKfHfaWs8EN6c",
+  "content": "0 Qcols 0.19 Kcols 0.161 Vcols 0.132 W1cols 0.145 Orows 0.105 W2rows 0.215 b2res 0.112 boRes 0.042 zeroQ heads [] RES writers [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\n1 Qcols 0.154 Kcols 0.154 Vcols 0.122 W1cols 0.21 Orows 0.124 W2rows 0.221 b2res 0.094 boRes 0.081 zeroQ heads [] RES writers [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]\n2 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 1.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [0] RES writers [0]\n3 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 0.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [] RES writers []\n4 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 0.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [] RES writers []\n5 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 0.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [] RES writers []\n6 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 1.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [11] RES writers [11]\n7 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 0.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [] RES writers []\n8 Qcols 0.0 Kcols 0.0 Vcols 0.0 W1cols 0.0 Orows 0.0 W2rows 0.0 b2res 0.0 boRes 0.0 zeroQ heads [] RES writers []\n[run 104; 196 code runs left; 27 forward passes left]"
+ }
+]

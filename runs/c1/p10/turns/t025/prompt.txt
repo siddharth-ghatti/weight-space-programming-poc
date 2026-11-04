@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PbjBnP6Dx73qojN1fPWYPt",
+  "content": "M0 LOO best ((0.4, 0.001), np.float64(0.9753))  median 0.9739\nM1 LOO best ((0.4, 0.001), np.float64(0.9766))  median 0.9759\nM0+M1 LOO best ((0.8, 0.001), np.float64(0.9793))  median 0.9773\nM6 LOO best ((0.4, 0.001), np.float64(0.9786))  median 0.9766\nM8 LOO best ((0.4, 0.001), np.float64(0.9806))  median 0.9786\nM9 LOO best ((0.2, 0.001), np.float64(0.9866))  median 0.9853\nM0+M8 LOO best ((0.4, 0.001), np.float64(0.9833))  median 0.9813\nM0+M9 LOO best ((0.2, 0.001), np.float64(0.9873))  median 0.9853\nK8+lin26 LOO best ((0.8, 0.001), np.float64(0.9813))  median 0.9799\nK1+lin0 LOO best ((0.8, 0.001), np.float64(0.9793))  median 0.9759\n[run 22; 278 code runs left; 7 forward passes left]"
+ }
+]

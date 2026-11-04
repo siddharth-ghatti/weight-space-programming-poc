@@ -1,6 +1,6 @@
 # Executive summary: building a classifier by editing model weights directly
 
-**Date:** 2026-11-04 · **Status:** proof of concept complete · **Recommendation:** continue investment
+**Date:** 2026-11-04 · **Status:** proof of concept complete, including a compression follow-up · **Recommendation:** continue investment
 
 ## What we did
 
@@ -50,6 +50,50 @@ Key points:
 - **Output is standard.** Each result is a normal Hugging Face checkpoint that loads with stock
   tooling and can be published or deployed with no custom code.
 
+## Follow-up: shrinking the model by the same method
+
+After the classifier was built, we asked whether the same approach could make it cheaper to run.
+Starting from the best model above (98.3%, 109M parameters), the editor was told to remove as many
+parameters as possible while keeping held-out accuracy at or above 97.8%, using only changes that
+keep the result a standard model: dropping whole layers and narrowing each layer's feed-forward
+block. The vocabulary and embeddings (23.8M parameters) stay intact so the model keeps generalizing
+to unseen wording. The editor still could not train anything; it had to decide what to cut and
+repair the rest with closed-form fits from a budget of forward passes.
+
+| Method | Size | Reduction | Test accuracy | Meets 97.8% bar | Cost |
+|---|---|---|---|---|---|
+| Starting model (v1, 50 passes) | 109.5M | - | 98.3% | yes | - |
+| Weight editing, 10 forward passes | 95.3M | 13% | 97.4% | no | $7.59 |
+| Weight editing, 25 forward passes | 95.3M | 13% | 98.3% | yes | $7.78 |
+| **Weight editing, 50 forward passes** | **56.0M** | **49%** | **97.9%** | **yes** | **$19.39** |
+| Conventional: keep 6 layers, fine-tune (10 epochs) | 67.0M | 39% | 98.2% | yes | local GPU |
+| Conventional: keep 4 layers, fine-tune (10 epochs) | 52.8M | 52% | 97.6% | no | local GPU |
+| Conventional at the editor's exact size (8 layers, narrow FFN), fine-tune | 56.0M | 49% | 97.1% | no | local GPU |
+
+Key points:
+
+- **Half the model, same accuracy bar.** The 50-pass run removed 49% of the parameters and kept
+  97.9% accuracy. The conventional recipe (truncate the model, then fine-tune) fails the bar at that
+  size: 97.1% at the identical shape, and it needs 67M parameters (a 39% cut) to pass.
+- **It is a faster model, not just a smaller file.** On a laptop CPU the compressed model classifies a sentence in 15.8 ms
+  one at a time and 5.8 ms in batches, against 34.8 ms and 14.8 ms for the original: 2.2 to 2.5 times
+  faster. The checkpoint shrinks
+  from 438 MB to 224 MB.
+- **Budget bought the result.** With 10 or 25 passes the editor took a safe 13% cut and stopped. With
+  50 passes it rebuilt every remaining layer one at a time and reached 49%. The whole three-run
+  experiment cost $34.76.
+- **One run missed the bar.** The 10-pass run estimated its own accuracy at 98.5% from
+  cross-validation on the practice data and scored 97.4% on the held-out set. The editor's internal
+  estimates run 0.3 to 1 point optimistic; the margin to the bar has to be set with that in mind.
+- **Still auditable and still standard.** The compressed model is a normal checkpoint that loads
+  with stock tooling, and it can be rebuilt exactly from the public base model plus two recorded
+  diffs. The editor's explanation of what it kept, what it cut and how it repaired each layer is in
+  the run log.
+
+For deployment this changes the picture: a 56M-parameter encoder serves at a fraction of the cost of
+the 110M original on CPU, with no GPU, which puts per-sentence classification of whole policy
+documents within reach of commodity infrastructure. The production caveats below still apply.
+
 ## What we learned
 
 - **The editor uses the pretrained model intelligently.** Rather than retraining, the editors
@@ -75,6 +119,8 @@ Key points:
   base model can carry many task adaptations.
 - **Headroom:** the editors under-used their budgets and worked from a small synthetic dataset.
   Harder, real-world data and more observation are the obvious next experiments.
+- **It compresses too:** the same method, pointed at size instead of accuracy, halved the model while
+  holding the accuracy bar, where the standard compression recipe at that size fell short.
 
 ## Caveats
 
@@ -161,3 +207,5 @@ Checkpoints on the Hugging Face Hub (standard `BertForSequenceClassification`, l
 - Code and harness: `README.md` has the full protocol and per-run technical detail.
 - Per-run logs, edits, explanations and scores: `runs/v0/` (first round) and `runs/v1/` (second round).
 - Comparison table across all runs: `runs/compare.md`.
+- Pruning experiment: harness in `wspc/`, runs and logs in `runs/c1/`, conventional compression
+  baselines in `runs/_baselines/compress/`, comparison table `runs/c1/compare.md`.

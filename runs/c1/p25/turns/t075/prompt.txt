@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01M8QqnomKh4fL8neJDStTz1",
+  "content": "base gelu {0.01: np.float64(97.69), 0.03: np.float64(97.74), 0.1: np.float64(97.69)}\npca 128 whiten^ 0.3 {0.01: np.float64(97.63), 0.03: np.float64(97.73), 0.1: np.float64(97.79)}\npca 128 whiten^ 1.0 {0.01: np.float64(97.39), 0.03: np.float64(97.39), 0.1: np.float64(97.44)}\npca 256 whiten^ 0.3 {0.01: np.float64(97.66), 0.03: np.float64(97.66), 0.1: np.float64(97.61)}\npca 256 whiten^ 1.0 {0.01: np.float64(97.13), 0.03: np.float64(97.16), 0.1: np.float64(97.16)}\npca 512 whiten^ 0.3 {0.01: np.float64(97.64), 0.03: np.float64(97.63), 0.1: np.float64(97.54)}\npca 512 whiten^ 1.0 {0.01: np.float64(96.96), 0.03: np.float64(96.98), 0.1: np.float64(96.98)}\n[run 64; 236 code runs left; 14 forward passes left]"
+ }
+]

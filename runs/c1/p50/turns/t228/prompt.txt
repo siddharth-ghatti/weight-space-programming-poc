@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01EnKs3N49ojArDC5iuECAgq",
+  "content": "lin_feats check 0.0\ncnew vs lamb*Sl 5.995204332975845e-15 std old/new [0.433 0.464 0.664 0.544 0.441 0.405 0.512 0.538] [0.487 0.492 0.611 0.457 0.438 0.425 0.558 0.55 ]\nZ KEEP change 0.0008433695865184276 Phi change 0.0001238084017098906\nbeta 1.0975900017225866 R2 L8->Sl 0.8821930958124432\ntrain acc joint 1.0 dep 1.0 agree 1.0\nmargin min/5pct 0.3496 0.689\ncentered score range -0.313 1.088 Zn RES std 0.1093\n[run 195; 105 code runs left; 5 forward passes left]"
+ }
+]

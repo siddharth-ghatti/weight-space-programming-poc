@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017SWYahDR3fB1MJG76Y6d9Y",
+  "content": "cr 0.0 zRES mag 0.1543440509230331 KEEP 0.7936474847879609\ncr 1.0 zRES mag 0.268297754165093 KEEP 0.7930609105957165\nexactRBF+lin {0.01: 0.9846}\nexactGELUcos+lin {0.25: {0.003: 0.9833, 0.01: 0.9833, 0.03: 0.9833}, 0.5: {0.003: 0.983, 0.01: 0.9823, 0.03: 0.983}, 1.0: {0.003: 0.9826, 0.01: 0.983, 0.03: 0.9826}}\nKg eig min/max 0.012006248918727275 75.53434505142232 1496\n[run 131; 169 code runs left; 15 forward passes left]"
+ }
+]

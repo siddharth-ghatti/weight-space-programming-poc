@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01NALnfHppGuG52G57GcbqKs",
+  "content": "<class 'list'> 64 ['[CLS]', 'the', 'company', 'may', 'require', 'an', 'ins', '##ured', 'person', 'to', 'undergo', 'a']\nlens 15 54\ntoken score std overall [1.13 0.96 0.91 0.85 0.85 1.05 0.87 0.87]\nwithin-sent std [1.08 0.89 0.76 0.7  0.76 0.84 0.8  0.84]\n[run 30; 270 code runs left; 45 forward passes left]"
+ }
+]

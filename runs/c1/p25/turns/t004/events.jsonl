@@ -1,0 +1,1 @@
+{"id": "toolu_01Pyr9BSADeai8Pp2pxbG3fJ", "caller": {"type": "direct"}, "input": {"code": "import json\nids=[x['id'] for x in practice()]\njson.dump(ids, open(WORK/'ids.json','w'))\nprint(ids[:3], ids[1020:1026], (WORK/'notes.md').exists())\n"}, "name": "run_python", "type": "tool_use", "toolset_name": null}

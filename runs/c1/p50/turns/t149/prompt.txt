@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01GVaQeDPMHGcBJ71XMNZg2h",
+  "content": "0.0 {'err_new': 0.08044792644059177, 'err_unpruned': 0.06406011025603026, 'err_res': 1.357669804084364}\n0.5 {'err_new': 0.08004657633975547, 'err_unpruned': 0.06406011025603026, 'err_res': 1.3526231381065363}\n({'err_new': 0.08004657633975547, 'err_unpruned': 0.06406011025603026, 'err_res': 1.3526231381065363}, None)\nstructure: layers=[0, 1, 2, 3, 4, 5, 6, 7, 8] m=1024 params=59,894,792 (54.7% of 109,488,392; 45.3% smaller)\n1496 ['p0000', 'p0001', 'p0002'] ['p1493', 'p1494', 'p1495'] True\n0 0.0 1.0\n1 0.0 1.0\n2 0.0 1.0\n3 0.0 1.0\n4 0.0 1.0\n5 0.0 1.0\n6 0.0 1.0\n7 0.0 1.0\n8 0.0 1.0\n[run 126; 174 code runs left; 17 forward passes left]"
+ }
+]

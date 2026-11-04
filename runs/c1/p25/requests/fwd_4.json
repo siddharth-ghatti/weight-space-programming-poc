@@ -1,0 +1,189 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "ids": [
+   "p0006",
+   "p0010",
+   "p0044",
+   "p0050",
+   "p0059",
+   "p0082",
+   "p0158",
+   "p0163",
+   "p0170",
+   "p0177",
+   "p0213",
+   "p0259",
+   "p0304",
+   "p0332",
+   "p0339",
+   "p0403",
+   "p0418",
+   "p0422",
+   "p0478",
+   "p0513",
+   "p0518",
+   "p0522",
+   "p0554",
+   "p0560",
+   "p0568",
+   "p0605",
+   "p0610",
+   "p0621",
+   "p0636",
+   "p0650",
+   "p0660",
+   "p0683",
+   "p0684",
+   "p0685",
+   "p0743",
+   "p0746",
+   "p0781",
+   "p0811",
+   "p0851",
+   "p0871",
+   "p0878",
+   "p0913",
+   "p0946",
+   "p0952",
+   "p0966",
+   "p0968",
+   "p0973",
+   "p1006",
+   "p1040",
+   "p1051",
+   "p1107",
+   "p1113",
+   "p1121",
+   "p1122",
+   "p1154",
+   "p1248",
+   "p1264",
+   "p1308",
+   "p1312",
+   "p1342",
+   "p1348",
+   "p1359",
+   "p1363",
+   "p1444"
+  ],
+  "outputs": [
+   "token_hidden"
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 64,
+  "layers": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "num_layers": 12,
+  "files": {
+   "meta": "pass_4/meta.json",
+   "token_hidden_L0": "pass_4/token_hidden_L0.npy",
+   "token_hidden_L1": "pass_4/token_hidden_L1.npy",
+   "token_hidden_L2": "pass_4/token_hidden_L2.npy",
+   "token_hidden_L3": "pass_4/token_hidden_L3.npy",
+   "token_hidden_L4": "pass_4/token_hidden_L4.npy",
+   "token_hidden_L5": "pass_4/token_hidden_L5.npy",
+   "token_hidden_L6": "pass_4/token_hidden_L6.npy",
+   "token_hidden_L7": "pass_4/token_hidden_L7.npy",
+   "token_hidden_L8": "pass_4/token_hidden_L8.npy",
+   "token_hidden_L9": "pass_4/token_hidden_L9.npy",
+   "token_hidden_L10": "pass_4/token_hidden_L10.npy",
+   "token_hidden_L11": "pass_4/token_hidden_L11.npy",
+   "token_hidden_L12": "pass_4/token_hidden_L12.npy",
+   "attention_mask": "pass_4/attention_mask.npy",
+   "tokens": "pass_4/tokens.json"
+  },
+  "shapes": {
+   "token_hidden_L0": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L1": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L2": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L3": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L4": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L5": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L6": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L7": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L8": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L9": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L10": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L11": [
+    64,
+    54,
+    768
+   ],
+   "token_hidden_L12": [
+    64,
+    54,
+    768
+   ],
+   "attention_mask": [
+    64,
+    54
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 12 is the last encoder layer of the base model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..12.",
+  "pass_index": 4,
+  "duration_s": 2.68,
+  "passes_left": 21
+ }
+}

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01RNAJwkKkoXgr4Y5HqwsGUW",
+  "content": "pooler nonzero rows [0 1 2 3 4 5 6 7] [ 0.2004 -0.0719 -0.0996  0.0978  0.0159  0.1107  0.0721  0.1746  0.      0.    ] 0.0\n(array([0, 1, 2, 3, 4, 5, 6, 7]), array([0, 1, 2, 3, 4, 5, 6, 7]))\n[8.75 8.75 8.75 8.75 8.75 8.75 8.75 8.75] 4.375\n2 q head max 0.0 0.0 v head nonzero rows [0 1 2 3 4 5 6 7] vb 0.0\n  o cols nonzero rows [ 83  88 222 254 444 495 506 601] ob [0. 0. 0. 0. 0. 0. 0. 0.]\n  LN attn w/b res [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n  LN out w/b res [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n  k head 0.42066452\n6 q head max 0.0 0.0 v head nonzero rows [0 1 2 3 4 5 6 7] vb 0.0\n  o cols nonzero rows [ 83  88 222 254 444 495 506 601] ob [0. 0. 0. 0. 0. 0. 0. 0.]\n  LN attn w/b res [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n  LN out w/b res [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n  k head 0.2786821\n10 q head max 0.0 0.0 v head nonzero rows [0 1 2 3 4 5 6 7] vb 0.0\n  o cols nonzero rows [ 83  88 222 254 444 495 506 601] ob [0. 0. 0. 0. 0. 0. 0. 0.]\n  LN attn w/b res [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n  LN out w/b res [1. 1. 1. 1. 1. 1. 1. 1.] [0. 0. 0. 0. 0. 0. 0. 0.]\n  k head 0.25452885\n[run 3; 297 code runs left; 2 forward passes left]"
+ }
+]

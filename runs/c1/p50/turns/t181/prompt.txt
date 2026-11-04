@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Rq5X9GTEfm1vxL6tj1Ud8Z",
+  "content": "current L5 out vs base h 6 0.0535187099526496\ncurrent L5 out vs base h 7 0.20495915733451311\nenergy 30 {'err': 0.16661956255804847}\nenergy 100 {'err': 0.15925060498411517}\nenergy 300 {'err': 0.16298576200306641}\ncorr 30 {'err': 0.18545617527016556}\ncorr 100 {'err': 0.18390773604455593}\ncorr 300 {'err': 0.19017949224464195}\ncurkeep {'err': 0.15805013891794054}\nall3072 {'err': 0.13196234262290424}\n[run 153; 147 code runs left; 11 forward passes left]"
+ }
+]

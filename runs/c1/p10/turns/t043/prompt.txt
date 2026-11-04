@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01256NUFHZkxBMy9PCEJi4a9",
+  "content": "['cls_hidden_L0', 'mean_hidden_L0', 'cls_hidden_L1', 'mean_hidden_L1', 'cls_hidden_L2', 'mean_hidden_L2', 'cls_hidden_L3', 'mean_hidden_L3', 'cls_hidden_L4', 'mean_hidden_L4', 'cls_hidden_L5', 'mean_hidden_L5', 'cls_hidden_L6', 'mean_hidden_L6', 'cls_hidden_L7', 'mean_hidden_L7', 'cls_hidden_L8', 'mean_hidden_L8', 'cls_hidden_L9', 'mean_hidden_L9', 'cls_hidden_L10', 'mean_hidden_L10', 'cls_hidden_L11', 'mean_hidden_L11', 'cls_hidden_L12', 'mean_hidden_L12', 'pooled', 'logits', 'y'] {'cls_hidden_L0': (1496, 768), 'mean_hidden_L0': (1496, 768), 'cls_hidden_L1': (1496, 768), 'mean_hidden_L1': (1496, 768), 'cls_hidden_L2': (1496, 768)}\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-7booz3ll/run_0038.py\", line 209, in <module>\n    print(json.load(open('ids.json')).__class__, len(json.load(open('ids.json'))))\n          ^^^^\nNameError: name 'json' is not defined. Did you mean: '_json'? Or did you forget to import 'json'?\n\n[exit code 1]\n[run 38; 262 code runs left; 5 forward passes left]"
+ }
+]

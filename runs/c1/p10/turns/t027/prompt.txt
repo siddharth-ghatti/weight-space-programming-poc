@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01RzU36rgAUaKhggPUSc13uU",
+  "content": "layer 0: mean CKA 0.738 rel 1.136 centered-rel 1.109 | cls CKA 0.000\nlayer 1: mean CKA 0.963 rel 0.533 centered-rel 0.496 | cls CKA 0.740\nlayer 2: mean CKA 0.977 rel 0.336 centered-rel 0.420 | cls CKA 0.935\nlayer 3: mean CKA 0.971 rel 0.376 centered-rel 0.482 | cls CKA 0.678\nlayer 4: mean CKA 0.969 rel 0.328 centered-rel 0.530 | cls CKA 0.792\nlayer 5: mean CKA 0.978 rel 0.268 centered-rel 0.474 | cls CKA 0.824\nlayer 6: mean CKA 0.984 rel 0.303 centered-rel 0.462 | cls CKA 0.831\nlayer 7: mean CKA 0.978 rel 0.279 centered-rel 0.471 | cls CKA 0.912\nlayer 8: mean CKA 0.969 rel 0.326 centered-rel 0.524 | cls CKA 0.941\nlayer 9: mean CKA 0.962 rel 0.425 centered-rel 0.578 | cls CKA 0.954\nlayer 10: mean CKA 0.978 rel 0.385 centered-rel 0.439 | cls CKA 0.929\nlayer 11: mean CKA 0.993 rel 1.024 centered-rel 1.026 | cls CKA 0.847\n[run 24; 276 code runs left; 7 forward passes left]"
+ }
+]

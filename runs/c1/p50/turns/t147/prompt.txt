@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01F3R8zAMWWefEBNwPfZ6Tpy",
+  "content": "0.0 100 {'err_new': 0.07696122821497076, 'err_unpruned': 0.05282760753921613, 'err_res': 1.1844904891913357}\n0.5 100 {'err_new': 0.07700676145460343, 'err_unpruned': 0.05282760753921613, 'err_res': 1.1842338847470826}\nbest (0.07696122821497076, 0.0, 100)\n({'err_new': 0.07696122821497076, 'err_unpruned': 0.05282760753921613, 'err_res': 1.1844904891913357}, 'structure: layers=[0, 1, 2, 3, 4, 5, 6, 7, 8] m=1024 params=59,894,792 (54.7% of 109,488,392; 45.3% smaller)')\n[run 125; 175 code runs left; 18 forward passes left]"
+ }
+]

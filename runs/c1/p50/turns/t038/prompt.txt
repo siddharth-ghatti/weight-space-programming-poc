@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_012PuSaqJKdxuCAs3aKDpcRA",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 1024,\n \"layers\": [\n  1\n ],\n \"num_layers\": 1,\n \"files\": {\n  \"meta\": \"pass_6/meta.json\",\n  \"cls_hidden_L1\": \"pass_6/cls_hidden_L1.npy\"\n },\n \"shapes\": {\n  \"cls_hidden_L1\": [\n   1024,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 1 is the last encoder layer of the edited model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..1. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 11\n },\n \"structure\": {\n  \"layers\": [\n   11\n  ],\n  \"intermediate_size\": 1,\n  \"params\": 26801673,\n  \"reduction_vs_full\": 0.7552\n },\n \"pass_index\": 6,\n \"duration_s\": 1.59,\n \"passes_left\": 44\n}"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01BXLYpqfNXiDur8qtNA95nd",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 472,\n \"layers\": [\n  1\n ],\n \"num_layers\": 1,\n \"files\": {\n  \"meta\": \"pass_7/meta.json\",\n  \"cls_hidden_L1\": \"pass_7/cls_hidden_L1.npy\"\n },\n \"shapes\": {\n  \"cls_hidden_L1\": [\n   472,\n   768\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 1 is the last encoder layer of the edited model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..1. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 11\n },\n \"structure\": {\n  \"layers\": [\n   11\n  ],\n  \"intermediate_size\": 1,\n  \"params\": 26801673,\n  \"reduction_vs_full\": 0.7552\n },\n \"pass_index\": 7,\n \"duration_s\": 0.34,\n \"passes_left\": 43\n}"
+ }
+]

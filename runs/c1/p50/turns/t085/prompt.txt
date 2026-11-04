@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01CBWWVNcNfsVVUsRRpBjzex",
+  "content": "{'mean_hidden_L0': (1496, 768), 'mean_hidden_L1': (1496, 768), 'mean_hidden_L2': (1496, 768), 'mean_hidden_L3': (1496, 768), 'mean_hidden_L4': (1496, 768), 'mean_hidden_L5': (1496, 768), 'mean_hidden_L6': (1496, 768), 'mean_hidden_L7': (1496, 768), 'mean_hidden_L8': (1496, 768), 'mean_hidden_L9': (1496, 768), 'mean_hidden_L10': (1496, 768), 'mean_hidden_L11': (1496, 768), 'mean_hidden_L12': (1496, 768), 'cls_hidden_L0': (1496, 768), 'cls_hidden_L1': (1496, 768), 'cls_hidden_L2': (1496, 768), 'cls_hidden_L3': (1496, 768), 'cls_hidden_L4': (1496, 768), 'cls_hidden_L5': (1496, 768), 'cls_hidden_L6': (1496, 768), 'cls_hidden_L7': (1496, 768), 'cls_hidden_L8': (1496, 768), 'cls_hidden_L9': (1496, 768), 'cls_hidden_L10': (1496, 768), 'cls_hidden_L11': (1496, 768), 'cls_hidden_L12': (1496, 768), 'pooled': (1496, 768), 'logits': (1496, 8)}\ndict_keys(['texts', 'labels', 'ids', 'model', 'layers', 'num_layers', 'layer_map', 'structure'])\n1024\n<class 'dict'> dict_keys(['a', 'b'])\n1024 ['p0000', 'p0001', 'p0002'] ['p0000', 'p0001', 'p0002']\n472\n[run 76; 224 code runs left; 31 forward passes left]"
+ }
+]

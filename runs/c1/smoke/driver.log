@@ -1,0 +1,10 @@
+[12:51:05] t000 $0.00 start: model=claude-sonnet-5-5 effort=xhigh passes=2 cap=$150.0 init_from=runs/v1/p50 target=0.978
+[12:52:41] t001 $0.32 stop=tool_use tools=['run_python'] out_tok=11604
+[12:52:47] t002 $0.40 stop=tool_use tools=['run_python'] out_tok=617
+[12:52:56] t003 $0.43 stop=tool_use tools=['run_python'] out_tok=1055
+[12:56:21] t004 $0.94 stop=tool_use tools=['run_python'] out_tok=24549
+[12:56:27] t005 $1.08 stop=tool_use tools=['run_python'] out_tok=517
+[12:56:31] t006 $1.10 stop=tool_use tools=['run_python'] out_tok=334
+[12:58:21] t007 $1.39 stop=tool_use tools=['run_python'] out_tok=13770
+[12:58:37] t008 $1.51 stop=tool_use tools=['run_python'] out_tok=1754
+[12:58:41] t008 $1.51 finished (max_turns): 0 tensors edited; structure k=12 m=3072; exported params 109,488,392 (0.0% smaller); passes 0/2, code runs 8, cost $1.51

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01WW22Ca2HsvKJiodjPzpP3S",
+  "content": "train acc 1.0 min margin 0.4116339858697005 score range -0.1728060079411793 1.31073202357627\nu[RES] vs S max diff 6.661338147750939e-16 hc range -0.2978164045647306 1.1868953201918666\npred acc 1.0 tanh arg max 2.5\nstructure: layers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 11] m=1024 params=63,834,888 (58.3% of 109,488,392; 41.7% smaller)\n[run 135; 165 code runs left; 15 forward passes left]"
+ }
+]

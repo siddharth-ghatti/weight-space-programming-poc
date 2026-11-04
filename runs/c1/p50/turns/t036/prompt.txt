@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018E8wvSoF3YjAswRLCEBKNp",
+  "content": "cls const? 0.0\npos R2 0.9987057696449569\npred vs pos (mean per pos): [1.1, 2.0, 3.2, 5.2, 8.1, 11.9, 20.1, 29.7, 40.1]\nr.x cls 21.979191381673978 sep 24.10525100557844\nc.x cls 13.936653137207031 c.x body pct [-1.472  -0.4078  1.7906] sep [3.5934 3.8755 4.352 ]\npca var top 0.5673488\n[run 31; 269 code runs left; 45 forward passes left]"
+ }
+]

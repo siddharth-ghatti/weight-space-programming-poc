@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_016nX8FzpmSabJjgYdAdEjaf",
+  "content": "rel change vs drop6 0.2438206267305061\nsubset 10 0.08 0.5 drop2+6 0.9746 drop6 0.9782\nsubset 5 0.05 0.25 drop2+6 0.9754 drop6 0.9788\nsubset 10 0.02 0.5 drop2+6 0.9749 drop6 0.9793\n[run 167; 133 code runs left; 7 forward passes left]"
+ }
+]

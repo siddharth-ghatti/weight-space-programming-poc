@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Y2ksqiHqdwR4GS6YmggjXW",
+  "content": "orig-style ridge M2,M6,M10,C12 {100: 0.9833, 300: 0.984, 1000: 0.982}\n5fold same [np.float64(0.9784), np.float64(0.9802), np.float64(0.9788)]\n[run 25; 275 code runs left; 7 forward passes left]"
+ }
+]

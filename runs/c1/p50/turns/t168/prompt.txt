@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Ac4nZMK1EpTnb6LeULyPRL",
+  "content": "['kerM0_wrong.npy', 'cv_pivs_f10s0.npy', 'ffn_scores.npz', 'pred_logits_pool1.npy', 'tok64.npz', 'base_feats.npz', 'E1_u.npy', 'pool1_piv.npy', 'feats_seq1024.npz', 'ln_design.npz', 'carry_prov.npz', 'pool_design.npz']\n10 0.02 0.5 [0.9826 0.9846 0.984 ] 0.9837\n10 0.01 0.5 [0.982  0.9833 0.9833] 0.9828\n10 0.04 0.5 [0.9826 0.984  0.9826] 0.9831\n10 0.02 1.0 [0.982  0.9833 0.9833] 0.9828\n10 0.02 0.25 [0.9826 0.9866 0.982 ] 0.9837\n20 0.02 0.5 [0.9833 0.9846 0.9853] 0.9844\n5 0.02 0.5 [0.9846 0.984  0.9846] 0.9844\n[run 142; 158 code runs left; 14 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FVJiLtmy6cHqNHsQWMuZBt",
+  "content": "exact dual K9: {0.005: 0.9817}  K9+.5lin0: {0.005: 0.9846}\nexact dual gelu: {0.003: 0.9824, 0.01: 0.9826}  +.5lin0: {0.003: 0.9848, 0.01: 0.9844}\nnys 1000 c0 0.0 [0.9782, 0.9784, 0.9786]\nnys 1000 c0 0.5 [0.9753, 0.9795, 0.9811]\nnys 1400 c0 0.0 [0.9822, 0.9826, 0.9817]\nnys 1400 c0 0.5 [0.9851, 0.9844, 0.984]\n[run 99; 201 code runs left; 28 forward passes left]"
+ }
+]

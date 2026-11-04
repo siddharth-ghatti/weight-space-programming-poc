@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01B4wrEH5MT3MmTQsWkTQQmC",
+  "content": "(1901, 768)\n0 units for 50/80/90/95% of var-energy [626, 1674, 2209, 2557] zero-out-cols 0\n1 units for 50/80/90/95% of var-energy [427, 1409, 1981, 2380] zero-out-cols 0\n2 units for 50/80/90/95% of var-energy [0, 730, 1463, 2012] zero-out-cols 0\n3 units for 50/80/90/95% of var-energy [362, 1383, 1970, 2371] zero-out-cols 0\n4 units for 50/80/90/95% of var-energy [640, 1613, 2131, 2483] zero-out-cols 0\n5 units for 50/80/90/95% of var-energy [639, 1603, 2116, 2461] zero-out-cols 0\n6 units for 50/80/90/95% of var-energy [698, 1669, 2160, 2484] zero-out-cols 0\n7 units for 50/80/90/95% of var-energy [589, 1505, 2015, 2371] zero-out-cols 0\n8 units for 50/80/90/95% of var-energy [374, 1323, 1877, 2282] zero-out-cols 0\n9 units for 50/80/90/95% of var-energy [0, 1, 2, 5] zero-out-cols 0\n10 units for 50/80/90/95% of var-energy [0, 0, 299, 909] zero-out-cols 0\n11 units for 50/80/90/95% of var-energy [0, 0, 0, 0] zero-out-cols 3072\n\n[stderr]\n/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-zadsp6d1/run_0014.py:224: RuntimeWarning: invalid value encountered in divide\n  srt=np.sort(s_std**2)[::-1]; c=np.cumsum(srt)/srt.sum()\n[run 14; 286 code runs left; 46 forward passes left]"
+ }
+]

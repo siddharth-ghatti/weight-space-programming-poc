@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01GHvcMRW6jdhJcMfJTnsip8",
+  "content": "K9 {0.005: 0.9817}\nK0*K9 (joint) {0.005: 0.9835}\nadditive w 0.3 {0.003: 0.9837, 0.005: 0.984, 0.01: 0.984}\nadditive w 0.5 {0.003: 0.9833, 0.005: 0.9833, 0.01: 0.9831}\nadditive K1 {0.005: 0.9833}\nK9 + lin0 {0.005: 0.9837}\n[run 93; 207 code runs left; 28 forward passes left]"
+ }
+]

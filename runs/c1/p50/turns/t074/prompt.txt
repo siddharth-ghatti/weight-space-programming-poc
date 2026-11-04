@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0193ZH3U1AxbP9GcaoJasU1j",
+  "content": "structure: layers=[0, 1, 2, 3, 4, 5, 6, 7] m=3072 params=81,136,904 (74.1% of 109,488,392; 25.9% smaller)\n20\n[run 66; 234 code runs left; 34 forward passes left]"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LT8pk6T1CqC8mASmjknqQB",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 64,\n \"layers\": [\n  8\n ],\n \"num_layers\": 8,\n \"files\": {\n  \"meta\": \"pass_17/meta.json\",\n  \"token_hidden_L8\": \"pass_17/token_hidden_L8.npy\",\n  \"attention_mask\": \"pass_17/attention_mask.npy\",\n  \"tokens\": \"pass_17/tokens.json\"\n },\n \"shapes\": {\n  \"token_hidden_L8\": [\n   64,\n   63,\n   768\n  ],\n  \"attention_mask\": [\n   64,\n   63\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to texts[i] / ids[i] in meta.json. Hidden layer index 0 is the embedding output, 8 is the last encoder layer of the edited model. Attention arrays are [n, 12 heads, T, T] for encoder layers 1..8. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 0,\n  \"2\": 1,\n  \"3\": 2,\n  \"4\": 3,\n  \"5\": 4,\n  \"6\": 5,\n  \"7\": 6,\n  \"8\": 7\n },\n \"structure\": {\n  \"layers\": [\n   0,\n   1,\n   2,\n   3,\n   4,\n   5,\n   6,\n   7\n  ],\n  \"intermediate_size\": 3072,\n  \"params\": 81136904,\n  \"reduction_vs_full\": 0.2589\n },\n \"pass_index\": 17,\n \"duration_s\": 1.86,\n \"passes_left\": 33\n}"
+ }
+]

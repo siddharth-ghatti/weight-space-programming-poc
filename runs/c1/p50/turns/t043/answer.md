@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import os, json\nfor k in range(1,8):\n    d=f'pass_{k}'\n    if os.path.exists(d+'/meta.json'):\n        m=json.load(open(d+'/meta.json'))\n        print(k, {kk:(v if not isinstance(v,list) else (len(v), v[:3])) for kk,v in m.items() if kk not in ('texts',)})\n    else:\n        print(k, 'no meta', os.listdir(d)[:5])\nprint(open('tok_ids.json').read()[:500])\nfor f in ['pool_design.npz','ffn_scores.npz','tok64.npz','base_feats.npz']:\n    z=np.load(f); print(f,{k:z[k].shape for k in z})\nprint(np.load('E1_u.npy').shape)\nprint(open('structure.json').read())\n"
+}
+```
+

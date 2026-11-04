@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Puimcu5hn3PFdzjMvbfV3o",
+  "content": "M0 lam30 {0: np.float64(0.9817), 0.25: np.float64(0.9815), 0.5: np.float64(0.9797), 1.0: np.float64(0.9766)} lin alone 0.9519\nM0 lam100 {0: np.float64(0.9817), 0.25: np.float64(0.9815), 0.5: np.float64(0.9795), 1.0: np.float64(0.9775)} lin alone 0.9632\nM0 lam300 {0: np.float64(0.9817), 0.25: np.float64(0.9813), 0.5: np.float64(0.9797), 1.0: np.float64(0.9779)} lin alone 0.9612\nM2 lam30 {0: np.float64(0.9817), 0.25: np.float64(0.9826), 0.5: np.float64(0.9804), 1.0: np.float64(0.9779)} lin alone 0.9579\nM2 lam100 {0: np.float64(0.9817), 0.25: np.float64(0.9824), 0.5: np.float64(0.9808), 1.0: np.float64(0.9788)} lin alone 0.9632\nM2 lam300 {0: np.float64(0.9817), 0.25: np.float64(0.9808), 0.5: np.float64(0.9799), 1.0: np.float64(0.9782)} lin alone 0.9579\nM6 lam30 {0: np.float64(0.9817), 0.25: np.float64(0.982), 0.5: np.float64(0.9811), 1.0: np.float64(0.9786)} lin alone 0.9552\nM6 lam100 {0: np.float64(0.9817), 0.25: np.float64(0.9815), 0.5: np.float64(0.9813), 1.0: np.float64(0.9777)} lin alone 0.9612\nM6 lam300 {0: np.float64(0.9817), 0.25: np.float64(0.9811), 0.5: np.float64(0.9795), 1.0: np.float64(0.9773)} lin alone 0.9612\n[run 92; 208 code runs left; 28 forward passes left]"
+ }
+]

@@ -1,0 +1,9 @@
+{
+  "base_model": "bert-base-uncased",
+  "init_from": "runs/v1/p50",
+  "init_edit_manifest_sha256": "0c7e51af33afeb0156867e776ae3f4af2007f474adbcf834bf5769a3a72c7df3",
+  "init_edit_npz_sha256": "0432a9e1d0f3ba565b99c4d924ab6ebccb55f74ddcd9bf289024001ba0ec3c25",
+  "start_model_sha256": "0e5807e8e679006f74d23dea77bd8c2f76c4fa4f754fed1c639d930ddbd64d87",
+  "init_test_accuracy": 0.9831365935919055,
+  "init_test_macro_f1": 0.9833242511835572
+}

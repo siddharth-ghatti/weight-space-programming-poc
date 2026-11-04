@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019eCKi7tqHpu7WB7b8BWgkd",
+  "content": "2 mean|res|=0.0000 centered std per dim [0. 0. 0. 0.]\n3 mean|res|=0.0409 centered std per dim [0.0026 0.0032 0.0026 0.0027]\n4 mean|res|=0.0789 centered std per dim [0.0036 0.0041 0.0035 0.0032]\n5 mean|res|=0.1326 centered std per dim [0.0052 0.0056 0.005  0.0048]\n6 mean|res|=0.1921 centered std per dim [0.0076 0.008  0.0075 0.0072]\n7 mean|res|=0.2639 centered std per dim [0.0124 0.0124 0.0109 0.0104]\n9 mean|res|=0.4223 centered std per dim [0.0235 0.0237 0.0223 0.0223]\nrho L6/L3: mean 1.1858 std 0.0461 cv 0.039; fit resid 0.000\n0 attnLN g [0.941 0.963 0.961 0.966] outLN g [0.765 0.784 0.779 0.798] outLN b [ 0.019 -0.087 -0.11  -0.026]\n1 attnLN g [0.877 0.873 0.896 0.88 ] outLN g [0. 0. 0. 0.] outLN b [0. 0. 0. 0.]\n2 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n3 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n4 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n5 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n6 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n7 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n8 attnLN g [1. 1. 1. 1.] outLN g [1. 1. 1. 1.] outLN b [0. 0. 0. 0.]\n[run 101; 199 code runs left; 28 forward passes left]"
+ }
+]

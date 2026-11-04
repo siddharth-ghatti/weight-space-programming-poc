@@ -33,6 +33,13 @@ uv run python scripts/predict.py --model runs/v1/p10/model "Flood damage is not 
 uv run python scripts/scrub_paths.py                   # before publishing: replace absolute paths in logs with <repo>/<home>
 uv run python scripts/push_hf.py runs/v1/p25/model --repo <user>/<name>   # push a checkpoint to the Hub
 uv run python scripts/push_all_hf.py --user <hf-user> --private           # push every checkpoint, one repo each
+# pruning experiment (c1): independent harness in wspc/, start model = runs/v1/p50
+uv run python scripts/compress/run_baselines.py --suite                 # truncate+fine-tune and naive layer-drop baselines -> runs/_baselines/compress/
+uv run python scripts/compress/run_baselines.py --matched 8,1024 --epochs 10 --lr 5e-5   # size-matched conventional baseline
+uv run python scripts/compress/run.py --name c1/p50 --passes 50          # real runs: c1/p10, c1/p25, c1/p50 (auto evaluate + audit)
+uv run python scripts/compress/apply_edit.py runs/c1/p50/edit --out /tmp/rebuilt --check runs/c1/p50/model   # exact rebuild
+uv run python scripts/compress/benchmark.py runs/c1/p50/model            # params + CPU latency of any checkpoint
+uv run python scripts/compress/compare_runs.py                           # runs/c1/compare.md
 ```
 
 ## How it works
@@ -58,6 +65,36 @@ uv run python scripts/push_all_hf.py --user <hf-user> --private           # push
 - **Evals** (`wsp/eval/evaluate.py`): accuracy, macro/weighted F1, per-class P/R/F1, confusion matrix on
   the held-out test set, plus practice-set metrics (generalization gap). The test-set hash is checked
   before scoring. Baselines are exported and scored by the same code.
+
+## Pruning harness (`wspc/`)
+
+A second, independent harness for the compression experiment (c1). It imports read-only utilities
+from `wsp` (labels, data paths, base weights, sandbox, lint, scoring) and changes nothing there, so
+v0/v1 reproduce exactly as they ran. Same methodology: the editor only reads and writes weights, under
+a forward-pass budget, no gradient descent, rules 1 to 6 verbatim. The objective changes: start from
+the best v1 model (`runs/v1/p50`, 98.31%, 109,488,392 parameters) and **minimize exported parameters
+subject to held-out accuracy >= 97.8%** (within 0.5 points of the start, above the 97.3% fine-tune).
+
+- **Structured reduction only.** Two levers, both expressible in a stock checkpoint: drop encoder
+  layers (`num_hidden_layers`) and narrow every kept layer's feed-forward block to the same width
+  (`intermediate_size`), keeping any subset of the 3,072 units per layer. Vocabulary and embeddings
+  stay intact (23.8M parameters, the floor). Zeroed heads or weights earn no credit; transformers
+  5.22.1 has no head pruning. `total = 24,433,928 + k · (2,366,208 + 1,537 · m)`.
+- **Edits at full shape, structure applied by the harness.** `save_edit` works on full-size tensors
+  as before; `set_structure(layers, ffn_keep)` writes `structure.json`, which the harness applies when
+  it builds the edited model for a forward pass and at export (slice `intermediate.dense`,
+  `output.dense` columns, renumber layers). `forward_pass` on `base` is the unpruned 12-layer start;
+  on `edited` it is the pruned model, with a `layer_map` from pruned to original layer ids. An invalid
+  structure fails a pass without charging it and makes `submit` refuse.
+- **Export and provenance** (`wspc/export.py`, `wspc/bundle.py`): `edit/` holds the diff relative to
+  the v1/p50 start plus `structure.json`; `model/` is a pruned `BertForSequenceClassification` with
+  `structure.json`, `param_count.json` and a model card; `scripts/compress/apply_edit.py` rebuilds it
+  from bert-base + the v1/p50 edit + the c1 edit + the structure and checks identity.
+- **Evaluation** (`wspc/eval/`): the `wsp` scorer plus parameter counts, checkpoint size, CPU latency
+  (4 threads, median ms/sentence at batch 1 and 32 over 64 test sentences) and a pass/fail against the
+  target. Baselines (`wspc/eval/baselines.py`): truncate bert-base to k layers (optionally narrow the
+  FFN by a magnitude heuristic) and fine-tune on the practice set; naive layer drops of v1/p50 with
+  no refit; the unpruned start.
 
 ## Rules given to the editor
 
@@ -204,6 +241,104 @@ string literals, confirmed by reading them.
   the test set), so accuracy and F1 are unaffected, but the probabilities need a temperature fit
   before use as confidences. Median top-two logit margin is 0.31 (v1/p50) versus 3.07 for fine-tuning.
 
+### c1 (2026-11-04): parameter reduction by weight editing
+
+Same methodology, new objective: start from `runs/v1/p50` (98.31%, 109,488,392 parameters) and make
+it as small as possible while staying at or above 97.8% on the held-out test set, using only the
+structured levers above (drop layers, narrow the FFN; vocabulary and embeddings intact). One seed per
+setting, Opus 5.5, under `runs/c1/`. The conventional comparison is the standard compression recipe:
+truncate bert-base to k layers (and optionally narrow the FFN by a magnitude heuristic), then fine-tune
+on the same 1,496 practice sentences; shown at both the standard recipe (3 epochs, lr 2e-5) and a
+stronger one (10 epochs, lr 5e-5).
+
+| model | passes used | turns | code runs | cost | layers / FFN | params | vs start | test acc | macro-F1 | target |
+|---|---|---|---|---|---|---|---|---|---|---|
+| start (v1/p50) | - | - | - | - | 12 / 3072 | 109.5M | - | 98.31% | 0.983 | pass |
+| c1/p10 | 8/10 | 77 | 70 | $7.59 | 10 / 3072 | 95.3M | -12.9% | 97.41% | 0.975 | fail |
+| c1/p25 | 12/25 | 77 | 65 | $7.78 | 10 / 3072 | 95.3M | -12.9% | 98.26% | 0.983 | pass |
+| **c1/p50** | 47/50 | 236 | 201 | $19.39 | **8 / 1024** | **56.0M** | **-48.9%** | **97.92%** | **0.979** | **pass** |
+| truncate + fine-tune, 6 layers, 10 ep | - | - | - | local | 6 / 3072 | 67.0M | -38.8% | 98.20% | 0.982 | pass |
+| truncate + fine-tune, 4 layers, 10 ep | - | - | - | local | 4 / 3072 | 52.8M | -51.8% | 97.58% | 0.976 | fail |
+| truncate + fine-tune, 2 layers, 10 ep | - | - | - | local | 2 / 3072 | 38.6M | -64.7% | 96.80% | 0.968 | fail |
+| **size-matched: truncate + FFN-narrow + fine-tune, 8 / 1024, 10 ep** | - | - | - | local | 8 / 1024 | 56.0M | -48.9% | **97.08%** | 0.971 | fail |
+| truncate + fine-tune, 6 / 4 / 2 layers, 3 ep | - | - | - | local | | 67.0M / 52.8M / 38.6M | | 93.1% / 85.6% / 83.5% | | fail |
+| naive drop of v1/p50 layers 3-5, 7-9 (no refit) | - | - | - | - | 6 / 3072 | 67.0M | -38.8% | 54.6% | 0.565 | fail |
+
+CPU latency (Apple M-series, 4 threads, median ms per sentence over 64 test sentences, measured
+sequentially with nothing else running) and checkpoint size:
+
+| model | params | MB | ms/sentence, batch 1 | ms/sentence, batch 32 |
+|---|---|---|---|---|
+| start (v1/p50) | 109.5M | 438 | 34.8 | 14.8 |
+| c1/p25 (10 layers) | 95.3M | 381 | 29.5 | 12.5 |
+| **c1/p50 (8 layers, FFN 1024)** | **56.0M** | **224** | **15.8** | **5.8** |
+| truncate + fine-tune, 6 layers | 67.0M | 268 | 17.9 | 7.6 |
+| size-matched fine-tune, 8 / 1024 | 56.0M | 224 | 14.7 | 5.8 |
+
+Full table with every baseline: `runs/c1/compare.md`.
+
+Matrix cost $34.76 (plus $1.51 for a Sonnet smoke run). All three runs submitted on their own; no
+lint rejections; no free-text forward-pass requests; no in-kernel forward passes. The one
+self-authored-data flag (p50 t117) is a false positive on a notes file written through a
+triple-quoted string. Every exported checkpoint rebuilds bit-for-bit from bert-base + the v1/p50
+diff + the c1 diff + `structure.json` (`apply_edit.py --check`).
+
+**What each editor built**
+
+- **p10 and p25: drop two layers, rebuild layer 11 as a kernel classifier.** Both kept original layers
+  0 to 8 unchanged and dropped 9 and 10. Both measured that kernel-ridge accuracy on the token-mean of
+  each layer's hidden states jumps after layer 8 and flattens after, and both tested FFN narrowing
+  (2,560 to 2,816 units in p10; 1,536 and 2,560 in p25) and rejected it because the deep features
+  degraded by 0.3 to 0.8 points. Layer 11 became a mean-pooling layer (queries and keys zeroed so
+  [CLS] receives the plain token average) whose FFN is an exact kernel machine: one unit per practice
+  sentence computing GELU of a scaled inner product with that sentence's pooled vector, output weights
+  equal to the closed-form kernel-ridge coefficients, written into the 8 reserved dimensions. p25 also
+  re-solved the start model's carry heads in layers 2 and 6 and fit one joint kernel + linear model.
+  p25 explicitly weighed a 9-layer variant (88.2M) and rejected a 14 to 19% estimated chance of
+  missing the bar for a 7.5% saving. p10's 20-fold cross-validation estimate was 98.5%; it fit with a
+  small ridge penalty on 100% of the practice set and landed at 97.41% on test, the only run to fail.
+- **p50: narrow every layer, drop two more, re-fit layer by layer.** Kept original layers 0, 1, 2, 3,
+  5, 7, 8 and 11 at 1,024 FFN units each. The 1,024 units with the most output energy survive in
+  each content layer; each narrowed block's output weights were then refit by ridge regression to
+  reproduce the original model's next hidden state, sequentially from the bottom so each refit sees
+  the already-pruned layers below it (drift-corrected). Layers 3 and 5 were refit to produce the
+  hidden state the original model had two layers later, standing in for dropped layers 4 and 6
+  (cross-validation: 98.28% without layer 4, 98.24% with it). The start model's three carry heads were
+  replaced by one: layer 0's near-uniform head 0 writes a linear class score from the embedding
+  average into the 8 reserved dimensions, protected to the end. Layer 11 is a mean-pool plus kernel
+  classifier whose 1,024 units hold 1,008 anchor sentences chosen by pivoted Cholesky (random
+  anchors lost 0.4 points) and 16 linear pass-through units; the kernel and linear parts were fit
+  jointly, which the editor's simulation showed was worth 0.25 points over fitting them separately.
+  Harness logits on all 1,496 practice sentences matched the editor's numpy reconstruction to 5e-6.
+  Tested and abandoned: a 1-layer design (estimated ceiling 97.7%), dropping layer 8 (its stand-in
+  could not approximate it), FFN widths 768 and 1,536 (768 too lossy, 1,536 no better than 1,024).
+
+**Observations**
+
+- **Budget bought compression, not accuracy.** With 10 or 25 passes the editors took the safe 13%
+  cut (two late layers) and stopped. With 50 passes the editor spent 47 of them re-fitting narrowed
+  blocks one layer at a time and reached a 49% cut at the same accuracy bar. The extra $12 of API
+  spend is what separates the two outcomes.
+- **Weight editing beats the conventional recipe at matched size.** At exactly the p50 shape (8
+  layers, FFN 1,024), truncating bert-base and fine-tuning for 10 epochs reaches 97.08%, 0.84 points
+  below the edited model and below the bar. The conventional recipe needs 6 full-width layers (67.0M)
+  to pass; the edited model passes at 56.0M.
+- **The unpruned model's structure is not free to cut.** Naively dropping the six layers whose only
+  edits were channel protection destroys the model (54.6%), because the later carry heads were fit
+  on the 12-layer hidden states. Every successful run re-fit whatever came after a cut from reads of
+  the pruned model.
+- **Cross-validation on the practice set is an optimistic proxy.** p10 estimated 98.5% and scored
+  97.41%; p50 estimated 98.2 to 98.3% and scored 97.92%; p25 estimated 98.1% and scored 98.26%. The
+  kernel classifiers interpolate the practice set exactly (100% practice accuracy), so the margin to
+  the bar has to come from the editor's own conservatism.
+- **Same convergent design as v1.** All three runs turned the last layer into a mean-pooling layer
+  with a kernel machine in its FFN, writing class scores into the reserved 8-dimensional channel and
+  decoding them in the pooler. The editors never trained anything: every fit was a closed-form ridge,
+  kernel ridge or least-squares solve on activations returned by forward passes.
+- **Same calibration caveat as v1.** The edited models' logits live at a small scale (p50 logit
+  range -0.46 to 0.93 on the practice set); predictions are unaffected but probabilities need a
+  temperature fit before use as confidences.
+
 ### Checkpoints on the Hugging Face Hub
 
 One public repo per run. Each loads with the stock `text-classification` pipeline; see the
@@ -227,14 +362,15 @@ calibration note above.
 ## Run layout
 
 ```
-runs/<version>/<name>/            # v0 = paper rules; v1 = + rule 6
+runs/<version>/<name>/            # v0 = paper rules; v1 = + rule 6; c1 = pruning runs (wspc/)
   config.json  instructions.md  state.json  messages.json  driver.log
   turns/tNNN/{prompt.txt, answer.md, events.jsonl, run.json}
   requests/fwd_<k>.json          # each forward-pass request + result
   tool_calls.jsonl  sandbox_runs.jsonl  explanations.md  final_answer.md
   work/                          # the editor's persistent folder (edits/, pass_k/, notes.md, ...)
-  edit/{edit.npz, manifest.json} # exact diff
+  edit/{edit.npz, manifest.json} # exact diff (c1: + structure.json, diff relative to runs/v1/p50)
   model/                         # runnable HF checkpoint (+ README.md model card), kept for HF push
+                                 # (c1: pruned shape, + structure.json, param_count.json)
   eval/{scores.json, per_item.jsonl, report.md}
   audit.json
 ```

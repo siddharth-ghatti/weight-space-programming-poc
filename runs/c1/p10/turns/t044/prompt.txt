@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HymTDwWMnvjXjNnMbHF4Tt",
+  "content": "<class 'list'> 1496\ndict_keys(['texts', 'labels', 'ids', 'model', 'layers', 'num_layers', 'layer_map', 'structure'])\n1024 ['p0000', 'p0001', 'p0002'] ['p0000', 'p0001', 'p0002']\n[run 39; 261 code runs left; 5 forward passes left]"
+ }
+]

@@ -1,0 +1,2 @@
+{"citations": null, "text": "Layer 0 is now exposed (structure = [0]). Reading token hidden states at index 1 for the 64 exposure ids gives the normalized attention-LN input of L0, including the carry in the RES dims.", "type": "text"}
+{"id": "toolu_01CfstX6vg7gYouWMKyUiVSE", "caller": {"type": "direct"}, "input": {"kind": "read", "model": "edited", "ids": ["p0000"], "layers": [1], "outputs": ["token_hidden"]}, "name": "forward_pass", "type": "tool_use", "toolset_name": null}
