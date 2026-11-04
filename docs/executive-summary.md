@@ -78,6 +78,14 @@ Key points:
 
 ## Caveats
 
+- **Accurate, but uncalibrated.** The edited models pick the right label, but the probability scores
+  they report are flat (about 0.2 for the winning label instead of 0.9+). This is a scale artifact of
+  how the editors wired the final layers, not uncertainty: rescaling the logits by a constant leaves
+  every prediction unchanged and restores normal-looking confidences. It also means the scores
+  cannot be used as confidence estimates until a calibration step is added (see follow-ups). The
+  fine-tuned baseline is not calibrated either, but its decision margins are larger in absolute
+  terms (median gap between the top two logits 3.1 versus 0.3), so a small fraction of edited-model
+  predictions (about 3% of test sentences, against 0.4% for fine-tuning) sit close to a flip.
 - One run per setting; differences of a point or less are within likely run-to-run variation.
 - The data is synthetic and largely separable by vocabulary. Real insurance documents will be harder.
   The fine-tuning baseline would also face that difficulty, so the comparison should be re-run on
@@ -85,15 +93,71 @@ Key points:
 - This is a 110M-parameter encoder. Whether the approach scales to larger models or generative tasks
   is an open question the original study only partly answers.
 
-## Recommended next steps
+## Recommended next steps (research)
 
 1. Re-run on a real, licensed insurance corpus with human labels.
 2. Run three or more seeds per setting to measure variance.
 3. Try a second base model and a multi-label or span-level task.
-4. Publish the code, logs and checkpoints so others can reproduce the result.
+4. Publish the code, logs and checkpoints so others can reproduce the result (done; see below).
 
-## Where things are
+## What it would take to put one of these models in production
 
-- Code and harness: this repository (`README.md` has the full protocol and per-run technical detail).
+None of the checkpoints is production-ready as it stands. The gap is the same one any new
+classifier would have to close, plus two items specific to this method.
+
+1. **Calibration.** Fit a temperature (one scalar) on a held-out set so the reported probabilities
+   mean what they say, then set abstain and human-review thresholds from the calibrated scores.
+   Mechanically this is a one-line rescale of the classifier weights; the work is in the held-out
+   evaluation.
+2. **Real data and a real test set.** Evaluate on sentences from actual policy documents, claims
+   correspondence and customer support, with human labels and a documented labeling guide. The
+   synthetic data here is separable mostly by vocabulary, so today's 98% is an upper bound on what
+   to expect.
+3. **Robustness checks.** Out-of-distribution lines of business, long and multi-clause sentences,
+   OCR noise, non-English or mixed-register text, and adversarial phrasing. Report per-class
+   precision and recall, not just accuracy, because exclusion and coverage-grant errors have
+   asymmetric cost.
+4. **Variance and acceptance criteria.** Several seeds per configuration, a fixed acceptance
+   threshold agreed with the business owner, and a regression test suite that every new edit must
+   pass before release.
+5. **Model-risk and audit documentation.** Specific to this method: a signed record of the exact
+   base-model hash, the edit diff and its hashes (already produced by the harness as
+   `edit_manifest.json`), the editor's explanation, and the audit report showing no training or
+   external data was used. Review the edit explanation with a domain expert; it is readable in a way
+   fine-tuned weights are not.
+6. **Fairness and compliance review.** Check behaviour across lines of business and customer
+   segments, and confirm the classifier's use fits the applicable insurance-regulation and
+   model-governance requirements for the jurisdictions involved.
+7. **Serving.** Export to ONNX or TorchScript, quantize if latency matters, load-test, and add
+   monitoring for prediction-distribution drift and calibration drift over time.
+8. **Lifecycle.** Decide how retraining works: because an adapted model is a small diff on a
+   public base model, a new version is a new diff and a new audit record, which is cheaper and
+   more traceable than a new fine-tune.
+
+## Published artifacts
+
+Code, logs, data and this write-up: https://github.com/siddharth-ghatti/weight-space-programming-poc
+
+Checkpoints on the Hugging Face Hub (standard `BertForSequenceClassification`, load with the stock
+`text-classification` pipeline). All carry the calibration caveat above.
+
+| checkpoint | setting | held-out accuracy |
+|---|---|---|
+| [wsp-bert-insurance-v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50) | v1, 50 passes (best) | 98.3% |
+| [wsp-bert-insurance-v1-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p25) | v1, 25 passes | 98.2% |
+| [wsp-bert-insurance-v1-p10](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p10) | v1, 10 passes | 97.3% |
+| [wsp-bert-insurance-v1-p00](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p00) | v1, 0 passes | 96.0% |
+| [wsp-bert-insurance-v0-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p25) | v0, 25 passes (used self-written data) | 98.4% |
+| [wsp-bert-insurance-v0-p00](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p00) | v0, 0 passes | 98.0% |
+| [wsp-bert-insurance-v0-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p50) | v0, 50 passes | 97.3% |
+| [wsp-bert-insurance-v0-p10](https://huggingface.co/sidman007/wsp-bert-insurance-v0-p10) | v0, 10 passes | 96.7% |
+| [wsp-bert-insurance-v0-smoke](https://huggingface.co/sidman007/wsp-bert-insurance-v0-smoke) | plumbing test, Sonnet 5.5 | 87.9% |
+| [wsp-bert-insurance-baseline-finetune](https://huggingface.co/sidman007/wsp-bert-insurance-baseline-finetune) | full fine-tune baseline | 97.3% |
+| [wsp-bert-insurance-baseline-probe](https://huggingface.co/sidman007/wsp-bert-insurance-baseline-probe) | linear-probe baseline | 88.5% |
+| [wsp-bert-insurance-baseline-unedited](https://huggingface.co/sidman007/wsp-bert-insurance-baseline-unedited) | unmodified base, zero head | 13.1% |
+
+## Where things are in the repository
+
+- Code and harness: `README.md` has the full protocol and per-run technical detail.
 - Per-run logs, edits, explanations and scores: `runs/v0/` (first round) and `runs/v1/` (second round).
 - Comparison table across all runs: `runs/compare.md`.

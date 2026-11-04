@@ -198,6 +198,19 @@ string literals, confirmed by reading them.
   8-dimensional channel in the residual stream, uniform-attention heads as mean-poolers, and
   pass-through final layers. The same pattern appeared in v0/p10 and v0/p50.
 - **Cheaper than v0.** $17.53 versus $23.41, mostly because no run spent turns authoring data.
+- **Uncalibrated scores.** Every edited model predicts the right label with flat softmax
+  probabilities (mean top probability about 0.17 for v1/p50) because the editors wired the readout
+  at a small logit scale. Multiplying the logits by any constant changes no prediction (checked on
+  the test set), so accuracy and F1 are unaffected, but the probabilities need a temperature fit
+  before use as confidences. Median top-two logit margin is 0.31 (v1/p50) versus 3.07 for fine-tuning.
+
+### Checkpoints on the Hugging Face Hub
+
+One repo per run, named `sidman007/wsp-bert-insurance-<version>-<run>` (for example
+[v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50), the best run) and
+`sidman007/wsp-bert-insurance-baseline-<name>` for the three baselines. Each loads with the stock
+`text-classification` pipeline; see the calibration note above. Full list with scores in
+`docs/executive-summary.md`.
 
 ## Run layout
 
