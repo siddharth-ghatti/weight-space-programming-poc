@@ -342,10 +342,12 @@ diff + the c1 diff + `structure.json` (`apply_edit.py --check`).
 ### Checkpoints on the Hugging Face Hub
 
 One public repo per run. Each loads with the stock `text-classification` pipeline; see the
-calibration note above.
+calibration note above. The pruned c1 checkpoint additionally met its accuracy bar by only 0.12
+points on one seed and stores practice sentences as kernel anchors; its model card lists the caveats.
 
 | checkpoint | setting | test acc |
 |---|---|---|
+| [wsp-bert-insurance-c1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-c1-p50) | **pruned: 8 layers / FFN 1024, 56.0M params (-48.9%)**, 50 passes | 97.9% |
 | [wsp-bert-insurance-v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50) | v1, 50 passes (best) | 98.3% |
 | [wsp-bert-insurance-v1-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p25) | v1, 25 passes | 98.2% |
 | [wsp-bert-insurance-v1-p10](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p10) | v1, 10 passes | 97.3% |

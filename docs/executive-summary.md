@@ -185,10 +185,12 @@ classifier would have to close, plus two items specific to this method.
 Code, logs, data and this write-up: https://github.com/siddharth-ghatti/weight-space-programming-poc
 
 Checkpoints on the Hugging Face Hub (standard `BertForSequenceClassification`, load with the stock
-`text-classification` pipeline). All carry the calibration caveat above.
+`text-classification` pipeline). All carry the calibration caveat above. The compressed checkpoint
+cleared its 97.8% bar by 0.12 points on a single seed and should be re-validated before any use.
 
 | checkpoint | setting | held-out accuracy |
 |---|---|---|
+| [wsp-bert-insurance-c1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-c1-p50) | **compressed: 56.0M parameters (49% smaller)**, 50 passes | 97.9% |
 | [wsp-bert-insurance-v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50) | v1, 50 passes (best) | 98.3% |
 | [wsp-bert-insurance-v1-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p25) | v1, 25 passes | 98.2% |
 | [wsp-bert-insurance-v1-p10](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p10) | v1, 10 passes | 97.3% |
