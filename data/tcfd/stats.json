@@ -1,0 +1,33 @@
+{
+  "dataset": "climatebert/tcfd_recommendations",
+  "dataset_commit": "aee5c98f0bf7835bfb08308ffc7c17216657976b",
+  "license": "CC BY-NC-SA 4.0 (non-commercial; research use)",
+  "model_labels": [
+    "governance",
+    "risk",
+    "strategy",
+    "metrics"
+  ],
+  "note": "practice = train split of the dataset = the start model's own fine-tuning data; test split never shown to the editor",
+  "dropped_label": "none",
+  "train_source_file": "data/train-00000-of-00001-e3693fcfe807428a.parquet",
+  "practice": 1000,
+  "practice_labels": {
+    "governance": 62,
+    "risk": 164,
+    "strategy": 519,
+    "metrics": 255
+  },
+  "train_dropped_none": 300,
+  "test_source_file": "data/test-00000-of-00001-be77805a8eff20c6.parquet",
+  "test": 320,
+  "test_labels": {
+    "governance": 26,
+    "risk": 48,
+    "strategy": 197,
+    "metrics": 49
+  },
+  "test_dropped_none": 80,
+  "test_sha256": "df75cd1b7eed8e2357ead61602048d818bd0ee1d03c251442496d5e3046431b5",
+  "practice_sha256": "d190c7f40d1d5e57d9481089c6710f5cb528c1a2a8aab2421b1fffaf8beb465a"
+}

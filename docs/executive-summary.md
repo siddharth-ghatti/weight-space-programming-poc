@@ -211,3 +211,5 @@ cleared its 97.8% bar by 0.12 points on a single seed and should be re-validated
 - Comparison table across all runs: `runs/compare.md`.
 - Pruning experiment: harness in `wspc/`, runs and logs in `runs/c1/`, conventional compression
   baselines in `runs/_baselines/compress/`, comparison table `runs/c1/compare.md`.
+- Reinsurance experiment: harness in `wspr/`, runs in `runs/r1/`, baselines in `runs/_baselines/reins/`,
+  comparison table `runs/r1/compare.md`, data in `data/tcfd/`.

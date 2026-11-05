@@ -40,6 +40,14 @@ uv run python scripts/compress/run.py --name c1/p50 --passes 50          # real 
 uv run python scripts/compress/apply_edit.py runs/c1/p50/edit --out /tmp/rebuilt --check runs/c1/p50/model   # exact rebuild
 uv run python scripts/compress/benchmark.py runs/c1/p50/model            # params + CPU latency of any checkpoint
 uv run python scripts/compress/compare_runs.py                           # runs/c1/compare.md
+# reinsurance experiment (r1): independent harness in wspr/, start model = ClimateBERT's TCFD classifier
+uv run python scripts/reins/fetch_model.py                              # models/climatebert-tcfd/ and models/climatebert-base-f/ (pinned commits)
+uv run python scripts/reins/make_data.py                                # data/tcfd/{practice,test}.jsonl from climatebert/tcfd_recommendations
+uv run python scripts/reins/measure_start.py                            # score the start model; writes the two targets into configs/reins.yaml
+uv run python scripts/reins/run_baselines.py --suite                    # naive drops, truncate+fine-tune from the MLM base and from the task model
+uv run python scripts/reins/run.py --name r1/p50 --passes 50            # real runs: r1/p25, r1/p50 (auto evaluate + audit)
+uv run python scripts/reins/apply_edit.py runs/r1/p50/edit --out /tmp/rebuilt --check runs/r1/p50/model
+uv run python scripts/reins/compare_runs.py                             # runs/r1/compare.md
 ```
 
 ## How it works
@@ -95,6 +103,37 @@ subject to held-out accuracy >= 97.8%** (within 0.5 points of the start, above t
   target. Baselines (`wspc/eval/baselines.py`): truncate bert-base to k layers (optionally narrow the
   FFN by a magnitude heuristic) and fine-tune on the practice set; naive layer drops of v1/p50 with
   no refit; the unpruned start.
+
+## Reinsurance pruning harness (`wspr/`)
+
+A third independent harness, for the question a reinsurer actually faces: a classifier somebody else
+trained, with public training data, that has to run over millions of disclosure paragraphs on CPU.
+Start model: [climatebert/distilroberta-base-climate-tcfd](https://huggingface.co/climatebert/distilroberta-base-climate-tcfd)
+(DistilRoBERTa, 6 layers, 82,301,956 parameters, Apache-2.0), which sorts paragraphs of annual and
+sustainability reports into the four TCFD pillars (governance, strategy, risk management, metrics).
+Data: [climatebert/tcfd_recommendations](https://huggingface.co/datasets/climatebert/tcfd_recommendations)
+(CC BY-NC-SA 4.0, research use): the train split minus the "none" class is the editor's practice set
+(1,000 paragraphs; it is also the start model's own fine-tuning data, and the prompt says so), the
+test split minus "none" is the held-out set (320 paragraphs: strategy 197, metrics 49, risk 48,
+governance 26). The start model scores 77.50% accuracy and 0.7096 macro-F1 there (its card reports
+no metrics); the bar is **accuracy >= 76.50% and macro-F1 >= 0.6896** (start minus 1 point and
+minus 0.02), the F1 condition guarding the 26-paragraph governance class.
+
+- Same methodology and rules 1 to 6 as `wspc/`; the package is written against an `Arch` record
+  (`wspr/arch.py`) read from the checkpoint config (tensor prefixes, head layout, parameter
+  arithmetic), so nothing BERT-specific is inherited. Reused from `wsp`: the sandbox, the lint, the
+  audit helpers. `wsp/` and `wspc/` are unchanged.
+- RoBERTa differences the harness handles: no pooler (the head is `tanh(classifier.dense(h[<s>]))`
+  then `classifier.out_proj`; a `pooled` read returns that vector), byte-level BPE tokenizer files
+  copied unchanged, `position_ids` buffer excluded from edits, 512-token paragraph inputs
+  (`MAX_LEN` 512, batch 16), per-class recall in every predict pass.
+- Parameter arithmetic (verified against the checkpoint): `total = 39,774,724 + k · (2,366,208 +
+  1,537 · m)`; the embeddings are 39,181,056 of the 82.3M (47.6%), so the write-up reports total and
+  non-embedding reduction.
+- Baselines (`wspr/eval/baselines.py`, under `runs/_baselines/reins/`): naive layer drops of the
+  start model; truncate the MLM base `climatebert/distilroberta-base-climate-f` to k layers, new
+  head, fine-tune on the practice paragraphs (3 ep / 2e-5 and 10 ep / 5e-5); truncate the fine-tuned
+  task model itself and fine-tune (10 ep); a size-matched variant at the best run's (k, m).
 
 ## Rules given to the editor
 
@@ -364,7 +403,7 @@ points on one seed and stores practice sentences as kernel anchors; its model ca
 ## Run layout
 
 ```
-runs/<version>/<name>/            # v0 = paper rules; v1 = + rule 6; c1 = pruning runs (wspc/)
+runs/<version>/<name>/            # v0 = paper rules; v1 = + rule 6; c1 = pruning runs (wspc/); r1 = reinsurance pruning (wspr/)
   config.json  instructions.md  state.json  messages.json  driver.log
   turns/tNNN/{prompt.txt, answer.md, events.jsonl, run.json}
   requests/fwd_<k>.json          # each forward-pass request + result
