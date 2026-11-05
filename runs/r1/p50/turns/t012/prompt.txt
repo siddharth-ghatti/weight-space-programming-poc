@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_016VM9ZbF3Cy6NngggayHMyZ",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 32,\n \"layers\": [\n  1\n ],\n \"num_layers\": 1,\n \"files\": {\n  \"meta\": \"pass_4/meta.json\",\n  \"token_hidden_L1\": \"pass_4/token_hidden_L1.npy\",\n  \"attention_mask\": \"pass_4/attention_mask.npy\",\n  \"tokens\": \"pass_4/tokens.json\"\n },\n \"shapes\": {\n  \"token_hidden_L1\": [\n   32,\n   233,\n   768\n  ],\n  \"attention_mask\": [\n   32,\n   233\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to ids[i] in meta.json. Hidden layer index 0 is the embedding output, 1 is the last encoder layer of the edited model. cls_hidden is position 0 (the <s> token, which feeds the classification head). Attention arrays are [n, 12 heads, T, T] for encoder layers 1..1. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 0\n },\n \"structure\": {\n  \"layers\": [\n   0\n  ],\n  \"intermediate_size\": 3072,\n  \"params\": 46862596,\n  \"reduction_vs_full\": 0.4306,\n  \"non_embedding_reduction_vs_full\": 0.8219\n },\n \"pass_index\": 4,\n \"duration_s\": 7.69,\n \"passes_left\": 46\n}"
+ }
+]

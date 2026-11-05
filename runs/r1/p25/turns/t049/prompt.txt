@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01TtYiv32YJBBfF75JLmRSDY",
+  "content": "tok_kind (4051,) (array([0, 1, 2]), array([  32,   32, 3987]))\nL0 kind0 n=32: |err| 14.13  |f-meanf| 30.03 |x| 65.2  rel(err/|x|) 0.217\nL0 kind1 n=32: |err| 15.25  |f-meanf| 6.33 |x| 39.9  rel(err/|x|) 0.381\nL0 kind2 n=3987: |err| 5.74  |f-meanf| 21.86 |x| 28.1  rel(err/|x|) 0.204\nL1 kind0 n=32: |err| 7.16  |f-meanf| 17.01 |x| 39.2  rel(err/|x|) 0.183\nL1 kind1 n=32: |err| 18.41  |f-meanf| 7.40 |x| 48.0  rel(err/|x|) 0.383\nL1 kind2 n=3987: |err| 7.22  |f-meanf| 24.11 |x| 33.0  rel(err/|x|) 0.216\nL2 kind0 n=32: |err| 3.78  |f-meanf| 14.21 |x| 42.2  rel(err/|x|) 0.090\nL2 kind1 n=32: |err| 9.30  |f-meanf| 10.24 |x| 50.3  rel(err/|x|) 0.187\nL2 kind2 n=3987: |err| 6.64  |f-meanf| 22.82 |x| 37.1  rel(err/|x|) 0.182\nL3 kind0 n=32: |err| 3.45  |f-meanf| 10.48 |x| 42.9  rel(err/|x|) 0.081\nL3 kind1 n=32: |err| 9.42  |f-meanf| 24.54 |x| 46.1  rel(err/|x|) 0.161\nL3 kind2 n=3987: |err| 6.18  |f-meanf| 24.05 |x| 36.0  rel(err/|x|) 0.152\nL4 kind0 n=32: |err| 3.51  |f-meanf| 37.68 |x| 68.2  rel(err/|x|) 0.052\nL4 kind1 n=32: |err| 4.17  |f-meanf| 17.76 |x| 35.1  rel(err/|x|) 0.115\nL4 kind2 n=3987: |err| 4.75  |f-meanf| 21.22 |x| 35.3  rel(err/|x|) 0.115\n[run 39; 261 code runs left; 14 forward passes left]"
+ }
+]

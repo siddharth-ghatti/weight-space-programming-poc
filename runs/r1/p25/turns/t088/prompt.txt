@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_014tkGwCTPeCqwmrg2HFPxTh",
+  "content": "base acc 0.925 0.9136379420570535\n12 {'agree': np.float64(0.985), 'low': np.float64(0.925), 'R2': np.float32(0.9955), 'acc': np.float64(0.916), 'F1': np.float64(0.904), 'clsR2': [np.float32(1.0), np.float32(0.9715), np.float32(0.8637), np.float32(0.8507), np.float32(0.9141), np.float32(0.9593), np.float32(0.9791)]}\n17 {'agree': np.float64(0.978), 'low': np.float64(0.89), 'R2': np.float32(0.9946), 'acc': np.float64(0.908), 'F1': np.float64(0.8975), 'clsR2': [np.float32(1.0), np.float32(0.9204), np.float32(0.6908), np.float32(0.6722), np.float32(0.8558), np.float32(0.9231), np.float32(0.9769)]}\n[run 74; 226 code runs left; 8 forward passes left]"
+ }
+]

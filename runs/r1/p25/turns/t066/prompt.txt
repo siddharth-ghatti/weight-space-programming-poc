@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LgcxL1R7miyMANsLEKZcfJ",
+  "content": "L1: m2048 cls 0.9715 mean 0.9847 | m1536 cls 0.9384 mean 0.9679\nL2: m2048 cls 0.8637 mean 0.9686 | m1536 cls 0.7601 mean 0.9336\nL3: m2048 cls 0.8507 mean 0.9605 | m1536 cls 0.7052 mean 0.9144\nL4: m2048 cls 0.9141 mean 0.9641 | m1536 cls 0.8453 mean 0.9227\nL5: m2048 cls 0.9593 mean 0.9696 | m1536 cls 0.9176 mean 0.9347\na5 rel err 0.22859499564769206\n1536 3 local 0.9481 corrected 0.9437\n1536 10 local 0.9489 corrected 0.9515\n1536 30 local 0.9489 corrected 0.955\n1536 100 local 0.9481 corrected 0.9556\nno-prune full FFN on ae: h6 R2 0.9558  pass12 L6 cls R2 0.9791\n[run 54; 246 code runs left; 12 forward passes left]"
+ }
+]

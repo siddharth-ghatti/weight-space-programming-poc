@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01WzRoHNwuLktZuF8Be5gwdR",
+  "content": "in-sample signed margin <0: 0.075\nshift delta 1.47\ntau 2.95\nshift m2048old: mean 1.39 sd 3.18 P(loss>4) 0.160  P(>3) 0.243\nshift m1536v2: mean 2.38 sd 3.83 P(loss>4) 0.291  P(>3) 0.381\nshift m1536old: mean 2.47 sd 3.93 P(loss>4) 0.307  P(>3) 0.401\ntau m2048old: mean 0.16 sd 2.32 P(loss>4) 0.035  P(>3) 0.073\ntau m1536v2: mean 0.45 sd 2.89 P(loss>4) 0.080  P(>3) 0.144\ntau m1536old: mean 0.63 sd 3.00 P(loss>4) 0.101  P(>3) 0.173\n[run 61; 239 code runs left; 25 forward passes left]"
+ }
+]

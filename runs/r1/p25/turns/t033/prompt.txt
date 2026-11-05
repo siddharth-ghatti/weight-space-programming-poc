@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011uahbLJhmRWoRFSss2LirM",
+  "content": "check 1.5258744194094714e-08 0.9999898057805595 0.9999901783937393\nL0: overlap old/new top1536 0.62; var kept by top-k I: 1024 0.895 1536 0.947 2048 0.974; NL share 0.56\nL1: overlap old/new top1536 0.71; var kept by top-k I: 1024 0.858 1536 0.931 2048 0.969; NL share 0.60\nL2: overlap old/new top1536 0.75; var kept by top-k I: 1024 0.840 1536 0.926 2048 0.969; NL share 0.55\nL3: overlap old/new top1536 0.79; var kept by top-k I: 1024 0.833 1536 0.919 2048 0.964; NL share 0.51\nL4: overlap old/new top1536 0.77; var kept by top-k I: 1024 0.865 1536 0.932 2048 0.967; NL share 0.51\nL5: overlap old/new top1536 0.74; var kept by top-k I: 1024 0.849 1536 0.947 2048 0.986; NL share 0.27\n[run 24; 276 code runs left; 15 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013yF2SfqJkmkFfKeMZVXG44",
+  "content": "no corr: agree 0.981\nlam 300.0 seed 0 agree 0.980 low 0.900 acc 0.913\nlam 300.0 seed 1 agree 0.982 low 0.910 acc 0.915\nlam 300.0 seed 2 agree 0.980 low 0.900 acc 0.913\nlam 1000.0 seed 0 agree 0.980 low 0.900 acc 0.913\nlam 1000.0 seed 1 agree 0.983 low 0.915 acc 0.916\nlam 1000.0 seed 2 agree 0.981 low 0.905 acc 0.914\nlam 3000.0 seed 0 agree 0.981 low 0.905 acc 0.914\nlam 3000.0 seed 1 agree 0.981 low 0.905 acc 0.914\nlam 3000.0 seed 2 agree 0.982 low 0.910 acc 0.913\nlam 10000.0 seed 0 agree 0.982 low 0.910 acc 0.913\nlam 10000.0 seed 1 agree 0.982 low 0.910 acc 0.913\nlam 10000.0 seed 2 agree 0.982 low 0.910 acc 0.913\n[run 97; 203 code runs left; 5 forward passes left]"
+ }
+]

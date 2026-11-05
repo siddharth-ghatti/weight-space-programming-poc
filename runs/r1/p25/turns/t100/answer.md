@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "\nimport sys; sys.path.insert(0,str(WORK))\nfrom evalh import *\npb=Lb.argmax(1); srt=np.sort(Lb,1); marg=srt[:,-1]-srt[:,-2]; i2=np.argsort(Lb,1)[:,-2]\nfor k in [12,17,18]:\n    stats(k)\n    L=np.load(f'pass_{k}/logits.npy'); pe=L.argmax(1); flip=pe!=pb\n    dm=(L[np.arange(1000),pb]-L[np.arange(1000),i2])-marg\n    low=marg<1\n    print('   flips',flip.sum(),'R->W',(flip&(pb==lab1)).sum(),'W->R',(flip&(pe==lab1)).sum(),'dm std all %.3f low %.3f'%(dm.std(),dm[low].std()))\n"
+}
+```
+

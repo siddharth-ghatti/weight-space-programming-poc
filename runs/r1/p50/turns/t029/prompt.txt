@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01PNBWHQgR2fmWMiqrCx9GMU",
+  "content": "len[0,64) n=191 mean|dm|=0.318\nlen[64,128) n=617 mean|dm|=0.250\nlen[128,256) n=172 mean|dm|=0.205\nlen[256,600) n=20 mean|dm|=0.298\nin-sample LS (all tokens) rel err 0.12897711024617817\nmean-comp rel err all 0.19479219872769446\noverlap with var ranking 871\nvar meancomp 0.19648084204231908\nvar LS 0.17037192162675655\nqr meancomp 0.20293173199848863\nqr LS 0.16921854038972597\n[run 20; 280 code runs left; 40 forward passes left]"
+ }
+]

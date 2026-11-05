@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01RLtEkcYBrYmWJR6KwdfJn4",
+  "content": "{\n \"kind\": \"predict\",\n \"n\": 1000,\n \"models\": {\n  \"edited\": {\n   \"n\": 1000,\n   \"accuracy\": 0.919,\n   \"macro_f1\": 0.9087020969781925,\n   \"per_class_f1\": {\n    \"governance\": 0.8840579710144928,\n    \"risk\": 0.9,\n    \"strategy\": 0.9285714285714286,\n    \"metrics\": 0.9221789883268483\n   },\n   \"per_class_recall\": {\n    \"governance\": 0.9838709677419355,\n    \"risk\": 0.9329268292682927,\n    \"strategy\": 0.9017341040462428,\n    \"metrics\": 0.9294117647058824\n   },\n   \"confusion_matrix\": [\n    [\n     61,\n     1,\n     0,\n     0\n    ],\n    [\n     6,\n     153,\n     5,\n     0\n    ],\n    [\n     9,\n     20,\n     468,\n     22\n    ],\n    [\n     0,\n     2,\n     16,\n     237\n    ]\n   ],\n   \"confusion_labels\": [\n    \"governance\",\n    \"risk\",\n    \"strategy\",\n    \"metrics\"\n   ]\n  }\n },\n \"structure\": {\n  \"layers\": [\n   0,\n   1,\n   2,\n   3,\n   4,\n   5\n  ],\n  \"intermediate_size\": 2048,\n  \"params\": 72858628,\n  \"reduction_vs_full\": 0.1147,\n  \"non_embedding_reduction_vs_full\": 0.219\n },\n \"files\": {\n  \"predictions\": \"pass_30/predictions.json\"\n },\n \"note\": \"predictions.json has per-item id, gold, predicted label(s) and logits (texts are in practice.jsonl). Confusion matrix rows = gold, cols = predicted, in label order.\",\n \"pass_index\": 30,\n \"duration_s\": 17.54,\n \"passes_left\": 20\n}"
+ }
+]

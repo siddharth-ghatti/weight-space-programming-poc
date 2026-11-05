@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01VNUHpw6vsK7MDCBpBqYBnX",
+  "content": "params structure: layers=[0, 1, 2, 3, 4, 5] m=1792 params=70,497,796 (85.7% of 82,301,956; 14.3% smaller; non-embedding 27.4% smaller)\n<class 'dict'> ['B1', 'B2']\nn fit ids 96\nlg_pass25.npy fit ids z rms 0.171  nonfit (len>=120) 0.172  nonfit all 0.158\nlg_pass30_m2048v2.npy fit ids z rms 0.101  nonfit (len>=120) 0.097  nonfit all 0.096\n[run 117; 183 code runs left; 20 forward passes left]"
+ }
+]

@@ -1,0 +1,12 @@
+## message
+
+Next I'll evaluate candidate C (pass 17) against base and against pass 12 (m=2048).
+
+## tool_use: run_python
+
+```json
+{
+ "code": "import numpy as np\nexec(open('anal.py').read())\ndef r2(a,b): return 1-((a-b)**2).sum()/((b-b.mean(0))**2).sum()\nfor pd in ['pass_12','pass_17']:\n    print(pd); full_report(pd,6,lams=(300,))\n    lge=np.load(f'{pd}/logits.npy'); d=lge-lgb; bpp=lgb.argmax(1)\n    pert=np.array([np.max(np.abs(d[i,[j for j in range(4) if j!=bpp[i]]]-d[i,bpp[i]])) for i in range(1000)])\n    print('  pert median',np.median(pert).round(3),'p90',np.percentile(pert,90).round(3), ' L6 cls R2', round(r2(np.load(f'{pd}/cls_hidden_L6.npy'),np.load('pass_1/cls_hidden_L6.npy')),4),\n          ' L5 mean R2', round(r2(np.load(f'{pd}/mean_hidden_L5.npy'),np.load('pass_1/mean_hidden_L5.npy')),4))\n    p=lge.argmax(1)\n    from collections import Counter\n    print('  flips (base->new):',Counter([(int(bpp[i]),int(p[i])) for i in range(1000) if p[i]!=bpp[i]]))\n"
+}
+```
+

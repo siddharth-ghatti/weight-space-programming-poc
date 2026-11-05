@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01GUwyD9fb4GvnaDUBKDPUu7",
+  "content": "structure: layers=[0] m=3072 params=46,862,596 (56.9% of 82,301,956; 43.1% smaller; non-embedding 82.2% smaller)\n['roberta.encoder.layer.0.attention.output.LayerNorm.bias', 'roberta.encoder.layer.0.attention.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.LayerNorm.bias', 'roberta.encoder.layer.0.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.dense.bias', 'roberta.encoder.layer.0.output.dense.weight']\n[run 17; 283 code runs left; 21 forward passes left]"
+ }
+]

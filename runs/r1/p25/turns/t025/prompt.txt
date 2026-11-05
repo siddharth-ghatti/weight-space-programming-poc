@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MHkWWHJgJaFd9Unsiq1qPw",
+  "content": "per-token mean |max| 1.5625554776003508e-08  var range 0.9999897978546503 0.9999901739011415\nL0: R2 of proxy in -0.378, proxy out 0.565, avg 0.311\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-8zefm4oz/run_0018.py\", line 209, in <module>\n    setup_probe(1)\n    ^^^^^^^^^^^\nNameError: name 'setup_probe' is not defined. Did you mean: 'save_probe'?\n\n[exit code 1]\n[run 18; 282 code runs left; 20 forward passes left]"
+ }
+]

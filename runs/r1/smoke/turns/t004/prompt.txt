@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01BcdATR3NCLdf5enGstnWY5",
+  "content": "0 energy frac top 512/768/1024/1536/2048: [np.float64(0.699), np.float64(0.761), np.float64(0.809), np.float64(0.883), np.float64(0.938)] mu mean -1.85 sig mean 0.87\n1 energy frac top 512/768/1024/1536/2048: [np.float64(0.62), np.float64(0.696), np.float64(0.757), np.float64(0.852), np.float64(0.922)] mu mean -1.3 sig mean 1.14\n2 energy frac top 512/768/1024/1536/2048: [np.float64(0.559), np.float64(0.651), np.float64(0.726), np.float64(0.838), np.float64(0.916)] mu mean -0.92 sig mean 1.19\n3 energy frac top 512/768/1024/1536/2048: [np.float64(0.507), np.float64(0.6), np.float64(0.677), np.float64(0.799), np.float64(0.89)] mu mean -0.77 sig mean 1.17\n4 energy frac top 512/768/1024/1536/2048: [np.float64(0.64), np.float64(0.708), np.float64(0.764), np.float64(0.853), np.float64(0.921)] mu mean -0.77 sig mean 1.09\n5 energy frac top 512/768/1024/1536/2048: [np.float64(0.763), np.float64(0.806), np.float64(0.842), np.float64(0.901), np.float64(0.947)] mu mean -0.77 sig mean 0.87\n[run 3; 297 code runs left; 1 forward passes left]"
+ }
+]

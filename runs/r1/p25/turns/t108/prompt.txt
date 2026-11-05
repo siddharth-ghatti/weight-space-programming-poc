@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Bvv9zzGK4MBLA81DxinXi6",
+  "content": "1792 fullL5 mean centered logit shift per class [ 0.024  0.036 -0.034 -0.025]  dm low&right -0.050 low&wrong 0.188 all -0.037\n   pred counts base [ 75 178 488 259] edit [ 76 182 483 259]  flips to class [2 6 5 4] from [ 1  2 10  4]\npass12 m2048 mean centered logit shift per class [ 0.03   0.018 -0.039 -0.01 ]  dm low&right -0.036 low&wrong 0.139 all -0.012\n   pred counts base [ 75 178 488 259] edit [ 77 181 482 260]  flips to class [2 6 4 3] from [ 0  3 10  2]\npass17 mean centered logit shift per class [-0.006  0.023  0.008 -0.025]  dm low&right -0.096 low&wrong 0.148 all -0.027\n   pred counts base [ 75 178 488 259] edit [ 77 180 487 256]  flips to class [ 2  6 10  4] from [ 0  4 11  7]\n[run 91; 209 code runs left; 6 forward passes left]"
+ }
+]

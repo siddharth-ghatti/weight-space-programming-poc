@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01CQaooSj6ZN8uK43yP4bAML",
+  "content": "['practice.jsonl', 'edits']\nno notes\n1000 {'id': 'p0000', 'text': '\u2212 Scope 3: Optional scope that includes indirect emissions associated with the goods and services supply chain produced outside the organization. Included are emissions from the transport of products from our logistics centres to stores (downstream) performed by external logistics operators (air, land and sea transport) as well as the emissions associated with electricity consumption in franchise stores.', 'label': 'metrics'}\nCounter({'strategy': 519, 'metrics': 255, 'risk': 164, 'governance': 62})\n{'total': 82301956, 'non_embedding': 43120900, 'num_layers': 6, 'intermediate_size': 3072, 'per_layer': 7087872, 'fraction_of_full': 1.0, 'reduction_vs_full': 0.0, 'non_embedding_reduction_vs_full': 0.0}\n1 1 42142469\n1 16 42165524\n1 64 42239300\n2 64 44703876\n3 512 49234180\n6 3072 82301956\n101.786 [ 89. 160. 371.] 512\n[run 1; 299 code runs left; 2 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01LANJfHDejn2F2PpNpYwMGJ",
+  "content": "0 cls norm 6.64 varying-part norm 0.0 top dims |mean| [1.8 1.9 4.2]\n1 cls norm 20.2 varying-part norm 0.27 top dims |mean| [ 1.1  7.7 18.5]\n2 cls norm 22.34 varying-part norm 0.37 top dims |mean| [ 1.4  6.4 21.2]\n3 cls norm 24.47 varying-part norm 0.52 top dims |mean| [ 1.1  6.5 23.4]\n4 cls norm 24.52 varying-part norm 1.19 top dims |mean| [ 0.9  5.5 23.6]\n5 cls norm 22.41 varying-part norm 2.49 top dims |mean| [ 2.4  3.3 21.4]\n6 cls norm 19.45 varying-part norm 15.29 top dims |mean| [1.7 1.7 3. ]\nA: centered rel err L5 0.4588626 L6 0.31919143\nm1536: centered rel L6 0.21776241\ndrop4: centered rel L6 1.104827\n[run 23; 277 code runs left; 39 forward passes left]"
+ }
+]

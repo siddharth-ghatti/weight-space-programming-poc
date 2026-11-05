@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Sqft3LAYKpfGUrJt9ujKrQ",
+  "content": "['__pycache__', 'a5e_1536.npy', 'anal.py', 'edits', 'ffnlib.py', 'folds.npy', 'imp_L0.npz', 'imp_L1.npz', 'imp_L2.npz', 'imp_L3.npz', 'imp_L4.npz', 'imp_L5.npz', 'keep_1536_L0-4.json', 'keep_C1536.json', 'lsbuild.py', 'lu.py', 'notes.md', 'pass_1', 'pass_10', 'pass_11', 'pass_12', 'pass_13', 'pass_14', 'pass_15', 'pass_16', 'pass_17', 'pass_2', 'pass_3', 'pass_4', 'pass_5', 'pass_6', 'pass_7', 'pass_8', 'pass_9', 'practice.jsonl', 'probe.py', 'probe2_ids.json', 'structure.json', 'timp_L0.npz', 'timp_L1.npz', 'timp_L2.npz', 'timp_L3.npz', 'timp_L4.npz', 'timp_L5.npz', 'tok2_grp.npy', 'tok2_kind.npy', 'tok_cov.npy', 'tok_grp.npy', 'tok_kind.npy', 'tok_len.npy', 'tok_mu.npy', 'true2_a_L0.npy', 'true2_a_L1.npy', 'true2_a_L2.npy', 'true_a5_cls.npy', 'true_a_L0.npy', 'true_a_L1.npy', 'true_a_L2.npy', 'true_a_L3.npy', 'true_a_L4.npy', 'y.npy']\n1 ['ids', 'labels', 'model', 'layers', 'num_layers'] 1000\n12 ['ids', 'labels', 'model', 'layers', 'num_layers', 'layer_map', 'structure'] 1000\n13 ['ids', 'labels', 'model', 'layers', 'num_layers', 'layer_map', 'structure'] 1000\n17 ['ids', 'labels', 'model', 'layers', 'num_layers', 'layer_map', 'structure'] 1000\n[run 68; 232 code runs left; 8 forward passes left]"
+ }
+]

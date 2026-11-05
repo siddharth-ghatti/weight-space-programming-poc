@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01NcE4QpBXfWGncFPLRWRYgG",
+  "content": "L0: top-k overlap in/out proxies [0.66 0.68 0.74], weight-vs-stat overlap@1024 0.61; retained var frac @512 0.520 @768 0.620 @1024 0.697 @1536 0.816 @2048 0.903\nL1: top-k overlap in/out proxies [0.71 0.81 0.84], weight-vs-stat overlap@1024 0.36; retained var frac @512 0.465 @768 0.584 @1024 0.678 @1536 0.813 @2048 0.907\nL2: top-k overlap in/out proxies [0.66 0.75 0.82], weight-vs-stat overlap@1024 0.28; retained var frac @512 0.495 @768 0.609 @1024 0.697 @1536 0.827 @2048 0.915\nL3: top-k overlap in/out proxies [0.65 0.73 0.79], weight-vs-stat overlap@1024 0.23; retained var frac @512 0.515 @768 0.624 @1024 0.709 @1536 0.835 @2048 0.919\nL4: top-k overlap in/out proxies [0.6  0.68 0.75], weight-vs-stat overlap@1024 0.32; retained var frac @512 0.605 @768 0.703 @1024 0.776 @1536 0.876 @2048 0.939\nL5: top-k overlap in/out proxies [0.52 0.64 0.74], weight-vs-stat overlap@1024 0.27; retained var frac @512 0.546 @768 0.664 @1024 0.754 @1536 0.875 @2048 0.946\n[run 8; 292 code runs left; 23 forward passes left]"
+ }
+]

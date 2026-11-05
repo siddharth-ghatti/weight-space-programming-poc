@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HwjNNp41tDBXjNRRuvjr3v",
+  "content": "['p0647', 'p0664', 'p0697', 'p0537', 'p0533', 'p0679', 'p0762', 'p0513', 'p0694', 'p0132', 'p0494', 'p0573', 'p0563', 'p0597', 'p0463', 'p0388', 'p0572', 'p0977', 'p0249', 'p0318', 'p0465', 'p0552', 'p0427', 'p0601', 'p0464', 'p0596', 'p0447', 'p0952', 'p0781', 'p0230', 'p0052', 'p0591'] 10268\nstructure: layers=[0] m=3072 params=46,862,596 (56.9% of 82,301,956; 43.1% smaller; non-embedding 82.2% smaller)\n['roberta.encoder.layer.0.attention.output.LayerNorm.bias', 'roberta.encoder.layer.0.attention.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.LayerNorm.bias', 'roberta.encoder.layer.0.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.dense.bias', 'roberta.encoder.layer.0.output.dense.weight']\n[run 56; 244 code runs left; 12 forward passes left]"
+ }
+]

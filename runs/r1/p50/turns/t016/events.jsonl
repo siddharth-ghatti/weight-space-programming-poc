@@ -1,0 +1,1 @@
+{"id": "toolu_013svpUPYJGxxDXnWJ92D6D5", "caller": {"type": "direct"}, "input": {"code": "exec(open(WORK/'probe.py').read())\nsave_probe(2, 'pass_6', 3)\nprobe_off(2); probe_on(3); print(edits(), structure()['layers'])"}, "name": "run_python", "type": "tool_use", "toolset_name": null}

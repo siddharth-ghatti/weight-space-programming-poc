@@ -1,0 +1,10 @@
+{
+  "base_model": "climatebert/distilroberta-base-climate-tcfd",
+  "start_model_dir": "models/climatebert-tcfd",
+  "hub_repo": "climatebert/distilroberta-base-climate-tcfd",
+  "hub_commit": "970630beedc21db81a84156448ad2e3ac860153d",
+  "start_safetensors_sha256": "bf500648cc03c762b0f581d8d4a372e9c65428d99ec3098cc842240fefab8eec",
+  "start_model_sha256": "8a6a7e1755cb98e044b6fcf9f95a0641bf53e778a6a617aab41e27e57bb52025",
+  "start_test_accuracy": 0.775,
+  "start_test_macro_f1": 0.709630712188257
+}

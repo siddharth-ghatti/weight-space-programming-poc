@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01UirrWpAhGGrdDoExjm3SAJ",
+  "content": "base acc 0.7750 F1 0.7195\n4 P(fail acc) 0.000  P(fail F1) 0.001  P(fail any) 0.001  mean dacc -0.0016\n6 P(fail acc) 0.049  P(fail F1) 0.005  P(fail any) 0.051  mean dacc -0.0026\n8 P(fail acc) 0.104  P(fail F1) 0.015  P(fail any) 0.105  mean dacc -0.0036\n10 P(fail acc) 0.159  P(fail F1) 0.035  P(fail any) 0.162  mean dacc -0.0042\n13 P(fail acc) 0.240  P(fail F1) 0.063  P(fail any) 0.244  mean dacc -0.0055\n17 P(fail acc) 0.336  P(fail F1) 0.128  P(fail any) 0.345  mean dacc -0.0072\n22 P(fail acc) 0.432  P(fail F1) 0.182  P(fail any) 0.436  mean dacc -0.0094\n28 P(fail acc) 0.540  P(fail F1) 0.256  P(fail any) 0.546  mean dacc -0.0120\n[run 94; 206 code runs left; 22 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01WcL1KSMPTiBnPzKaYN2Y9s",
+  "content": "check base head vs logits 6.439380486611412e-07\n[9 6 2 2 1 4 0 0 8 4] [0 1 2 3 4 5 6 7 8 9]\n12 head(he) vs pass logits 7.926657366041923e-07\n lam 100.0 0.985 0.925 0.9963 0.916\n lam 1000.0 0.987 0.935 0.9962 0.918\n lam 10000.0 0.986 0.93 0.996 0.917\n lam 100000.0 0.986 0.93 0.9959 0.917\n17 head(he) vs pass logits 5.677951904203837e-07\n lam 100.0 0.981 0.905 0.9947 0.913\n lam 1000.0 0.98 0.9 0.995 0.91\n lam 10000.0 0.979 0.895 0.9949 0.909\n lam 100000.0 0.978 0.89 0.9948 0.908\n[run 76; 224 code runs left; 8 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MwdmurokQG7YfkoKpqk2mg",
+  "content": "L1: cls rel err 0.096 (cross-sample spread 0.013); mean rel err 0.135 (spread 0.164)\nL2: cls rel err 0.180 (cross-sample spread 0.017); mean rel err 0.182 (spread 0.159)\nL3: cls rel err 0.160 (cross-sample spread 0.021); mean rel err 0.213 (spread 0.154)\nL4: cls rel err 0.121 (cross-sample spread 0.048); mean rel err 0.247 (spread 0.224)\nL5: cls rel err 0.125 (cross-sample spread 0.111); mean rel err 0.362 (spread 0.425)\nL6: cls rel err 0.579 (cross-sample spread 0.786); mean rel err 0.498 (spread 0.666)\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-8zefm4oz/run_0013.py\", line 217, in <module>\n    m,s=unit_stats(W1,b1,mus[src],covs[src]); Eg,Vg=gauss_gelu_moments(m,s); al=lin_coef(m,s)\n                                                                                ^^^^^^^^^^^^^\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-8zefm4oz/run_0013.py\", line 208, in lin_coef\n    z=m[:,None]+s[:,None]*_gh_x[None,:]\n                          ^^^^^\nNameError: name '_gh_x' is not defined\n\n[exit code 1]\n[run 13; 287 code runs left; 22 forward passes left]"
+ }
+]

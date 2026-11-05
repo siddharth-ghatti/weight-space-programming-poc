@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_012fbibfXxpGr7cboLfFs5Zg",
+  "content": "0 {'data': np.float64(0.0424), 'gauss': np.float64(0.0661), 'obs10': np.float64(0.0506), 'obs100': np.float64(0.0762), 'obs1000': np.float64(0.1059)}\n1 {'data': np.float64(0.0621), 'gauss': np.float64(0.0938), 'obs10': np.float64(0.0689), 'obs100': np.float64(0.0985), 'obs1000': np.float64(0.1301)}\n2 {'data': np.float64(0.0345), 'gauss': np.float64(0.0491), 'obs10': np.float64(0.0365), 'obs100': np.float64(0.0496), 'obs1000': np.float64(0.066)}\n[run 43; 257 code runs left; 14 forward passes left]"
+ }
+]

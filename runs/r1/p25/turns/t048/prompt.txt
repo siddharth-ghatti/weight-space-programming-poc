@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01EjQy4tXpV2hjHxYZmW5Yt5",
+  "content": "pass_3\n  L0: cls R2 1.0000 relerr 0.000 | mean R2 1.0000\n  L1: cls R2 -50.5223 relerr 7.178 | mean R2 0.3357\n  L2: cls R2 -108.6915 relerr 10.473 | mean R2 -0.2756\n  L3: cls R2 -54.9622 relerr 7.481 | mean R2 -0.8700\n  L4: cls R2 -4.9746 relerr 2.444 | mean R2 -0.1900\n  L5: cls R2 -0.1902 relerr 1.091 | mean R2 0.2921\n  L6: cls R2 0.4527 relerr 0.740 | mean R2 0.4585\npass_11\n  L0: cls R2 1.0000 relerr 0.000 | mean R2 1.0000\n  L1: cls R2 -27.3172 relerr 5.321 | mean R2 0.8363\n  L2: cls R2 -51.9716 relerr 7.278 | mean R2 0.5393\n  L3: cls R2 -21.7980 relerr 4.775 | mean R2 0.4377\n  L4: cls R2 -4.1778 relerr 2.275 | mean R2 0.5512\n  L5: cls R2 -1.9911 relerr 1.729 | mean R2 0.6213\n  L6: cls R2 0.7402 relerr 0.510 | mean R2 0.7439\n[run 38; 262 code runs left; 14 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01X9p17ssYo9uobsG2F9U1ck",
+  "content": "orig head: acc 0.916 mf1 0.904 agree 0.985 low-agree 0.940 logitR2 0.996\n  refit lam30: acc 0.914 mf1 0.902 agree 0.985 low-agree 0.940 R2 0.995\n  refit lam100: acc 0.916 mf1 0.904 agree 0.985 low-agree 0.940 R2 0.996\n  refit lam300: acc 0.917 mf1 0.905 agree 0.986 low-agree 0.944 R2 0.996\n  L0: cls R2 1.0000 | mean R2 1.0000  | cls abs err/norm 0.0000\n  L1: cls R2 0.9715 | mean R2 0.9847  | cls abs err/norm 0.0022\n  L2: cls R2 0.8637 | mean R2 0.9686  | cls abs err/norm 0.0062\n  L3: cls R2 0.8507 | mean R2 0.9605  | cls abs err/norm 0.0081\n  L4: cls R2 0.9141 | mean R2 0.9641  | cls abs err/norm 0.0143\n  L5: cls R2 0.9593 | mean R2 0.9696  | cls abs err/norm 0.0227\n  L6: cls R2 0.9791 | mean R2 0.9691  | cls abs err/norm 0.1065\n[run 49; 251 code runs left; 13 forward passes left]"
+ }
+]

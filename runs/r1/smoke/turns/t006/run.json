@@ -1,0 +1,23 @@
+{
+ "stop_reason": "tool_use",
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 691
+  },
+  "cache_creation_input_tokens": 691,
+  "cache_read_input_tokens": 34065,
+  "inference_geo": "global",
+  "input_tokens": 2,
+  "output_tokens": 2281,
+  "output_tokens_details": {
+   "thinking_tokens": 1932
+  },
+  "server_tool_use": null,
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ "cost_usd": 0.055896,
+ "model": "claude-sonnet-5-5",
+ "request_id": null
+}

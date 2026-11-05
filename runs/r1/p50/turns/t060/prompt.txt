@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QywUCFf4ydkxQtY6ZtLysC",
+  "content": "chk mean 2.2351742e-08 var 0.99998957 0.99999046 (10257, 768)\nchk mean 1.800557e-08 var 0.99998957 0.9999903 (6176, 768)\n[(0.1, (np.float64(0.2622), np.float64(0.3265)))]\nstructure: layers=[0, 1, 2, 3] m=1024 params=55,535,108 (67.5% of 82,301,956; 32.5% smaller; non-embedding 62.1% smaller)\ndict_keys([0, 1, 2])\n[run 46; 254 code runs left; 31 forward passes left]"
+ }
+]

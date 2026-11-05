@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FYwT98WSKGyZG53TXH83E9",
+  "content": "(no output)\n[run 47; 253 code runs left; 14 forward passes left]"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Xwnjhq2p7euDXTRW9jiz4c",
+  "content": "Forward pass NOT executed (does not count): ValueError: unknown practice ids: ['__ALL__']"
+ }
+]

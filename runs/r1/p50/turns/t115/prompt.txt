@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FLyMj5vVK84N5JidmPVWfk",
+  "content": "lg_pass25.npy [0,0.25) right 10/18 wrong 2/8 | [0.25,0.5) right 4/16 wrong 0/13 | [0.5,1.0) right 3/52 wrong 0/15\nlg_pass26.npy [0,0.25) right 11/18 wrong 2/8 | [0.25,0.5) right 5/16 wrong 0/13 | [0.5,1.0) right 2/52 wrong 0/15\nlg_D1_L01.npy [0,0.25) right 9/18 wrong 3/8 | [0.25,0.5) right 3/16 wrong 1/13 | [0.5,1.0) right 1/52 wrong 0/15\nlg_D2_L234.npy [0,0.25) right 10/18 wrong 2/8 | [0.25,0.5) right 1/16 wrong 0/13 | [0.5,1.0) right 0/52 wrong 1/15\nbase right mean margin change -0.063  median -0.025\nbase wrong mean margin change 0.171  median 0.139\nlow-margin: right -0.152 (n=86) wrong 0.187 (n=36)\n[run 93; 207 code runs left; 22 forward passes left]"
+ }
+]

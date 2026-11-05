@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Puotv8qBtWqzRPLCxWY3CU",
+  "content": "recon base logits err 1.7538047218934594e-05\nL0-4 m1024seq + L5 full: agr 0.965 acc 0.892 F1 0.880\nbase L0-4 + L5 m1024 lam0.03 CV: agr 0.997 acc 0.922 F1 0.911\ned L0-4 + L5 m1024 lam0.03 CV: agr 0.963 acc 0.890 F1 0.878\nbase L0-4 + L5 m1024 lam0.1 CV: agr 0.997 acc 0.922 F1 0.910\ned L0-4 + L5 m1024 lam0.1 CV: agr 0.964 acc 0.891 F1 0.879\nbase L0-4 + L5 m1024 lam0.3 CV: agr 0.997 acc 0.922 F1 0.910\ned L0-4 + L5 m1024 lam0.3 CV: agr 0.964 acc 0.891 F1 0.879\nbase L0-4 + L5 m1536 lam0.03 CV: agr 0.997 acc 0.922 F1 0.911\ned L0-4 + L5 m1536 lam0.03 CV: agr 0.965 acc 0.892 F1 0.880\nbase L0-4 + L5 m1536 lam0.1 CV: agr 0.998 acc 0.923 F1 0.911\ned L0-4 + L5 m1536 lam0.1 CV: agr 0.965 acc 0.892 F1 0.880\nbase L0-4 + L5 m1536 lam0.3 CV: agr 0.998 acc 0.923 F1 0.911\ned L0-4 + L5 m1536 lam0.3 CV: agr 0.964 acc 0.891 F1 0.879\n[run 75; 225 code runs left; 25 forward passes left]"
+ }
+]

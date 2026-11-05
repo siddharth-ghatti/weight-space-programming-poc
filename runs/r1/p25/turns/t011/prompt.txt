@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AvenCN6xEyGeZ5W8gDjU3T",
+  "content": "(4051, 768)\nlayer 0: mean cos(h_in,h_out) 0.719, R2 identity -0.304, R2 diag-affine 0.637, norms 8.2->18.4\nlayer 1: mean cos(h_in,h_out) 0.906, R2 identity 0.483, R2 diag-affine 0.659, norms 18.4->20.4\nlayer 2: mean cos(h_in,h_out) 0.926, R2 identity 0.448, R2 diag-affine 0.664, norms 20.4->22.7\nlayer 3: mean cos(h_in,h_out) 0.928, R2 identity 0.486, R2 diag-affine 0.662, norms 22.7->23.2\nlayer 4: mean cos(h_in,h_out) 0.859, R2 identity 0.275, R2 diag-affine 0.588, norms 23.2->21.8\nlayer 5: mean cos(h_in,h_out) 0.542, R2 identity -0.794, R2 diag-affine 0.394, norms 21.8->19.1\n[run 7; 293 code runs left; 23 forward passes left]"
+ }
+]

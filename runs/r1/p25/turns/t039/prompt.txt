@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01CSyeMYboTbdZKEkmV7B8MV",
+  "content": "pass11 (true stats + LU, m=1536):\norig head: acc 0.861 mf1 0.846 agree 0.922 low-agree 0.724 logitR2 0.926\n  refit lam30: acc 0.893 mf1 0.882 agree 0.956 low-agree 0.840 R2 0.971\n  refit lam100: acc 0.891 mf1 0.881 agree 0.954 low-agree 0.832 R2 0.973\n  refit lam300: acc 0.895 mf1 0.886 agree 0.958 low-agree 0.840 R2 0.973\nL1: err/spread  expA cls 7.303 mean 0.827 | new cls 5.421 mean 0.398\nL2: err/spread  expA cls 10.740 mean 1.145 | new cls 7.464 mean 0.677\nL3: err/spread  expA cls 7.604 mean 1.385 | new cls 4.855 mean 0.749\nL4: err/spread  expA cls 2.506 mean 1.104 | new cls 2.341 mean 0.673\nL5: err/spread  expA cls 1.123 mean 0.851 | new cls 1.689 mean 0.617\nL6: err/spread  expA cls 0.737 mean 0.747 | new cls 0.500 mean 0.512\n[run 29; 271 code runs left; 14 forward passes left]"
+ }
+]

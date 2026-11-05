@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01KY7tJmqceYRv6QjzNdnZVP",
+  "content": "1000\nm1536 v2: agr 0.981 acc 0.910 F1 0.897\nm1536 old flips 23 broken 22 fixed 1 noise std 0.373 logit rms 0.183\nm2048 old flips 16 broken 12 fixed 4 noise std 0.23 logit rms 0.115\nm1536 v2 flips 19 broken 17 fixed 2 noise std 0.352 logit rms 0.172\n[run 59; 241 code runs left; 25 forward passes left]"
+ }
+]

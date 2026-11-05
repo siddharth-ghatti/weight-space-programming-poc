@@ -1,0 +1,115 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "ids": [
+   "p0072",
+   "p0080",
+   "p0098",
+   "p0099",
+   "p0106",
+   "p0196",
+   "p0201",
+   "p0244",
+   "p0252",
+   "p0260",
+   "p0267",
+   "p0269",
+   "p0337",
+   "p0351",
+   "p0469",
+   "p0487",
+   "p0497",
+   "p0550",
+   "p0590",
+   "p0631",
+   "p0685",
+   "p0689",
+   "p0704",
+   "p0708",
+   "p0796",
+   "p0840",
+   "p0858",
+   "p0859",
+   "p0919",
+   "p0938",
+   "p0941",
+   "p0956"
+  ],
+  "outputs": [
+   "token_hidden"
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 32,
+  "layers": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "num_layers": 6,
+  "files": {
+   "meta": "pass_2/meta.json",
+   "token_hidden_L0": "pass_2/token_hidden_L0.npy",
+   "token_hidden_L1": "pass_2/token_hidden_L1.npy",
+   "token_hidden_L2": "pass_2/token_hidden_L2.npy",
+   "token_hidden_L3": "pass_2/token_hidden_L3.npy",
+   "token_hidden_L4": "pass_2/token_hidden_L4.npy",
+   "token_hidden_L5": "pass_2/token_hidden_L5.npy",
+   "token_hidden_L6": "pass_2/token_hidden_L6.npy",
+   "attention_mask": "pass_2/attention_mask.npy",
+   "tokens": "pass_2/tokens.json"
+  },
+  "shapes": {
+   "token_hidden_L0": [
+    32,
+    200,
+    768
+   ],
+   "token_hidden_L1": [
+    32,
+    200,
+    768
+   ],
+   "token_hidden_L2": [
+    32,
+    200,
+    768
+   ],
+   "token_hidden_L3": [
+    32,
+    200,
+    768
+   ],
+   "token_hidden_L4": [
+    32,
+    200,
+    768
+   ],
+   "token_hidden_L5": [
+    32,
+    200,
+    768
+   ],
+   "token_hidden_L6": [
+    32,
+    200,
+    768
+   ],
+   "attention_mask": [
+    32,
+    200
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to ids[i] in meta.json. Hidden layer index 0 is the embedding output, 6 is the last encoder layer of the base model. cls_hidden is position 0 (the <s> token, which feeds the classification head). Attention arrays are [n, 12 heads, T, T] for encoder layers 1..6.",
+  "pass_index": 2,
+  "duration_s": 6.86,
+  "passes_left": 23
+ }
+}

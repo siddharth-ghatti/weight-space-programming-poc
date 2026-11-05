@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01DnE2CjrRTvY5TnTGFdeq9U",
+  "content": "per-token mean |max| 1.3206990464216991e-08  var range 0.9999897474629685 0.9999902706969869\nL1: R2 of proxy in 0.419, proxy out 0.535, avg 0.562\nstructure: layers=[0, 1, 2] m=3072 params=61,038,340 (74.2% of 82,301,956; 25.8% smaller; non-embedding 49.3% smaller)\n[run 20; 280 code runs left; 19 forward passes left]"
+ }
+]

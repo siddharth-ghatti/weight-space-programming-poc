@@ -1,0 +1,15 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "edited",
+  "ids": [
+   "__ALL__"
+  ],
+  "outputs": [
+   "cls_hidden",
+   "mean_hidden",
+   "logits"
+  ]
+ },
+ "error": "unknown practice ids: ['__ALL__']"
+}

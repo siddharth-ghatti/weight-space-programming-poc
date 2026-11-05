@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01M37x1TFGr37R92bXzNz1ST",
+  "content": "0 n_cls 96 post-LN err energy: cls test 0.007  tok test 3.579 | cls train 0.006 tok train 2.550  sigma cls 2.3 tok 1.0\n1 n_cls 96 post-LN err energy: cls test 0.518  tok test 4.867 | cls train 0.526 tok train 3.773  sigma cls 1.4 tok 1.2\n2 n_cls 96 post-LN err energy: cls test 0.082  tok test 5.197 | cls train 0.084 tok train 3.682  sigma cls 1.5 tok 1.3\n3 n_cls 96 post-LN err energy: cls test 0.231  tok test 4.372 | cls train 0.214 tok train 3.244  sigma cls 1.4 tok 1.2\n4 n_cls 96 post-LN err energy: cls test 0.243  tok test 3.737 | cls train 0.236 tok train 2.612  sigma cls 2.3 tok 1.2\n[run 77; 223 code runs left; 25 forward passes left]"
+ }
+]

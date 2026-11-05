@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01VknuP14UFg7MkZgT2LVo2w",
+  "content": "lg_pass25.npy: observed flips 19, de-biased expected practice flips 13.6, eps std 0.346; test N for k=1,1.5,2,3: 5.4, 8.2, 10.9, 16.3\nlg_pass26.npy: observed flips 20, de-biased expected practice flips 13.4, eps std 0.339; test N for k=1,1.5,2,3: 5.4, 8.0, 10.7, 16.1\nlg_D1_L01.npy: observed flips 17, de-biased expected practice flips 9.1, eps std 0.241; test N for k=1,1.5,2,3: 3.7, 5.5, 7.3, 11.0\nlg_D2_L234.npy: observed flips 14, de-biased expected practice flips 7.8, eps std 0.200; test N for k=1,1.5,2,3: 3.1, 4.7, 6.2, 9.4\n[run 95; 205 code runs left; 22 forward passes left]"
+ }
+]

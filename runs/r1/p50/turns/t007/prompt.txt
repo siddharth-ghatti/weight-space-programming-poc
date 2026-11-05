@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HmibvW3PbXANWHJv6cBcWf",
+  "content": "structure: layers=[0, 1, 2, 3, 5] m=3072 params=75,214,084 (91.4% of 82,301,956; 8.6% smaller; non-embedding 16.4% smaller)\n[0, 1, 2, 3, 5]\n[run 5; 295 code runs left; 48 forward passes left]"
+ }
+]

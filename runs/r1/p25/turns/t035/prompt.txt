@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01XAQmReDJZDDiVYE2kGWCNq",
+  "content": "exp A selection (proxy top1536, no linear units):\n  L0: err/FFNvar 0.247  err/tr(cov a) 0.1307\n  L1: err/FFNvar 0.202  err/tr(cov a) 0.1357\n  L2: err/FFNvar 0.195  err/tr(cov a) 0.1446\n  L3: err/FFNvar 0.138  err/tr(cov a) 0.1099\n  L4: err/FFNvar 0.133  err/tr(cov a) 0.1013\n  L5: err/FFNvar 0.217  err/tr(cov a) 0.4803\ntrue-stat plain top-m by I (exact linear cross terms):\n1024 L0:0.125 L1:0.159 L2:0.172 L3:0.173 L4:0.136 L5:0.161\n1536 L0:0.065 L1:0.081 L2:0.085 L3:0.090 L4:0.071 L5:0.054\n2048 L0:0.031 L1:0.036 L2:0.039 L3:0.043 L4:0.034 L5:0.015\n[run 26; 274 code runs left; 15 forward passes left]"
+ }
+]

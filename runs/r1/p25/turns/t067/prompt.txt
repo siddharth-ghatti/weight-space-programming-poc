@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Mr8NUFzqyL7KQN8SFE9VMh",
+  "content": "mean 101.786 pcts [ 89.   116.25 160.   194.   371.  ] max 512\ntop32 lengths sum 10268 [512 512 512 427 417 405 402 393 381 371 371 366 348 345 311 288 279 274 266 257 249 247 244 240 239 238 237 233 229 228 224 223]\ncurrent probe ids total tokens 4051\n[run 55; 245 code runs left; 12 forward passes left]"
+ }
+]

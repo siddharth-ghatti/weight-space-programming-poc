@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01FLf7873h6T1TtSVLnkBNst",
+  "content": "D1 L0-1 pruned: agr 0.983 acc 0.916 F1 0.906\n mean|dl| 0.0753 rms 0.1188\n['roberta.encoder.layer.2.output.dense.bias', 'roberta.encoder.layer.2.output.dense.weight', 'roberta.encoder.layer.3.output.dense.bias', 'roberta.encoder.layer.3.output.dense.weight', 'roberta.encoder.layer.4.output.dense.bias', 'roberta.encoder.layer.4.output.dense.weight']\n[run 90; 210 code runs left; 23 forward passes left]"
+ }
+]

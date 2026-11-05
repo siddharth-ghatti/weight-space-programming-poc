@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011fEqoz3piQcGz9TFFvbczn",
+  "content": "L0: NL share 0.272; top-k NL kept: 512 0.578 1024 0.744 1536 0.850\nL1: NL share 0.560; top-k NL kept: 512 0.428 1024 0.639 1536 0.786\nL2: NL share 0.530; top-k NL kept: 512 0.425 1024 0.637 1536 0.787\nL3: NL share 0.505; top-k NL kept: 512 0.411 1024 0.621 1536 0.772\nL4: NL share 0.478; top-k NL kept: 512 0.494 1024 0.687 1536 0.817\nL5: NL share 0.310; top-k NL kept: 512 0.418 1024 0.629 1536 0.780\n[run 14; 286 code runs left; 22 forward passes left]"
+ }
+]

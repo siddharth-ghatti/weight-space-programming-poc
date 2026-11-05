@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01YTHvt98W99BHskrg9nAfYv",
+  "content": "offline vs real max diff 1.0565279336294253e-05\n21 {'agree': np.float64(0.981), 'low': np.float64(0.905), 'R2': np.float32(0.9938), 'acc': np.float64(0.91), 'F1': np.float64(0.9006), 'clsR2': [None, None, None, None, None, None, np.float32(0.9717)]}\nflips 19 R->W 17 W->R 2\n0 recall base 0.984 edit 0.984\n1 recall base 0.933 edit 0.933\n2 recall base 0.908 edit 0.888\n3 recall base 0.941 edit 0.922\n[run 98; 202 code runs left; 4 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011yebQbJyS8QmFvX23yYhtn",
+  "content": "margin quantiles [0.0819 0.4481 0.8543 1.4862 2.8322]\n12 dm std 0.24004973 mean -0.012121184 |dm| q [0.1078 0.3784 0.7351] maxpw q [0.176  0.5119 0.9702]\n flips 15 base right->wrong 12 wrong->right 3 wrong->wrong 0\n flip margins [0.02 0.02 0.06 0.06 0.07 0.13 0.14 0.2  0.3  0.37 0.37 0.45 0.45 0.54 0.67]\n corr |dm| vs marg -0.37857151782105214  |dm| for marg<1 0.26516917 marg>=1 0.14785701\n17 dm std 0.27849486 mean -0.02742768 |dm| q [0.1323 0.4475 0.8685] maxpw q [0.2105 0.5457 1.0009]\n flips 22 base right->wrong 19 wrong->right 2 wrong->wrong 1\n flip margins [0.   0.   0.01 0.03 0.06 0.06 0.08 0.14 0.2  0.2  0.2  0.22 0.24 0.29 0.3  0.35 0.37 0.45 0.45 0.45 0.46 0.54]\n corr |dm| vs marg -0.3996370531655491  |dm| for marg<1 0.31402406 marg>=1 0.17852354\n[run 75; 225 code runs left; 8 forward passes left]"
+ }
+]

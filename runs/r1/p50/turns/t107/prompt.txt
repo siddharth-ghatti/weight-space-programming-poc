@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AqQgRWwx6fVcZrk8fMjru8",
+  "content": "0-0.25: n=26 P(top1 right)=0.69 P(top2 right)=0.31\n0.25-0.5: n=29 P(top1 right)=0.55 P(top2 right)=0.41\n0.5-1: n=67 P(top1 right)=0.78 P(top2 right)=0.22\n1-2: n=176 P(top1 right)=0.88 P(top2 right)=0.11\n2-99: n=702 P(top1 right)=0.97 P(top2 right)=0.02\nflips 20 base right 18 edit right 2\nflip pairs [('risk', 'stra'), ('metr', 'stra'), ('stra', 'risk'), ('metr', 'stra'), ('stra', 'metr'), ('metr', 'stra'), ('stra', 'metr'), ('risk', 'stra'), ('metr', 'stra'), ('stra', 'gove'), ('stra', 'risk'), ('stra', 'risk'), ('gove', 'risk'), ('risk', 'gove'), ('stra', 'risk'), ('stra', 'metr'), ('stra', 'metr'), ('risk', 'gove'), ('stra', 'gove'), ('metr', 'risk')]\n[run 87; 213 code runs left; 24 forward passes left]"
+ }
+]

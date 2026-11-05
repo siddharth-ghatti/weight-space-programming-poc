@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017AEwYFCBHdvT3qy19sfG9G",
+  "content": "practice margin quantiles [0.08 0.2  0.45 0.85 1.49 2.83]\n1 avg conf 0.877 frac margin<.3: 0.031  <.5: 0.055\n1.5 avg conf 0.778 frac margin<.3: 0.051  <.5: 0.091\n2 avg conf 0.685 frac margin<.3: 0.068  <.5: 0.122\n2.5 avg conf 0.611 frac margin<.3: 0.091  <.5: 0.157\n3 avg conf 0.555 frac margin<.3: 0.106  <.5: 0.203\n4 avg conf 0.478 frac margin<.3: 0.151  <.5: 0.298\nmargin change quantiles |dm| [0.156 0.536 0.71  1.203]\n[run 107; 193 code runs left; 21 forward passes left]"
+ }
+]

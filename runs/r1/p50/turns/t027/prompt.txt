@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01TQK8hQwn3p9iBrusFRpKi8",
+  "content": "m1536 orig head: agr 0.977 acc 0.904 F1 0.891\nm1536 out_proj refit pooled lam1: agr 0.975 acc 0.910 F1 0.899\nm1536 out_proj refit pooled lam10: agr 0.976 acc 0.907 F1 0.897\nm1536 ridge cls lam10: agr 0.973 acc 0.908 F1 0.899\nm1536 ridge cls lam100: agr 0.976 acc 0.909 F1 0.898\nrel err cls 0.16248573\nbase margin quantiles [0.8543 1.754  2.8322]\nmargin [0.00,0.85) n=100 agr 0.790\nmargin [0.85,1.75) n=150 agr 0.993\nmargin [1.75,2.83) n=250 agr 0.996\nmargin [2.83,99.00) n=500 agr 1.000\nlogit diff std [0.1641 0.1752 0.1894 0.1925]\n[run 18; 282 code runs left; 40 forward passes left]"
+ }
+]

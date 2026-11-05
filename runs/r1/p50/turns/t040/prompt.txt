@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QppHtLtCc89ysVR9fyEbAG",
+  "content": "L0: dead 7, linear 0, frac-active median 0.023, sparsity: units for 90/95/99% var-score 1406, 1828, 2515\nL1: dead 2, linear 0, frac-active median 0.037, sparsity: units for 90/95/99% var-score 1621, 2027, 2609\nL2: dead 6, linear 0, frac-active median 0.054, sparsity: units for 90/95/99% var-score 1585, 2012, 2628\nL3: dead 2, linear 0, frac-active median 0.053, sparsity: units for 90/95/99% var-score 1540, 1986, 2618\nL4: dead 0, linear 0, frac-active median 0.045, sparsity: units for 90/95/99% var-score 1209, 1717, 2476\nL5: dead 3, linear 2, frac-active median 0.206, sparsity: units for 90/95/99% var-score 1216, 1538, 2149\n[run 29; 271 code runs left; 38 forward passes left]"
+ }
+]

@@ -1,0 +1,12 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011UDUycanfFudFZT4fYJJch",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 32,\n \"layers\": [\n  2\n ],\n \"num_layers\": 2,\n \"files\": {\n  \"meta\": \"pass_16/meta.json\",\n  \"token_hidden_L2\": \"pass_16/token_hidden_L2.npy\",\n  \"attention_mask\": \"pass_16/attention_mask.npy\",\n  \"tokens\": \"pass_16/tokens.json\"\n },\n \"shapes\": {\n  \"token_hidden_L2\": [\n   32,\n   512,\n   768\n  ],\n  \"attention_mask\": [\n   32,\n   512\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to ids[i] in meta.json. Hidden layer index 0 is the embedding output, 2 is the last encoder layer of the edited model. cls_hidden is position 0 (the <s> token, which feeds the classification head). Attention arrays are [n, 12 heads, T, T] for encoder layers 1..2. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 0,\n  \"2\": 1\n },\n \"structure\": {\n  \"layers\": [\n   0,\n   1\n  ],\n  \"intermediate_size\": 1024,\n  \"params\": 47654916,\n  \"reduction_vs_full\": 0.421,\n  \"non_embedding_reduction_vs_full\": 0.8035\n },\n \"pass_index\": 16,\n \"duration_s\": 17.24,\n \"passes_left\": 34\n}"
+ },
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MZQVehKr9xTuzTXFjDA877",
+  "content": "{\n \"kind\": \"read\",\n \"model\": \"edited\",\n \"n_texts\": 32,\n \"layers\": [\n  2\n ],\n \"num_layers\": 2,\n \"files\": {\n  \"meta\": \"pass_17/meta.json\",\n  \"token_hidden_L2\": \"pass_17/token_hidden_L2.npy\",\n  \"attention_mask\": \"pass_17/attention_mask.npy\",\n  \"tokens\": \"pass_17/tokens.json\"\n },\n \"shapes\": {\n  \"token_hidden_L2\": [\n   32,\n   218,\n   768\n  ],\n  \"attention_mask\": [\n   32,\n   218\n  ]\n },\n \"note\": \"Arrays are float32 .npy in the pass folder; row i corresponds to ids[i] in meta.json. Hidden layer index 0 is the embedding output, 2 is the last encoder layer of the edited model. cls_hidden is position 0 (the <s> token, which feeds the classification head). Attention arrays are [n, 12 heads, T, T] for encoder layers 1..2. meta.json has layer_map: edited-model layer index -> original layer id.\",\n \"layer_map\": {\n  \"1\": 0,\n  \"2\": 1\n },\n \"structure\": {\n  \"layers\": [\n   0,\n   1\n  ],\n  \"intermediate_size\": 1024,\n  \"params\": 47654916,\n  \"reduction_vs_full\": 0.421,\n  \"non_embedding_reduction_vs_full\": 0.8035\n },\n \"pass_index\": 17,\n \"duration_s\": 0.37,\n \"passes_left\": 33\n}"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_016Ewhs1r98jcn9GUxibQo4t",
+  "content": "margins wrong items: pct [0.26 0.42 1.12 1.8  3.2 ]\nmargins right items: pct [1.07 1.96 2.95 3.7  4.19]\nshrink 1.0 m2048old: mean net loss -0.02, sd 1.99, P(loss>4) 0.013\nshrink 1.0 m1536v2: mean net loss -0.09, sd 2.52, P(loss>4) 0.034\nshrink 1.0 m1536old: mean net loss -0.06, sd 2.54, P(loss>4) 0.041\nshrink 0.7 m2048old: mean net loss 0.78, sd 2.18, P(loss>4) 0.046\nshrink 0.7 m1536v2: mean net loss 1.57, sd 2.78, P(loss>4) 0.147\nshrink 0.7 m1536old: mean net loss 1.66, sd 2.90, P(loss>4) 0.163\nshrink 0.5 m2048old: mean net loss 2.19, sd 2.49, P(loss>4) 0.168\nshrink 0.5 m1536v2: mean net loss 3.92, sd 3.21, P(loss>4) 0.419\nshrink 0.5 m1536old: mean net loss 4.41, sd 3.34, P(loss>4) 0.482\n[run 60; 240 code runs left; 25 forward passes left]"
+ }
+]

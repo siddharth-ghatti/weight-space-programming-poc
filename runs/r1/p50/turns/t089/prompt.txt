@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018z5nPo3j25QAErtGyWb6fq",
+  "content": "ffn_in_L0.npy (5049, 768)\nffn_ed_L0_B1.npy (10257, 768)\nffn_ed_L0_B2.npy (6176, 768)\nffn_in_L1.npy (5049, 768)\nffn_ed_L1_B1.npy (10257, 768)\nffn_ed_L1_B2.npy (6176, 768)\nffn_in_L2.npy (5049, 768)\nffn_ed_L2_B1.npy (10257, 768)\nffn_ed_L2_B2.npy (6176, 768)\nffn_in_L3.npy (5049, 768)\nffn_ed_L3_B1.npy (10257, 768)\nffn_ed_L3_B2.npy (6176, 768)\nffn_in_L4.npy (5049, 768)\nffn_ed_L4_B1.npy (10257, 768)\nffn_ed_L4_B2.npy (6176, 768)\nffn_in_L5_cls.npy (1000, 768)\nffn_ed_L5_cls.npy (1000, 768)\n\n[stderr]\nTraceback (most recent call last):\n  File \"/var/folders/kj/gg152tbs3f19h7f1mbcrzrbr0000gn/T/wsp-sbx-uvudvdmm/run_0070.py\", line 200, in <module>\n    print(json.load(open('batches.json')).keys() if isinstance(json.load(open('batches.json')),dict) else len(json.load(open('batches.json'))))\n                                                               ^^^^\nNameError: name 'json' is not defined. Did you mean: '_json'? Or did you forget to import 'json'?\n\n[exit code 1]\n[run 70; 230 code runs left; 25 forward passes left]"
+ }
+]

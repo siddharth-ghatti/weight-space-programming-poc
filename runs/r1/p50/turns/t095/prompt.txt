@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MQf4SqsCxr6UQubF1dHnYr",
+  "content": "ed + L5 full: agr 0.965 acc 0.892 F1 0.880\n   mean|dlogit| 0.1806\ned + L5 m1024 e2e-corr reg1.0: agr 0.960 acc 0.891 F1 0.879\n   mean|dlogit| 0.1660\ned + L5 m1024 e2e-corr reg0.3: agr 0.956 acc 0.891 F1 0.879\n   mean|dlogit| 0.1674\ned + L5 m1024 e2e-corr reg0.1: agr 0.956 acc 0.893 F1 0.881\n   mean|dlogit| 0.1711\ned + L5 m1024 e2e-corr reg0.03: agr 0.952 acc 0.891 F1 0.880\n   mean|dlogit| 0.1815\ned + L5 m1024 e2e-corr reg0.01: agr 0.950 acc 0.889 F1 0.877\n   mean|dlogit| 0.1983\n[run 76; 224 code runs left; 25 forward passes left]"
+ }
+]

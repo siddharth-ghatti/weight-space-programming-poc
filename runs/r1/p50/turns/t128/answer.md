@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import json\nbl=np.load('base_logits.npy'); ids=json.load(open('all_ids.json'))\ndef stress(lg, ks=(1,1.5,2,3)):\n    pb=bl.argmax(1); d=lg-bl\n    return [int(((bl/k+d).argmax(1)!=pb).sum()) for k in ks]\nfor p in ['pass_10','pass_11','pass_12']:\n    m=json.load(open(p+'/meta.json')); lg=np.load(p+'/logits.npy')\n    print(p, lg.shape, {k:m[k] for k in m if k not in ('ids',)} if len(str(m))<600 else list(m.keys()))\n    if lg.shape[0]==1000:\n        mid=m.get('ids'); \n        if mid and mid!=ids: lg=lg[[mid.index(i) for i in ids]]\n        print(' stress',stress(lg), np.sqrt(((lg-bl)**2).mean()).round(4))\n"
+}
+```
+

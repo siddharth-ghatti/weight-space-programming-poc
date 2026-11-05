@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0155eQPzKvqkCt5vHS4jkQW2",
+  "content": "orig head: acc 0.611 mf1 0.465 agree 0.586 low-agree 0.412 logitR2 0.611\n  refit lam30: acc 0.889 mf1 0.878 agree 0.943 low-agree 0.784 R2 0.951\n  refit lam100: acc 0.888 mf1 0.876 agree 0.944 low-agree 0.792 R2 0.954\n  refit lam300: acc 0.888 mf1 0.878 agree 0.946 low-agree 0.804 R2 0.951\n--- truncation to 5 layers (base L5) for comparison\ntrunc5 refit: acc 0.914 mf1 0.912 agree 0.955 low-agree 0.824\n--- exp A\norig head: acc 0.852 mf1 0.838 agree 0.917 low-agree 0.752 logitR2 0.898\n  refit lam30: acc 0.873 mf1 0.859 agree 0.930 low-agree 0.748 R2 0.945\n  refit lam100: acc 0.867 mf1 0.851 agree 0.926 low-agree 0.732 R2 0.950\n  refit lam300: acc 0.866 mf1 0.851 agree 0.926 low-agree 0.740 R2 0.951\n[run 16; 284 code runs left; 21 forward passes left]"
+ }
+]

@@ -1,0 +1,2 @@
+{"citations": null, "text": "Saving the true layer-1 FFN input and setting up the layer-2 probe:", "type": "text"}
+{"id": "toolu_01DnE2CjrRTvY5TnTGFdeq9U", "caller": {"type": "direct"}, "input": {"code": "import sys; sys.path.insert(0,str(WORK)); from probe import *\nsave_probe(1,'pass_6',base)\nprint(setup_probe(2,save_edit,drop_edit,edits,set_structure))"}, "name": "run_python", "type": "tool_use", "toolset_name": null}

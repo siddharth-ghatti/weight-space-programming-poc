@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01K1cVtXtheB7xurriKN2EMj",
+  "content": "drop4 orig margin noise std/mean|.| (np.float32(0.77612776), np.float32(1.7782395))\nm1536 orig margin noise std/mean|.| (np.float32(0.3732134), np.float32(0.25596866))\npractice margin pctiles [0.4481 0.8543 1.754  2.8322 3.6221]\nlogit scale std [1.4957 1.7024 1.4992 2.4538]\n[run 19; 281 code runs left; 40 forward passes left]"
+ }
+]

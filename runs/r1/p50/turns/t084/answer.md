@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "import os, json\nimport numpy as np\nbl=np.load('base_logits.npy'); y=np.load('y.npy'); ids=json.load(open('all_ids.json'))\nbp=bl.argmax(1)\ndef head(h):\n    p=np.tanh(h@W('classifier.dense.weight').T+W('classifier.dense.bias'))\n    return p@W('classifier.out_proj.weight').T+W('classifier.out_proj.bias')\nm24=json.load(open('pass_24/meta.json'))\nprint(m24['ids']==ids, y[:5], m24['labels'][:5])\nlg24=head(np.load('pass_24/cls_hidden_L6.npy'))\ndef f1(y,p):\n    fs=[]\n    for c in range(4):\n        tp=((p==c)&(y==c)).sum(); fp=((p==c)&(y!=c)).sum(); fn=((p!=c)&(y==c)).sum()\n        fs.append(2*tp/(2*tp+fp+fn))\n    return np.mean(fs)\nprint('m1024 seq: agr',(lg24.argmax(1)==bp).mean(),'acc',(lg24.argmax(1)==y).mean(), 'f1',f1(y,lg24.argmax(1)))\npr=json.load(open('pass_25/predictions.json'))\nprint(type(pr), (pr[0] if isinstance(pr,list) else list(pr.keys())))\nprint(open('common.py').read()[:1500])\n"
+}
+```
+

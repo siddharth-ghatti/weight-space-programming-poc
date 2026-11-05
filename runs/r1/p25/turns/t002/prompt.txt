@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019MMaNqL3Dtp8rSYykbTCi3",
+  "content": "['practice.jsonl', 'edits']\ndict_keys(['version', 'layers', 'm', 'ffn_keep'])\n{'total': 82301956, 'non_embedding': 43120900, 'num_layers': 6, 'intermediate_size': 3072, 'per_layer': 7087872, 'fraction_of_full': 1.0, 'reduction_vs_full': 0.0, 'non_embedding_reduction_vs_full': 0.0}\n[]\n[]\n1000 \u2212 Scope 3: Optional scope that includes indirect emissions associated with the goods and services supply chain produced outside the organization. Included are emissions from the transport of products from our logistics centres to stores (downstream) performed by external logistics operators (air, la metrics\nCounter({'strategy': 519, 'metrics': 255, 'risk': 164, 'governance': 62})\n101.786 512 [ 89. 160. 371.]\n[run 1; 299 code runs left; 25 forward passes left]"
+ }
+]

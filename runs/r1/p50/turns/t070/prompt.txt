@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01A71dqxT6RBvS5s3BNHXRc1",
+  "content": "{'pass_10': (1000, 4), 'pass_12': (1000, 4)}\npass_10 flips 23 base-correct broken 22 base-wrong fixed 1 base-wrong->other wrong 0\n  noise on margin: std 0.3732134 mean -0.046813846 mean|.| 0.25596866\n   margin 0-0.5: n 55 flips 15 base acc 0.62\n   margin 0.5-1: n 67 flips 7 base acc 0.78\n   margin 1-2: n 176 flips 1 base acc 0.88\n   margin 2-4: n 561 flips 0 base acc 0.97\n   margin 4-99: n 141 flips 0 base acc 0.99\npass_12 flips 16 base-correct broken 12 base-wrong fixed 4 base-wrong->other wrong 0\n  noise on margin: std 0.23029551 mean -0.006854283 mean|.| 0.15788478\n   margin 0-0.5: n 55 flips 14 base acc 0.62\n   margin 0.5-1: n 67 flips 2 base acc 0.78\n   margin 1-2: n 176 flips 0 base acc 0.88\n   margin 2-4: n 561 flips 0 base acc 0.97\n   margin 4-99: n 141 flips 0 base acc 0.99\n[run 53; 247 code runs left; 26 forward passes left]"
+ }
+]

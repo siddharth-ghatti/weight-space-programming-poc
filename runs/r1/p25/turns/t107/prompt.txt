@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01T1CDkaysc8WyhkNSkPdaKk",
+  "content": "holdout n 936\nfull FFN                     agree 0.983 (hold 0.9818) flips 17 R->W 15 acc 0.912 F1 0.9022 dm std 0.288 low 0.425\nbase-only m1536 lam3         agree 0.981 (hold 0.9797) flips 19 R->W 16 acc 0.912 F1 0.9022 dm std 0.290 low 0.429\nbase-only m1536 lam10        agree 0.981 (hold 0.9797) flips 19 R->W 16 acc 0.912 F1 0.9022 dm std 0.290 low 0.430\nbase-only m1536 lam30        agree 0.981 (hold 0.9797) flips 19 R->W 16 acc 0.912 F1 0.9022 dm std 0.291 low 0.431\nmix1536 CV m1536 lam30       agree 0.979 (hold 0.9776) flips 21 R->W 17 acc 0.912 F1 0.9022 dm std 0.284 low 0.426\nmix1792 CV m1536 lam30       agree 0.977 (hold 0.9754) flips 23 R->W 19 acc 0.910 F1 0.9006 dm std 0.274 low 0.412\nbase-only m1792 lam3         agree 0.981 (hold 0.9797) flips 19 R->W 17 acc 0.910 F1 0.9006 dm std 0.289 low 0.427\nbase-only m1792 lam10        agree 0.981 (hold 0.9797) flips 19 R->W 17 acc 0.910 F1 0.9006 dm std 0.290 low 0.428\nbase-only m1792 lam30        agree 0.981 (hold 0.9797) flips 19 R->W 17 acc 0.910 F1 0.9006 dm std 0.290 low 0.429\nmix1536 CV m1792 lam30       agree 0.979 (hold 0.9776) flips 21 R->W 17 acc 0.912 F1 0.9022 dm std 0.285 low 0.423\nmix1792 CV m1792 lam30       agree 0.977 (hold 0.9754) flips 23 R->W 19 acc 0.910 F1 0.9006 dm std 0.274 low 0.408\n[run 90; 210 code runs left; 6 forward passes left]"
+ }
+]

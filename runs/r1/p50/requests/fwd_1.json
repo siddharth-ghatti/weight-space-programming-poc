@@ -1,0 +1,41 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "base",
+  "ids": [
+   "p0000"
+  ],
+  "outputs": [
+   "logits"
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "base",
+  "n_texts": 1,
+  "layers": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "num_layers": 6,
+  "files": {
+   "meta": "pass_1/meta.json",
+   "logits": "pass_1/logits.npy"
+  },
+  "shapes": {
+   "logits": [
+    1,
+    4
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to ids[i] in meta.json. Hidden layer index 0 is the embedding output, 6 is the last encoder layer of the base model. cls_hidden is position 0 (the <s> token, which feeds the classification head). Attention arrays are [n, 12 heads, T, T] for encoder layers 1..6.",
+  "pass_index": 1,
+  "duration_s": 4.04,
+  "passes_left": 49
+ }
+}

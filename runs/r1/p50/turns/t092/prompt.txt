@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SUwCMepo9KUnU319ECAD86",
+  "content": "1 0.003 test 0.1041 train 0.0776 n_tr 17446\n1 0.01 test 0.1035 train 0.0777 n_tr 17446\n1 0.03 test 0.1023 train 0.0781 n_tr 17446\n1 0.1 test 0.1011 train 0.0801 n_tr 17446\n1 0.3 test 0.1024 train 0.0853 n_tr 17446\n2 0.003 test 0.0750 train 0.0433 n_tr 16421\n2 0.01 test 0.0743 train 0.0434 n_tr 16421\n2 0.03 test 0.0731 train 0.0436 n_tr 16421\n2 0.1 test 0.0715 train 0.0449 n_tr 16421\n2 0.3 test 0.0717 train 0.0481 n_tr 16421\n[run 73; 227 code runs left; 25 forward passes left]"
+ }
+]

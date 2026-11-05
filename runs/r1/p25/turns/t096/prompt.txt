@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_011Wm5jNJCjAVKPJYbMrPWP9",
+  "content": "structure: layers=[0, 1, 2, 3, 4, 5] m=1792 params=70,497,796 (85.7% of 82,301,956; 14.3% smaller; non-embedding 27.4% smaller)\n{'total': 70497796, 'non_embedding': 31316740, 'num_layers': 6, 'intermediate_size': 1792, 'per_layer': 5120512, 'fraction_of_full': 0.8565749761767509, 'reduction_vs_full': 0.14342502382324906, 'non_embedding_reduction_vs_full': 0.2737456778499521} [1792, 1792, 1792, 1792, 1792, 1792]\n[run 82; 218 code runs left; 8 forward passes left]"
+ }
+]

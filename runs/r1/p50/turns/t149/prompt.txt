@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01G9mYPr5aRkX8Bm2d1r2riT",
+  "content": "[0, 1, 2, 3, 4, 5] 1536 {'total': 68136964, 'non_embedding': 28955908, 'num_layers': 6, 'intermediate_size': 1536, 'per_layer': 4727040, 'fraction_of_full': 0.8278899714121011, 'reduction_vs_full': 0.17211002858789892, 'non_embedding_reduction_vs_full': 0.3284948134199426}\n['roberta.encoder.layer.0.output.dense.bias.npy', 'roberta.encoder.layer.0.output.dense.weight.npy', 'roberta.encoder.layer.1.output.dense.bias.npy', 'roberta.encoder.layer.1.output.dense.weight.npy', 'roberta.encoder.layer.2.output.dense.bias.npy', 'roberta.encoder.layer.2.output.dense.weight.npy', 'roberta.encoder.layer.3.output.dense.bias.npy', 'roberta.encoder.layer.3.output.dense.weight.npy', 'roberta.encoder.layer.4.output.dense.bias.npy', 'roberta.encoder.layer.4.output.dense.weight.npy', 'roberta.encoder.layer.5.output.dense.bias.npy', 'roberta.encoder.layer.5.output.dense.weight.npy']\nkeep sets match v2 file: True\n[run 124; 176 code runs left; 19 forward passes left]"
+ }
+]

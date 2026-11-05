@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013WShfq3r3B7RsFPXo6cZEr",
+  "content": "k=1.00 m1536v1      flips   7.6  E[da] -0.94  P(acc) 0.096 P(f1) 0.032 P(fail) 0.100\nk=1.00 m2048v2      flips   6.4  E[da] -0.55  P(acc) 0.058 P(f1) 0.010 P(fail) 0.059\nk=1.25 m1536v1      flips  10.8  E[da] -1.94  P(acc) 0.205 P(f1) 0.074 P(fail) 0.209\nk=1.25 m2048v2      flips   8.0  E[da] -0.67  P(acc) 0.083 P(f1) 0.012 P(fail) 0.084\nk=1.50 m1536v1      flips  12.8  E[da] -1.93  P(acc) 0.223 P(f1) 0.068 P(fail) 0.225\nk=1.50 m2048v2      flips   8.8  E[da] -0.73  P(acc) 0.092 P(f1) 0.010 P(fail) 0.092\n[run 115; 185 code runs left; 20 forward passes left]"
+ }
+]

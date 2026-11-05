@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_0119UvZogDk6uYYefaVq22oX",
+  "content": "margin 0-0.5: n=55 P(top1)=0.618 P(top2)=0.364\nmargin 0.5-1: n=67 P(top1)=0.776 P(top2)=0.224\nmargin 1-2: n=176 P(top1)=0.881 P(top2)=0.114\nmargin 2-4: n=561 P(top1)=0.970 P(top2)=0.021\nmargin 4-9: n=141 P(top1)=0.993 P(top2)=0.007\npass_12 flips 15 base right 12 new right 3 flip margins [0.02 0.02 0.06 0.06 0.07 0.13 0.14 0.2  0.3  0.37 0.37 0.45 0.45 0.54 0.67]\npass_17 flips 22 base right 19 new right 2 flip margins [0.   0.   0.01 0.03 0.06 0.06 0.08 0.14 0.2  0.2  0.2  0.22 0.24 0.29 0.3  0.35 0.37 0.45 0.45 0.45 0.46 0.54]\n[run 65; 235 code runs left; 8 forward passes left]"
+ }
+]

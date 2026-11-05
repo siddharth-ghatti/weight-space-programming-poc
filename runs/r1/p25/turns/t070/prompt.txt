@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01Lgwyi1HZqwNEryANq3CrDX",
+  "content": "per-token mean |max| 1.588568920851685e-08  var range 0.9999897685751806 0.9999901927471003\n0 tokens 10268\nstructure: layers=[0, 1] m=3072 params=53,950,468 (65.6% of 82,301,956; 34.4% smaller; non-embedding 65.7% smaller)\n[run 57; 243 code runs left; 11 forward passes left]"
+ }
+]

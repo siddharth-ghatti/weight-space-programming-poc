@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MpduiMse9xKUKfceiNzcHC",
+  "content": "pairwise margin noise std 0.2705089681804263 p95 |.| [0.1035 0.4104 0.5812 0.993 ]\nbase margin percentiles [0.0819 0.4481 0.8543 1.754  2.8322]\nfrac base margin <0.5 0.055 <1 0.122 <2 0.298\nbase wrong margins pct [0.259  0.4169 1.1191 1.7971 3.2036]\n0 0.25 26 0.46153846153846156\n0.25 0.5 29 0.13793103448275862\n0.5 1 67 0.04477611940298507\n1 2 176 0.0\n2 99 702 0.0\n[run 68; 232 code runs left; 25 forward passes left]"
+ }
+]

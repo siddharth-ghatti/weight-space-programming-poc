@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013svpUPYJGxxDXnWJ92D6D5",
+  "content": "mean 1.9868216e-08 var 0.99998957 0.9999904 (5049, 768)\n['roberta.encoder.layer.3.attention.output.LayerNorm.bias', 'roberta.encoder.layer.3.attention.output.LayerNorm.weight', 'roberta.encoder.layer.3.output.LayerNorm.bias', 'roberta.encoder.layer.3.output.LayerNorm.weight', 'roberta.encoder.layer.3.output.dense.bias', 'roberta.encoder.layer.3.output.dense.weight'] [0, 1, 2, 3]\n[run 11; 289 code runs left; 44 forward passes left]"
+ }
+]

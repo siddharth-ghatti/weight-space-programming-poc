@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_014bBuqtTY8x4zhTUK55dXwa",
+  "content": "1024 dict_keys([0])\nstructure: layers=[0, 1] m=1024 params=47,654,916 (57.9% of 82,301,956; 42.1% smaller; non-embedding 80.3% smaller)\n[0, 1] 1024 None\n['roberta.encoder.layer.0.output.dense.bias', 'roberta.encoder.layer.0.output.dense.weight', 'roberta.encoder.layer.1.attention.output.LayerNorm.bias', 'roberta.encoder.layer.1.attention.output.LayerNorm.weight', 'roberta.encoder.layer.1.output.LayerNorm.bias', 'roberta.encoder.layer.1.output.LayerNorm.weight', 'roberta.encoder.layer.1.output.dense.bias', 'roberta.encoder.layer.1.output.dense.weight', 'roberta.encoder.layer.2.output.dense.bias', 'roberta.encoder.layer.2.output.dense.weight', 'roberta.encoder.layer.3.output.dense.bias', 'roberta.encoder.layer.3.output.dense.weight', 'roberta.encoder.layer.4.output.dense.bias', 'roberta.encoder.layer.4.output.dense.weight', 'roberta.encoder.layer.5.output.dense.bias', 'roberta.encoder.layer.5.output.dense.weight']\n[run 44; 256 code runs left; 35 forward passes left]"
+ }
+]

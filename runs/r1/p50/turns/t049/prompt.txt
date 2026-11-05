@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_019oEem6vQWBMQrCtJSPkwdw",
+  "content": "['cls_hidden_L0.npy', 'cls_hidden_L1.npy', 'cls_hidden_L2.npy', 'cls_hidden_L3.npy', 'cls_hidden_L4.npy', 'cls_hidden_L5.npy', 'cls_hidden_L6.npy', 'logits.npy', 'mean_hidden_L0.npy', 'mean_hidden_L1.npy', 'mean_hidden_L2.npy', 'mean_hidden_L3.npy', 'mean_hidden_L4.npy', 'mean_hidden_L5.npy', 'mean_hidden_L6.npy', 'meta.json', 'pooled.npy']\ned head: agr 0.984 acc 0.917 F1 0.903\nbase recompute: agr 1.000 acc 0.925 F1 0.914\nmap lam10: agr 0.979 acc 0.918 F1 0.907\nmap lam100: agr 0.981 acc 0.920 F1 0.910\nmap lam1000: agr 0.983 acc 0.918 F1 0.909\nmap lam10000: agr 0.983 acc 0.918 F1 0.909\nlogit corr lam100: agr 0.981 acc 0.920 F1 0.910\nlogit corr lam1000: agr 0.983 acc 0.918 F1 0.909\nlogit corr lam10000: agr 0.983 acc 0.918 F1 0.909\n[run 38; 262 code runs left; 38 forward passes left]"
+ }
+]

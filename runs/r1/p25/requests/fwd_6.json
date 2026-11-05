@@ -1,0 +1,90 @@
+{
+ "request": {
+  "kind": "read",
+  "model": "edited",
+  "ids": [
+   "p0072",
+   "p0080",
+   "p0098",
+   "p0099",
+   "p0106",
+   "p0196",
+   "p0201",
+   "p0244",
+   "p0252",
+   "p0260",
+   "p0267",
+   "p0269",
+   "p0337",
+   "p0351",
+   "p0469",
+   "p0487",
+   "p0497",
+   "p0550",
+   "p0590",
+   "p0631",
+   "p0685",
+   "p0689",
+   "p0704",
+   "p0708",
+   "p0796",
+   "p0840",
+   "p0858",
+   "p0859",
+   "p0919",
+   "p0938",
+   "p0941",
+   "p0956"
+  ],
+  "outputs": [
+   "token_hidden"
+  ],
+  "layers": [
+   2
+  ]
+ },
+ "result": {
+  "kind": "read",
+  "model": "edited",
+  "n_texts": 32,
+  "layers": [
+   2
+  ],
+  "num_layers": 2,
+  "files": {
+   "meta": "pass_6/meta.json",
+   "token_hidden_L2": "pass_6/token_hidden_L2.npy",
+   "attention_mask": "pass_6/attention_mask.npy",
+   "tokens": "pass_6/tokens.json"
+  },
+  "shapes": {
+   "token_hidden_L2": [
+    32,
+    200,
+    768
+   ],
+   "attention_mask": [
+    32,
+    200
+   ]
+  },
+  "note": "Arrays are float32 .npy in the pass folder; row i corresponds to ids[i] in meta.json. Hidden layer index 0 is the embedding output, 2 is the last encoder layer of the edited model. cls_hidden is position 0 (the <s> token, which feeds the classification head). Attention arrays are [n, 12 heads, T, T] for encoder layers 1..2. meta.json has layer_map: edited-model layer index -> original layer id.",
+  "layer_map": {
+   "1": 0,
+   "2": 1
+  },
+  "structure": {
+   "layers": [
+    0,
+    1
+   ],
+   "intermediate_size": 3072,
+   "params": 53950468,
+   "reduction_vs_full": 0.3445,
+   "non_embedding_reduction_vs_full": 0.6575
+  },
+  "pass_index": 6,
+  "duration_s": 12.8,
+  "passes_left": 19
+ }
+}

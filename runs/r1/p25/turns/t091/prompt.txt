@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018PFXP6TDvfnhdYXYWZqHyn",
+  "content": "0.25 n 26 base acc 0.6923076923076923 second-correct 0.3076923076923077\n0.5 n 55 base acc 0.6181818181818182 second-correct 0.36363636363636365\n1.0 n 122 base acc 0.7049180327868853 second-correct 0.28688524590163933\nmargins of base errors [0.259  0.4169 1.1191 1.7971 3.2036]\n12 among marg<0.6: flips 14 of 68  P(flip) 0.20588235294117646\n   [(np.float64(0.42), np.int64(12)), (np.float64(0.33), np.int64(9)), (np.float64(0.1), np.int64(10)), (np.float64(0.2), np.int64(20)), (np.float64(0.06), np.int64(17)), (np.float64(0.02), np.int64(54))]\n  mean change of true-label logit (centered) -0.0212011  of base-pred logit -0.011510069\n17 among marg<0.6: flips 22 of 68  P(flip) 0.3235294117647059\n   [(np.float64(0.58), np.int64(12)), (np.float64(0.33), np.int64(9)), (np.float64(0.5), np.int64(10)), (np.float64(0.25), np.int64(20)), (np.float64(0.12), np.int64(17)), (np.float64(0.0), np.int64(54))]\n  mean change of true-label logit (centered) -0.013497677  of base-pred logit -0.0039890925\n[run 77; 223 code runs left; 8 forward passes left]"
+ }
+]

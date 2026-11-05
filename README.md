@@ -378,6 +378,111 @@ diff + the c1 diff + `structure.json` (`apply_edit.py --check`).
   range -0.46 to 0.93 on the practice set); predictions are unaffected but probabilities need a
   temperature fit before use as confidences.
 
+### r1 (2026-11-05): shrinking a third-party classifier for a reinsurance use case
+
+**Problem.** Reinsurers carry the climate exposure of the companies they reinsure (cedents) and of
+large corporate risks in treaty and facultative programs, and report on that exposure themselves
+(TCFD/ISSB, EU CSRD, NAIC climate survey). Underwriting and ESG teams read cedents' and insureds'
+annual and sustainability reports to find climate-related passages and sort them by TCFD pillar, to
+judge whether a counterparty's climate-risk management is substantive or "cheap talk". Over thousands
+of counterparties and hundreds of pages each, that is a CPU batch job over millions of paragraphs,
+preferably on-premises. ClimateBERT's TCFD classifier is the public model for the task. Question: given
+a vendor-trained model and its public training data, can weight editing deliver a cheaper deployable
+version at the same accuracy, with no training and a full audit trail? Same methodology, same rules,
+the harness in `wspr/` (above), one seed per setting, 25 and 50 passes, Opus 5.5, under `runs/r1/`.
+
+The conventional comparisons: naive single- and double-layer drops of the start model (no refit); the
+standard compression recipe (truncate the MLM base `distilroberta-base-climate-f` to k layers, new
+head, fine-tune on the 1,000 practice paragraphs, 3 ep / 2e-5 and 10 ep / 5e-5); the same starting
+from the fine-tuned task model (10 ep); and size-matched variants at the editors' shape.
+
+| model | passes used | turns | code runs | cost | layers / FFN | params | vs start | non-emb. | test acc | macro-F1 | gov. recall | target |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| start (ClimateBERT TCFD) | - | - | - | - | 6 / 3072 | 82.3M | - | - | 77.50% | 0.7096 | 0.731 | pass |
+| r1/p25 | 21/25 | 118 | 99 | $9.56 | 6 / 1792 | 70.5M | -14.3% | -27.4% | 77.81% | 0.7104 | 0.731 | pass |
+| **r1/p50** | 32/50 | 151 | 125 | $10.14 | **6 / 1536** | **68.1M** | **-17.2%** | **-32.9%** | **78.75%** | **0.7206** | 0.731 | **pass** |
+| naive drop layer 4 (no refit) | - | - | - | - | 5 / 3072 | 75.2M | -8.6% | -16.4% | 78.75% | 0.7023 | 0.731 | pass |
+| naive drop layer 1 (no refit) | - | - | - | - | 5 / 3072 | 75.2M | -8.6% | -16.4% | 76.56% | 0.6918 | 0.692 | pass |
+| naive drop layers 1 and 4 | - | - | - | - | 4 / 3072 | 68.1M | -17.2% | -32.9% | 77.19% | 0.6851 | 0.654 | fail (F1) |
+| every other naive drop (0, 2, 3 or 5; any other pair) | - | - | - | - | 5 or 4 / 3072 | | | | 61.6 to 76.6% | 0.19 to 0.68 | | fail |
+| truncate MLM base + fine-tune, 4 / 3 / 2 layers, 10 ep | - | - | - | local | 4, 3, 2 / 3072 | 68.1 / 61.0 / 54.0M | | | 74.4 / 73.8 / 72.2% | 0.675 / 0.660 / 0.665 | | fail |
+| truncate task model + fine-tune, 4 / 3 layers, 10 ep | - | - | - | local | 4, 3 / 3072 | 68.1 / 61.0M | | | 74.4 / 73.4% | 0.680 / 0.664 | | fail |
+| truncate MLM base + fine-tune, 4 / 3 / 2 layers, 3 ep | - | - | - | local | | | | | 68.1 / 64.7 / 61.6% | 0.46 / 0.39 / 0.19 | | fail |
+| **size-matched at p50's shape:** truncate task model, narrow FFN by magnitude, fine-tune 3 ep | - | - | - | local | 6 / 1536 | 68.1M | -17.2% | -32.9% | **75.62%** | 0.679 | 0.615 | fail |
+| size-matched: same, 10 ep / 5e-5 | - | - | - | local | 6 / 1536 | 68.1M | -17.2% | -32.9% | 75.00% | 0.679 | 0.654 | fail |
+| size-matched: from the MLM base, new head, 10 ep | - | - | - | local | 6 / 1536 | 68.1M | -17.2% | -32.9% | 72.19% | 0.641 | 0.615 | fail |
+
+CPU latency (Apple M-series, 4 threads, median ms per paragraph over 64 test paragraphs at the full
+512-token window, measured sequentially with nothing else running) and checkpoint size. Batch 16 is
+slower per paragraph than batch 1 here because paragraphs vary from 30 to 500 tokens and a batch pads
+to its longest member; a length-sorted batching loop would recover that in deployment.
+
+| model | params | MB | ms/paragraph, batch 1 | ms/paragraph, batch 16 |
+|---|---|---|---|---|
+| start (ClimateBERT TCFD) | 82.3M | 329 | 25.2 | 30.1 |
+| naive drop layer 4 | 75.2M | 301 | 21.0 | 25.3 |
+| r1/p25 (6 layers, FFN 1792) | 70.5M | 282 | 18.7 | 20.8 |
+| **r1/p50 (6 layers, FFN 1536)** | **68.1M** | **273** | **17.3** | **19.6** |
+| size-matched fine-tune, 6 / 1536 | 68.1M | 273 | 17.2 | 19.7 |
+
+Full table with every baseline: `runs/r1/compare.md`.
+
+Matrix cost $19.70 (plus $0.93 for a Sonnet smoke run). Both runs submitted on their own; no
+free-text forward-pass requests; no in-kernel forward passes. p50 had one lint rejection (a scipy
+root-finder for a calibration threshold, returned unrun and rewritten) and two self-authored-data
+flags (t49, t118) that are notes-file appends through triple-quoted strings. Both checkpoints
+rebuild bit-for-bit from the pinned Hub checkpoint + the edit diff + `structure.json`.
+
+**What each editor built**
+
+- **Both: keep every layer, narrow every feed-forward block, re-solve its output projection.** Both
+  runs measured that dropping any whole layer was much worse than narrowing (p25: agreement with the
+  original's predictions fell to 94 to 95.5% even with the head refit), which the naive-drop baselines
+  confirm: only layer 4 is free to drop, and no pair is. Both read the actual inputs of each FFN block
+  on practice paragraphs (token-level for the early layers; only the `<s>` position for layer 5,
+  since that is all the head reads), kept the units with the largest output-weight energy times
+  activation variance, and refit each block's `output.dense.weight` and bias by ridge regression so
+  the kept units reproduce the full block's output, dropped units included. Attention, LayerNorms,
+  input projections and the classifier head were left alone. Edits: 12 tensors in each run.
+- **p25 stopped at 1,792 units.** It judged 1,536 too risky: practice macro-F1 dropped 0.021, just
+  over the 0.02 allowance, and prediction changes on borderline paragraphs were 28% larger. It
+  estimated a 1-in-5 chance of missing the bar at 1,792 and landed above the start model on both
+  metrics.
+- **p50 went to 1,536 with a risk model.** It ranked layers 3 and 4's units by their effect after the
+  following LayerNorm, fit the later layers on inputs from the already-pruned model, and simulated
+  test sets by shrinking the original model's practice logits to a 77.5% accuracy and adding the
+  logit noise each pruned build actually showed at similar margins. Estimated failure chance 13 to
+  14% at 1,536 versus 7% at 2,048; it took the size. It also tried 1,024 units (sequential, layer by
+  layer), head refits, greedy unit selection and logit corrections, and kept none. Result: 78.75% and
+  0.7206, above the start model on both metrics and the best of every row in the table.
+
+**Observations**
+
+- **Weight editing beat every conventional option.** The strongest conventional result that holds
+  the bar is dropping layer 4 with no refit (75.2M). The standard recipe, truncate and fine-tune,
+  fails at every depth from either starting point: with 1,000 training paragraphs and a hard,
+  imbalanced task it cannot recover the accuracy it throws away. The editors reached 68.1M (p50) and
+  70.5M (p25) while improving accuracy and macro-F1 slightly.
+- **Narrowing, not depth, was the lever here.** On a 6-layer model each layer is a sixth of the
+  encoder, and both editors found every layer load-bearing. The feed-forward blocks were a third
+  redundant: a third of the encoder parameters went with no measurable loss once the output
+  projections were re-solved. The embeddings (47.6% of the model) are untouched by design, which
+  caps the total reduction; the non-embedding reduction is the number that tracks CPU compute.
+- **The practice set being the model's training data was not the problem it could have been.** The
+  start model scores only 92.5% on its own training data, so the editors' fits were not fitting
+  memorized labels, and both of their estimates were pessimistic rather than optimistic: p25
+  expected 1-in-5 odds of a miss and gained 0.3 points; p50 expected 13% odds and gained 1.25
+  points. That reverses the c1 pattern, where estimates ran optimistic.
+- **Small test set, honest margins.** 320 paragraphs, 26 of them governance: one paragraph is 0.31
+  accuracy points and one governance paragraph moves its recall by 3.8 points. Differences under a
+  point in this table are within noise. Both editor results are above the start model, which is the
+  reassuring reading; the ordering between them is not.
+- **Cheaper than c1.** The whole matrix cost $19.70 for two runs; the editors used 21 and 32 passes.
+  Paragraph inputs made every pass slower, but the runs still finished in 1 h 22 min and 1 h 37 min.
+- **Same calibration caveat as before**, plus a license caveat: the practice and test data are
+  CC BY-NC-SA 4.0 (research use), so a pruned model refit on them should not be deployed
+  commercially without the dataset authors' permission.
+
 ### Checkpoints on the Hugging Face Hub
 
 One public repo per run. Each loads with the stock `text-classification` pipeline; see the

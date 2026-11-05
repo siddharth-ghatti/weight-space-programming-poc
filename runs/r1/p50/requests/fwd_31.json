@@ -1,0 +1,83 @@
+{
+ "request": {
+  "kind": "predict",
+  "model": "edited",
+  "n": 1000
+ },
+ "result": {
+  "kind": "predict",
+  "n": 1000,
+  "models": {
+   "edited": {
+    "n": 1000,
+    "accuracy": 0.909,
+    "macro_f1": 0.8998450394146008,
+    "per_class_f1": {
+     "governance": 0.8840579710144928,
+     "risk": 0.8818443804034583,
+     "strategy": 0.9190809190809192,
+     "metrics": 0.914396887159533
+    },
+    "per_class_recall": {
+     "governance": 0.9838709677419355,
+     "risk": 0.9329268292682927,
+     "strategy": 0.8863198458574181,
+     "metrics": 0.9215686274509803
+    },
+    "confusion_matrix": [
+     [
+      61,
+      1,
+      0,
+      0
+     ],
+     [
+      6,
+      153,
+      5,
+      0
+     ],
+     [
+      9,
+      26,
+      460,
+      24
+     ],
+     [
+      0,
+      3,
+      17,
+      235
+     ]
+    ],
+    "confusion_labels": [
+     "governance",
+     "risk",
+     "strategy",
+     "metrics"
+    ]
+   }
+  },
+  "structure": {
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "intermediate_size": 1792,
+   "params": 70497796,
+   "reduction_vs_full": 0.1434,
+   "non_embedding_reduction_vs_full": 0.2737
+  },
+  "files": {
+   "predictions": "pass_31/predictions.json"
+  },
+  "note": "predictions.json has per-item id, gold, predicted label(s) and logits (texts are in practice.jsonl). Confusion matrix rows = gold, cols = predicted, in label order.",
+  "pass_index": 31,
+  "duration_s": 16.43,
+  "passes_left": 19
+ }
+}

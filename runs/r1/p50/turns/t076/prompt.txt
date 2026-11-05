@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01UAvaX7Bci2Vjf1Wj2hEM8a",
+  "content": "<class 'list'> {'id': 'p0864', 'gold': 'governance', 'pred_edited': 'governance', 'logits_edited': [3.8269, -1.2054, -0.8403, -2.2116]}\n[run 58; 242 code runs left; 25 forward passes left]"
+ }
+]

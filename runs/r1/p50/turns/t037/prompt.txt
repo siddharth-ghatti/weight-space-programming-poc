@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HMfakvf5iwx4GtTi12XBPE",
+  "content": "varying norm of pre-LN R at L5 CLS 24.187917448389474 full 29.961527350044715\n1024 lamNone: 0.326 lam0.01: 0.158 lam0.1: 0.149 lam1.0: 0.166\n1536 lamNone: 0.198 lam0.01: 0.110 lam0.1: 0.104 lam1.0: 0.111\n2048 lamNone: 0.099 lam0.01: 0.066 lam0.1: 0.063 lam1.0: 0.064\n2560 lamNone: 0.046 lam0.01: 0.029 lam0.1: 0.028 lam1.0: 0.028\n[run 26; 274 code runs left; 38 forward passes left]"
+ }
+]

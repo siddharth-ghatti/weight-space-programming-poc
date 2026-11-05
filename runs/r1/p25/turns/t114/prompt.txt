@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_018QuFKE9xfrxwFVAa1JL5e1",
+  "content": "structure: layers=[0, 1, 2, 3, 4, 5] m=1792 params=70,497,796 (85.7% of 82,301,956; 14.3% smaller; non-embedding 27.4% smaller)\n['roberta.encoder.layer.0.output.dense.bias', 'roberta.encoder.layer.0.output.dense.weight', 'roberta.encoder.layer.1.output.dense.bias', 'roberta.encoder.layer.1.output.dense.weight', 'roberta.encoder.layer.2.output.dense.bias', 'roberta.encoder.layer.2.output.dense.weight', 'roberta.encoder.layer.3.output.dense.bias', 'roberta.encoder.layer.3.output.dense.weight', 'roberta.encoder.layer.4.output.dense.bias', 'roberta.encoder.layer.4.output.dense.weight', 'roberta.encoder.layer.5.output.dense.bias', 'roberta.encoder.layer.5.output.dense.weight']\nL0-4 keep identical to C1792: True\npruned cols zero? 0.0\npred agree 0.981 acc 0.91 F1 0.9005603423221605\n[run 96; 204 code runs left; 5 forward passes left]"
+ }
+]

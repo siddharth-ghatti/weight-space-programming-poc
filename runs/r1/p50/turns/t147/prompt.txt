@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01SApnis6gk8Xu9wSTnNKkGD",
+  "content": "v1     dm rms by margin [<1, 1-2, >2]: [0.524 0.451 0.282]  overall 0.354\nv2     dm rms by margin [<1, 1-2, >2]: [0.513 0.437 0.278]  overall 0.346\nv3     dm rms by margin [<1, 1-2, >2]: [0.51  0.455 0.275]  overall 0.348\nm1792  dm rms by margin [<1, 1-2, >2]: [0.419 0.38  0.222]  overall 0.286\nm2048  dm rms by margin [<1, 1-2, >2]: [0.358 0.269 0.157]  overall 0.214\nlow-margin items: frac where |dm_v3|<|dm_v1|: 0.446  n 298\n[run 122; 178 code runs left; 19 forward passes left]"
+ }
+]

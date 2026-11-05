@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_013uavp1HKFDTzhBmGSeN9DD",
+  "content": "drop layer 1: heldout R2 identity 0.488 diag 0.658 full(l=1,10,100) [0.672 0.7   0.717]\ndrop layer 2: heldout R2 identity 0.464 diag 0.663 full(l=1,10,100) [0.695 0.713 0.722]\ndrop layer 3: heldout R2 identity 0.502 diag 0.663 full(l=1,10,100) [0.698 0.717 0.724]\ndrop layer 4: heldout R2 identity 0.279 diag 0.563 full(l=1,10,100) [0.678 0.695 0.704]\ndrop layer 5: heldout R2 identity -0.756 diag 0.332 full(l=1,10,100) [0.67  0.689 0.703]\n[run 10; 290 code runs left; 23 forward passes left]"
+ }
+]

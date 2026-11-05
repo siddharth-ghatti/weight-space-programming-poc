@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01XcAAvSVcFgME7hadBJU1Nj",
+  "content": "1 0.25 4167 test rel 0.1256\n1 0.5 7616 test rel 0.1123\n1 0.75 12663 test rel 0.1052\n1 1.0 16896 test rel 0.1022\n2 0.25 4124 test rel 0.0788\n2 0.5 8911 test rel 0.0659\n2 0.75 12533 test rel 0.0608\n2 1.0 16673 test rel 0.0587\n[run 78; 222 code runs left; 25 forward passes left]"
+ }
+]

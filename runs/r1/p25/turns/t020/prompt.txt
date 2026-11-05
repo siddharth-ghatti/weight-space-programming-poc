@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01JYvcF1JoBpsKyHYJTH3dur",
+  "content": "slope stats [0.408 0.739 0.989]\nstructure: layers=[0, 1, 2, 4, 5] m=3072 params=75,214,084 (91.4% of 82,301,956; 8.6% smaller; non-embedding 16.4% smaller)\n['roberta.encoder.layer.2.output.LayerNorm.bias', 'roberta.encoder.layer.2.output.LayerNorm.weight']\n[run 15; 285 code runs left; 22 forward passes left]"
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01QExam1Bbd4mHeMv3EgbaHB",
+  "content": "12 12\nparams structure: layers=[0, 1, 2, 3, 4, 5] m=2048 params=72,858,628 (88.5% of 82,301,956; 11.5% smaller; non-embedding 21.9% smaller)\n2048\n[run 113; 187 code runs left; 21 forward passes left]"
+ }
+]

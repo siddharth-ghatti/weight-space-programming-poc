@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017wvUyZgUbQC2KYwMuVLnYe",
+  "content": "D2 L2-4 pruned: agr 0.986 acc 0.917 F1 0.909\n mean|dl| 0.0697 rms 0.1037\nrms2: D1 0.0141 D2 0.0107 sum 0.0248 full 0.0291\ncorr d1,d2 0.1775294580798771 corr (d1+d2), full 0.9705350829883769\n[run 91; 209 code runs left; 22 forward passes left]"
+ }
+]

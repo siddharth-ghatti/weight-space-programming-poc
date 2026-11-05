@@ -1,6 +1,6 @@
 # Executive summary: building a classifier by editing model weights directly
 
-**Date:** 2026-11-04 · **Status:** proof of concept complete, including a compression follow-up · **Recommendation:** continue investment
+**Date:** 2026-11-04 · **Status:** proof of concept complete: classifier construction, compression, and a reinsurance transfer test · **Recommendation:** continue investment
 
 ## What we did
 
@@ -94,6 +94,65 @@ For deployment this changes the picture: a 56M-parameter encoder serves at a fra
 the 110M original on CPU, with no GPU, which puts per-sentence classification of whole policy
 documents within reach of commodity infrastructure. The production caveats below still apply.
 
+## Third experiment: a model we did not train, for a reinsurance use case
+
+The first two experiments used a classifier we built ourselves on synthetic data. The third asks the
+question a reinsurer actually faces: take a classifier somebody else trained and published, and make
+it cheap enough to run at portfolio scale without making it worse.
+
+**The problem.** Reinsurers carry the climate exposure of the companies they reinsure and of the
+large corporate risks in their treaty and facultative programs, and they must report on that
+exposure themselves (TCFD/ISSB alignment, EU CSRD, the NAIC climate risk disclosure survey).
+Underwriting and ESG teams read cedents' and insureds' annual and sustainability reports to find
+climate-related passages and sort them into the four TCFD pillars (governance, strategy, risk
+management, metrics and targets), to judge whether a counterparty's climate-risk management is
+substantive or "cheap talk". Across thousands of counterparties and hundreds of pages each, every
+renewal season, this is a CPU batch job over millions of paragraphs, preferably run on-premises for
+confidentiality. ClimateBERT's TCFD classifier, published by researchers at the University of Zurich,
+is the public model for exactly this task: 82 million parameters, released with its training data.
+
+**What we did.** We pointed the same editor at that model with the same rules: no training, only
+layer removal and feed-forward narrowing, a budget of 25 or 50 forward passes, and only the model's
+own public training paragraphs to work from. The bar: stay within 1 accuracy point and 0.02 macro-F1
+of the published model on its held-out test paragraphs (the F1 condition protects the smallest
+class, governance, which has 26 test paragraphs). We measured the published model at 77.5% accuracy
+on that test set; its authors report no figure.
+
+| Method | Size | Reduction (total / outside embeddings) | Test accuracy | Macro-F1 | Meets bar | Cost |
+|---|---|---|---|---|---|---|
+| Published model (ClimateBERT TCFD) | 82.3M | - | 77.5% | 0.710 | yes | - |
+| Weight editing, 25 forward passes | 70.5M | 14% / 27% | 77.8% | 0.710 | yes | $9.56 |
+| **Weight editing, 50 forward passes** | **68.1M** | **17% / 33%** | **78.8%** | **0.721** | **yes** | **$10.14** |
+| Best conventional that passes: drop one layer, no retraining | 75.2M | 9% / 16% | 78.8% | 0.702 | yes | - |
+| Conventional: drop two layers, no retraining (best pair) | 68.1M | 17% / 33% | 77.2% | 0.685 | no | - |
+| Conventional: keep 4 layers and fine-tune (best of 4 recipes) | 68.1M | 17% / 33% | 74.4% | 0.680 | no | local GPU |
+| Conventional at the editor's exact shape: narrow every layer by magnitude, fine-tune (best of 3 recipes) | 68.1M | 17% / 33% | 75.6% | 0.679 | no | local GPU |
+
+Key points:
+
+- **It works on a model we did not build.** Both runs produced a smaller model that is slightly
+  *better* than the published one on its own test set. The 50-pass run removed a third of the
+  encoder's parameters (17% of the whole model, since the vocabulary table, which we chose to keep
+  intact, is almost half of it).
+- **Conventional compression could not hold the bar.** Retraining a truncated model on the 1,000
+  available training paragraphs fails at every depth, from either starting point. The only
+  conventional option that passes is dropping a single layer without retraining, and the editors
+  beat it by 5 to 7 million parameters while scoring higher.
+- **The editor explains what it did.** Both runs kept every layer, found a third of each
+  feed-forward block redundant, and re-solved the remaining weights in closed form so the kept units
+  reproduce what the dropped ones contributed. The 50-pass editor also built a risk model of its own
+  and chose the size with the best expected payoff; its 13% estimated chance of a miss turned out
+  pessimistic.
+- **It is cheap.** Two runs, $19.70 in API calls, under 1 h 40 min each on a laptop, no GPU
+  training. On a laptop CPU the 50-pass model classifies a paragraph in 17.3 ms against 25.2 ms for the
+  published model, about 1.5 times faster, with a checkpoint of 273 MB instead of 329 MB.
+- **Small test set.** 320 paragraphs; one paragraph is 0.3 accuracy points. The published model's
+  77.5% and the editors' 77.8% and 78.8% are within noise of each other, which is the point: the
+  compressed models did not get worse. One seed per setting, as before.
+- **License.** The ClimateBERT training and test data are released for research use only
+  (CC BY-NC-SA 4.0). A pruned model refit on that data is a research artifact; commercial deployment
+  would need the dataset authors' permission or a refit on licensed data.
+
 ## What we learned
 
 - **The editor uses the pretrained model intelligently.** Rather than retraining, the editors
@@ -121,6 +180,9 @@ documents within reach of commodity infrastructure. The production caveats below
   Harder, real-world data and more observation are the obvious next experiments.
 - **It compresses too:** the same method, pointed at size instead of accuracy, halved the model while
   holding the accuracy bar, where the standard compression recipe at that size fell short.
+- **It transfers to models we did not train:** pointed at a published climate-disclosure classifier with
+  only its public training data, it cut a third of the encoder and scored slightly higher, where retraining
+  a truncated model failed at every depth.
 
 ## Caveats
 

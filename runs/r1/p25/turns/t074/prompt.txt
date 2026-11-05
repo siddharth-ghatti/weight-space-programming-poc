@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01AJt8yvuaFW4ZfUYrzj6iDs",
+  "content": "var range 0.9999897136155308 0.9999902440191168 10268 diff vs pass15 0.4497991513666236\n1 {(False, 1536, 100): np.float64(0.1324), (False, 1792, 100): np.float64(0.094), (False, 2048, 100): np.float64(0.0629), (True, 1536, 100): np.float64(0.1159), (True, 1792, 100): np.float64(0.082), (True, 2048, 100): np.float64(0.054)}\n2 {(False, 1536, 100): np.float64(0.0683), (False, 1792, 100): np.float64(0.0497), (False, 2048, 100): np.float64(0.0353), (True, 1536, 100): np.float64(0.0595), (True, 1792, 100): np.float64(0.0431), (True, 2048, 100): np.float64(0.0294)}\n[run 60; 240 code runs left; 9 forward passes left]"
+ }
+]

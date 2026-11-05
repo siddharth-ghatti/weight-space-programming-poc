@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "exec(open('common.py').read())\nlg = np.load('pass_12/logits.npy')\nmeta = json.load(open('pass_12/meta.json'))\nids = json.load(open('all_ids.json'))\nprint(meta.get('ids',[])[:3], ids[:3], len(ids))\nreport('m2048', lg)\n# margin of base\ns = np.sort(BL,1); marg = s[:,-1]-s[:,-2]\np = lg.argmax(1); flip = p!=bp\nprint('flips', flip.sum(), 'base margins of flips', np.round(marg[flip],2))\nprint('mean|dm|', np.abs((lg-BL)).mean())\nfor d in sorted(os.listdir('.')):\n    if d.startswith('pass_') and os.path.exists(d+'/meta.json'):\n        m=json.load(open(d+'/meta.json')); print(d, m.get('kind'), m.get('model'), m.get('structure',{}).get('layers'), m.get('structure',{}).get('intermediate_size'), len(m.get('ids',[])))"
+}
+```
+

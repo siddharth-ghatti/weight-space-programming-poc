@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01S5peuo63cjdsftLFGeP2nk",
+  "content": "<class 'list'> 32 ['<s>', 'We', '\u0120have', '\u0120a', '\u0120climate'] ['strategies', '.', '</s>']\n[  32   32 3987]\nL0 CLS: ||mean-tokmean|| 24.7 vs tok spread 14.7; proj sep: max other 298.3, min CLS 747.6, within-CLS spread 1.27\nL0 </s>: ||mean-tokmean|| 14.2 vs tok spread 14.7; proj sep: max other 235.9, min </s> 280.6, within-</s> spread 7.29\nL1 CLS: ||mean-tokmean|| 17.9 vs tok spread 14.7; proj sep: max other 222.2, min CLS 441.5, within-CLS spread 0.75\nL1 </s>: ||mean-tokmean|| 12.9 vs tok spread 14.7; proj sep: max other 190.7, min </s> 232.1, within-</s> spread 5.69\nL2 CLS: ||mean-tokmean|| 16.5 vs tok spread 14.6; proj sep: max other 257.2, min CLS 370.1, within-CLS spread 1.13\nL2 </s>: ||mean-tokmean|| 12.9 vs tok spread 14.6; proj sep: max other 193.9, min </s> 222.5, within-</s> spread 5.31\nL3 CLS: ||mean-tokmean|| 15.2 vs tok spread 13.1; proj sep: max other 215.0, min CLS 289.1, within-CLS spread 2.04\nL3 </s>: ||mean-tokmean|| 11.8 vs tok spread 13.1; proj sep: max other 142.4, min </s> 150.9, within-</s> spread 5.93\nL4 CLS: ||mean-tokmean|| 13.9 vs tok spread 14.1; proj sep: max other 242.2, min CLS 246.0, within-CLS spread 5.78\nL4 </s>: ||mean-tokmean|| 11.0 vs tok spread 14.1; proj sep: max other 140.6, min </s> 132.4, within-</s> spread 8.46\n[run 30; 270 code runs left; 14 forward passes left]"
+ }
+]

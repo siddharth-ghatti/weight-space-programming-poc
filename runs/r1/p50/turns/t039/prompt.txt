@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01MkT8kpMtKBxtiS9Ej6in2W",
+  "content": "L1 ntr_paras=8 tokens=1155 meancomp 0.220 LS 0.215\nL1 ntr_paras=16 tokens=2424 meancomp 0.190 LS 0.179\nL1 ntr_paras=24 tokens=3781 meancomp 0.178 LS 0.164\nL2 ntr_paras=8 tokens=1155 meancomp 0.185 LS 0.179\nL2 ntr_paras=16 tokens=2424 meancomp 0.164 LS 0.152\nL2 ntr_paras=24 tokens=3781 meancomp 0.152 LS 0.137\n[run 28; 272 code runs left; 38 forward passes left]"
+ }
+]

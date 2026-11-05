@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01HnmhTfq2HYxrnoykw2wTxy",
+  "content": "std lam1: agr 0.963 acc 0.892 F1 0.880\nstd lam0.1: agr 0.963 acc 0.890 F1 0.878\nstd lam0.01: agr 0.965 acc 0.892 F1 0.880\ncorr CV lam10: agr 0.965 acc 0.894 F1 0.882\ncorr CV lam3: agr 0.964 acc 0.895 F1 0.883\ncorr CV lam1: agr 0.960 acc 0.891 F1 0.879\ncorr CV lam0.3: agr 0.956 acc 0.891 F1 0.879\ncorr CV lam0.1: agr 0.955 acc 0.892 F1 0.880\n[run 52; 248 code runs left; 26 forward passes left]"
+ }
+]

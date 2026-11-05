@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01DmV1Jb8iEbNL7sKaQkPvLP",
+  "content": "mean 101.786 top32 10268 next32 6345 next32 5465 4906\n[512 381 279 239 222 205 194 188 182 174 171 166 161 158 153 149 144]\nprobe ids overlap top128 17\n[run 35; 265 code runs left; 38 forward passes left]"
+ }
+]

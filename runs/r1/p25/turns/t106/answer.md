@@ -1,0 +1,18 @@
+## reasoning summary
+
+Offline results reproduce exactly, so I'm now moving on to evaluate the L5 options on a5e_1792. I'll use an honest held-out split that leaves out the 64 ids.
+
+
+
+## message
+
+The offline computation reproduces pass 18's logits to within 1e-5. So I can now score L5 variants exactly on this upstream without spending passes.
+
+## tool_use: run_python
+
+```json
+{
+ "code": "\nimport sys; sys.path.insert(0,str(WORK))\nimport numpy as np, json\nfrom lsbuild import gelu, layer_data, build_l5_mixed\nfrom evalh import Lb, lab1, f1\ndef LN(x,g,b): mu=x.mean(1,keepdims=True); v=x.var(1,keepdims=True); return (x-mu)/np.sqrt(v+1e-5)*g+b\npre='roberta.encoder.layer.5.'\nab,W1,b1,U,b2=layer_data(5,base)\ng2=base(pre+'output.LayerNorm.weight').astype(np.float64); bb=base(pre+'output.LayerNorm.bias').astype(np.float64)\nD=base('classifier.dense.weight').astype(np.float64); bd=base('classifier.dense.bias'); O=base('classifier.out_proj.weight'); bo=base('classifier.out_proj.bias')\nhead=lambda h: np.tanh(h@D.T+bd)@O.T+bo\nae=np.load('a5e_1792.npy').astype(np.float64); ae6=np.load('a5e_1536.npy').astype(np.float64)\nGb=gelu(ab@W1.T+b1); Ge=gelu(ae@W1.T+b1); Ge6=gelu(ae6@W1.T+b1); xb=ab+Gb@U.T+b2\n# ids used in token LS fits\np2=json.load(open('pass_2/meta.json'))['ids']; p3=json.load(open('probe2_ids.json'))\nused=set(p2)|set(p3 if isinstance(p3,list) else p3['ids']); \nids=[f\"p{i:04d}\" for i in range(1000)]; hold=np.array([i not in used for i in ids]); print('holdout n',hold.sum())\npb=Lb.argmax(1); srt=np.sort(Lb,1); marg=srt[:,-1]-srt[:,-2]; i2=np.argsort(Lb,1)[:,-2]\ndef rep(name,h):\n    L=head(h); pe=L.argmax(1); fl=pe!=pb\n    dm=(L[np.arange(1000),pb]-L[np.arange(1000),i2])-marg\n    print('%-28s agree %.3f (hold %.4f) flips %d R->W %d acc %.3f F1 %.4f dm std %.3f low %.3f'%(name,(~fl).mean(),(~fl)[hold].mean(),fl.sum(),(fl&(pb==lab1)).sum(),(pe==lab1).mean(),f1(pe,lab1),dm.std(),dm[marg<1].std()))\nrep('full FFN', LN(ae+Ge@U.T+b2,g2,bb))\nfolds=np.load('folds.npy')\ndef fit(Xs,Ts,m,lam):\n    X=np.vstack(Xs);T=np.vstack(Ts)\n    mu=X.mean(0); tm=T.mean(0); Xc=X-mu\n    sc=(U**2).sum(0)*(Xc**2).sum(0); keep=np.sort(np.argsort(-sc)[:m])\n    Xk=Xc[:,keep]; R=(T-tm)-Xk@U[:,keep].T\n    Dd=np.linalg.solve(Xk.T@Xk+lam*np.eye(m),Xk.T@R).T\n    Un=U[:,keep]+Dd; return keep,Un,tm-Un@mu[keep]\nfor m in [1536,1792]:\n    for lam in [3,10,30]:\n        keep,Un,b2n=fit([Gb],[xb-ab],m,lam)   # base-only uses no edited data -> honest on ae\n        rep(f'base-only m{m} lam{lam}', LN(ae+Ge[:,keep]@Un.T+b2n,g2,bb))\n    # mixed with a5e_1536 / a5e_1792, CV by item folds\n    for src,GE,AE in [('mix1536',Ge6,ae6),('mix1792',Ge,ae)]:\n        H=np.zeros_like(xb)\n        for f in range(10):\n            tr=folds!=f; te=folds==f\n            keep,Un,b2n=fit([Gb[tr],GE[tr]],[xb[tr]-ab[tr],xb[tr]-AE[tr]],m,30)\n            H[te]=LN(ae[te]+Ge[te][:,keep]@Un.T+b2n,g2,bb)\n        rep(f'{src} CV m{m} lam30',H)\n"
+}
+```
+

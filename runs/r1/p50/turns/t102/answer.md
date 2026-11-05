@@ -1,0 +1,8 @@
+## tool_use: run_python
+
+```json
+{
+ "code": "exec(open('common.py').read())\nids=json.load(open('all_ids.json')); idx={i:k for k,i in enumerate(ids)}\ndef load_pred(p):\n    lg=np.zeros((1000,4))\n    for r in json.load(open(p)): lg[idx[r['id']]]=r['logits_edited']\n    return lg\nlg26=load_pred('pass_26/predictions.json'); np.save('lg_pass26.npy',lg26)\nlg25=np.load('lg_pass25.npy')\nfor n,l in [('v1',lg25),('v2',lg26)]:\n    report(n,l); print('  mean|dl| %.4f  rms %.4f'%(np.abs(l-BL).mean(), np.sqrt(((l-BL)**2).mean())))\nprint('v1 vs v2 pred agreement', (lg25.argmax(1)==lg26.argmax(1)).mean())\n"
+}
+```
+

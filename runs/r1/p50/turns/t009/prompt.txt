@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_012C4Ff94Km1C6Lm4v21jaZW",
+  "content": "drop4 orig head: agr 0.933 acc 0.889 F1 0.882\ndrop4 out_proj refit pooled lam1: agr 0.955 acc 0.903 F1 0.897\ndrop4 out_proj refit pooled lam10: agr 0.951 acc 0.897 F1 0.892\ndrop4 out_proj refit pooled lam100: agr 0.945 acc 0.895 F1 0.889\ndrop4 out_proj refit pooled lam1000: agr 0.894 acc 0.875 F1 0.869\ndrop4 ridge cls lam10: agr 0.955 acc 0.905 F1 0.900\ndrop4 ridge cls lam100: agr 0.956 acc 0.902 F1 0.895\ndrop4 ridge cls lam1000: agr 0.947 acc 0.901 F1 0.897\nrel err cls 0.87916946\n[run 6; 294 code runs left; 47 forward passes left]"
+ }
+]

@@ -1,0 +1,2 @@
+{"citations": null, "text": "Now I'll evaluate m2048 v2 on all 1000 practice items (1 pass) to measure its logit noise compared with base.", "type": "text"}
+{"id": "toolu_01RLtEkcYBrYmWJR6KwdfJn4", "caller": {"type": "direct"}, "input": {"kind": "predict", "model": "edited", "n": 1000}, "name": "forward_pass", "type": "tool_use", "toolset_name": null}

@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01U4hTFJzWxxRL8c13hG35VQ",
+  "content": "pass_12\norig head: acc 0.916 mf1 0.904 agree 0.985 low-agree 0.940 logitR2 0.996\n  refit lam300: acc 0.917 mf1 0.905 agree 0.986 low-agree 0.944 R2 0.996\n  pert median 0.147 p90 0.436  L6 cls R2 0.9791  L5 mean R2 0.9696\n  flips (base->new): Counter({(2, 1): 5, (2, 3): 3, (1, 2): 3, (2, 0): 2, (3, 2): 1, (3, 1): 1})\npass_17\norig head: acc 0.908 mf1 0.897 agree 0.978 low-agree 0.912 logitR2 0.995\n  refit lam300: acc 0.913 mf1 0.903 agree 0.981 low-agree 0.924 R2 0.994\n  pert median 0.176 p90 0.482  L6 cls R2 0.9769  L5 mean R2 0.9398\n  flips (base->new): Counter({(3, 2): 6, (2, 1): 5, (1, 2): 4, (2, 3): 4, (2, 0): 2, (3, 1): 1})\n[run 64; 236 code runs left; 8 forward passes left]"
+ }
+]

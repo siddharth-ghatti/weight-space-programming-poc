@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_01GfNxd8HEYXmsehSWne2avb",
+  "content": "orig head: acc 0.852 mf1 0.838 agree 0.917 low-margin agree 0.752  logit R2 0.898\n  edited L1 vs base L1 cls: R2 -50.522  edited L1 vs base L1 mean: R2 0.336\n  edited L2 vs base L2 cls: R2 -108.691  edited L2 vs base L2 mean: R2 -0.276\n  edited L3 vs base L3 cls: R2 -54.962  edited L3 vs base L3 mean: R2 -0.870\n  edited L4 vs base L4 cls: R2 -4.975  edited L4 vs base L4 mean: R2 -0.190\n  edited L5 vs base L5 cls: R2 -0.190  edited L5 vs base L5 mean: R2 0.292\n  edited L6 vs base L6 cls: R2 0.453  edited L6 vs base L6 mean: R2 0.459\nrefit->base logits 30 agree 0.930 acc 0.873 mf1 0.859 low-agree 0.748\nrefit->base logits 100 agree 0.926 acc 0.867 mf1 0.851 low-agree 0.732\nrefit->base logits 300 agree 0.926 acc 0.866 mf1 0.851 low-agree 0.740\n[run 12; 288 code runs left; 22 forward passes left]"
+ }
+]

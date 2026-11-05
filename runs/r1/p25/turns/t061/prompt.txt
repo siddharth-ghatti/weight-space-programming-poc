@@ -1,0 +1,7 @@
+[
+ {
+  "type": "tool_result",
+  "tool_use_id": "toolu_017yPD9vu3XLfU9JaFr77JjV",
+  "content": "pass_11 logit diff std [0.431 0.346 0.42  0.494]  pairwise pert median 0.727 p90 1.842\npass_12 logit diff std [0.116 0.107 0.114 0.136]  pairwise pert median 0.147 p90 0.436\nmargin percentiles [0.45 0.85 1.75 2.83]\n0 1 122 0.705\n1 2 176 0.881\n2 4 561 0.97\n4 8 141 0.993\n8 100 0\n[run 50; 250 code runs left; 13 forward passes left]"
+ }
+]
