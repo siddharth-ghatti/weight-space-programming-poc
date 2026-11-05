@@ -48,6 +48,7 @@ uv run python scripts/reins/run_baselines.py --suite                    # naive 
 uv run python scripts/reins/run.py --name r1/p50 --passes 50            # real runs: r1/p25, r1/p50 (auto evaluate + audit)
 uv run python scripts/reins/apply_edit.py runs/r1/p50/edit --out /tmp/rebuilt --check runs/r1/p50/model
 uv run python scripts/reins/compare_runs.py                             # runs/r1/compare.md
+uv run python scripts/reins/push_hf.py runs/r1/p50/model --repo <user>/<name>   # push an r1 checkpoint (RoBERTa tokenizer files)
 ```
 
 ## How it works
@@ -486,11 +487,14 @@ rebuild bit-for-bit from the pinned Hub checkpoint + the edit diff + `structure.
 ### Checkpoints on the Hugging Face Hub
 
 One public repo per run. Each loads with the stock `text-classification` pipeline; see the
-calibration note above. The pruned c1 checkpoint additionally met its accuracy bar by only 0.12
+calibration note above. The r1 checkpoints classify climate-disclosure paragraphs (ClimateBERT's
+task, not the insurance task) and are research-use artifacts because their data is non-commercial. The pruned c1 checkpoint additionally met its accuracy bar by only 0.12
 points on one seed and stores practice sentences as kernel anchors; its model card lists the caveats.
 
 | checkpoint | setting | test acc |
 |---|---|---|
+| [wsp-climatebert-tcfd-r1-p50](https://huggingface.co/sidman007/wsp-climatebert-tcfd-r1-p50) | **r1: pruned ClimateBERT TCFD classifier, 6 layers / FFN 1536, 68.1M params (-17.2%)**, 50 passes; research use (data CC BY-NC-SA) | 78.8% / F1 0.721 |
+| [wsp-climatebert-tcfd-r1-p25](https://huggingface.co/sidman007/wsp-climatebert-tcfd-r1-p25) | r1: pruned ClimateBERT TCFD classifier, 6 layers / FFN 1792, 70.5M params (-14.3%), 25 passes; research use | 77.8% / F1 0.710 |
 | [wsp-bert-insurance-c1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-c1-p50) | **pruned: 8 layers / FFN 1024, 56.0M params (-48.9%)**, 50 passes | 97.9% |
 | [wsp-bert-insurance-v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50) | v1, 50 passes (best) | 98.3% |
 | [wsp-bert-insurance-v1-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p25) | v1, 25 passes | 98.2% |

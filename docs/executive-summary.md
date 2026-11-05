@@ -249,9 +249,13 @@ Code, logs, data and this write-up: https://github.com/siddharth-ghatti/weight-s
 Checkpoints on the Hugging Face Hub (standard `BertForSequenceClassification`, load with the stock
 `text-classification` pipeline). All carry the calibration caveat above. The compressed checkpoint
 cleared its 97.8% bar by 0.12 points on a single seed and should be re-validated before any use.
+The two reinsurance checkpoints are built on research-licensed data (CC BY-NC-SA 4.0) and are not for
+commercial deployment as they stand.
 
 | checkpoint | setting | held-out accuracy |
 |---|---|---|
+| [wsp-climatebert-tcfd-r1-p50](https://huggingface.co/sidman007/wsp-climatebert-tcfd-r1-p50) | **reinsurance experiment: pruned ClimateBERT TCFD classifier, 68.1M parameters (17% smaller)**, 50 passes; research use | 78.8% (published model: 77.5%) |
+| [wsp-climatebert-tcfd-r1-p25](https://huggingface.co/sidman007/wsp-climatebert-tcfd-r1-p25) | reinsurance experiment, 70.5M parameters (14% smaller), 25 passes; research use | 77.8% |
 | [wsp-bert-insurance-c1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-c1-p50) | **compressed: 56.0M parameters (49% smaller)**, 50 passes | 97.9% |
 | [wsp-bert-insurance-v1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p50) | v1, 50 passes (best) | 98.3% |
 | [wsp-bert-insurance-v1-p25](https://huggingface.co/sidman007/wsp-bert-insurance-v1-p25) | v1, 25 passes | 98.2% |
