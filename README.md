@@ -8,6 +8,7 @@ forward-pass budget. This replicates the setup of
 style, on a new task.
 
 An executive summary for non-technical readers is in `docs/executive-summary.md`.
+A two-page executive memo on the feasibility of the pruning method (experiments c1 and r1) is in `docs/exec-memo-model-pruning.md`.
 
 ## Setup
 

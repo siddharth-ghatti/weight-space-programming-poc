@@ -273,6 +273,7 @@ commercial deployment as they stand.
 ## Where things are in the repository
 
 - Code and harness: `README.md` has the full protocol and per-run technical detail.
+- Executive memo on the pruning method alone (feasibility, both compression experiments): `docs/exec-memo-model-pruning.md`.
 - Per-run logs, edits, explanations and scores: `runs/v0/` (first round) and `runs/v1/` (second round).
 - Comparison table across all runs: `runs/compare.md`.
 - Pruning experiment: harness in `wspc/`, runs and logs in `runs/c1/`, conventional compression
