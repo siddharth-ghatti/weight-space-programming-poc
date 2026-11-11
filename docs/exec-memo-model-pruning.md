@@ -63,15 +63,19 @@ Three findings carry the weight:
    the editor chose, the conventional truncate-and-retrain recipe missed the bar by 0.8 points in
    experiment 1 and by 2 to 3 points in experiment 2. In experiment 2, retraining failed at every
    depth we tried, from either starting point, because 1,000 paragraphs is not enough data to
-   retrain a truncated model. The editor did not need to retrain; it kept every layer, identified
-   the redundant third of each feed-forward block from activation statistics, and re-solved the
+   retrain a truncated model. The editor did not need to retrain. In experiment 2 it kept all six
+   layers, cut the feed-forward width of each by 42% (25 passes) or 50% (50 passes) using
+   activation statistics, which removed 28% and 33% of the encoder's parameters, and re-solved the
    remaining weights so they reproduce what the removed units contributed.
 2. **The compressed model is not worse at the task.** Experiment 2 is the cleaner test because the
    test set is the published model's own: the edited model scored slightly higher than the original
    (within noise on 320 paragraphs, which is the point). In experiment 1, accuracy dropped 0.4
    points for a 49% reduction.
-3. **Budget buys result.** With 10 or 25 forward passes the editor took a safe 13% cut and stopped.
-   With 50 passes it rebuilt every layer and reached 49%. The 50-pass runs cost $10 to $19 each.
+3. **Budget buys result.** With 10 or 25 forward passes the editor dropped 2 of 12 layers (a 13%
+   cut of the whole model, 17% of the encoder) and stopped. With 50 passes it dropped 4 of 12 layers,
+   narrowed the feed-forward width of the remaining eight from 3072 to 1024 (a two-thirds cut), and
+   re-fitted them, reaching 49% of the whole model and 63% of the encoder. The 50-pass runs cost
+   $10 to $19 each.
 
 ## Why this is usable, not just interesting
 
