@@ -14,3 +14,5 @@ runs/_baselines/*/trainer/
 .DS_Store
 runs/_baselines/*/*/model/
 runs/_baselines/*/*/trainer/
+runs/d1/*/edit/*.npz
+runs/d1/*/teacher/*.npz

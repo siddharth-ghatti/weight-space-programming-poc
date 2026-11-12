@@ -1,0 +1,44 @@
+reader qwen3.5-0.8b on mps torch.float16, 752M params; train 1456 val 40 test 1779; spelling {'used': 'space', 'mass': {'space': 0.8292590379714966}}
+unedited: test scored acc 0.5795 agree 0.580 gap 1.288 mass 0.83 | teacher acc 0.9882 | wiki ppl 28.75 ARC 0.685 capitals 1.00
+layer sweep on 256 training rows:
+  [layer 17, 256 cols, lambda 1.0] round 1: dose 0.5 refused [1.0, 1.5, 2.0], val gap 0.923, agree 0.725, acc 0.700, guard KL 0.0100, unseen text KL 0.0072, capitals 1.00
+  [layer 17, 256 cols, lambda 1.0] round 2: dose 0.0 refused [0.5, 1.0, 1.5, 2.0], val gap 0.923, agree 0.725, acc 0.700, guard KL 0.0100, unseen text KL 0.0072, capitals 1.00
+  -> layer 17 width 256 lambda 1.0: kept round 1, agree 0.725, gap 0.923 (377s)
+  [layer 19, 256 cols, lambda 1.0] round 1: dose 1.0 refused [2.0], val gap 0.831, agree 0.775, acc 0.750, guard KL 0.0131, unseen text KL 0.0135, capitals 1.00
+  [layer 19, 256 cols, lambda 1.0] round 2: dose 0.0 refused [1.0, 1.5, 2.0], val gap 0.831, agree 0.775, acc 0.750, guard KL 0.0131, unseen text KL 0.0135, capitals 1.00
+  -> layer 19 width 256 lambda 1.0: kept round 1, agree 0.775, gap 0.831 (384s)
+  [layer 21, 256 cols, lambda 1.0] round 1: dose 1.0 refused [1.5, 2.0], val gap 0.819, agree 0.775, acc 0.750, guard KL 0.0149, unseen text KL 0.0115, capitals 1.00
+  [layer 21, 256 cols, lambda 1.0] round 2: dose 0.0 refused [0.5, 1.0, 1.5, 2.0], val gap 0.819, agree 0.775, acc 0.750, guard KL 0.0149, unseen text KL 0.0115, capitals 1.00
+  -> layer 21 width 256 lambda 1.0: kept round 1, agree 0.775, gap 0.819 (394s)
+  [layer 23, 256 cols, lambda 1.0] round 1: dose 0.5 refused [1.0, 1.5, 2.0], val gap 0.928, agree 0.750, acc 0.725, guard KL 0.0102, unseen text KL 0.0096, capitals 1.00
+  [layer 23, 256 cols, lambda 1.0] round 2: dose 0.0 refused [0.5, 1.0, 1.5, 2.0], val gap 0.928, agree 0.750, acc 0.725, guard KL 0.0102, unseen text KL 0.0096, capitals 1.00
+  -> layer 23 width 256 lambda 1.0: kept round 1, agree 0.750, gap 0.928 (404s)
+layer 21 chosen (highest agreement on the kept-back rows, gap as tie-break)
+width x lambda grid:
+  [layer 21, 256 cols, lambda 0.3] round 1: dose 0.5 refused [1.0, 1.5, 2.0], val gap 0.896, agree 0.725, acc 0.700, guard KL 0.0108, unseen text KL 0.0085, capitals 1.00
+  [layer 21, 256 cols, lambda 0.3] round 2: dose 0.0 refused [0.5, 1.0, 1.5, 2.0], val gap 0.896, agree 0.725, acc 0.700, guard KL 0.0108, unseen text KL 0.0085, capitals 1.00
+  -> layer 21 width 256 lambda 0.3: kept round 1, agree 0.725, gap 0.896 (305s)
+  [layer 21, 256 cols, lambda 3.0] round 1: dose 1.0, val gap 0.910, agree 0.750, acc 0.725, guard KL 0.0049, unseen text KL 0.0040, capitals 1.00
+  [layer 21, 256 cols, lambda 3.0] round 2: dose 0.0 refused [1.5, 2.0], val gap 0.910, agree 0.750, acc 0.725, guard KL 0.0049, unseen text KL 0.0040, capitals 1.00
+  -> layer 21 width 256 lambda 3.0: kept round 1, agree 0.750, gap 0.910 (304s)
+  [layer 21, 512 cols, lambda 1.0] round 1: dose 1.0 refused [1.5, 2.0], val gap 0.710, agree 0.775, acc 0.750, guard KL 0.0137, unseen text KL 0.0197, capitals 1.00
+  [layer 21, 512 cols, lambda 1.0] round 2: dose 0.5 refused [1.0, 1.5, 2.0], val gap 0.673, agree 0.800, acc 0.775, guard KL 0.0285, unseen text KL 0.0574, capitals 0.98
+  -> layer 21 width 512 lambda 1.0: kept round 2, agree 0.800, gap 0.673 (304s)
+  [layer 21, 1024 cols, lambda 0.3] round 1: dose 0.5 refused [1.0, 1.5, 2.0], val gap 0.769, agree 0.750, acc 0.725, guard KL 0.0080, unseen text KL 0.0157, capitals 1.00
+  [layer 21, 1024 cols, lambda 0.3] round 2: dose 0.0 refused [0.5, 1.0, 1.5, 2.0], val gap 0.769, agree 0.750, acc 0.725, guard KL 0.0080, unseen text KL 0.0157, capitals 1.00
+  -> layer 21 width 1024 lambda 0.3: kept round 1, agree 0.750, gap 0.769 (306s)
+  [layer 21, 1024 cols, lambda 1.0] round 1: dose 1.0 refused [1.5, 2.0], val gap 0.603, agree 0.850, acc 0.825, guard KL 0.0183, unseen text KL 0.0343, capitals 1.00
+  [layer 21, 1024 cols, lambda 1.0] round 2: dose 0.0 refused [0.5, 1.0, 1.5, 2.0], val gap 0.603, agree 0.850, acc 0.825, guard KL 0.0183, unseen text KL 0.0343, capitals 1.00
+  -> layer 21 width 1024 lambda 1.0: kept round 1, agree 0.850, gap 0.603 (308s)
+  [layer 21, 1024 cols, lambda 3.0] round 1: dose 1.5 refused [2.0], val gap 0.652, agree 0.850, acc 0.825, guard KL 0.0151, unseen text KL 0.0328, capitals 1.00
+  [layer 21, 1024 cols, lambda 3.0] round 2: dose 0.0 refused [1.0, 1.5, 2.0], val gap 0.652, agree 0.850, acc 0.825, guard KL 0.0151, unseen text KL 0.0328, capitals 1.00
+  -> layer 21 width 1024 lambda 3.0: kept round 1, agree 0.850, gap 0.652 (304s)
+width 1024, lambda 3.0 chosen: the most protection within one kept-back row of the best agreement
+main run: layer 21, 1024 columns, lambda 3.0, up to 6 rounds
+  round 1: solve 24.0 ms, dose 1.5 refused [2.0], train gap before 1.320, val gap 0.638 agree 0.875 acc 0.850 | guard KL 0.0244 unseen KL 0.0169 capitals 1.00
+  round 2: solve 24.0 ms, dose 0.0 refused [0.5, 1.0, 1.5, 2.0], train gap before 0.504, val gap 0.638 agree 0.875 acc 0.850 | guard KL 0.0244 unseen KL 0.0169 capitals 1.00
+kept round 1; 2 rounds in 1252s; solve+write 50.4 ms in all
+baked: 1048357 of 1048576 weights changed in 4.62 ms; gap hooked 0.5224 vs baked 0.5224 (fp16 rounding)
+[direct_s0] scored acc 89.60%  gen acc 89.94%  agree 89.5%  ECE 0.010  | wiki ppl 29.98 ARC 64.0% caps 100% contam 7%  (963s)
+exported direct_s0/model; rebuild from base + edit identical: True
+done runs/d1/direct_s0 in 118.5 min

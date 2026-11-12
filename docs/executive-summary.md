@@ -1,6 +1,6 @@
 # Executive summary: building a classifier by editing model weights directly
 
-**Date:** 2026-11-04 · **Status:** proof of concept complete: classifier construction, compression, and a reinsurance transfer test · **Recommendation:** continue investment
+**Date:** 2026-11-11 · **Status:** proof of concept complete: classifier construction, compression, a reinsurance transfer test, and a no-LLM distillation comparison · **Recommendation:** continue investment
 
 ## What we did
 
@@ -153,6 +153,78 @@ Key points:
   (CC BY-NC-SA 4.0). A pruned model refit on that data is a research artifact; commercial deployment
   would need the dataset authors' permission or a refit on licensed data.
 
+## Fourth experiment: installing a skill without training, and without a frontier model
+
+The first three experiments put Claude in the loop. The fourth asks whether the cheapest possible
+version of the idea works: no frontier model, no training, just a small "decision model" that learns
+the task on the side and a formula that writes what it learned into a base model's weights. This is
+the recipe of a public Kaggle notebook (TypeSafe's "Jev" family of decision models), which reports
+that the formula beats LoRA fine-tuning while forgetting less. We rebuilt it on our insurance
+benchmark, with our own decision model, and compared it with LoRA on identical data.
+
+**What we did.** The base model is Qwen3.5-0.8B, an open 0.8-billion-parameter chat model
+(Apache-2.0) that gets 58% of the test sentences right when simply asked the question. Three steps:
+
+1. **Learn the skill on the side.** A calibrated logistic classifier reads the frozen base model's
+   internal state and picks one of the eight labels, with a probability and the option to abstain.
+   This is the Jev-like "System 1" model: it answers a typed question, never generates text, and
+   fits in about ten minutes of laptop compute.
+2. **Write it in with a formula.** One forward pass reads what the base model computes at the answer
+   position on the 1,456 practice sentences. A closed-form solve (the same normal equations used in
+   the model-editing literature) rewrites 1,024 columns of one matrix in layer 21, so the model's own
+   next word becomes the teacher's answer, while a penalty term and a hard cap keep its behaviour on
+   unrelated text unchanged. The solve takes 50 milliseconds. The change touches 0.14% of the weights.
+3. **Compare with the standard alternative.** LoRA, the usual cheap fine-tuning method, trained on
+   the same teacher answers, the same sentences and the same loss, for 60 steps.
+
+Everything ran three times with different held-out splits, on a laptop, at $0 of API spend.
+
+**Results** on the 1,779 held-out sentences:
+
+| | Test accuracy | What changed in the model | Compute |
+|---|---|---|---|
+| Base model, unmodified | 58.1% | nothing | - |
+| **Decision model (teacher), reading the frozen base model** | **98.8%** | nothing (a separate head) | 10 min |
+| **Formula writes the teacher into the weights** | **90.1%** | 0.14% of weights, one matrix | 50 ms solve, ~25 min of reads |
+| LoRA fine-tune on the same teacher answers | 95.8% | 35% of weights once merged | 66-80 min of training per run |
+| For reference: Claude edits BERT (first experiment, different base model) | 98.3% | the whole 110M model | $4, 50 passes |
+| For reference: BERT fine-tune | 97.3% | the whole 110M model | GPU training |
+
+**What it shows.**
+
+- **The cheapest classifier is also the best one.** The decision model, a small head on a frozen
+  open model, beats every other number in this repository, including Claude's hand-edited BERT and
+  the fine-tuned BERT, and it is calibrated: on the 80% of sentences it is most confident about it is
+  99.9% accurate. If the business need is "classify sentences", this is the answer, and it costs
+  nothing to run beyond the base model's forward pass.
+- **The formula installs most of the skill, not all of it.** One solve takes the base model from 58%
+  to 90%, and the model now answers the question with the right word as the first thing it writes.
+  It stops 9 points short of its teacher because the protection that keeps the rest of the model
+  intact also limits how much one matrix can be moved. That protection is also what makes the edit
+  work at all: with it switched off, the formula fits the practice sentences exactly and every dose
+  made held-out sentences worse, so the harness wrote nothing (ablation table in the README).
+- **LoRA wins on accuracy here, which is the opposite of the notebook's claim.** On a 300-row
+  tool-routing task the notebook found the formula matched or beat LoRA. On our 8-class task with
+  1,456 teacher rows, LoRA reaches about 96% against the formula's 90%, at the cost of touching a
+  third of the model and an hour of gradient descent per run. The formula's advantages are real but
+  different: milliseconds instead of an hour, a 4 MB diff instead of a new checkpoint, and a smaller
+  footprint on everything else the model knows.
+- **Both methods forget a little.** Perplexity on unrelated text rises 4% to 9%, and a quiz of 200
+  general-knowledge questions moves by a few points for the formula and swings widely for LoRA.
+  Neither is damaged the way the unprotected edit is.
+- **Against the first experiment, this is method plus base model, not method alone.** Claude edited
+  a 110M encoder and reached 98.3%; the formula edited a 752M decoder and reached 90%; the decision
+  model on that same decoder reached 98.8%. The honest reading is that the frontier-model editor is
+  still the strongest way we have found to change a model's weights by hand, and that the decision
+  model is the strongest way we have found to classify, while the formula sits between them as a
+  fast, auditable, partial transfer.
+
+**Caveats specific to this experiment.** Same synthetic data and the same note that 98% is an upper
+bound. The LoRA arm trained at full precision on a laptop GPU with no tuning beyond the notebook's
+settings; a tuned LoRA would likely do better still. The forgetting quiz is small (200 questions),
+and the free-text contamination check is 15 prompts. The edited model is a chat model, and the edit
+was measured only on the question format it was solved for.
+
 ## What we learned
 
 - **The editor uses the pretrained model intelligently.** Rather than retraining, the editors
@@ -280,3 +352,6 @@ commercial deployment as they stand.
   baselines in `runs/_baselines/compress/`, comparison table `runs/c1/compare.md`.
 - Reinsurance experiment: harness in `wspr/`, runs in `runs/r1/`, baselines in `runs/_baselines/reins/`,
   comparison table `runs/r1/compare.md`, data in `data/tcfd/`.
+- Distillation experiment (no LLM in the loop): harness in `wspd/`, runs in `runs/d1/` (teacher, direct
+  edit, LoRA, ablations, three seeds), comparison table `runs/d1/compare.md`, edit bundles in
+  `runs/d1/direct_s*/edit/`.

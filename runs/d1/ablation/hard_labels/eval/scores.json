@@ -1,0 +1,289 @@
+{
+ "name": "ablation: hard_labels",
+ "kind": "ablation",
+ "seed": 0,
+ "spelling": {
+  "used": "space",
+  "mass": {
+   "space": 0.8292590379714966
+  }
+ },
+ "n_train": 1456,
+ "n_val": 40,
+ "n_test": 1779,
+ "scored": {
+  "n": 1779,
+  "accuracy": 0.9477234401349073,
+  "macro_f1": 0.9479215849950458,
+  "confusion_matrix": [
+   [
+    214,
+    2,
+    0,
+    1,
+    3,
+    0,
+    5,
+    8
+   ],
+   [
+    0,
+    224,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    204,
+    2,
+    5,
+    0,
+    2,
+    6
+   ],
+   [
+    1,
+    0,
+    1,
+    222,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    0,
+    3,
+    0,
+    212,
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    206,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    4,
+    0,
+    1,
+    0,
+    214,
+    3
+   ],
+   [
+    10,
+    4,
+    3,
+    6,
+    7,
+    0,
+    5,
+    190
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 0.9473488646595132,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 0.9469026548672567,
+    "recall": 0.9184549356223176,
+    "f1": 0.9324618736383442,
+    "support": 233
+   },
+   "exclusion": {
+    "precision": 0.9696969696969697,
+    "recall": 0.9911504424778761,
+    "f1": 0.9803063457330415,
+    "support": 226
+   },
+   "premium_payment": {
+    "precision": 0.9488372093023256,
+    "recall": 0.9315068493150684,
+    "f1": 0.9400921658986175,
+    "support": 219
+   },
+   "deductible_limits": {
+    "precision": 0.961038961038961,
+    "recall": 0.9866666666666667,
+    "f1": 0.9736842105263157,
+    "support": 225
+   },
+   "claims_procedure": {
+    "precision": 0.9298245614035088,
+    "recall": 0.954954954954955,
+    "f1": 0.9422222222222222,
+    "support": 222
+   },
+   "definitions": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 206
+   },
+   "term_cancellation_renewal": {
+    "precision": 0.9385964912280702,
+    "recall": 0.9596412556053812,
+    "f1": 0.9490022172949001,
+    "support": 223
+   },
+   "conditions_duties": {
+    "precision": 0.8878504672897196,
+    "recall": 0.8444444444444444,
+    "f1": 0.8656036446469247,
+    "support": 225
+   }
+  },
+  "ece": 0.1649053692817688,
+  "selective": {
+   "coverage": 0.7998875772906127,
+   "accuracy": 0.9852424263954163,
+   "threshold": 0.3696258068084717
+  },
+  "agree_teacher": 0.9477234482765198,
+  "mass_on_options": 0.7306980490684509,
+  "teacher_accuracy": 0.9881955981254578
+ },
+ "val": {
+  "gap": 0.6762163043022156,
+  "kl": 0.3207513689994812,
+  "agree": 0.875,
+  "acc": 0.875,
+  "teacher_acc": 1.0,
+  "mass": 0.7201064825057983,
+  "ece": 0.1283341646194458,
+  "selective_acc80": 0.96875,
+  "post_kl": 7.935984831419773e-05
+ },
+ "retention": {
+  "wiki_ppl": 29.253849860997782,
+  "wiki_kl": 0.014242852933239191,
+  "wiki_n": 40,
+  "arc_acc": 0.665,
+  "arc_n": 200,
+  "capitals_acc": 1.0,
+  "contamination": 0.06666666666666667,
+  "contaminated": [
+   "The main causes of the French Revolution were"
+  ],
+  "free_texts": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colours**, the three primary colours are **red**, **green**, and **blue**.\n\nThese are the colours that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please let me know if there",
+   "The sky is blue because of the scattering of light by the molecules in the air.\nThe sky is blue because of the scattering of light by the molecules in the air.\nThe sky is blue because of the scattering of light by the",
+   "1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. ",
+   "Bonjour, comment allez-vous ?\n\n<think>\n\n</think>\n\nBon matin, comment allez-vous ?\nBonjour, comment allez-vous ?\n\n*(Note: The original French phrase \"bon matin\" is often used in formal contexts, but \"bonjour",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of brave and curious children. They were all very young and had a lot of imagination. One day, they decided to go on a journey to find a special place.\n\nThey started their journey by walking along the coast",
+   " the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, clever minds, and unique personalities, here are some creative and classic names categorized by style:\n\n### \ud83d\udc31 Playful",
+   "That sounds like a fantastic idea! Kerala is a paradise of beaches, temples, and culture, and a two-day trip is perfect for exploring its most iconic highlights without getting overwhelmed.\n\nHere is a curated itinerary designed for a **2-day",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often popular in certain cultures (such as in parts of Asia and the Middle East), they are **highly dangerous** to eat. Here is why:"
+  ],
+  "free_texts_before": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors are **red**, **green**, and **blue**.\n\nThese are the colors that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please confirm if you have any",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Good morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\n",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of friends. One of them was named Leo. Leo was a very kind and helpful person. He loved to help others and always wanted to make everyone happy.\n\nOne day, Leo decided to go on a trip to",
+   " the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis,",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, their unique personalities, and their love for their names, here are some creative and meaningful name ideas categorized by style:\n\n###",
+   "Planning a two-day trip to Kerala is an exciting adventure! The state is famous for its lush landscapes, ancient temples, and vibrant culture. Since you only have two days, you can't just wander around; you need to focus on **",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often used in cooking (such as in salads, sandwiches, or as a garnish) because they are safe to eat, they are **not** safe"
+  ]
+ },
+ "retention_before": {
+  "wiki_ppl": 28.745928126397853,
+  "wiki_kl": 0.0,
+  "wiki_n": 40,
+  "arc_acc": 0.685,
+  "arc_n": 200,
+  "capitals_acc": 1.0,
+  "contamination": 0.0,
+  "contaminated": [],
+  "free_texts": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors are **red**, **green**, and **blue**.\n\nThese are the colors that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please confirm if you have any",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Good morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\n",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of friends. One of them was named Leo. Leo was a very kind and helpful person. He loved to help others and always wanted to make everyone happy.\n\nOne day, Leo decided to go on a trip to",
+   " the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis,",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, their unique personalities, and their love for their names, here are some creative and meaningful name ideas categorized by style:\n\n###",
+   "Planning a two-day trip to Kerala is an exciting adventure! The state is famous for its lush landscapes, ancient temples, and vibrant culture. Since you only have two days, you can't just wander around; you need to focus on **",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often used in cooking (such as in salads, sandwiches, or as a garnish) because they are safe to eat, they are **not** safe"
+  ],
+  "free_texts_before": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors are **red**, **green**, and **blue**.\n\nThese are the colors that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please confirm if you have any",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Good morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\n",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of friends. One of them was named Leo. Leo was a very kind and helpful person. He loved to help others and always wanted to make everyone happy.\n\nOne day, Leo decided to go on a trip to",
+   " the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis,",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, their unique personalities, and their love for their names, here are some creative and meaningful name ideas categorized by style:\n\n###",
+   "Planning a two-day trip to Kerala is an exciting adventure! The state is famous for its lush landscapes, ancient temples, and vibrant culture. Since you only have two days, you can't just wander around; you need to focus on **",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often used in cooking (such as in salads, sandwiches, or as a garnish) because they are safe to eat, they are **not** safe"
+  ]
+ },
+ "forgot": [
+  "answer words leak into 1 of 15 unrelated generations"
+ ],
+ "eval_seconds": 423.66065404203255,
+ "ablation": "hard_labels",
+ "rounds": 2,
+ "edit": {
+  "layer": 21,
+  "n_columns": 1024,
+  "lambda": 3.0,
+  "best_round": 2,
+  "weights_in_edit": 1048576,
+  "weights_changed": 1048576,
+  "wall_seconds": 1118.6401614579954
+ },
+ "wall_seconds": 1118.640166666999,
+ "per_class_text": "Per class (scored at the answer position):\n\n| label | precision | recall | F1 | n |\n|---|---|---|---|---|\n| coverage_grant | 0.947 | 0.918 | 0.932 | 233 |\n| exclusion | 0.970 | 0.991 | 0.980 | 226 |\n| premium_payment | 0.949 | 0.932 | 0.940 | 219 |\n| deductible_limits | 0.961 | 0.987 | 0.974 | 225 |\n| claims_procedure | 0.930 | 0.955 | 0.942 | 222 |\n| definitions | 1.000 | 1.000 | 1.000 | 206 |\n| term_cancellation_renewal | 0.939 | 0.960 | 0.949 | 223 |\n| conditions_duties | 0.888 | 0.844 | 0.866 | 225 |\n"
+}

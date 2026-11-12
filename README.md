@@ -50,6 +50,15 @@ uv run python scripts/reins/run.py --name r1/p50 --passes 50            # real r
 uv run python scripts/reins/apply_edit.py runs/r1/p50/edit --out /tmp/rebuilt --check runs/r1/p50/model
 uv run python scripts/reins/compare_runs.py                             # runs/r1/compare.md
 uv run python scripts/reins/push_hf.py runs/r1/p50/model --repo <user>/<name>   # push an r1 checkpoint (RoBERTa tokenizer files)
+# distillation experiment (d1): independent harness in wspd/, Jev-like teacher -> closed-form edits into Qwen3.5-0.8B
+uv run python scripts/distill/fetch_model.py                            # models/qwen3.5-0.8b/ (pinned commit)
+uv run python scripts/distill/fit_teacher.py --seed 0                   # calibrated heads on the frozen reader -> runs/d1/teacher_s0/ (+ targets)
+uv run python scripts/distill/run.py --seed 0 --export-model            # layer sweep, grid, direct edit, bake, test + forgetting -> runs/d1/direct_s0/
+uv run python scripts/distill/run_lora.py --seed 0                      # the gradient-descent arm on the same loss and rows -> runs/d1/lora_s0/
+uv run python scripts/distill/run_unedited_full_prompt.py               # reference row: the unedited reader with the long prompt
+uv run python scripts/distill/run_ablations.py                          # random columns, no protection, hard labels, 25%/50% rows, random change
+uv run python scripts/distill/check_rebuild.py runs/d1/direct_s0        # base + edit bundle == baked checkpoint, tensor by tensor
+uv run python scripts/distill/compare.py                                # runs/d1/compare.md
 ```
 
 ## How it works
@@ -136,6 +145,57 @@ minus 0.02), the F1 condition guarding the 26-paragraph governance class.
   start model; truncate the MLM base `climatebert/distilroberta-base-climate-f` to k layers, new
   head, fine-tune on the practice paragraphs (3 ep / 2e-5 and 10 ep / 5e-5); truncate the fine-tuned
   task model itself and fine-tune (10 ep); a size-matched variant at the best run's (k, m).
+
+## Distillation harness (`wspd/`)
+
+A fourth independent package with no editor LLM in the loop. It replicates the method of the Kaggle notebook
+[`nandakishorconvai/fast-edits-decision-model`](https://www.kaggle.com/code/nandakishorconvai/fast-edits-decision-model)
+("policy distillation by direct weight edit, against LoRA") on the insurance benchmark: a skill is learned
+cheaply on the side by a Jev-like decision model, then written into a base language model's weights by one
+linear-algebra solve instead of training, and the result is compared with LoRA on the same loss and rows and
+with the Opus-edited BERT of the first experiment.
+
+- **Reader / student:** [Qwen/Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) (24 layers, hidden 1024,
+  FFN 3584, 248k vocabulary, Apache-2.0), frozen, fp16 on Apple Metal (`wspd/reader.py`). Prompted with a
+  sentence, the question and eight options, it answers with one of eight single-token words (` coverage`,
+  ` exclusion`, ` premium`, ` deductible`, ` claims`, ` definitions`, ` cancellation`, ` conditions`), read at
+  the next-token position after the chat model's empty thinking block (`wspd/common.py`).
+- **Teacher, the Jev-like model (`wspd/teacher.py`):** multinomial logistic heads on the frozen reader's
+  residual stream at the answer position (and the mean over the sentence tokens) at a few layers, feature set
+  and C chosen by 5-fold cross-validation on the 1,456 training rows, one temperature fitted on out-of-fold
+  probabilities, confidence `1 - H/log 8`, abstain band at 80% coverage. It answers a typed choice question
+  with calibrated probabilities and never generates text: the construction of a vegaml/Laya policy head, under
+  our control. Its probabilities on the training rows are the targets every arm distils.
+- **Direct edit (`wspd/edit.py`):** one round = (1) one forward pass over the training prompts reads the input
+  of the chosen `mlp.down_proj` at the answer position (the keys K) and the final residual h; (2) the wanted
+  logit change `d = log(teacher) - log(student)` on the eight answer words becomes the smallest residual change
+  `dh = J^+ d` through the readout Jacobian (final norm and the eight unembedding rows only); (3) the column
+  update is the ridge solution `dW_S = R^T K_S (K_S^T K_S + lambda n C_SS)^-1`, with C the covariance of the keys
+  on the guard text, every other token of the prompts and the token after the answer (MEMIT's normal equations
+  restricted to the columns S), solved in milliseconds; (4) a dose in {0.5, 1, 1.5, 2} is chosen on 40 kept-back
+  practice rows (val gap + guard KL + post-answer KL), doses that move the guard text past 0.03 nats/token are
+  refused. Rounds repeat until no dose helps (max 6); the best round on the kept-back rows is kept and baked
+  into the fp16 weights. Columns are the 256 (or 512, 1024) most active at the answer position relative to
+  elsewhere. Layer in {17, 19, 21, 23}, width and lambda in {0.3, 1, 3} are chosen on a 256-row subset of the
+  training rows by agreement with the teacher on the kept-back rows, then the most protection within one row of
+  the best.
+- **LoRA arm (`wspd/lora.py`):** rank 16 on gate/up/down of all 24 layers, Adam 5e-4, 60 steps of 16 rows,
+  the same loss (teacher gap + guard KL + post-answer KL), checkpoint = best on the same 40 rows, merged into
+  the weights. Trained in fp32 (the backward through the gated-DeltaNet reference path is NaN in fp16 on
+  Metal), then the baked weights are measured in the same fp16 reader as every other arm.
+- **Measurement (`wspd/eval/`):** on the 1,779 held-out sentences, "generated" = the first word the detached
+  model writes (4 greedy tokens, unanswered counts as wrong) and "scored" = argmax over the eight answer words
+  at the answer position; accuracy, macro-F1 (`wsp.eval.evaluate.full_metrics`), ECE, selective accuracy at
+  80% coverage, agreement with the teacher. Forgetting suite (`wspd/retention.py`): WikiText-2 perplexity and
+  KL against the unedited model's top-64 (40 test paragraphs), 200 ARC-Easy test questions scored by the answer
+  letter, 40 capital cities, and answer words or repeated lines leaking into 15 unrelated free generations.
+- **Ablations:** random columns with the same solve; no protection (lambda 0, no cap, no guard); hard gold
+  labels instead of the calibrated teacher; 25% and 50% of the training rows; a random change of the same size
+  on the same columns.
+- **Artifacts:** `runs/d1/<arm>/edit/manifest.json` (layer, columns, hash of the column update, base model
+  commit; `edit.npz` holds the update itself), `eval/scores.json` + `report.md`, and for seed 0 the baked
+  checkpoint under `model/` (loads with stock `AutoModelForCausalLM`; `check_rebuild.py` confirms base +
+  bundle == baked tensor by tensor). Nothing in this experiment calls an API: $0.
 
 ## Rules given to the editor
 
@@ -485,6 +545,105 @@ rebuild bit-for-bit from the pinned Hub checkpoint + the edit diff + `structure.
   CC BY-NC-SA 4.0 (research use), so a pruned model refit on them should not be deployed
   commercially without the dataset authors' permission.
 
+### d1 (2026-11-11): installing the skill without training, from a Jev-like teacher
+
+**Problem.** The three experiments above put a frontier model in the loop: Opus reads activations, reasons,
+and writes weights. The Kaggle notebook `fast-edits-decision-model` claims the same kind of result with no
+LLM at all: learn the skill cheaply on the side with a small typed-decision model (the Jev / vegaml / Laya
+family), then write its calibrated answers into a base model's weights with one closed-form solve, and show
+that this beats LoRA on the same data while forgetting less. Question: does that hold on our insurance
+benchmark, against our own rows, and how does it compare with Opus hand-editing BERT? Independent harness
+in `wspd/` (above), base model Qwen3.5-0.8B, three split seeds (which 40 practice rows are kept back),
+nothing calls an API ($0), all on the M1 laptop; runs under `runs/d1/`.
+
+Three arms distil the same teacher on the same 1,456 rows and are scored by the same code on the 1,779
+held-out sentences: the **direct edit** (one `down_proj`, 1,024 columns, ridge solve, dose line search,
+guard cap), **LoRA** (rank 16, every MLP, 60 steps on the same loss), and the **unedited** reader as the
+floor. The teacher itself is a row: it is a classifier too, just not one that generates text.
+
+| arm | seeds | test acc (generated) | macro-F1 | test acc (scored) | agrees with teacher | ECE | selective acc @80% | weights changed | compute |
+|---|---|---|---|---|---|---|---|---|---|
+| unedited Qwen3.5-0.8B, short prompt | - | 58.07% | 0.5901 | 57.95% | 58.0% | 0.150 | 69.1% | 0 | - |
+| unedited Qwen3.5-0.8B, full-description prompt (the 322-token prompt the edit does not use) | - | 61.21% | 0.6521 | 61.16% | 61.3% | 0.157 | 68.0% | 0 | - |
+| **teacher: calibrated heads on the frozen reader (Jev-like)** | 3 | - | **0.9880** | **98.78%** (98.82 / 98.76 / 98.76) | - | 0.006 | 99.93% | 0 (head only) | ~10 min fit |
+| **direct edit, layer 21 or 19, 1,024 columns, lambda 3** | 3 | **90.11%** (89.94 / 89.83 / 90.56) | 0.9020 | 90.03% (89.60 / 89.54 / 90.95) | 90.0% | 0.013 | 97.1% | **1.05M (0.14%)** | 50-76 ms solve; 21-26 min of forward passes; sweep 1 h 20 min |
+| LoRA rank 16, 60 steps, same loss | 3 | 95.80% (96.40 / 96.29 / 94.72) | 0.9585 | 95.78% (96.40 / 96.29 / 94.66) | 95.5% | 0.015 | 99.6% | 5.3M trainable, 264M (35%) once merged | 66-80 min of fp32 training |
+| Opus 5.5 edits BERT-base (v1/p50, 50 passes; different base model) | 1 | 98.31% | 0.9833 | | | | | 110M model rebuilt | $4.12, 50 passes |
+| BERT fine-tune (3 ep) / linear probe / unedited | 1 | 97.25% / 88.53% / 13.10% | 0.9727 / 0.8870 / 0.0290 | | | | | | local GPU |
+
+Seed values are in the order s0 / s1 / s2; means are over the seeds. Per-arm detail in `runs/d1/<arm>/eval/report.md`,
+the full table in `runs/d1/compare.md`.
+
+**Forgetting** (same 40 WikiText-2 paragraphs for every arm; ARC-Easy is 200 test questions drawn per seed,
+so its "before" differs by seed; 40 capitals; 15 unrelated free generations checked for answer words and loops):
+
+| arm | WikiText-2 ppl before -> after | KL to the unedited model (nats/token) | ARC-Easy before -> after | capitals | contaminated generations |
+|---|---|---|---|---|---|
+| direct edit s0 / s1 / s2 | 28.75 -> 29.98 / 29.99 / 31.26 | 0.032 / 0.033 / 0.067 | 68.5 -> 64.0 / 61.5 -> 57.5 / 66.0 -> 65.5 | 100% in all | 1 of 15 in all |
+| LoRA s0 / s1 / s2 | 28.75 -> 30.98 / 29.67 / 30.03 | 0.076 / 0.081 / 0.050 | 68.5 -> 82.5 / 61.5 -> 44.5 / 66.0 -> 51.0 | 100% in all | 2 of 15 / 2 of 15 / 3 of 15 |
+
+**Ablations** (seed 0, the chosen layer, 1,024 columns, each arm removed after measuring, scored at the answer
+position; no generation pass):
+
+| ablation | test acc (scored) | agrees with teacher | ECE | WikiText-2 ppl | ARC-Easy | contaminated | note |
+|---|---|---|---|---|---|---|---|
+| full method (re-run of seed 0) | 89.71% | 89.6% | 0.011 | 29.98 | 64.0% | 1 of 15 | reproduces direct_s0 (89.60%) |
+| random columns, same solve | 88.87% | 88.6% | 0.019 | 30.46 | 63.5% | 0 of 15 | column choice buys under a point and a little less forgetting |
+| no protection (lambda 0, no cap, no guard) | 57.95% | 58.0% | 0.150 | 28.75 | 68.5% | 0 of 15 | nothing written: every dose of the unregularized solve made the fit on the 40 kept-back rows worse than no edit, so the line search kept dose 0 (unedited scores) |
+| hard gold labels (smoothed one-hot) instead of the teacher's probabilities | 94.77% | 94.8% | 0.165 | 29.25 | 66.5% | 1 of 15 | +5 points of accuracy, a second round accepted, calibration gone (ECE 0.011 -> 0.165) |
+| 25% of the training rows (364) | 84.32% | 84.3% | 0.023 | 29.31 | 65.5% | 0 of 15 | rows matter: -5.4 points |
+| 50% of the training rows (728) | 85.05% | 84.9% | 0.025 | 29.26 | 66.0% | 0 of 15 | -4.7 points |
+| random change of the same size on the same columns | 54.69% | 54.6% | 0.197 | 31.58 | 63.0% | 1 of 15 | the solve, not the perturbation, carries the skill: -3 points vs unedited, +10% perplexity |
+
+**Observations.**
+
+- **The Jev-like teacher is the most accurate classifier in this repository**: 98.78% on the held-out set,
+  above Opus's hand-edited BERT (98.31%) and the BERT fine-tune (97.25%), with an ECE of 0.006 and 99.93%
+  accuracy on the 80% of sentences it is most confident about. It is a logistic head on two frozen features
+  of Qwen3.5-0.8B (the final residual at the answer position and the mean layer-16 state over the sentence),
+  fitted in about ten minutes of forward passes and a cross-validated sklearn fit. Same choice of features
+  and C on all three seeds. Cheap, calibrated, abstains well; what it cannot do is generate.
+- **The closed-form edit installs most of the skill, not all of it.** One round, 1.05M weights of one
+  matrix (0.14% of the model), a 50 ms solve after about 25 minutes of forward passes: 58% -> 90%, with
+  the first generated word being an option word on every test sentence. It then stops 8.7 points short
+  of its teacher. The second round was refused on two seeds: every dose pushed the guard text past the
+  0.03 nats/token cap, so the protection, not the solve, is the limit of a single-layer edit at this width.
+  The kept-back rows said 85% to 95% agreement; the test set says 89.5% to 91.1%, which is within what 40
+  rows can resolve.
+- **LoRA on the same loss and rows wins on accuracy**: 94.7% to 96.4% (mean 95.8%), 5.7 points above the
+  edit and 3 points below the teacher, at the cost of 66 to 80 minutes of fp32 gradient descent per seed on
+  this laptop, touching every MLP matrix. This is the opposite of the notebook's headline on its 300-row
+  tool-routing task. The difference is plausibly the task: eight classes with vocabulary-level boundaries
+  that the unedited reader already gets 58% of, 1,456 teacher rows to fit, and two classes (conditions and
+  duties, coverage grant) that the edit leaves at F1 0.76 and 0.84 while LoRA brings them to 0.94 and 0.97.
+  A rank-16 update to 72 matrices has the capacity for that; 1,024 columns of one matrix under a guard cap
+  do not.
+- **Hard labels beat the calibrated teacher as edit targets here, at the price of calibration.** Writing
+  smoothed one-hot gold labels instead of the teacher's probabilities scored 94.8% against 89.7%: the larger
+  logit gaps let a second round through the guard cap. But the resulting model is badly over-confident (ECE
+  0.165 against 0.011), which is the property the calibrated teacher was there to transfer. The notebook's
+  finding that calibrated targets beat hard labels did not reproduce on accuracy; it did on calibration.
+  Random columns cost under a point, so the column score is not where the method's value lies; halving the
+  training rows costs about five points, so the data is.
+- **Both arms forget a little, the edit less.** Edit: WikiText-2 perplexity +4% to +9%, ARC-Easy within
+  noise on two seeds and -4.5 points on one, capitals intact, one of fifteen free generations picks up an
+  answer word. LoRA: perplexity +3% to +8%, two or three contaminated generations, and ARC-Easy moves by +14, -17
+  and -15 points on the same 200 questions across seeds, which says more about scoring a chat model's answer
+  letter after 60 steps of a different prompt format than about knowledge. The no-protection ablation did not get far enough to damage anything: with lambda 0 the solve fits the
+  1,456 training keys exactly and every dose raised the teacher gap on the 40 kept-back rows above the unedited
+  value, so the dose search kept zero. The ridge term is what makes the edit generalise from the training rows
+  at all, before it is what protects unrelated text. (In the smoke run on 64 rows the same ablation did go
+  through, and took WikiText-2 perplexity from 27 to 644.)
+- **Opus editing BERT remains the best weight-edit result on this benchmark (98.3%), but it is a
+  different base model and a different mechanism**: a frontier model reasoning over activations and
+  writing a 110M encoder's weights wholesale, against a formula writing 0.14% of a 752M decoder. The
+  like-for-like comparison inside d1 is teacher vs edit vs LoRA on Qwen; the cross-experiment comparison
+  is method plus base model and should be read as such.
+- **The artifact is small and reproducible.** `edit.npz` is 4 MB; `check_rebuild.py` confirms base +
+  bundle equals the baked 1.4 GB checkpoint tensor for tensor, and the hooked and baked models score the
+  same test gap to four decimals (0.5224 vs 0.5224). The baked checkpoint loads with stock
+  `AutoModelForCausalLM` and answers the test sentences with the option word as its first token.
+
 ### Checkpoints on the Hugging Face Hub
 
 One public repo per run. Each loads with the stock `text-classification` pipeline; see the
@@ -524,6 +683,11 @@ runs/<version>/<name>/            # v0 = paper rules; v1 = + rule 6; c1 = prunin
                                  # (c1: pruned shape, + structure.json, param_count.json)
   eval/{scores.json, per_item.jsonl, report.md}
   audit.json
+runs/d1/<arm>/                    # d1 = distillation (wspd/): teacher_s{0,1,2}, direct_s{0,1,2}, lora_s{0,1,2}, unedited, ablation/<name>
+  log.txt  config.json  sweep.json  eval/{scores.json, report.md}
+  edit/{edit.npz, manifest.json, rebuild_check.json}   # the column update, its hash, the base commit
+  model/                          # baked fp16 checkpoint (seed 0 only; stock AutoModelForCausalLM)
+  teacher.json  targets.json      # teacher arms: feature spec + calibration, probabilities per practice row
 ```
 
 ## License

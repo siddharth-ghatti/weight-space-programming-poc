@@ -1,0 +1,33 @@
+# Distillation experiment (wspd): a Jev-like teacher's calibrated probabilities written into Qwen3.5-0.8B by
+# closed-form column edits. Override from the CLI: scripts/distill/run.py --seed 1
+model_dir: models/qwen3.5-0.8b
+variant: words              # answer words (single tokens) or "letters"
+n_val: 40                   # practice rows kept back from the edit: doses, layer and width are chosen on them
+seeds: [0, 1, 2]
+
+sweep_layers: [17, 19, 21, 23]
+sweep_width: 256
+sweep_rows: 256           # training rows used to choose the layer, width and lambda
+sweep_rounds: 2
+widths: [256, 512, 1024]
+lambdas: [0.3, 1.0, 3.0]
+rounds: 6
+doses: [0.5, 1.0, 1.5, 2.0]
+guard_weight: 1.0           # the line search minimises val gap + this x (guard KL + post-answer KL)
+guard_cap: 0.03             # a dose that moves the guard text more than this (nats/token) is refused
+
+lora:
+  rank: 16
+  steps: 60
+  lr: 5.0e-4
+  batch: 16
+  eval_every: 10
+
+retention:
+  n_wiki: 40
+  n_arc: 200
+  gen_tokens: 48
+
+ablation_fracs: [0.25, 0.5]
+gen_tokens: 4               # new tokens read for the generated answer
+chunk: 32                   # rows per forward pass

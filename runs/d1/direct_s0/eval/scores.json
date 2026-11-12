@@ -1,0 +1,705 @@
+{
+ "name": "direct_s0",
+ "kind": "direct",
+ "seed": 0,
+ "spelling": {
+  "used": "space",
+  "mass": {
+   "space": 0.8292590379714966
+  }
+ },
+ "n_train": 1456,
+ "n_val": 40,
+ "n_test": 1779,
+ "scored": {
+  "n": 1779,
+  "accuracy": 0.896008993816751,
+  "macro_f1": 0.8966341212499527,
+  "confusion_matrix": [
+   [
+    227,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    3
+   ],
+   [
+    0,
+    225,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    16,
+    2,
+    174,
+    4,
+    8,
+    0,
+    3,
+    12
+   ],
+   [
+    8,
+    4,
+    0,
+    213,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    15,
+    0,
+    1,
+    0,
+    200,
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    206,
+    0,
+    0
+   ],
+   [
+    12,
+    1,
+    4,
+    0,
+    3,
+    0,
+    194,
+    9
+   ],
+   [
+    31,
+    26,
+    1,
+    3,
+    7,
+    1,
+    1,
+    155
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 0.8953454666829994,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 0.7346278317152104,
+    "recall": 0.9742489270386266,
+    "f1": 0.8376383763837638,
+    "support": 233
+   },
+   "exclusion": {
+    "precision": 0.8653846153846154,
+    "recall": 0.995575221238938,
+    "f1": 0.925925925925926,
+    "support": 226
+   },
+   "premium_payment": {
+    "precision": 0.9666666666666667,
+    "recall": 0.7945205479452054,
+    "f1": 0.8721804511278196,
+    "support": 219
+   },
+   "deductible_limits": {
+    "precision": 0.9681818181818181,
+    "recall": 0.9466666666666667,
+    "f1": 0.9573033707865168,
+    "support": 225
+   },
+   "claims_procedure": {
+    "precision": 0.9174311926605505,
+    "recall": 0.9009009009009009,
+    "f1": 0.9090909090909092,
+    "support": 222
+   },
+   "definitions": {
+    "precision": 0.9951690821256038,
+    "recall": 1.0,
+    "f1": 0.9975786924939467,
+    "support": 206
+   },
+   "term_cancellation_renewal": {
+    "precision": 0.97,
+    "recall": 0.8699551569506726,
+    "f1": 0.9172576832151299,
+    "support": 223
+   },
+   "conditions_duties": {
+    "precision": 0.8378378378378378,
+    "recall": 0.6888888888888889,
+    "f1": 0.7560975609756098,
+    "support": 225
+   }
+  },
+  "ece": 0.010385571978986263,
+  "selective": {
+   "coverage": 0.7998875772906127,
+   "accuracy": 0.9669711589813232,
+   "threshold": 0.7199715375900269
+  },
+  "agree_teacher": 0.8948847651481628,
+  "mass_on_options": 0.802646815776825,
+  "teacher_accuracy": 0.9881955981254578
+ },
+ "val": {
+  "gap": 0.6380429863929749,
+  "kl": 0.34055623412132263,
+  "agree": 0.875,
+  "acc": 0.8500000238418579,
+  "teacher_acc": 0.9750000238418579,
+  "mass": 0.7814600467681885,
+  "ece": 0.12362560629844666,
+  "selective_acc80": 0.90625,
+  "post_kl": 7.38238450139761e-05
+ },
+ "generation": {
+  "n": 1779,
+  "accuracy": 0.8993816750983699,
+  "macro_f1": 0.900328474122996,
+  "confusion_matrix": [
+   [
+    227,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    3
+   ],
+   [
+    0,
+    225,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    13,
+    2,
+    190,
+    2,
+    4,
+    0,
+    2,
+    6
+   ],
+   [
+    9,
+    3,
+    0,
+    213,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    20,
+    1,
+    6,
+    0,
+    194,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    206,
+    0,
+    0
+   ],
+   [
+    12,
+    1,
+    6,
+    0,
+    2,
+    0,
+    194,
+    8
+   ],
+   [
+    33,
+    29,
+    3,
+    3,
+    4,
+    1,
+    1,
+    151
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 0.8989569275716311,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 0.7229299363057324,
+    "recall": 0.9742489270386266,
+    "f1": 0.8299817184643509,
+    "support": 233
+   },
+   "exclusion": {
+    "precision": 0.8555133079847909,
+    "recall": 0.995575221238938,
+    "f1": 0.9202453987730062,
+    "support": 226
+   },
+   "premium_payment": {
+    "precision": 0.926829268292683,
+    "recall": 0.867579908675799,
+    "f1": 0.8962264150943396,
+    "support": 219
+   },
+   "deductible_limits": {
+    "precision": 0.9770642201834863,
+    "recall": 0.9466666666666667,
+    "f1": 0.9616252821670429,
+    "support": 225
+   },
+   "claims_procedure": {
+    "precision": 0.9509803921568627,
+    "recall": 0.8738738738738738,
+    "f1": 0.9107981220657277,
+    "support": 222
+   },
+   "definitions": {
+    "precision": 0.9951690821256038,
+    "recall": 1.0,
+    "f1": 0.9975786924939467,
+    "support": 206
+   },
+   "term_cancellation_renewal": {
+    "precision": 0.9797979797979798,
+    "recall": 0.8699551569506726,
+    "f1": 0.9216152019002375,
+    "support": 223
+   },
+   "conditions_duties": {
+    "precision": 0.888235294117647,
+    "recall": 0.6711111111111111,
+    "f1": 0.7645569620253164,
+    "support": 225
+   }
+  },
+  "answered": 1.0,
+  "agree_teacher": 0.8982574480044969
+ },
+ "generation_texts_sample": [
+  " cancellation (policy period",
+  " conditions (other duties",
+  " conditions (other duties",
+  " premium (premium amounts",
+  " premium (premium amounts",
+  " claims (how to",
+  " cancellation (policy period",
+  " deductible (deduct",
+  " coverage (what the",
+  " definitions (defines a",
+  " cancellation (policy period",
+  " deductible (deduct"
+ ],
+ "retention": {
+  "wiki_ppl": 29.975401591859978,
+  "wiki_kl": 0.032415158278308806,
+  "wiki_n": 40,
+  "arc_acc": 0.64,
+  "arc_n": 200,
+  "capitals_acc": 1.0,
+  "contamination": 0.06666666666666667,
+  "contaminated": [
+   "The main causes of the French Revolution were"
+  ],
+  "free_texts": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors of light are **red**, **green**, and **blue**. These are the colors that",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    if n == 1:\n        return 1\n    return fibonacci(n-1) + fibonacci(n-2)\n\nprint(fibonacci(10))",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI'd like to move our upcoming meeting to Friday.\n\nCould you please let me know if there are any specific time slots you'd like to",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Bonjour, comment allez-vous ?\n\n<think>\n\n</think>\n\nBon matin, comment allez-vous ?\nBonjour, comment allez-vous ?\n\n*(Note: The second translation is a direct translation of the original English sentence, while the first one is a",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a boy named Tom. Tom was a very kind and curious boy. He loved to explore the world around him and to learn new things.\n\nOne day, Tom went to the beach and saw a beautiful sunset. He was so",
+   " the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of the coverage of",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a cat name is a wonderful way to celebrate your furry friend! Since cats are known for their playful personalities, clever minds, and unique personalities, here are some thoughtful options categorized by vibe:\n\n### \ud83d\udc3e Playful & Ener",
+   "That sounds like a fantastic idea! Kerala is a breathtaking place with its lush landscapes, ancient temples, and vibrant culture. Since you're planning a **two-day trip**, I recommend focusing on the **Karnataka side** (the \"",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often popular in certain cultures (such as in parts of Asia and the Middle East), they are **highly dangerous** to humans. Here is why:"
+  ],
+  "free_texts_before": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors are **red**, **green**, and **blue**.\n\nThese are the colors that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please confirm if you have any",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Good morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\n",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of friends. One of them was named Leo. Leo was a very kind and helpful person. He loved to help others and always wanted to make everyone happy.\n\nOne day, Leo decided to go on a trip to",
+   " the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis,",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, their unique personalities, and their love for their names, here are some creative and meaningful name ideas categorized by style:\n\n###",
+   "Planning a two-day trip to Kerala is an exciting adventure! The state is famous for its lush landscapes, ancient temples, and vibrant culture. Since you only have two days, you can't just wander around; you need to focus on **",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often used in cooking (such as in salads, sandwiches, or as a garnish) because they are safe to eat, they are **not** safe"
+  ]
+ },
+ "retention_before": {
+  "wiki_ppl": 28.745928126397853,
+  "wiki_kl": 0.0,
+  "wiki_n": 40,
+  "arc_acc": 0.685,
+  "arc_n": 200,
+  "capitals_acc": 1.0,
+  "contamination": 0.0,
+  "contaminated": [],
+  "free_texts": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors are **red**, **green**, and **blue**.\n\nThese are the colors that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please confirm if you have any",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Good morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\n",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of friends. One of them was named Leo. Leo was a very kind and helpful person. He loved to help others and always wanted to make everyone happy.\n\nOne day, Leo decided to go on a trip to",
+   " the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis,",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, their unique personalities, and their love for their names, here are some creative and meaningful name ideas categorized by style:\n\n###",
+   "Planning a two-day trip to Kerala is an exciting adventure! The state is famous for its lush landscapes, ancient temples, and vibrant culture. Since you only have two days, you can't just wander around; you need to focus on **",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often used in cooking (such as in salads, sandwiches, or as a garnish) because they are safe to eat, they are **not** safe"
+  ],
+  "free_texts_before": [
+   " red, green, and blue.\n\n<think>\n\n</think>\n\nYes, that is correct. In the context of **primary colors**, the three primary colors are **red**, **green**, and **blue**.\n\nThese are the colors that cannot",
+   "The sea is a big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big,",
+   "    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2",
+   " need to know what to do next.\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:\nThe following are the results of the following:",
+   "<think>\n\n</think>\n\nSubject: Meeting Move to Friday\n\nHi [Colleague's Name],\n\nI hope you're having a good week.\n\nI'd like to move our upcoming meeting to Friday. Could you please confirm if you have any",
+   "The sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\nThe sky is blue because of the scattering of light by the air molecules.\n",
+   "1.\n-\n-\n-\n2.\n-\n-\n-\n3.\n-\n-\n-\n4.\n-\n-\n-\n5.\n-\n-\n-\n6.\n",
+   "Good morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\nGood morning, how are you?\n",
+   " 391\n\nQ: What is 17 times 23?\nA: 391\n\nQ: What is 17 times 23?\nA: 391\n\nA: ",
+   " there lived a group of friends. One of them was named Leo. Leo was a very kind and helpful person. He loved to help others and always wanted to make everyone happy.\n\nOne day, Leo decided to go on a trip to",
+   " the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis, the political crisis, and the social crisis.\nThe main causes of the French Revolution were the economic crisis,",
+   "The council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved a new park near the river after months of debate.\nThe council approved",
+   "Choosing a name for a cat can be a fun and rewarding experience! Since cats are known for their playful personalities, their unique personalities, and their love for their names, here are some creative and meaningful name ideas categorized by style:\n\n###",
+   "Planning a two-day trip to Kerala is an exciting adventure! The state is famous for its lush landscapes, ancient temples, and vibrant culture. Since you only have two days, you can't just wander around; you need to focus on **",
+   "**No, it is not safe to eat raw eggs.**\n\nWhile raw eggs are often used in cooking (such as in salads, sandwiches, or as a garnish) because they are safe to eat, they are **not** safe"
+  ]
+ },
+ "forgot": [
+  "ARC-Easy fell 4.5 points",
+  "answer words leak into 1 of 15 unrelated generations"
+ ],
+ "eval_seconds": 962.8779796249873,
+ "edit": {
+  "layer": 21,
+  "n_columns": 1024,
+  "lambda": 3.0,
+  "best_round": 1,
+  "edit_ms": 50.359250977635384,
+  "weights_changed": 1048357,
+  "weights_in_edit": 1048576,
+  "direct_seconds": 1252.3939098330156,
+  "wall_seconds": 6142.253220415994,
+  "D_sha256": "c8c236447c981c8b1733362afb8d77d83739b6fe2a30876bed839c3f98fb6f81"
+ },
+ "sweep": [
+  {
+   "layer": 17,
+   "width": 256,
+   "lam": 1.0,
+   "rounds": 1,
+   "read_s": 73.41385370801436,
+   "val_gap": 0.9230758547782898,
+   "agree": 0.7250000238418579,
+   "val_acc": 0.699999988079071,
+   "holdout_kl": 0.007186444476246834,
+   "capitals": 1.0,
+   "seconds": 376.58015729201725
+  },
+  {
+   "layer": 19,
+   "width": 256,
+   "lam": 1.0,
+   "rounds": 1,
+   "read_s": 80.8847559169808,
+   "val_gap": 0.8312188982963562,
+   "agree": 0.7749999761581421,
+   "val_acc": 0.75,
+   "holdout_kl": 0.013482622802257538,
+   "capitals": 1.0,
+   "seconds": 384.164614334004
+  },
+  {
+   "layer": 21,
+   "width": 256,
+   "lam": 1.0,
+   "rounds": 1,
+   "read_s": 89.8866850839986,
+   "val_gap": 0.8187543749809265,
+   "agree": 0.7749999761581421,
+   "val_acc": 0.75,
+   "holdout_kl": 0.011523117311298847,
+   "capitals": 1.0,
+   "seconds": 393.95531141600804
+  },
+  {
+   "layer": 23,
+   "width": 256,
+   "lam": 1.0,
+   "rounds": 1,
+   "read_s": 96.70405541697983,
+   "val_gap": 0.9279825091362,
+   "agree": 0.75,
+   "val_acc": 0.7250000238418579,
+   "holdout_kl": 0.009610400535166264,
+   "capitals": 1.0,
+   "seconds": 404.1286218749883
+  }
+ ],
+ "grid": [
+  {
+   "layer": 21,
+   "width": 256,
+   "lam": 0.3,
+   "rounds": 1,
+   "read_s": 0.003149667027173564,
+   "val_gap": 0.8956478238105774,
+   "agree": 0.7250000238418579,
+   "val_acc": 0.699999988079071,
+   "holdout_kl": 0.008502239361405373,
+   "capitals": 1.0,
+   "seconds": 305.31165866702213
+  },
+  {
+   "layer": 21,
+   "width": 256,
+   "lam": 3.0,
+   "rounds": 1,
+   "read_s": 0.0028769579948857427,
+   "val_gap": 0.9096387624740601,
+   "agree": 0.75,
+   "val_acc": 0.7250000238418579,
+   "holdout_kl": 0.0040495810098946095,
+   "capitals": 1.0,
+   "seconds": 304.08169087499846
+  },
+  {
+   "layer": 21,
+   "width": 512,
+   "lam": 1.0,
+   "rounds": 2,
+   "read_s": 0.012823333003325388,
+   "val_gap": 0.6733388900756836,
+   "agree": 0.800000011920929,
+   "val_acc": 0.7749999761581421,
+   "holdout_kl": 0.05742915719747543,
+   "capitals": 0.9750000238418579,
+   "seconds": 304.3606782499992
+  },
+  {
+   "layer": 21,
+   "width": 1024,
+   "lam": 0.3,
+   "rounds": 1,
+   "read_s": 0.012941708002472296,
+   "val_gap": 0.7691253423690796,
+   "agree": 0.75,
+   "val_acc": 0.7250000238418579,
+   "holdout_kl": 0.015681426972150803,
+   "capitals": 1.0,
+   "seconds": 305.5401984170021
+  },
+  {
+   "layer": 21,
+   "width": 1024,
+   "lam": 1.0,
+   "rounds": 1,
+   "read_s": 0.003922416013665497,
+   "val_gap": 0.6027228236198425,
+   "agree": 0.8500000238418579,
+   "val_acc": 0.824999988079071,
+   "holdout_kl": 0.03434073179960251,
+   "capitals": 1.0,
+   "seconds": 308.3068909579888
+  },
+  {
+   "layer": 21,
+   "width": 1024,
+   "lam": 3.0,
+   "rounds": 1,
+   "read_s": 0.003353500011144206,
+   "val_gap": 0.6523967981338501,
+   "agree": 0.8500000238418579,
+   "val_acc": 0.824999988079071,
+   "holdout_kl": 0.03276807814836502,
+   "capitals": 1.0,
+   "seconds": 304.14457758300705
+  },
+  {
+   "layer": 21,
+   "width": 256,
+   "lam": 1.0,
+   "rounds": 1,
+   "read_s": 89.8866850839986,
+   "val_gap": 0.8187543749809265,
+   "agree": 0.7749999761581421,
+   "val_acc": 0.75,
+   "holdout_kl": 0.011523117311298847,
+   "capitals": 1.0,
+   "seconds": 393.95531141600804
+  }
+ ],
+ "trajectory": [
+  {
+   "round": 0,
+   "guard_kl": 0.0,
+   "val_gap": 1.2468273639678955,
+   "val_kl": 1.052579641342163,
+   "val_agree": 0.550000011920929,
+   "val_acc": 0.574999988079071,
+   "val_teacher_acc": 0.9750000238418579,
+   "val_mass": 0.8276302218437195,
+   "val_ece": 0.17363257706165314,
+   "val_selective_acc80": 0.71875,
+   "val_post_kl": 0.0,
+   "holdout_kl": 0.0,
+   "holdout_ppl": 8.112203103489042,
+   "holdout_ppl_before": 8.112203103489042,
+   "capitals_acc": 1.0
+  },
+  {
+   "round": 1,
+   "solve_ms": 24.007542000617832,
+   "write_ms": 1.1761669884435833,
+   "dose": 1.5,
+   "refused": [
+    2.0
+   ],
+   "objective": 0.662025827897014,
+   "guard_kl": 0.02443925811094232,
+   "train_gap_before": 1.3199663162231445,
+   "dW_norm": 15.584325313568115,
+   "D_norm": 15.584324836730957,
+   "val_gap": 0.6375865936279297,
+   "val_kl": 0.3400301933288574,
+   "val_agree": 0.875,
+   "val_acc": 0.8500000238418579,
+   "val_teacher_acc": 0.9750000238418579,
+   "val_mass": 0.7814429402351379,
+   "val_ece": 0.12363194674253464,
+   "val_selective_acc80": 0.90625,
+   "val_post_kl": 7.601602119393647e-05,
+   "holdout_kl": 0.016888059675693512,
+   "holdout_ppl": 8.300091086578743,
+   "holdout_ppl_before": 8.112203103489042,
+   "capitals_acc": 1.0
+  },
+  {
+   "round": 2,
+   "solve_ms": 23.9807500038296,
+   "write_ms": 1.19479198474437,
+   "dose": 0.0,
+   "refused": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+   ],
+   "objective": 0.662025827897014,
+   "guard_kl": 0.02443925811094232,
+   "train_gap_before": 0.5038201808929443,
+   "dW_norm": 0.0,
+   "D_norm": 15.584324836730957,
+   "val_gap": 0.6375865936279297,
+   "val_kl": 0.3400301933288574,
+   "val_agree": 0.875,
+   "val_acc": 0.8500000238418579,
+   "val_teacher_acc": 0.9750000238418579,
+   "val_mass": 0.7814429402351379,
+   "val_ece": 0.12363194674253464,
+   "val_selective_acc80": 0.90625,
+   "val_post_kl": 7.601602119393647e-05,
+   "holdout_kl": 0.016888059675693512,
+   "holdout_ppl": 8.300091086578743,
+   "holdout_ppl_before": 8.112203103489042,
+   "capitals_acc": 1.0
+  }
+ ],
+ "hooked_vs_baked_gap": [
+  0.5224106311798096,
+  0.5223733186721802
+ ],
+ "unedited": {
+  "val_gap": 1.2468273639678955,
+  "val_kl": 1.052579641342163,
+  "val_agree": 0.550000011920929,
+  "val_acc": 0.574999988079071,
+  "val_teacher_acc": 0.9750000238418579,
+  "val_mass": 0.8276302218437195,
+  "val_ece": 0.17363257706165314,
+  "val_selective_acc80": 0.71875,
+  "val_post_kl": 0.0,
+  "test_gap": 1.28846275806427,
+  "test_kl": 1.0935165882110596,
+  "test_agree": 0.5801011919975281,
+  "test_acc": 0.5795390605926514,
+  "test_teacher_acc": 0.9881955981254578,
+  "test_mass": 0.8264939785003662,
+  "test_ece": 0.1496363878250122,
+  "test_selective_acc80": 0.6907941102981567,
+  "holdout_kl": 0.0,
+  "holdout_ppl": 8.112203103489042,
+  "holdout_ppl_before": 8.112203103489042,
+  "capitals_acc": 1.0
+ },
+ "wall_seconds": 6142.253224040993,
+ "per_class_text": "Per class (scored at the answer position):\n\n| label | precision | recall | F1 | n |\n|---|---|---|---|---|\n| coverage_grant | 0.735 | 0.974 | 0.838 | 233 |\n| exclusion | 0.865 | 0.996 | 0.926 | 226 |\n| premium_payment | 0.967 | 0.795 | 0.872 | 219 |\n| deductible_limits | 0.968 | 0.947 | 0.957 | 225 |\n| claims_procedure | 0.917 | 0.901 | 0.909 | 222 |\n| definitions | 0.995 | 1.000 | 0.998 | 206 |\n| term_cancellation_renewal | 0.970 | 0.870 | 0.917 | 223 |\n| conditions_duties | 0.838 | 0.689 | 0.756 | 225 |\n"
+}

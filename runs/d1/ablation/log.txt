@@ -1,0 +1,14 @@
+ablations at layer 21, 1024 columns, lambda 3.0
+[ablation: full_method] scored acc 89.71%  agree 89.6%  ECE 0.011  | wiki ppl 29.98 ARC 64.0% caps 100% contam 7%  (422s)
+[ablation: random_columns] scored acc 88.87%  agree 88.6%  ECE 0.019  | wiki ppl 30.46 ARC 63.5% caps 100% contam 0%  (422s)
+[ablation: no_protection] scored acc 57.95%  agree 58.0%  ECE 0.150  | wiki ppl 28.75 ARC 68.5% caps 100% contam 0%  (420s)
+[ablation: hard_labels] scored acc 94.77%  agree 94.8%  ECE 0.165  | wiki ppl 29.25 ARC 66.5% caps 100% contam 7%  (424s)
+[ablation: rows_25pct] scored acc 84.32%  agree 84.3%  ECE 0.023  | wiki ppl 29.31 ARC 65.5% caps 100% contam 0%  (420s)
+[ablation: rows_50pct] scored acc 85.05%  agree 84.9%  ECE 0.025  | wiki ppl 29.26 ARC 66.0% caps 100% contam 0%  (423s)
+[ablation: random_change_same_size] scored acc 54.69%  agree 54.6%  ECE 0.197  | wiki ppl 31.58 ARC 63.0% caps 100% contam 7%  (427s)
+ablations done in 137.4 min
+ablations at layer 21, 1024 columns, lambda 3.0
+  [no_protection] round 1: dose 0.0, val gap 1.247 agree 0.550 acc 0.575 | guard KL 0.0000 unseen KL 0.0000 ppl 8.1 capitals 1.00
+[ablation: no_protection] scored acc 57.95%  agree 58.0%  ECE 0.150  | wiki ppl 28.75 ARC 68.5% caps 100% contam 0%  (423s)
+[ablation: random_change_same_size] scored acc 54.69%  agree 54.6%  ECE 0.197  | wiki ppl 31.58 ARC 63.0% caps 100% contam 7%  (419s)
+ablations done in 46.6 min

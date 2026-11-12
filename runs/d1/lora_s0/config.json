@@ -1,0 +1,56 @@
+{
+ "model_dir": "models/qwen3.5-0.8b",
+ "variant": "words",
+ "n_val": 40,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "sweep_layers": [
+  17,
+  19,
+  21,
+  23
+ ],
+ "sweep_width": 256,
+ "sweep_rows": 256,
+ "sweep_rounds": 2,
+ "widths": [
+  256,
+  512,
+  1024
+ ],
+ "lambdas": [
+  0.3,
+  1.0,
+  3.0
+ ],
+ "rounds": 6,
+ "doses": [
+  0.5,
+  1.0,
+  1.5,
+  2.0
+ ],
+ "guard_weight": 1.0,
+ "guard_cap": 0.03,
+ "lora": {
+  "rank": 16,
+  "steps": 60,
+  "lr": 0.0005,
+  "batch": 16,
+  "eval_every": 10
+ },
+ "retention": {
+  "n_wiki": 40,
+  "n_arc": 200,
+  "gen_tokens": 48
+ },
+ "ablation_fracs": [
+  0.25,
+  0.5
+ ],
+ "gen_tokens": 4,
+ "chunk": 32
+}

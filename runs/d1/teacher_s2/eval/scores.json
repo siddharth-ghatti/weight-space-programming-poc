@@ -1,0 +1,529 @@
+{
+ "name": "teacher_s2",
+ "kind": "teacher",
+ "seed": 2,
+ "scored": {
+  "n": 1779,
+  "accuracy": 0.9876335019673974,
+  "macro_f1": 0.9877685629729305,
+  "confusion_matrix": [
+   [
+    228,
+    0,
+    1,
+    1,
+    0,
+    0,
+    2,
+    1
+   ],
+   [
+    1,
+    224,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    0,
+    217,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    2,
+    0,
+    1,
+    222,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    222,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    0,
+    0,
+    0,
+    205,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    3,
+    0,
+    0,
+    0,
+    218,
+    1
+   ],
+   [
+    0,
+    0,
+    2,
+    0,
+    1,
+    0,
+    1,
+    221
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 0.9876424902354649,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 0.9785407725321889,
+    "recall": 0.9785407725321889,
+    "f1": 0.9785407725321889,
+    "support": 233
+   },
+   "exclusion": {
+    "precision": 0.9955555555555555,
+    "recall": 0.9911504424778761,
+    "f1": 0.9933481152993349,
+    "support": 226
+   },
+   "premium_payment": {
+    "precision": 0.96875,
+    "recall": 0.9908675799086758,
+    "f1": 0.9796839729119637,
+    "support": 219
+   },
+   "deductible_limits": {
+    "precision": 0.9910714285714286,
+    "recall": 0.9866666666666667,
+    "f1": 0.9888641425389756,
+    "support": 225
+   },
+   "claims_procedure": {
+    "precision": 0.9955156950672646,
+    "recall": 1.0,
+    "f1": 0.9977528089887641,
+    "support": 222
+   },
+   "definitions": {
+    "precision": 1.0,
+    "recall": 0.9951456310679612,
+    "f1": 0.9975669099756691,
+    "support": 206
+   },
+   "term_cancellation_renewal": {
+    "precision": 0.9864253393665159,
+    "recall": 0.9775784753363229,
+    "f1": 0.9819819819819819,
+    "support": 223
+   },
+   "conditions_duties": {
+    "precision": 0.9866071428571429,
+    "recall": 0.9822222222222222,
+    "f1": 0.9844097995545658,
+    "support": 225
+   }
+  },
+  "ece": 0.005694048013538122,
+  "selective": {
+   "coverage": 0.7998875772906127,
+   "accuracy": 0.9992972612380981,
+   "threshold": 0.9891406502083462
+  },
+  "abstain_rate": 0.1697582911748173,
+  "teacher_accuracy": 0.9876335019673974,
+  "agree_teacher": 1.0
+ },
+ "val": {
+  "n": 40,
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "confusion_matrix": [
+   [
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    5,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    5,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    5,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 1.0,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "exclusion": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "premium_payment": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "deductible_limits": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "claims_procedure": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "definitions": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "term_cancellation_renewal": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   },
+   "conditions_duties": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 5
+   }
+  },
+  "ece": 0.02422965317964554,
+  "selective": {
+   "coverage": 0.8,
+   "accuracy": 1.0,
+   "threshold": 0.9520584914549021
+  },
+  "abstain_rate": 0.3
+ },
+ "fit_report": {
+  "chosen": {
+   "features": "final_last+L16_mean",
+   "C": 3.0
+  },
+  "oof_accuracy": 0.9814560439560439,
+  "oof_ece_after_calibration": 0.006483381614089012,
+  "temperature": 1.0837983867343681,
+  "oof_selective": {
+   "coverage": 0.8001373626373627,
+   "accuracy": 0.9991416335105896,
+   "threshold": 0.9838397746022753
+  },
+  "grid": [
+   {
+    "features": "final_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9677197802197802
+   },
+   {
+    "features": "final_last",
+    "C": 0.1,
+    "oof_accuracy": 0.970467032967033
+   },
+   {
+    "features": "final_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9718406593406593
+   },
+   {
+    "features": "final_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9725274725274725
+   },
+   {
+    "features": "final_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9718406593406593
+   },
+   {
+    "features": "L16_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9642857142857143
+   },
+   {
+    "features": "L16_last",
+    "C": 0.1,
+    "oof_accuracy": 0.9677197802197802
+   },
+   {
+    "features": "L16_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9656593406593407
+   },
+   {
+    "features": "L16_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9629120879120879
+   },
+   {
+    "features": "L16_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9622252747252747
+   },
+   {
+    "features": "L20_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9622252747252747
+   },
+   {
+    "features": "L20_last",
+    "C": 0.1,
+    "oof_accuracy": 0.9656593406593407
+   },
+   {
+    "features": "L20_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9684065934065934
+   },
+   {
+    "features": "L20_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9677197802197802
+   },
+   {
+    "features": "L20_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9690934065934066
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 0.03,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 0.1,
+    "oof_accuracy": 0.9773351648351648
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 0.3,
+    "oof_accuracy": 0.9773351648351648
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 1.0,
+    "oof_accuracy": 0.9807692307692307
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 3.0,
+    "oof_accuracy": 0.9814560439560439
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9732142857142857
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 0.1,
+    "oof_accuracy": 0.9739010989010989
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9732142857142857
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9725274725274725
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9711538461538461
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 0.03,
+    "oof_accuracy": 0.9807692307692307
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 0.1,
+    "oof_accuracy": 0.9807692307692307
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 0.3,
+    "oof_accuracy": 0.9814560439560439
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 1.0,
+    "oof_accuracy": 0.9814560439560439
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 3.0,
+    "oof_accuracy": 0.9800824175824175
+   },
+   {
+    "features": "all",
+    "C": 0.03,
+    "oof_accuracy": 0.9752747252747253
+   },
+   {
+    "features": "all",
+    "C": 0.1,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "all",
+    "C": 0.3,
+    "oof_accuracy": 0.9766483516483516
+   },
+   {
+    "features": "all",
+    "C": 1.0,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "all",
+    "C": 3.0,
+    "oof_accuracy": 0.9787087912087912
+   }
+  ],
+  "n_train": 1456
+ },
+ "n_train": 1456,
+ "n_val": 40,
+ "n_test": 1779,
+ "wall_seconds": 626.058009875007,
+ "decide_example": {
+  "choice": "term_cancellation_renewal",
+  "probabilities": {
+   "coverage_grant": 3.4045839256767217e-06,
+   "exclusion": 1.4812379208818561e-05,
+   "premium_payment": 1.8817956232437287e-06,
+   "deductible_limits": 1.860913697748626e-08,
+   "claims_procedure": 3.929274144471636e-08,
+   "definitions": 2.0929990746337094e-07,
+   "term_cancellation_renewal": 0.9999774574179268,
+   "conditions_duties": 2.17662152977129e-06
+  },
+  "confidence": 0.9998617280804679,
+  "abstain": false
+ },
+ "per_class_text": "Per class (scored at the answer position):\n\n| label | precision | recall | F1 | n |\n|---|---|---|---|---|\n| coverage_grant | 0.979 | 0.979 | 0.979 | 233 |\n| exclusion | 0.996 | 0.991 | 0.993 | 226 |\n| premium_payment | 0.969 | 0.991 | 0.980 | 219 |\n| deductible_limits | 0.991 | 0.987 | 0.989 | 225 |\n| claims_procedure | 0.996 | 1.000 | 0.998 | 222 |\n| definitions | 1.000 | 0.995 | 0.998 | 206 |\n| term_cancellation_renewal | 0.986 | 0.978 | 0.982 | 223 |\n| conditions_duties | 0.987 | 0.982 | 0.984 | 225 |\n"
+}

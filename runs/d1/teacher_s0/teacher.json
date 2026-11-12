@@ -1,0 +1,200 @@
+{
+ "feature_names": [
+  "final_last",
+  "L16_mean"
+ ],
+ "temperature": 1.0837983867343681,
+ "abstain_threshold": 0.9855260158652436,
+ "report": {
+  "chosen": {
+   "features": "final_last+L16_mean",
+   "C": 3.0
+  },
+  "oof_accuracy": 0.9828296703296703,
+  "oof_ece_after_calibration": 0.00779112521559,
+  "temperature": 1.0837983867343681,
+  "oof_selective": {
+   "coverage": 0.8001373626373627,
+   "accuracy": 0.9991416335105896,
+   "threshold": 0.9855260158652436
+  },
+  "grid": [
+   {
+    "features": "final_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9677197802197802
+   },
+   {
+    "features": "final_last",
+    "C": 0.1,
+    "oof_accuracy": 0.9732142857142857
+   },
+   {
+    "features": "final_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9732142857142857
+   },
+   {
+    "features": "final_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9732142857142857
+   },
+   {
+    "features": "final_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9684065934065934
+   },
+   {
+    "features": "L16_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9601648351648352
+   },
+   {
+    "features": "L16_last",
+    "C": 0.1,
+    "oof_accuracy": 0.9608516483516484
+   },
+   {
+    "features": "L16_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9615384615384616
+   },
+   {
+    "features": "L16_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9622252747252747
+   },
+   {
+    "features": "L16_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9601648351648352
+   },
+   {
+    "features": "L20_last",
+    "C": 0.03,
+    "oof_accuracy": 0.967032967032967
+   },
+   {
+    "features": "L20_last",
+    "C": 0.1,
+    "oof_accuracy": 0.970467032967033
+   },
+   {
+    "features": "L20_last",
+    "C": 0.3,
+    "oof_accuracy": 0.970467032967033
+   },
+   {
+    "features": "L20_last",
+    "C": 1.0,
+    "oof_accuracy": 0.9697802197802198
+   },
+   {
+    "features": "L20_last",
+    "C": 3.0,
+    "oof_accuracy": 0.9684065934065934
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 0.03,
+    "oof_accuracy": 0.9807692307692307
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 0.1,
+    "oof_accuracy": 0.9807692307692307
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 0.3,
+    "oof_accuracy": 0.9807692307692307
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 1.0,
+    "oof_accuracy": 0.9814560439560439
+   },
+   {
+    "features": "final_last+L16_mean",
+    "C": 3.0,
+    "oof_accuracy": 0.9828296703296703
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 0.03,
+    "oof_accuracy": 0.9718406593406593
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 0.1,
+    "oof_accuracy": 0.9718406593406593
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 0.3,
+    "oof_accuracy": 0.9718406593406593
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 1.0,
+    "oof_accuracy": 0.970467032967033
+   },
+   {
+    "features": "L12_last+L16_last+L20_last+final_last",
+    "C": 3.0,
+    "oof_accuracy": 0.970467032967033
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 0.03,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 0.1,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 0.3,
+    "oof_accuracy": 0.9759615384615384
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 1.0,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "final_last+final_mean",
+    "C": 3.0,
+    "oof_accuracy": 0.9787087912087912
+   },
+   {
+    "features": "all",
+    "C": 0.03,
+    "oof_accuracy": 0.978021978021978
+   },
+   {
+    "features": "all",
+    "C": 0.1,
+    "oof_accuracy": 0.9793956043956044
+   },
+   {
+    "features": "all",
+    "C": 0.3,
+    "oof_accuracy": 0.9752747252747253
+   },
+   {
+    "features": "all",
+    "C": 1.0,
+    "oof_accuracy": 0.9759615384615384
+   },
+   {
+    "features": "all",
+    "C": 3.0,
+    "oof_accuracy": 0.9759615384615384
+   }
+  ],
+  "n_train": 1456
+ }
+}

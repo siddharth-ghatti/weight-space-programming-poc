@@ -1,0 +1,350 @@
+{
+ "name": "unedited_full_prompt",
+ "kind": "unedited",
+ "seed": null,
+ "spelling": {
+  "used": "space",
+  "mass": {
+   "space": 0.7126471996307373
+  }
+ },
+ "n_train": 64,
+ "n_val": 40,
+ "n_test": 1779,
+ "scored": {
+  "n": 1779,
+  "accuracy": 0.6115795390668916,
+  "macro_f1": 0.6521082745640627,
+  "confusion_matrix": [
+   [
+    232,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    117,
+    108,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    80,
+    0,
+    139,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    124,
+    0,
+    0,
+    101,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    28,
+    0,
+    0,
+    0,
+    194,
+    0,
+    0,
+    0
+   ],
+   [
+    42,
+    0,
+    1,
+    0,
+    0,
+    163,
+    0,
+    0
+   ],
+   [
+    162,
+    0,
+    8,
+    0,
+    0,
+    0,
+    50,
+    3
+   ],
+   [
+    121,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0,
+    101
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 0.6480515588363224,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 0.2560706401766004,
+    "recall": 0.9957081545064378,
+    "f1": 0.40737489025460927,
+    "support": 233
+   },
+   "exclusion": {
+    "precision": 1.0,
+    "recall": 0.4778761061946903,
+    "f1": 0.6467065868263473,
+    "support": 226
+   },
+   "premium_payment": {
+    "precision": 0.9266666666666666,
+    "recall": 0.634703196347032,
+    "f1": 0.7533875338753386,
+    "support": 219
+   },
+   "deductible_limits": {
+    "precision": 1.0,
+    "recall": 0.4488888888888889,
+    "f1": 0.6196319018404908,
+    "support": 225
+   },
+   "claims_procedure": {
+    "precision": 0.9847715736040609,
+    "recall": 0.8738738738738738,
+    "f1": 0.9260143198090691,
+    "support": 222
+   },
+   "definitions": {
+    "precision": 1.0,
+    "recall": 0.7912621359223301,
+    "f1": 0.8834688346883469,
+    "support": 206
+   },
+   "term_cancellation_renewal": {
+    "precision": 1.0,
+    "recall": 0.2242152466367713,
+    "f1": 0.36630036630036633,
+    "support": 223
+   },
+   "conditions_duties": {
+    "precision": 0.9711538461538461,
+    "recall": 0.4488888888888889,
+    "f1": 0.6139817629179332,
+    "support": 225
+   }
+  },
+  "ece": 0.15715400874614716,
+  "selective": {
+   "coverage": 0.7998875772906127,
+   "accuracy": 0.6802529692649841,
+   "threshold": 0.5607906579971313
+  },
+  "agree_teacher": 0.613265872001648,
+  "mass_on_options": 0.7023615837097168,
+  "teacher_accuracy": 0.9881955981254578
+ },
+ "val": {
+  "gap": 1.8379974365234375,
+  "kl": 1.47135329246521,
+  "agree": 0.4749999940395355,
+  "acc": 0.5,
+  "teacher_acc": 0.9750000238418579,
+  "mass": 0.7056092023849487,
+  "ece": 0.28669092059135437,
+  "selective_acc80": 0.625
+ },
+ "generation": {
+  "n": 1779,
+  "accuracy": 0.612141652613828,
+  "macro_f1": 0.6521186440303699,
+  "confusion_matrix": [
+   [
+    232,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    114,
+    104,
+    8,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    80,
+    0,
+    139,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    124,
+    0,
+    0,
+    100,
+    0,
+    1,
+    0,
+    0
+   ],
+   [
+    28,
+    0,
+    0,
+    0,
+    194,
+    0,
+    0,
+    0
+   ],
+   [
+    42,
+    0,
+    1,
+    0,
+    0,
+    163,
+    0,
+    0
+   ],
+   [
+    155,
+    0,
+    6,
+    0,
+    0,
+    0,
+    56,
+    6
+   ],
+   [
+    121,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0,
+    101
+   ]
+  ],
+  "confusion_labels": [
+   "coverage_grant",
+   "exclusion",
+   "premium_payment",
+   "deductible_limits",
+   "claims_procedure",
+   "definitions",
+   "term_cancellation_renewal",
+   "conditions_duties"
+  ],
+  "weighted_f1": 0.6480890296351558,
+  "per_class": {
+   "coverage_grant": {
+    "precision": 0.25892857142857145,
+    "recall": 0.9957081545064378,
+    "f1": 0.4109831709477414,
+    "support": 233
+   },
+   "exclusion": {
+    "precision": 1.0,
+    "recall": 0.46017699115044247,
+    "f1": 0.6303030303030303,
+    "support": 226
+   },
+   "premium_payment": {
+    "precision": 0.896774193548387,
+    "recall": 0.634703196347032,
+    "f1": 0.7433155080213903,
+    "support": 219
+   },
+   "deductible_limits": {
+    "precision": 1.0,
+    "recall": 0.4444444444444444,
+    "f1": 0.6153846153846153,
+    "support": 225
+   },
+   "claims_procedure": {
+    "precision": 0.9847715736040609,
+    "recall": 0.8738738738738738,
+    "f1": 0.9260143198090691,
+    "support": 222
+   },
+   "definitions": {
+    "precision": 0.9939024390243902,
+    "recall": 0.7912621359223301,
+    "f1": 0.881081081081081,
+    "support": 206
+   },
+   "term_cancellation_renewal": {
+    "precision": 1.0,
+    "recall": 0.25112107623318386,
+    "f1": 0.4014336917562724,
+    "support": 223
+   },
+   "conditions_duties": {
+    "precision": 0.9439252336448598,
+    "recall": 0.4488888888888889,
+    "f1": 0.608433734939759,
+    "support": 225
+   }
+  },
+  "answered": 0.9932546374367622,
+  "agree_teacher": 0.6138279932546374
+ },
+ "generation_texts_sample": [
+  " coverage: States what",
+  " conditions",
+  " coverage: States what",
+  " premium",
+  " premium",
+  " claims: Describes",
+  " cancellation",
+  " deductible",
+  " coverage: States what",
+  " coverage: States what",
+  " coverage: States what",
+  " deductible"
+ ],
+ "eval_seconds": 1574.099699250015,
+ "prompt_variant": "full",
+ "weights_changed": 0,
+ "wall_seconds": 28.287308582977857,
+ "per_class_text": "Per class (scored at the answer position):\n\n| label | precision | recall | F1 | n |\n|---|---|---|---|---|\n| coverage_grant | 0.256 | 0.996 | 0.407 | 233 |\n| exclusion | 1.000 | 0.478 | 0.647 | 226 |\n| premium_payment | 0.927 | 0.635 | 0.753 | 219 |\n| deductible_limits | 1.000 | 0.449 | 0.620 | 225 |\n| claims_procedure | 0.985 | 0.874 | 0.926 | 222 |\n| definitions | 1.000 | 0.791 | 0.883 | 206 |\n| term_cancellation_renewal | 1.000 | 0.224 | 0.366 | 223 |\n| conditions_duties | 0.971 | 0.449 | 0.614 | 225 |\n"
+}

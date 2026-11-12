@@ -1,0 +1,13 @@
+training copy in fp32 on mps; train 1456 val 40 test 1779
+LoRA rank 16 on gate/up/down of every layer: 5,308,416 trainable parameters
+  step  10  39196 ms/step  train gap 0.639 guard KL 0.0909 | val agree 0.500 gap 2.169 acc 0.500
+  step  20  51123 ms/step  train gap 0.149 guard KL 0.0452 | val agree 0.850 gap 0.670 acc 0.875
+  step  30  99846 ms/step  train gap 0.108 guard KL 0.0301 | val agree 0.900 gap 0.289 acc 0.925
+  step  40  51438 ms/step  train gap 0.170 guard KL 0.0261 | val agree 0.950 gap 0.155 acc 0.975
+  step  50  31197 ms/step  train gap 0.010 guard KL 0.0186 | val agree 0.925 gap 0.252 acc 0.900
+  step  60  43540 ms/step  train gap 0.119 guard KL 0.0282 | val agree 1.000 gap 0.047 acc 0.975
+trained in 3958s (median 60720 ms/step, 0 skipped), kept step 60
+merged into 264,241,152 weights (264,241,034 changed) across 72 matrices in 304 ms
+baked weights loaded into the torch.float16 reader on mps
+[lora_s1] scored acc 96.29%  gen acc 96.29%  agree 95.9%  ECE 0.019  | wiki ppl 29.67 ARC 44.5% caps 100% contam 13%  (975s)
+done runs/d1/lora_s1 in 95.3 min

@@ -1,0 +1,42 @@
+features train: 1456 rows, ['L12_last', 'L16_last', 'L16_mean', 'L20_last', 'final_last', 'final_mean'] in 272s
+features val: 40 rows, ['L12_last', 'L16_last', 'L16_mean', 'L20_last', 'final_last', 'final_mean'] in 7s
+features test: 1779 rows, ['L12_last', 'L16_last', 'L16_mean', 'L20_last', 'final_last', 'final_mean'] in 332s
+5-fold CV on the training rows:
+  final_last                                 C=0.03  oof acc 0.9677
+  final_last                                 C=0.1   oof acc 0.9705
+  final_last                                 C=0.3   oof acc 0.9718
+  final_last                                 C=1.0   oof acc 0.9725
+  final_last                                 C=3.0   oof acc 0.9718
+  L16_last                                   C=0.03  oof acc 0.9643
+  L16_last                                   C=0.1   oof acc 0.9677
+  L16_last                                   C=0.3   oof acc 0.9657
+  L16_last                                   C=1.0   oof acc 0.9629
+  L16_last                                   C=3.0   oof acc 0.9622
+  L20_last                                   C=0.03  oof acc 0.9622
+  L20_last                                   C=0.1   oof acc 0.9657
+  L20_last                                   C=0.3   oof acc 0.9684
+  L20_last                                   C=1.0   oof acc 0.9677
+  L20_last                                   C=3.0   oof acc 0.9691
+  final_last+L16_mean                        C=0.03  oof acc 0.9780
+  final_last+L16_mean                        C=0.1   oof acc 0.9773
+  final_last+L16_mean                        C=0.3   oof acc 0.9773
+  final_last+L16_mean                        C=1.0   oof acc 0.9808
+  final_last+L16_mean                        C=3.0   oof acc 0.9815
+  L12_last+L16_last+L20_last+final_last      C=0.03  oof acc 0.9732
+  L12_last+L16_last+L20_last+final_last      C=0.1   oof acc 0.9739
+  L12_last+L16_last+L20_last+final_last      C=0.3   oof acc 0.9732
+  L12_last+L16_last+L20_last+final_last      C=1.0   oof acc 0.9725
+  L12_last+L16_last+L20_last+final_last      C=3.0   oof acc 0.9712
+  final_last+final_mean                      C=0.03  oof acc 0.9808
+  final_last+final_mean                      C=0.1   oof acc 0.9808
+  final_last+final_mean                      C=0.3   oof acc 0.9815
+  final_last+final_mean                      C=1.0   oof acc 0.9815
+  final_last+final_mean                      C=3.0   oof acc 0.9801
+  all                                        C=0.03  oof acc 0.9753
+  all                                        C=0.1   oof acc 0.9780
+  all                                        C=0.3   oof acc 0.9766
+  all                                        C=1.0   oof acc 0.9780
+  all                                        C=3.0   oof acc 0.9787
+chosen {'features': 'final_last+L16_mean', 'C': 3.0}  oof acc 0.9815  T=1.084  oof ECE 0.006  selective@80 0.9991
+teacher val acc 100.00%  test acc 98.76%  macro-F1 0.9878  ECE 0.006  selective@80 99.93%  abstain 17.0%
+saved runs/d1/teacher_s2 (626s)

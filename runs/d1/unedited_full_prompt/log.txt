@@ -1,0 +1,2 @@
+[unedited_full_prompt] scored acc 61.16%  gen acc 61.21%  agree 61.3%  ECE 0.157  (1574s)
+done runs/d1/unedited_full_prompt in 26.7 min
