@@ -68,6 +68,8 @@ def main() -> None:
         for f in EDIT_FILES:
             src = d1 / f"direct_s{s}" / "edit" / f
             if not src.exists():
+                if f == "rebuild_check.json":      # only the baked seed has one
+                    continue
                 raise SystemExit(f"missing {src}")
             ops.append(CommitOperationAdd(path_in_repo=f"edit/s{s}/{f}", path_or_fileobj=str(src)))
         for f in TEACHER_FILES:

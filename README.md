@@ -646,13 +646,15 @@ position; no generation pass):
 
 ### Checkpoints on the Hugging Face Hub
 
-One public repo per run. Each loads with the stock `text-classification` pipeline; see the
-calibration note above. The r1 checkpoints classify climate-disclosure paragraphs (ClimateBERT's
+One public repo per run. The BERT and ClimateBERT checkpoints load with the stock `text-classification`
+pipeline; see the calibration note above. The d1 repo is a causal LM (stock `AutoModelForCausalLM`) that answers
+the classification prompt with one word, and it also carries the three edit bundles and the three teacher heads. The r1 checkpoints classify climate-disclosure paragraphs (ClimateBERT's
 task, not the insurance task) and are research-use artifacts because their data is non-commercial. The pruned c1 checkpoint additionally met its accuracy bar by only 0.12
 points on one seed and stores practice sentences as kernel anchors; its model card lists the caveats.
 
 | checkpoint | setting | test acc |
 |---|---|---|
+| [wsp-qwen3.5-0.8b-insurance-d1-direct](https://huggingface.co/sidman007/wsp-qwen3.5-0.8b-insurance-d1-direct) | **d1: Qwen3.5-0.8B with 1,024 columns of one `down_proj` rewritten by a closed-form edit (0.14% of weights, no training)**, seed 0 baked; `edit/s{0,1,2}/` exact diffs, `teacher/s{0,1,2}/` Jev-like heads (98.8%) | 89.9% / F1 0.900 |
 | [wsp-climatebert-tcfd-r1-p50](https://huggingface.co/sidman007/wsp-climatebert-tcfd-r1-p50) | **r1: pruned ClimateBERT TCFD classifier, 6 layers / FFN 1536, 68.1M params (-17.2%)**, 50 passes; research use (data CC BY-NC-SA) | 78.8% / F1 0.721 |
 | [wsp-climatebert-tcfd-r1-p25](https://huggingface.co/sidman007/wsp-climatebert-tcfd-r1-p25) | r1: pruned ClimateBERT TCFD classifier, 6 layers / FFN 1792, 70.5M params (-14.3%), 25 passes; research use | 77.8% / F1 0.710 |
 | [wsp-bert-insurance-c1-p50](https://huggingface.co/sidman007/wsp-bert-insurance-c1-p50) | **pruned: 8 layers / FFN 1024, 56.0M params (-48.9%)**, 50 passes | 97.9% |
@@ -686,7 +688,7 @@ runs/<version>/<name>/            # v0 = paper rules; v1 = + rule 6; c1 = prunin
 runs/d1/<arm>/                    # d1 = distillation (wspd/): teacher_s{0,1,2}, direct_s{0,1,2}, lora_s{0,1,2}, unedited, ablation/<name>
   log.txt  config.json  sweep.json  eval/{scores.json, report.md}
   edit/{edit.npz, manifest.json, rebuild_check.json}   # the column update, its hash, the base commit
-  model/                          # baked fp16 checkpoint (seed 0 only; stock AutoModelForCausalLM)
+  model/                          # baked fp16 checkpoint (seed 0 only; stock AutoModelForCausalLM); pushed with scripts/distill/push_hf.py
   teacher.json  targets.json      # teacher arms: feature spec + calibration, probabilities per practice row
 ```
 
