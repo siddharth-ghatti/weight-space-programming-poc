@@ -80,9 +80,9 @@ def model_card(manifest: dict, scores: dict | None, run_name: str) -> str:
         f"Prompted with a sentence, the question and the eight options, the model answers with one of: "
         f"{', '.join(f'`{w}`' for w in ANSWER_WORDS)}.", "",
         "| | value |", "|---|---|",
-        f"| held-out test accuracy, generated first word (1,779 sentences) | {100 * gen.get('acc', 0):.2f}% |",
-        f"| held-out macro-F1 | {sc.get('macro_f1', 0):.4f} |",
-        f"| agreement with the teacher | {100 * gen.get('agree', 0):.1f}% |",
+        f"| held-out test accuracy, generated first word (1,779 sentences) | {100 * gen.get('accuracy', 0):.2f}% |",
+        f"| held-out macro-F1, generated first word | {gen.get('macro_f1', 0):.4f} |",
+        f"| agreement with the teacher | {100 * sc.get('agree_teacher', 0):.1f}% |",
         f"| weights changed | {manifest.get('weights_changed', 0):,} |",
         f"| run | {run_name} |", "",
         "`edit_manifest.json` records the exact diff against the base checkpoint (layer, columns, hash of the column "
