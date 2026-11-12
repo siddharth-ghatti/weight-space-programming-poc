@@ -7,7 +7,8 @@ forward-pass budget. This replicates the setup of
 (logs: [RikiyaT/lm_understand-logs](https://github.com/RikiyaT/lm_understand-logs)), Experiment 8
 style, on a new task.
 
-An executive summary for non-technical readers is in `docs/executive-summary.md`.
+A final executive summary of all four experiments (methods, what was done, results) is `EXECUTIVE_SUMMARY.md` at the root.
+The longer business-facing summary with the production checklist is in `docs/executive-summary.md`.
 A two-page executive memo on the feasibility of the pruning method (experiments c1 and r1) is in `docs/exec-memo-model-pruning.md`.
 
 ## Setup
